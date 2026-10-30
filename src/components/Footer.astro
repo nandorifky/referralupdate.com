@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <a class="footer-mark" href="/">KodeReferral<span class="wordmark__dot">.</span></a>
+      <p>Direktori independen kode referral untuk layanan di Indonesia.</p>
+    </div>
+    <nav class="site-footer__links" aria-label="Navigasi footer">
+      {site.footer.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="site-footer__bottom">
+      <p>Pratinjau desain. Brand, kode, dan tanggal di halaman ini adalah data contoh.</p>
+      <p>© 2026 KodeReferral</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,40 @@
+---
+import { getCategory, type Brand } from '../data/site';
+
+type Props = {
+  brand: Brand;
+  primary?: boolean;
+  compact?: boolean;
+};
+
+const { brand, primary = false, compact = false } = Astro.props;
+const category = getCategory(brand.category);
+const shortDate = brand.checked.replace(' 2026', '');
+---
+
+<article class:list={['code-card stock', { 'code-card--compact': compact }]} aria-label={`Kartu kode ${brand.name}`}>
+  <header class="code-card__top">
+    <div>
+      <p class="code-card__brand">{brand.name}</p>
+      <p class="code-card__cat">{category?.name}</p>
+    </div>
+    <p class="stamp">Dicek {shortDate}</p>
+  </header>
+  <dl class="code-card__fields">
+    <div class="code-card__field">
+      <dt>Kode referral</dt>
+      <dd class="code-card__code">{brand.code}</dd>
+    </div>
+    <div class="code-card__field">
+      <dt>Bonus</dt>
+      <dd class="code-card__reward">{brand.reward}</dd>
+    </div>
+  </dl>
+  <div class="code-card__foot">
+    <button class:list={['btn', primary ? 'btn--ink' : 'btn--card']} type="button" data-copy={brand.code}>Salin kode</button>
+    <p class="code-card__source">
+      <a href="/metodologi-verifikasi/">Cara kami mengecek</a>
+    </p>
+    <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+  </div>
+</article>

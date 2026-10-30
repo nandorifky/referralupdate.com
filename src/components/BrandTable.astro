@@ -1,0 +1,36 @@
+---
+import { getCategory, type Brand } from '../data/site';
+
+type Props = {
+  items: Brand[];
+  caption: string;
+};
+
+const { items, caption } = Astro.props;
+---
+
+<div class="table-wrap">
+  <table class="brand-table">
+    <caption class="visually-hidden">{caption}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Brand</th>
+        <th scope="col">Kode</th>
+        <th scope="col">Kategori</th>
+        <th scope="col">Bonus</th>
+        <th scope="col">Terakhir dicek</th>
+      </tr>
+    </thead>
+    <tbody>
+      {items.map((brand) => (
+        <tr data-brand-row data-name={brand.name.toLowerCase()} data-category={brand.category}>
+          <td data-label="Brand"><a href={`/kode-referral/${brand.slug}/`}>{brand.name}</a></td>
+          <td data-label="Kode"><span class="table-code">{brand.code}</span></td>
+          <td data-label="Kategori">{getCategory(brand.category)?.name}</td>
+          <td data-label="Bonus">{brand.reward}</td>
+          <td data-label="Terakhir dicek"><span class="checked-chip">{brand.checked}</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,24 @@
+[
+ {
+  "shape": "Ecosystem Index",
+  "theme": "Coral (by request)",
+  "axes": "light/grotesk-sans/warm",
+  "hero": "Counter: headline, one sentence and search left; the checked code card on a blank second sheet right",
+  "nav": "edge-aligned paper strip, wordmark and four links",
+  "footer": "mast, wordmark over links",
+  "imagery": "built stationery code cards, no photographs or logos",
+  "photos": [],
+  "entry": "homepage",
+  "fingerprint": "coral-paper-referral-directory",
+  "sections": "hero, rail, categories, table, steps, blog, close band, footer",
+  "signature": "the checked code card on the felt desk, echoed as code and stamped date in the directory table",
+  "waived": [
+   "49b",
+   "25",
+   "44a"
+  ],
+  "prompt": "referral code website for Indonesia with blog, Astro, Coral theme",
+  "date": "2026-10-30",
+  "mode": "build"
+ }
+]

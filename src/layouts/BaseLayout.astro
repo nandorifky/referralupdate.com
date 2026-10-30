@@ -1,0 +1,143 @@
+---
+import '../styles/site.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+type Props = {
+  title?: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+};
+
+const { title, description = site.description, ogType = 'website', jsonLd } = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : `${site.name}, direktori kode referral Indonesia`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const baseLd = [
+  {
+    '@type': 'WebSite',
+    name: site.name,
+    url: canonical,
+    inLanguage: 'id',
+    description: site.description,
+  },
+  {
+    '@type': 'Organization',
+    name: site.name,
+    url: new URL('/', Astro.site).toString(),
+    description: 'Direktori independen kode referral untuk layanan di Indonesia.',
+  },
+];
+const structured = {
+  '@context': 'https://schema.org',
+  '@graph': [...baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])],
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/general-sans-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(structured)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Lewati ke konten</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      window.hallmarkSlots = (m) => {
+        for (const [k, v] of Object.entries(m)) {
+          const s = document.querySelector(`[data-slot="${k}"]`);
+          if (!s) continue;
+          const im = new Image();
+          im.src = typeof v === 'string' ? v : v.src;
+          im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || '';
+          s.querySelectorAll(':scope > img').forEach((o) => o.remove());
+          s.prepend(im);
+        }
+      };
+      document.querySelectorAll('[data-slot] img').forEach((i) => {
+        if (i.complete && !i.naturalWidth) i.remove();
+        else i.addEventListener('error', () => i.remove(), { once: true });
+      });
+    </script>
+    <script>
+      const copyButtons = document.querySelectorAll('[data-copy]');
+      copyButtons.forEach((button) => {
+        button.addEventListener('click', async () => {
+          const code = button.getAttribute('data-copy') || '';
+          const status = button.closest('.code-card')?.querySelector('[data-copy-status]');
+          try {
+            await navigator.clipboard.writeText(code);
+            const previous = button.textContent;
+            button.textContent = 'Tersalin';
+            if (status) status.textContent = `Kode ${code} tersalin.`;
+            window.setTimeout(() => {
+              button.textContent = previous;
+              if (status) status.textContent = '';
+            }, 1800);
+          } catch {
+            button.textContent = 'Salin manual';
+            if (status) status.textContent = `Salin kode secara manual: ${code}`;
+          }
+        });
+      });
+
+      const filter = document.querySelector('[data-filter]');
+      if (filter) {
+        const query = filter.querySelector('input[name="q"]');
+        const category = filter.querySelector('select[name="kategori"]');
+        const rows = [...document.querySelectorAll('[data-brand-row]')];
+        const count = document.querySelector('[data-filter-count]');
+        const empty = document.querySelector('[data-filter-empty]');
+        const params = new URLSearchParams(window.location.search);
+        if (query && params.get('q')) query.value = params.get('q');
+        if (category && params.get('kategori')) category.value = params.get('kategori');
+        const apply = () => {
+          const term = (query?.value || '').trim().toLowerCase();
+          const chosen = category?.value || '';
+          let visible = 0;
+          rows.forEach((row) => {
+            const matchesText = !term || (row.dataset.name || '').includes(term) || row.textContent.toLowerCase().includes(term);
+            const matchesCategory = !chosen || row.dataset.category === chosen;
+            row.hidden = !(matchesText && matchesCategory);
+            if (!row.hidden) visible += 1;
+          });
+          if (count) count.textContent = `${visible} brand`;
+          if (empty) empty.hidden = visible !== 0;
+          const url = new URL(window.location.href);
+          if (term) url.searchParams.set('q', term);
+          else url.searchParams.delete('q');
+          if (chosen) url.searchParams.set('kategori', chosen);
+          else url.searchParams.delete('kategori');
+          window.history.replaceState(null, '', url);
+        };
+        query?.addEventListener('input', apply);
+        category?.addEventListener('change', apply);
+        filter.addEventListener('submit', (event) => {
+          event.preventDefault();
+          apply();
+        });
+        apply();
+      }
+    </script>
+  </body>
+</html>

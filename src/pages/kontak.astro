@@ -1,0 +1,36 @@
+---
+import ProsePage from '../layouts/ProsePage.astro';
+---
+
+<ProsePage
+  title="Kontak"
+  description="Kirim koreksi kode referral, usulan brand, atau pertanyaan lain ke KodeReferral."
+  lead="Kirim koreksi kode, usulan brand, atau pertanyaan lain."
+  path="/kontak/"
+>
+  <section class="prose-section">
+    <h2>Alamat email</h2>
+    <a class="contact-mail" href="mailto:halo@kode-referral.example">halo@kode-referral.example</a>
+    <p>Alamat ini contoh dan belum aktif. Ganti dengan alamat domain resmi saat situs diluncurkan.</p>
+  </section>
+
+  <section class="prose-section">
+    <h2>Yang bisa dikirim</h2>
+    <ul>
+      <li>Kode yang tidak diterima, disertai nama brand dan tanggal percobaan.</li>
+      <li>Syarat program yang berubah, disertai tautan halaman resmi.</li>
+      <li>Usulan brand yang belum ada di direktori.</li>
+      <li>Kesalahan tulis atau tautan yang rusak di artikel.</li>
+    </ul>
+  </section>
+
+  <section class="prose-section">
+    <h2>Yang tidak perlu dikirim</h2>
+    <p>Jangan kirim password, kode OTP, nomor rekening, atau foto identitas. Kode referral tidak memerlukan data itu. Kami tidak akan memintanya lewat email.</p>
+  </section>
+
+  <section class="prose-section">
+    <h2>Waktu balasan</h2>
+    <p>Setiap laporan diperiksa sebelum halaman diubah. Kami tidak menjanjikan waktu balasan tertentu, tetapi laporan yang disertai tautan sumber lebih cepat ditindaklanjuti.</p>
+  </section>
+</ProsePage>

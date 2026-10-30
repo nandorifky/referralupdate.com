@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchForm from '../components/SearchForm.astro';
+import CodeCard from '../components/CodeCard.astro';
+import BrandTable from '../components/BrandTable.astro';
+import {
+  brands,
+  brandsByCategory,
+  brandsByChecked,
+  categories,
+  articles,
+  getBrand,
+} from '../data/site';
+
+const featuredBrand = getBrand('bibit')!;
+const railBrands = brandsByChecked().slice(0, 5);
+const picks = ['bibit', 'gopay', 'pluang', 'jago', 'tokopedia', 'traveloka'];
+const tableBrands = picks.flatMap((slug) => brands.filter((brand) => brand.slug === slug));
+const featuredArticle = articles[0];
+const moreArticles = articles.slice(1, 3);
+const origin = Astro.site ?? new URL('https://kode-referral.example');
+
+const jsonLd = [
+  {
+    '@type': 'CollectionPage',
+    name: 'Direktori kode referral Indonesia',
+    url: new URL('/', origin).toString(),
+    inLanguage: 'id',
+    isPartOf: { '@type': 'WebSite', name: 'KodeReferral', url: new URL('/', origin).toString() },
+  },
+  {
+    '@type': 'ItemList',
+    name: 'Kode referral dengan tanggal cek terbaru',
+    numberOfItems: tableBrands.length,
+    itemListElement: tableBrands.map((brand, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `Kode referral ${brand.name}`,
+      url: new URL(`/kode-referral/${brand.slug}/`, origin).toString(),
+    })),
+  },
+];
+---
+
+<BaseLayout jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <h1>Kode referral, dicek tiap minggu.</h1>
+        <p class="lead hero__lead">Tanggal cek dan syarat tercetak di tiap kartu.</p>
+        <SearchForm id="hero-search" />
+        <a class="hero__alt text-link" href="/kode-referral/">Lihat semua {brands.length} brand</a>
+      </div>
+      <div class="hero__visual" data-slot="hero">
+        <div class="hero__paper">
+          <div class="hero__stack">
+            <div class="code-card code-card--back stock" aria-hidden="true"></div>
+            <CodeCard brand={featuredBrand} />
+          </div>
+          <p class="hero__caption">Kartu contoh. Kode dan tanggal di halaman ini masih data pratinjau.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rail-section" aria-labelledby="baru-dicek">
+    <div class="container rail-head">
+      <div>
+        <h2 id="baru-dicek">Baru dicek</h2>
+        <p>Urut dari tanggal cek terakhir.</p>
+      </div>
+      <a class="text-link" href="/kode-referral/">Semua brand</a>
+    </div>
+    <ul class="rail" aria-label="Kode yang baru dicek">
+      {railBrands.map((brand) => (
+        <li>
+          <a class="rail-card stock" href={`/kode-referral/${brand.slug}/`}>
+            <span class="rail-card__brand">{brand.name}</span>
+            <span class="rail-card__code">{brand.code}</span>
+            <span class="rail-card__reward">{brand.reward}</span>
+            <span class="rail-card__date">Dicek {brand.checked.replace(' 2026', '')}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="categories">
+    <div class="container categories__layout">
+      <div class="categories__head">
+        <h2>Pilih kategori yang kamu pakai.</h2>
+        <a class="text-link" href="/kategori/">Semua kategori</a>
+      </div>
+      <ul class="cat-list">
+        {categories.map((category) => (
+          <li class="cat-item">
+            <a class="cat-link" href={`/kategori/${category.slug}/`}>
+              <span>
+                <span class="cat-name">{category.name}</span>
+                <span class="cat-line">{category.line}</span>
+              </span>
+              <span class="cat-brands">{brandsByCategory(category.slug).length} brand</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="table-section">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <h2>Enam brand untuk dilihat dulu.</h2>
+          <p>Semua punya tanggal cek dan syarat yang terbaca.</p>
+        </div>
+        <a class="text-link" href="/kode-referral/">Buka direktori</a>
+      </div>
+      <BrandTable items={tableBrands} caption="Enam brand dengan kode referral yang baru dicek" />
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <div class="container">
+      <h2>Cara kami mengecek</h2>
+      <ol class="steps">
+        <li>
+          <h3>Buka halaman program resmi</h3>
+          <p>Kami baca halaman brand dan aplikasinya, bukan salinan di forum.</p>
+        </li>
+        <li>
+          <h3>Catat syarat dan bonus</h3>
+          <p>Akun baru, minimum transaksi, dan masa berlaku dicatat apa adanya.</p>
+        </li>
+        <li>
+          <h3>Ulangi tiap minggu</h3>
+          <p>Kode yang tidak diterima lagi ditandai, bukan dibiarkan aktif.</p>
+        </li>
+      </ol>
+      <p class="source-line"><a class="text-link" href="/metodologi-verifikasi/">Baca metodologi lengkap</a></p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <h2>Bacaan sebelum memakai kode.</h2>
+        </div>
+        <a class="text-link" href="/blog/">Semua artikel</a>
+      </div>
+      <div class="blog-layout">
+        <article class="featured stock">
+          <p class="featured__index">01</p>
+          <h3><a href={`/blog/${featuredArticle.slug}/`}>{featuredArticle.title}</a></h3>
+          <p class="featured__meta">Diperbarui {featuredArticle.updated}</p>
+          <a class="text-link" href={`/blog/${featuredArticle.slug}/`}>Baca artikel</a>
+        </article>
+        <div class="blog-list">
+          {moreArticles.map((article) => (
+            <a class="blog-row" href={`/blog/${article.slug}/`}>
+              <h3>{article.title}</h3>
+              <p>Diperbarui {article.updated}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close-band">
+    <div class="container close-band__inner">
+      <div>
+        <h2>Mulai dari brand yang kamu pakai.</h2>
+        <p>Cari kodenya, lalu baca syarat sebelum mendaftar.</p>
+      </div>
+      <div class="close-card stock">
+        <SearchForm id="band-search" variant="band" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

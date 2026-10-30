@@ -1,0 +1,22 @@
+---
+import { site } from '../data/site';
+---
+
+<header class="site-nav">
+  <div class="container site-nav__inner">
+    <a class="wordmark" href="/" aria-label="KodeReferral, beranda">KodeReferral<span class="wordmark__dot">.</span></a>
+    <nav class="site-nav__links" aria-label="Navigasi utama">
+      {site.nav.map((item) => <a class="site-nav__link" href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="site-nav__end">
+      <a class="site-nav__search" href="/kode-referral/">Cari kode</a>
+      <details class="nav-menu">
+        <summary>Menu</summary>
+        <div class="nav-menu__panel">
+          {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href="/kode-referral/">Cari kode</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

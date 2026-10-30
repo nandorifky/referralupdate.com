@@ -1,0 +1,32 @@
+---
+import { brands } from '../data/site';
+
+type Props = {
+  id: string;
+  variant?: 'hero' | 'band';
+  value?: string;
+};
+
+const { id, variant = 'hero', value = '' } = Astro.props;
+const isBand = variant === 'band';
+---
+
+<form class={`search search--${variant}`} action="/kode-referral/" method="get" role="search">
+  <label for={id}>Cari brand</label>
+  <div class="search__row">
+    <input
+      id={id}
+      name="q"
+      type="search"
+      placeholder={isBand ? 'Ketik nama brand' : 'Bibit, GoPay, Pluang'}
+      value={value}
+      list={`${id}-brand-options`}
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <button class={isBand ? 'btn btn--card' : 'btn btn--ink'} type="submit">{isBand ? 'Cari' : 'Cari kode'}</button>
+  </div>
+  <datalist id={`${id}-brand-options`}>
+    {brands.map((brand) => <option value={brand.name}></option>)}
+  </datalist>
+</form>

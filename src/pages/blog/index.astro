@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articles, breadcrumbLd } from '../../data/site';
+
+const origin = Astro.site ?? new URL('https://kode-referral.example');
+const blogCategories = [...new Set(articles.map((article) => article.category))].map((slug) => {
+  const items = articles.filter((article) => article.category === slug);
+  return { slug, name: items[0].categoryName, count: items.length };
+});
+
+const jsonLd = [
+  breadcrumbLd(
+    [
+      { name: 'Beranda', path: '/' },
+      { name: 'Blog', path: '/blog/' },
+    ],
+    origin,
+  ),
+  {
+    '@type': 'CollectionPage',
+    name: 'Blog KodeReferral',
+    description: 'Panduan tentang kode referral, keamanan, dan cara mencairkan bonus.',
+    url: new URL('/blog/', origin).toString(),
+    inLanguage: 'id',
+  },
+  {
+    '@type': 'ItemList',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: article.title,
+      url: new URL(`/blog/${article.slug}/`, origin).toString(),
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Panduan kode referral: cara kerja, perbedaan dengan kode promo, keamanan, dan cara mencairkan bonus."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <section class="index-head">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Beranda</a></li>
+          <li>Blog</li>
+        </ol>
+      </nav>
+      <div class="index-head__body">
+        <h1>Catatan tentang kode referral.</h1>
+        <p class="lead">Panduan soal syarat, keamanan, dan cara bonus masuk.</p>
+      </div>
+    </section>
+
+    <div class="blog-layout">
+      <div class="blog-list">
+        <h2 class="visually-hidden">Daftar artikel</h2>
+        {articles.map((article) => (
+          <a class="blog-row" href={`/blog/${article.slug}/`}>
+            <h3>{article.title}</h3>
+            <p>{article.categoryName}, diperbarui {article.updated}</p>
+          </a>
+        ))}
+      </div>
+
+      <aside class="brand-aside" aria-label="Kategori tulisan">
+        <div class="aside-block">
+          <p class="aside-title">Kategori tulisan</p>
+          <ul class="aside-list">
+            {blogCategories.map((category) => (
+              <li><a href={`/blog/${category.slug}/`}>{category.name}, {category.count} tulisan</a></li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

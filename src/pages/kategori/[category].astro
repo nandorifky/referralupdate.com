@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandTable from '../../components/BrandTable.astro';
+import { brandsByCategory, categories, breadcrumbLd, type Category } from '../../data/site';
+
+export function getStaticPaths() {
+  return categories.map((category) => ({ params: { category: category.slug }, props: { category } }));
+}
+
+const { category } = Astro.props as { category: Category };
+const listed = brandsByCategory(category.slug);
+const origin = Astro.site ?? new URL('https://kode-referral.example');
+
+const jsonLd = [
+  breadcrumbLd(
+    [
+      { name: 'Beranda', path: '/' },
+      { name: 'Kategori', path: '/kategori/' },
+      { name: category.name, path: `/kategori/${category.slug}/` },
+    ],
+    origin,
+  ),
+  {
+    '@type': 'CollectionPage',
+    name: `Kode referral ${category.name}`,
+    description: category.description,
+    url: new URL(`/kategori/${category.slug}/`, origin).toString(),
+    inLanguage: 'id',
+  },
+  {
+    '@type': 'ItemList',
+    numberOfItems: listed.length,
+    itemListElement: listed.map((brand, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `Kode referral ${brand.name}`,
+      url: new URL(`/kode-referral/${brand.slug}/`, origin).toString(),
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={`Kode referral ${category.name}`}
+  description={`${category.description} Lihat ${listed.length} kode referral ${category.name.toLowerCase()} dengan tanggal cek terakhir.`}
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <section class="index-head">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/kategori/">Kategori</a></li>
+          <li>{category.name}</li>
+        </ol>
+      </nav>
+      <div class="index-head__body">
+        <h1>{category.name}: kode referral yang dicek.</h1>
+        <p class="lead">{category.description}</p>
+      </div>
+    </section>
+
+    <BrandTable items={listed} caption={`Kode referral ${category.name}`} />
+
+    <p class="source-line">
+      {listed.length} brand, diurutkan dari tanggal cek terakhir.{' '}
+      <a class="text-link" href="/blog/">Baca panduan</a>.
+    </p>
+  </div>
+</BaseLayout>
