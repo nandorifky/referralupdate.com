@@ -1,6 +1,6 @@
 ---
 import { getCategory } from '../data/categories';
-import { formatIdDateShort } from '../data/site';
+import { formatIdDate, formatIdDateShort } from '../data/site';
 import type { Brand } from '../lib/content';
 
 type Props = {
@@ -10,30 +10,56 @@ type Props = {
 const { brand } = Astro.props;
 const category = getCategory(brand.category);
 const shortDate = formatIdDateShort(brand.checkedAt);
+const isExpired = brand.status === 'expired';
+const statusLabel = {
+  active: 'Aktif, belum diuji',
+  unverified: 'Belum terverifikasi',
+  expired: 'Program berakhir',
+}[brand.status];
+const refereeReward =
+  brand.rewardReferee ?? 'Halaman resmi tidak mencantumkan bonus untuk pendaftar.';
 ---
 
 <aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
   <div class="code-card__top">
     <p class="code-card__label">Kode {brand.name}, {category?.name}</p>
-    <p class="code-card__date">Program dicek {shortDate}</p>
+    <p class="code-card__date">
+      Program dicek {shortDate}
+      <span class="status-chip">{statusLabel}</span>
+    </p>
   </div>
   <p class="code-card__code">{brand.code}</p>
-  <p class="code-card__reward">{brand.reward}</p>
-  <div class="code-card__foot">
-    <button class="btn" type="button" data-copy={brand.code}>Salin kode</button>
-    <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
-  </div>
-  {brand.referralUrl ? (
-    <a
-      class="code-card__cta"
-      href={brand.referralUrl}
-      rel="sponsored nofollow noopener noreferrer"
-      target="_blank"
-    >
-      Buka tautan referral
-    </a>
-  ) : (
-    <p class="code-card__note">Belum ada tautan referral publik. Masukkan kode ini saat mendaftar.</p>
+  <p class="code-card__reward">
+    {brand.reward}
+    <span class="code-card__for">
+      <span class="code-card__for-label">Untuk pendaftar</span>
+      {refereeReward}
+    </span>
+    {isExpired && (
+      <span class="code-card__expired">
+        Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}. Tautan referral tidak lagi ditampilkan.
+      </span>
+    )}
+  </p>
+  {!isExpired && (
+    <>
+      <div class="code-card__foot">
+        <button class="btn" type="button" data-copy={brand.code}>Salin kode</button>
+        {brand.referralUrl && (
+          <a
+            class="code-card__cta"
+            href={brand.referralUrl}
+            rel="sponsored nofollow noopener noreferrer"
+            target="_blank"
+          >
+            Buka tautan referral
+          </a>
+        )}
+        <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+      </div>
+      {!brand.referralUrl && (
+        <p class="code-card__note">Belum ada tautan referral publik. Masukkan kode ini saat mendaftar.</p>
+      )}
+    </>
   )}
-  <a class="code-card__link" href="/metodologi-verifikasi/">Cara kami mengecek</a>
 </aside>

@@ -30,7 +30,14 @@ const { items, caption } = Astro.props;
           <td data-label="Kode"><span class="table-code">{brand.code}</span></td>
           <td data-label="Kategori">{getCategory(brand.category)?.name}</td>
           <td data-label="Yang didapat">{brand.reward}</td>
-          <td data-label="Program dicek"><span class="checked-chip">{formatIdDate(brand.checkedAt)}</span></td>
+          <td data-label="Program dicek">
+            <span class="checked-chip">{formatIdDate(brand.checkedAt)}</span>
+            {brand.status !== 'active' && (
+              <span class="checked-status" data-status={brand.status}>
+                {brand.status === 'expired' ? 'Berakhir' : 'Belum terverifikasi'}
+              </span>
+            )}
+          </td>
         </tr>
       ))}
     </tbody>

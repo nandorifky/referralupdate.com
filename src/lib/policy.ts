@@ -8,11 +8,16 @@ export function isBrandIndexable(brand: Brand) {
   if (PREVIEW) return false;
   if (PLACEHOLDER.test(brand.verificationNote) || PLACEHOLDER.test(brand.summary)) return false;
   return (
+    brand.status !== 'expired' &&
     brand.verificationNote.length >= 80 &&
     brand.summary.length >= 120 &&
+    Boolean(brand.rewardReferee || brand.rewardReferrer) &&
+    brand.payoutNote.length >= 40 &&
+    brand.eligibility.length >= 2 &&
+    new Set(brand.faqs.map((faq) => faq.intent)).size >= 3 &&
     brand.steps.length >= 3 &&
     brand.terms.length >= 3 &&
-    brand.faqs.length >= 2 &&
+    brand.faqs.length >= 3 &&
     brand.sources.length >= 1 &&
     brand.updateLog.length >= 1
   );
@@ -95,6 +100,12 @@ export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
   for (const brand of brands) {
     if (!(categorySlugs as readonly string[]).includes(brand.category)) {
       problems.push(`${brand.slug}: kategori "${brand.category}" tidak dikenal`);
+    }
+    if (brand.status === 'expired' && !brand.expiresAt) {
+      problems.push(`${brand.slug}: status expired harus punya expiresAt`);
+    }
+    if (brand.status !== 'expired' && brand.expiresAt && brand.expiresAt < brand.checkedAt) {
+      problems.push(`${brand.slug}: expiresAt sudah lewat saat checkedAt; ubah status ke expired`);
     }
   }
 

@@ -2,6 +2,14 @@ name: Bybit
 category: investasi
 code: RX452A2
 reward: Bonus hingga 500 USDT
+status: active
+rewardReferee: Bonus 50 USDT setelah trading pertama minimal 50 USD dalam 14 hari, lalu bonus tambahan mengikuti volume kumulatif 500 USD dan 10.000 USD dalam 30 hari, hingga 500 USDT.
+rewardReferrer: Komisi 20% dari biaya trading teman selama 365 hari, dapat naik hingga 30% bila tugas program terpenuhi.
+payoutNote: Bonus melewati tinjauan risiko 3 hari dan harus diklaim dalam 10 hari. Halaman resmi tidak menjanjikan waktu masuk yang sama untuk setiap akun.
+eligibility:
+  - Pengguna baru yang mendaftar memakai kode atau tautan undangan; kode tidak bisa ditambahkan setelah akun terdaftar.
+  - Menyelesaikan verifikasi identitas dan memenuhi tugas trading yang muncul di akun.
+  - Trading pertama minimal 50 USD dalam 14 hari untuk bonus awal; bonus volume mengikuti batas 30 hari.
 checkedAt: '2026-10-31'
 summary: Bybit adalah bursa kripto global dengan program referral yang memberi bonus kepada pengundang dan teman yang mendaftar lewat kode atau tautan undangan. Nilai bonus bergantung pada deposit dan volume trading yang diselesaikan teman sesuai kampanye yang berlaku.
 steps:
@@ -18,9 +26,18 @@ terms:
 faqs:
   - q: Apakah kode referral bisa dipakai setelah akun dibuat?
     a: Tidak. FAQ resmi Bybit menyebut pengguna yang lupa memakai kode atau tautan undangan saat mendaftar tidak akan tercatat sebagai referee, sehingga bonus referral tidak bisa diberikan.
+    intent: cara-pakai
   - q: Berapa lama komisi referral Bybit berlaku?
     a: Komisi pengundang berlaku atas transaksi referee selama 365 hari sejak registrasi. Tingkat awal 20% dapat naik hingga 30% bila memenuhi tugas program yang berlaku.
+    intent: bonus
+  - q: Kapan bonus referral Bybit cair?
+    a: Bonus melewati tinjauan risiko 3 hari dan harus diklaim dalam 10 hari. Cek status klaim di akun Bybit; halaman resmi tidak menjanjikan waktu masuk yang sama untuk setiap akun.
+    intent: pencairan
+  - q: Apa syarat agar bonus referral Bybit masuk?
+    a: Pengguna harus mendaftar memakai kode RX452A2 sebelum akun dibuat, menyelesaikan verifikasi identitas, dan memenuhi tugas trading yang muncul di akun. Bonus awal memerlukan trading minimal 50 USD dalam 14 hari, sedangkan bonus volume mengikuti batas 30 hari.
+    intent: syarat
 officialUrl: https://www.bybit.com/
+programUrl: https://www.bybit.com/en/help-center/article/Bybit-Referral-Program-General-FAQ
 referralUrl: https://www.bybit.global/invite?ref=RX452A2
 verificationNote: Halaman FAQ program referral Bybit Global dan halaman undangan RX452A2 dibuka pada 31 Oktober 2026 untuk mencatat bonus, tugas, dan syarat. Pendaftaran uji tidak dilakukan dan kode dari pemilik situs belum dicoba langsung.
 sources:

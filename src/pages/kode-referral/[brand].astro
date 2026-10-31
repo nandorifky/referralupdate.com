@@ -19,13 +19,51 @@ const categoryPhoto = brandPhotos[brand.category];
 const categoryPath = categoryHref(category, brands);
 const robots = isBrandIndexable(brand) ? 'index' : 'noindex';
 const origin = Astro.site ?? new URL('https://kode-referral.example');
-const lowerReward = brand.reward.charAt(0).toLowerCase() + brand.reward.slice(1);
 const siblings = brandsInCategory(brands, brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
 const relatedArticles = articles.filter((article) => article.relatedBrands.includes(brand.slug));
 const asideArticles = (relatedArticles.length ? relatedArticles : articles).slice(0, 1);
 const latestLog = brand.updateLog[0];
+const refereeReward =
+  brand.rewardReferee ?? 'Halaman resmi tidak mencantumkan bonus untuk pendaftar.';
+const referrerReward =
+  brand.rewardReferrer ?? 'Halaman resmi tidak mencantumkan komisi untuk pengundang.';
+
+function clamp(text: string, max = 158) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  const at = cut.lastIndexOf(' ');
+  return `${cut.slice(0, at > 0 ? at : cut.length)}…`;
+}
+
+const statusLead = {
+  active: `Kode referral ${brand.name} aktif menurut sumber resmi.`,
+  unverified: `Kode referral ${brand.name} belum terverifikasi.`,
+  expired: `Kode referral ${brand.name} berakhir ${brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}.`,
+}[brand.status];
+const description = clamp(`${statusLead} ${refereeReward}`);
+
+const validity = (() => {
+  if (brand.validFrom && brand.expiresAt) {
+    const period = `Berlaku ${formatIdDate(brand.validFrom)} sampai ${formatIdDate(brand.expiresAt)}.`;
+    return brand.status === 'expired'
+      ? `${period} Program berakhir dan tidak ada perpanjangan yang tercantum.`
+      : period;
+  }
+  if (brand.expiresAt) {
+    return `Berakhir ${formatIdDate(brand.expiresAt)}.`;
+  }
+  return `Halaman resmi tidak mencantumkan tanggal mulai atau berakhir; status dicek ${formatIdDate(brand.checkedAt)}.`;
+})();
 
 const jsonLd = [
+  {
+    '@type': 'WebPage',
+    name: `Kode referral ${brand.name}`,
+    url: new URL(`/kode-referral/${brand.slug}/`, origin).toString(),
+    description,
+    inLanguage: 'id',
+    dateModified: brand.checkedAt,
+  },
   breadcrumbLd(
     [
       { name: 'Beranda', path: '/' },
@@ -47,7 +85,7 @@ const jsonLd = [
 
 <BaseLayout
   title={`Kode referral ${brand.name}`}
-  description={`Kode referral ${brand.name} dengan ${lowerReward}. Lihat cara pakai, syarat, dan tanggal cek terakhir sebelum mendaftar.`}
+  description={description}
   robots={robots}
   jsonLd={jsonLd}
 >
@@ -66,7 +104,12 @@ const jsonLd = [
           <h1>Kode referral {brand.name}.</h1>
           <p class="lead">{brand.summary}</p>
           <p class="brand-head__meta">Program dicek {formatIdDate(brand.checkedAt)}. Dicatat oleh {brand.author.name}, {brand.author.role}.</p>
-          <a class="text-link" href={brand.officialUrl} rel="noopener noreferrer" target="_blank">Halaman resmi {brand.name}</a>
+          <p class="brand-head__links">
+            <a class="text-link" href={brand.officialUrl} rel="noopener noreferrer" target="_blank">Situs resmi {brand.name}</a>
+            {brand.programUrl && brand.programUrl !== brand.officialUrl && (
+              <a class="text-link" href={brand.programUrl} rel="noopener noreferrer" target="_blank">Halaman program</a>
+            )}
+          </p>
         </div>
         <CodeCard brand={brand} primary />
       </div>
@@ -75,6 +118,14 @@ const jsonLd = [
 
   <section class="brand-cover">
     <div class="container">
+      {brand.status === 'expired' && (
+        <div class="brand-alert" role="note">
+          <p>
+            <strong>Program ini berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}.</strong>
+            Kode {brand.code} tidak lagi dijanjikan berlaku. Halaman dipertahankan sebagai catatan sampai statusnya berubah.
+          </p>
+        </div>
+      )}
       <figure>
         <div class="slot slot--wide" data-slot={`brand-${brand.category}`} data-alt={categoryPhoto.alt}>
           <img
@@ -96,6 +147,20 @@ const jsonLd = [
     <div class="container brand-grid">
       <div class="brand-main">
         <section class="brand-section">
+          <h2>Bonus untuk siapa.</h2>
+          <div class="reward-split">
+            <div class="reward-split__item">
+              <p class="reward-split__label">Untuk pendaftar</p>
+              <p class="reward-split__text">{refereeReward}</p>
+            </div>
+            <div class="reward-split__item">
+              <p class="reward-split__label">Untuk pengundang</p>
+              <p class="reward-split__text">{referrerReward}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="brand-section">
           <h2>Isi kode {brand.code} saat daftar.</h2>
           <ol class="howto-list">
             {brand.steps.map((step) => <li><p>{step}</p></li>)}
@@ -103,7 +168,28 @@ const jsonLd = [
         </section>
 
         <section class="brand-section">
-          <h2>Syarat agar {lowerReward} masuk.</h2>
+          <h2>Syarat utama.</h2>
+          <ul class="check-list">
+            {brand.eligibility.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section class="brand-section">
+          <h2>Pencairan dan masa berlaku.</h2>
+          <dl class="fact-list">
+            <div class="fact">
+              <dt>Pencairan</dt>
+              <dd>{brand.payoutNote}</dd>
+            </div>
+            <div class="fact">
+              <dt>Masa berlaku</dt>
+              <dd>{validity}</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="brand-section">
+          <h2>Syarat rinci program.</h2>
           <ul class="terms-list">
             {brand.terms.map((term) => <li>{term}</li>)}
           </ul>

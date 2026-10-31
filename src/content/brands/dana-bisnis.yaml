@@ -2,6 +2,14 @@ name: DANA Bisnis
 category: bisnis
 code: RFK43V
 reward: Komisi affiliate
+status: unverified
+rewardReferee: Halaman resmi tidak mencantumkan bonus pendaftaran bagi pengguna yang memakai kode; program ini berfokus pada komisi affiliate untuk peserta.
+rewardReferrer: Peserta Affiliate DANA Bisnis mendapat komisi dari referral UMKM yang memenuhi ketentuan; nominal tidak dipublikasikan di halaman resmi.
+payoutNote: Halaman resmi DANA tidak merinci jadwal dan cara pencairan komisi affiliate. Konfirmasi ke DANA atau pengundang sebelum mengandalkan komisi dari program ini.
+eligibility:
+  - Pelaku usaha dengan data usaha yang lengkap dan siap diverifikasi.
+  - Mengikuti alur pendaftaran DANA Bisnis resmi sampai akun usaha aktif.
+  - Halaman bantuan resmi tidak menunjukkan kolom kode referral; konfirmasi cara pakai dengan pengundang.
 checkedAt: '2026-10-31'
 summary: DANA Bisnis adalah layanan dompet digital untuk pelaku usaha, termasuk QRIS dan pencatatan transaksi. Program Affiliate DANA Bisnis memberi komisi kepada peserta yang memperkenalkan layanan ini kepada UMKM sesuai ketentuan.
 steps:
@@ -17,9 +25,18 @@ terms:
 faqs:
   - q: Apakah kode RFK43V bisa dipakai di DANA biasa?
     a: Kode ini berasal dari program Affiliate DANA Bisnis yang menyasar pelaku usaha. Halaman bantuan pendaftaran DANA Bisnis tidak menunjukkan kolom kode referral, jadi pastikan cara pakainya dengan pengundang sebelum mendaftar. Kode tidak dijanjikan berlaku untuk akun DANA pribadi.
+    intent: keamanan
   - q: Bagaimana cara mendapat komisi Affiliate DANA Bisnis?
     a: Peserta membagikan informasi atau referral DANA Bisnis kepada calon pengguna usaha. Komisi diberikan jika mekanisme dan kriteria program terpenuhi sesuai syarat dan ketentuan yang berlaku.
+    intent: bonus
+  - q: Kapan komisi Affiliate DANA Bisnis dicairkan?
+    a: Halaman resmi DANA tidak mencantumkan jadwal pencairan komisi maupun nominalnya. Peserta perlu mengonfirmasi jadwal dan cara pencairan melalui kanal resmi DANA atau pengundang sebelum mengandalkan komisi.
+    intent: pencairan
+  - q: Apa syarat mengikuti DANA Bisnis dengan kode ini?
+    a: Pendaftaran DANA Bisnis memerlukan akun DANA, data usaha, alamat, dan foto toko atau produk untuk verifikasi sampai akun bisnis aktif. Halaman bantuan resmi tidak menunjukkan kolom kode referral, jadi konfirmasi pemakaian RFK43V dengan pengundang.
+    intent: syarat
 officialUrl: https://www.dana.id/business/microbusiness
+programUrl: https://www.dana.id/blog/apa-itu-affiliate-dana-bisnis/
 verificationNote: Blog resmi DANA tentang Affiliate DANA Bisnis (11 Agustus 2026), halaman produk, dan artikel cara daftar DANA Bisnis dibuka pada 31 Oktober 2026. Halaman bantuan pendaftaran tidak menunjukkan kolom kode referral. Besaran komisi tidak dipublikasikan dan pendaftaran uji tidak dilakukan.
 sources:
   - label: Blog Affiliate DANA Bisnis

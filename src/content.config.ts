@@ -10,6 +10,15 @@ const source = z.object({
   url: z.url(),
 });
 
+const faqIntent = z.enum([
+  'bonus',
+  'syarat',
+  'pencairan',
+  'masa-berlaku',
+  'cara-pakai',
+  'keamanan',
+]);
+
 const realUrl = z.url().refine((value) => {
   const host = new URL(value).hostname;
   return !/(^|\.)example\.(com|org|net)$/.test(host) && !host.endsWith('.example');
@@ -17,40 +26,65 @@ const realUrl = z.url().refine((value) => {
 
 const brands = defineCollection({
   loader: yamlCollection('./src/content/brands'),
-  schema: z.object({
-    name: z.string().min(2),
-    category: z.enum(categorySlugs),
-    code: z.string().min(4),
-    reward: z.string().min(3),
-    checkedAt: z.iso.date(),
-    summary: z.string().min(120),
-    steps: z.array(z.string().min(20)).min(3),
-    terms: z.array(z.string().min(15)).min(3),
-    faqs: z
-      .array(
-        z.object({
-          q: z.string().min(10),
-          a: z.string().min(40),
-        }),
-      )
-      .min(2),
-    officialUrl: realUrl,
-    referralUrl: realUrl.optional(),
-    verificationNote: z.string().min(80),
-    sources: z.array(source).min(1),
-    updateLog: z
-      .array(
-        z.object({
-          date: z.iso.date(),
-          note: z.string().min(10),
-        }),
-      )
-      .min(1),
-    author: z.object({
-      name: z.string().min(3),
-      role: z.string().min(3),
+  schema: z
+    .object({
+      name: z.string().min(2),
+      category: z.enum(categorySlugs),
+      code: z.string().min(4),
+      reward: z.string().min(3),
+      status: z.enum(['active', 'unverified', 'expired']),
+      validFrom: z.iso.date().optional(),
+      expiresAt: z.iso.date().optional(),
+      rewardReferee: z.string().min(20).optional(),
+      rewardReferrer: z.string().min(20).optional(),
+      payoutNote: z.string().min(40),
+      eligibility: z.array(z.string().min(15)).min(2),
+      checkedAt: z.iso.date(),
+      summary: z.string().min(120),
+      steps: z.array(z.string().min(20)).min(3),
+      terms: z.array(z.string().min(15)).min(3),
+      faqs: z
+        .array(
+          z.object({
+            q: z.string().min(10),
+            a: z.string().min(40),
+            intent: faqIntent,
+          }),
+        )
+        .min(3),
+      officialUrl: realUrl,
+      programUrl: realUrl.optional(),
+      referralUrl: realUrl.optional(),
+      verificationNote: z.string().min(80),
+      sources: z.array(source).min(1),
+      updateLog: z
+        .array(
+          z.object({
+            date: z.iso.date(),
+            note: z.string().min(10),
+          }),
+        )
+        .min(1),
+      author: z.object({
+        name: z.string().min(3),
+        role: z.string().min(3),
+      }),
+    })
+    .refine((data) => Boolean(data.rewardReferee || data.rewardReferrer), {
+      message: 'Isi rewardReferee atau rewardReferrer.',
+      path: ['rewardReferee'],
+    })
+    .refine(
+      (data) => !data.validFrom || !data.expiresAt || data.expiresAt >= data.validFrom,
+      {
+        message: 'expiresAt tidak boleh lebih awal dari validFrom.',
+        path: ['expiresAt'],
+      },
+    )
+    .refine((data) => new Set(data.faqs.map((faq) => faq.intent)).size >= 3, {
+      message: 'FAQ harus mencakup minimal tiga intent berbeda.',
+      path: ['faqs'],
     }),
-  }),
 });
 
 const blog = defineCollection({
