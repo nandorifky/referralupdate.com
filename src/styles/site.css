@@ -4,6 +4,7 @@
 /* Hallmark · redesign: full depth · kept: 29 routes, both search fields, filter and copy wiring, every content field · changed: theme Coral to Grid, shape Ecosystem Index to Manifesto, cards to fields */
 /* Hallmark · revise: blog index to dated archive, nav to two-tier masthead, category photo on every brand page · kept: all article links, filters, copy wiring and JSON-LD */
 /* Hallmark · revise: articles accept plain Markdown, common prose tags styled, article rhythm tightened · kept: numbered section heads, sources, JSON-LD and every brand CTA */
+/* Hallmark · revise: article head and body align to one centered measure, section heads above copy · kept: numbered sections, sources, CTAs and JSON-LD */
 /* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: P, a directory is a utility page and the poster voice must not slow the lookup */
 /* Hallmark · finish-review: subagent · 8 findings · 6 resolved 1 partial 1 unresolved (balance kept for F3) */
 /* Hallmark · reworded "Kode referral, dicek tiap minggu." to "Kode referral, bukan teka-teki." · 44b, the poster needs a shorter and sharper headline than the old weekly promise */
@@ -17,9 +18,11 @@
 /* Hallmark · waive 49b · 320px render, titles "Apa itu kode referral dan cara kerjanya" and "Cara aman memakai kode referral dari internet" · article titles are content, not control labels, and shortening them for a 320px canvas would damage search intent */
 /* Hallmark · waive 25 · footer, band and section captions measure 34ch to 44ch at 1440px · these are one-sentence captions the gate allows from 28ch, and widening them to 45ch would stretch short lines */
 /* Hallmark · waive 44a · interior index, brand and prose heads end below the fold by design · these pages open as a Banner sized by their content, not stretched to the screen */
-/* Hallmark · waive 77 · article, brand and prose sections are reading blocks with a wide left column and a 65ch body · the measure stays narrow on purpose; index pages are content pages, not landing strips */
+/* Hallmark · waive 77 · article, brand and prose sections are reading blocks with a 65ch body · the measure stays narrow on purpose; index pages are content pages, not landing strips */
 /* Hallmark · waive 59 · article sections sit 80px apart at 1440 · the owner asked for a tighter read; numbered heads and the running measure separate them instead of landing-page bands */
 /* Hallmark · waive 23 · the ultramarine field covers 34% of /kode-referral/ and 14% of a brand page at 1280px · Grid's field is the theme's structural band, not an accent wash, and the rest of the page stays paper */
+/* Hallmark · waive 58 · long-form article sections hold two short paragraphs in a 900px window · forcing 80 words would cut the argument and turn a reading page into a landing screen */
+/* Hallmark · waive 44c · interior article head and its lead photograph end below 1440x900 · a content-sized banner, not a landing hero, matching waive 44a */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -327,22 +330,25 @@ html.menu-open { overflow: hidden; }
 .category-intro p { margin: 0; }
 
 /* Article */
-.article-head { padding-block: var(--space-2xl) var(--space-xl); }
-.article-head__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--gap-columns); align-items: end; margin-top: var(--space-xl); }
-.article-head__copy { grid-column: 1 / span 8; min-width: 0; }
-.article-head h1 { max-width: 18ch; font-size: var(--text-display-s); }
+.article-head { padding-block: var(--space-2xl) var(--space-lg); }
+.article-head nav { max-width: 44rem; margin-inline: auto; }
+.article-head__grid { max-width: 44rem; margin: var(--space-lg) auto 0; }
+.article-head__copy { min-width: 0; }
+.article-head h1 { max-width: 22ch; font-size: var(--text-display-s); }
 .article-head .lead { margin-top: var(--space-lg); max-width: 52ch; color: var(--color-ink-2); }
-.article-meta { grid-column: 10 / span 3; display: grid; gap: var(--space-xs); margin: 0; font-size: var(--text-sm); }
+.article-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-sm) var(--space-lg); margin: var(--space-xl) 0 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); }
 .article-meta dt { font-weight: 500; color: var(--color-muted); }
 .article-meta dd { margin: 0; color: var(--color-ink-2); }
-.article-figure { margin-top: var(--space-2xl); }
-.article-figure .slot--wide { aspect-ratio: 21 / 7; }
+.article-figure { margin-top: var(--space-xl); }
+.article-figure .slot--wide { aspect-ratio: 21 / 6; }
+.article-figure .caption { max-width: 44rem; margin-inline: auto; }
 .article-body { padding-block: var(--space-2xl); }
-.article-body__inner { counter-reset: article-section; }
-.article-section { counter-increment: article-section; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); padding-block: var(--space-xl); }
-.article-section h2 { grid-column: 1 / span 5; grid-row: 1; align-self: start; max-width: 13ch; font-size: var(--text-section); }
-.article-section h2::before { content: counter(article-section, decimal-leading-zero); display: block; margin-bottom: var(--space-md); font-size: var(--text-xl); font-weight: 400; letter-spacing: 0; color: var(--color-muted); }
-.article-section > :not(h2) { grid-column: 6 / span 7; max-width: var(--measure); }
+.article-body__inner { counter-reset: article-section; max-width: 44rem; margin-inline: auto; }
+.article-section { counter-increment: article-section; padding-block: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.article-section:first-child { padding-top: 0; border-top: 0; }
+.article-section h2 { max-width: 22ch; margin-bottom: var(--space-lg); font-size: var(--text-section); }
+.article-section h2::before { content: counter(article-section, decimal-leading-zero); display: block; margin-bottom: var(--space-sm); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0; color: var(--color-muted); }
+.article-section > :not(h2) { max-width: var(--measure); }
 .article-body p { margin-top: var(--space-md); line-height: 1.65; }
 .article-section > p:first-of-type { margin-top: 0; }
 .article-body ul, .article-body ol { margin: var(--space-md) 0 0; padding-left: var(--space-lg); max-width: var(--measure); }
@@ -359,7 +365,7 @@ html.menu-open { overflow: hidden; }
 .article-body code { padding: 0.1em 0.35em; background: var(--color-paper-2); font-family: var(--font-mono); font-size: 0.9em; }
 .article-body pre { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); background: var(--color-paper-2); overflow-x: auto; font-family: var(--font-mono); font-size: var(--text-sm); line-height: 1.6; }
 .article-body pre code { padding: 0; background: none; }
-.article-body .table-scroll { grid-column: 6 / span 7; max-width: 100%; margin-top: var(--space-lg); overflow-x: auto; }
+.article-body .table-scroll { max-width: 100%; margin-top: var(--space-lg); overflow-x: auto; }
 .article-body table { width: 100%; min-width: 32rem; border-collapse: collapse; font-size: var(--text-sm); }
 .article-body th { padding: 0 var(--space-md) var(--space-sm) 0; border-bottom: var(--rule-hair) solid var(--color-rule); color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; text-align: left; white-space: nowrap; }
 .article-body td { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: baseline; }
@@ -441,20 +447,17 @@ html.menu-open { overflow: hidden; }
   .index-name { grid-column: 1; }
   .index-line { grid-column: 1; }
   .index-count { grid-column: 2; grid-row: 1; }
-  .page-head__body, .article-head__grid { grid-template-columns: minmax(0, 1fr); }
-  .page-head h1, .page-head .lead, .article-head__copy, .article-meta { grid-column: 1 / -1; }
-  .article-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page-head__body { grid-template-columns: minmax(0, 1fr); }
+  .page-head h1, .page-head .lead { grid-column: 1 / -1; }
+  .article-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .brand-head__grid { grid-template-columns: minmax(0, 1fr); }
   .brand-head__copy, .brand-head .code-card { grid-column: 1 / -1; }
   .brand-grid { grid-template-columns: minmax(0, 1fr); }
   .brand-main, .brand-aside { grid-column: 1 / -1; }
   .brand-aside { position: static; }
   .brand-cover .slot--wide { aspect-ratio: 16 / 9; }
-  .article-section { display: block; padding-block: var(--space-xl); }
-  .article-section h2, .article-section > :not(h2) { grid-column: auto; grid-row: auto; }
-  .article-section h2 { margin-bottom: var(--space-lg); max-width: none; }
-  .article-body .table-scroll { grid-column: auto; }
-  .article-section h2::before { display: none; }
+  .article-section { padding-block: var(--space-xl); }
+  .article-section h2 { max-width: none; }
   .article-figure .slot--wide { aspect-ratio: 16 / 9; }
   .prose-section { display: block; padding-block: var(--space-2xl); }
   .prose-section h2 { margin-bottom: var(--space-lg); }
