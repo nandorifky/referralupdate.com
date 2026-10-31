@@ -19,8 +19,8 @@ const { items, caption } = Astro.props;
         <th scope="col">Brand</th>
         <th scope="col">Kode</th>
         <th scope="col">Kategori</th>
-        <th scope="col">Bonus</th>
-        <th scope="col">Terakhir dicek</th>
+        <th scope="col">Yang didapat</th>
+        <th scope="col">Program dicek</th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +29,8 @@ const { items, caption } = Astro.props;
           <td data-label="Brand"><a href={`/kode-referral/${brand.slug}/`}>{brand.name}</a></td>
           <td data-label="Kode"><span class="table-code">{brand.code}</span></td>
           <td data-label="Kategori">{getCategory(brand.category)?.name}</td>
-          <td data-label="Bonus">{brand.reward}</td>
-          <td data-label="Terakhir dicek"><span class="checked-chip">{formatIdDate(brand.checkedAt)}</span></td>
+          <td data-label="Yang didapat">{brand.reward}</td>
+          <td data-label="Program dicek"><span class="checked-chip">{formatIdDate(brand.checkedAt)}</span></td>
         </tr>
       ))}
     </tbody>

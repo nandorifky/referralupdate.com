@@ -6,7 +6,7 @@ export const site = {
   name: 'KodeReferral',
   title: 'Kode referral Indonesia yang dicek ulang',
   description:
-    'Cari kode referral untuk e-wallet, bank digital, investasi, dan e-commerce. Lihat bonus, syarat, dan tanggal cek sebelum mendaftar.',
+    'Cari kode referral untuk e-wallet, bank digital, investasi, hingga aplikasi bisnis dan hiburan. Lihat bonus, syarat, dan tanggal cek sebelum mendaftar.',
   nav: [
     { label: 'Direktori', href: '/kode-referral/' },
     { label: 'Kategori', href: '/kategori/' },
@@ -173,6 +173,8 @@ export const brandPhotos: Record<CategorySlug, Photo> = {
   travel: airportHall,
   'food-delivery': morningMarket,
   saas: deskWorkspace,
+  bisnis: deskWorkspace,
+  hiburan: openBook,
 };
 
 export const photoCredits: Photo[] = [

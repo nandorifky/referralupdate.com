@@ -1,6 +1,6 @@
 ---
 import { getCategory } from '../data/categories';
-import { formatIdDateShort, PREVIEW } from '../data/site';
+import { formatIdDateShort } from '../data/site';
 import type { Brand } from '../lib/content';
 
 type Props = {
@@ -15,7 +15,7 @@ const shortDate = formatIdDateShort(brand.checkedAt);
 <aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
   <div class="code-card__top">
     <p class="code-card__label">Kode {brand.name}, {category?.name}</p>
-    <p class="code-card__date">Dicek {shortDate}</p>
+    <p class="code-card__date">Program dicek {shortDate}</p>
   </div>
   <p class="code-card__code">{brand.code}</p>
   <p class="code-card__reward">{brand.reward}</p>
@@ -23,6 +23,17 @@ const shortDate = formatIdDateShort(brand.checkedAt);
     <button class="btn" type="button" data-copy={brand.code}>Salin kode</button>
     <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
   </div>
-  {PREVIEW && <p class="code-card__note">Pratinjau: kode dan tanggal di kartu ini data contoh.</p>}
+  {brand.referralUrl ? (
+    <a
+      class="code-card__cta"
+      href={brand.referralUrl}
+      rel="sponsored nofollow noopener noreferrer"
+      target="_blank"
+    >
+      Buka tautan referral
+    </a>
+  ) : (
+    <p class="code-card__note">Belum ada tautan referral publik. Masukkan kode ini saat mendaftar.</p>
+  )}
   <a class="code-card__link" href="/metodologi-verifikasi/">Cara kami mengecek</a>
 </aside>

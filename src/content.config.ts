@@ -10,7 +10,7 @@ const source = z.object({
   url: z.url(),
 });
 
-const officialUrl = z.url().refine((value) => {
+const realUrl = z.url().refine((value) => {
   const host = new URL(value).hostname;
   return !/(^|\.)example\.(com|org|net)$/.test(host) && !host.endsWith('.example');
 }, 'Gunakan domain resmi brand, bukan domain contoh.');
@@ -34,7 +34,8 @@ const brands = defineCollection({
         }),
       )
       .min(2),
-    officialUrl,
+    officialUrl: realUrl,
+    referralUrl: realUrl.optional(),
     verificationNote: z.string().min(80),
     sources: z.array(source).min(1),
     updateLog: z

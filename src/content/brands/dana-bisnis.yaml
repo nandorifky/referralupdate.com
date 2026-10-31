@@ -1,0 +1,36 @@
+name: DANA Bisnis
+category: bisnis
+code: RFK43V
+reward: Komisi affiliate
+checkedAt: '2026-10-31'
+summary: DANA Bisnis adalah layanan dompet digital untuk pelaku usaha, termasuk QRIS dan pencatatan transaksi. Program Affiliate DANA Bisnis memberi komisi kepada peserta yang memperkenalkan layanan ini kepada UMKM sesuai ketentuan.
+steps:
+  - Unduh aplikasi DANA, daftar akun, lalu buka menu Saya dan pilih DANA Bisnis untuk membuat profil usaha.
+  - Lengkapi data usaha, alamat, dan lokasi, lalu unggah foto toko atau produk untuk verifikasi.
+  - Ikuti alur pendaftaran resmi sampai akun bisnis aktif; halaman bantuan DANA tidak mencantumkan kolom kode referral, jadi konfirmasi pemakaian RFK43V dengan pengundang.
+  - Setelah akun bisnis aktif, gunakan QRIS dan catat transaksi lewat aplikasi.
+terms:
+  - Program Affiliate DANA Bisnis menyasar pelaku usaha yang memperkenalkan layanan kepada UMKM.
+  - Komisi diberikan hanya jika syarat dan ketentuan program affiliate terpenuhi.
+  - Besaran komisi tidak dipublikasikan di halaman resmi dan dapat berubah.
+  - Pendaftaran DANA Bisnis memerlukan data usaha dan verifikasi.
+faqs:
+  - q: Apakah kode RFK43V bisa dipakai di DANA biasa?
+    a: Kode ini berasal dari program Affiliate DANA Bisnis yang menyasar pelaku usaha. Halaman bantuan pendaftaran DANA Bisnis tidak menunjukkan kolom kode referral, jadi pastikan cara pakainya dengan pengundang sebelum mendaftar. Kode tidak dijanjikan berlaku untuk akun DANA pribadi.
+  - q: Bagaimana cara mendapat komisi Affiliate DANA Bisnis?
+    a: Peserta membagikan informasi atau referral DANA Bisnis kepada calon pengguna usaha. Komisi diberikan jika mekanisme dan kriteria program terpenuhi sesuai syarat dan ketentuan yang berlaku.
+officialUrl: https://www.dana.id/business/microbusiness
+verificationNote: Blog resmi DANA tentang Affiliate DANA Bisnis (11 Agustus 2026), halaman produk, dan artikel cara daftar DANA Bisnis dibuka pada 31 Oktober 2026. Halaman bantuan pendaftaran tidak menunjukkan kolom kode referral. Besaran komisi tidak dipublikasikan dan pendaftaran uji tidak dilakukan.
+sources:
+  - label: Blog Affiliate DANA Bisnis
+    url: https://www.dana.id/blog/apa-itu-affiliate-dana-bisnis/
+  - label: Halaman DANA Bisnis
+    url: https://www.dana.id/business/microbusiness
+  - label: Pusat Bantuan DANA - Daftar DANA Bisnis
+    url: https://www.dana.id/help-center/article/how-do-i-register-to-dana-bisnis
+updateLog:
+  - date: '2026-10-31'
+    note: Entri DANA Bisnis ditulis dari blog affiliate dan halaman produk resmi; kode berasal dari pemilik situs.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

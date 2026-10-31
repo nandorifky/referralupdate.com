@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { categories } from '../data/categories';
 import { assertContentIntegrity } from './policy';
 
 export type Brand = CollectionEntry<'brands'>['data'] & { slug: string };
@@ -60,4 +61,10 @@ export function sortBrandsByChecked(brands: Brand[]) {
 
 export function brandsInCategory(brands: Brand[], slug: string) {
   return brands.filter((brand) => brand.category === slug);
+}
+
+export function categoriesWithBrands(brands: Brand[]) {
+  return categories.filter((category) =>
+    brands.some((brand) => brand.category === category.slug),
+  );
 }

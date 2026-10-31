@@ -1,0 +1,35 @@
+name: Binance
+category: investasi
+code: GGBINANCE
+reward: Voucher rebat biaya trading
+checkedAt: '2026-10-31'
+summary: Binance menjalankan program referral dengan dua mode. Referral Lite memberi voucher rebat biaya trading sekali pakai, sedangkan Referral Pro memberi komisi berkelanjutan dari biaya trading teman. Kode GGBINANCE dipakai saat mendaftar akun baru.
+steps:
+  - Unduh aplikasi Binance lewat tautan resmi atau buka binance.com, lalu pilih daftar akun baru.
+  - Isi kode GGBINANCE di kolom Referral ID pada formulir pendaftaran sebelum akun dibuat.
+  - Selesaikan verifikasi identitas bila diminta dan penuhi tugas kampanye yang tampil di akunmu.
+  - Cek halaman Rewards atau Referral untuk melihat voucher, masa berlaku, dan status hadiah.
+terms:
+  - Hanya pengguna baru; satu pengguna hanya boleh mengikuti satu mode referral.
+  - Voucher Referral Lite bersifat sekali pakai dan tidak memberi komisi berkelanjutan.
+  - Pembelian kripto dihitung bila lewat deposit tunai, kartu, atau P2P; transfer internal tidak dihitung.
+  - Nominal hadiah mengikuti tugas dan kampanye yang berlaku, bukan nilai tetap untuk setiap kode.
+faqs:
+  - q: Apa beda Referral Lite dan Referral Pro di Binance?
+    a: Referral Lite memberi hadiah sekali pakai berupa voucher rebat biaya trading, sedangkan Referral Pro memberi komisi berkelanjutan dari biaya trading pengguna yang diundang. Satu pengguna baru hanya bisa mengikuti salah satunya.
+  - q: Apakah kode GGBINANCE menjamin bonus tertentu?
+    a: Tidak. Binance menyebut hadiah mengikuti tugas dan kampanye yang berlaku. Halaman resmi menyebut voucher rebat hingga 100 USD untuk pembelian pertama dan hingga 1.000 USD bila volume trading teman melewati 100 USD, tanpa jaminan nominal untuk setiap akun.
+officialUrl: https://www.binance.com/
+referralUrl: https://binance.onelink.me/y874/iddownload
+verificationNote: Halaman FAQ program referral Binance yang diperbarui 25 Maret 2026 dibuka pada 31 Oktober 2026 untuk mencatat mode, tugas, dan syarat hadiah. Pendaftaran uji tidak dilakukan; kode dan tautan berasal dari pemilik situs.
+sources:
+  - label: Pengantar Program Referral Binance
+    url: https://www.binance.com/en/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d
+  - label: Halaman unduh aplikasi Binance
+    url: https://www.binance.com/en/download
+updateLog:
+  - date: '2026-10-31'
+    note: Entri Binance ditulis dari FAQ program referral resmi; kode dan tautan undangan berasal dari pemilik situs.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

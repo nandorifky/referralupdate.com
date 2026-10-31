@@ -1,32 +1,43 @@
 name: SeaBank
 category: bank-digital
-code: SEABANK-J8F
-reward: Bunga dan bonus
-checkedAt: '2026-10-24'
-summary: SeaBank adalah bank digital yang terhubung dengan ekosistem Shopee dan SeaMoney. Program referal biasanya memberi bonus saldo setelah rekening aktif.
+code: 43V68B
+reward: Bonus saldo undang teman
+checkedAt: '2026-10-31'
+summary: SeaBank adalah bank digital yang terhubung dengan ekosistem Shopee dan SeaMoney. Kampanye undang teman memberi bonus saldo kepada pengundang dan teman baru setelah rekening dibuka dan syarat setoran terpenuhi.
 steps:
-  - Unduh aplikasi SeaBank dan buat rekening baru.
-  - Masukkan kode SEABANK-J8F saat diminta kode referal.
-  - Aktifkan rekening dan lakukan setoran pertama.
+  - Unduh aplikasi SeaBank, buka rekening baru atas namamu, lalu selesaikan verifikasi KTP dan video.
+  - Isi kode referral 43V68B saat pendaftaran atau buka tautan undangan yang kamu terima.
+  - Setor minimal Rp50.000 dari sumber selain rekening SeaBank, lalu simpan saldo tersebut selama 3 hari.
+  - Klaim bonus di halaman Undang Teman atau Referral setelah teman memenuhi syarat; bonus diproses maksimal 48 jam setelah klaim.
 terms:
-  - Berlaku untuk nasabah baru yang belum punya rekening SeaBank.
-  - Bonus mengikuti kampanye yang berlaku.
-  - Rekening harus aktif saat bonus dicairkan.
+  - Kampanye yang dirujuk berlaku 1–31 Oktober 2026 untuk nasabah baru; cek halaman promo untuk periode berikutnya.
+  - Setoran minimal Rp50.000 berasal dari luar SeaBank dan disimpan 3 hari; transfer sesama rekening SeaBank tidak dihitung.
+  - Bonus pengundang Rp25.000 dan bonus teman Rp10.000 mengikuti kriteria kampanye, dengan batas 200 teman atau Rp5.000.000 per bulan.
+  - Bonus harus diklaim dan tidak dapat digabung dengan promo buka rekening lain.
 faqs:
-  - q: Apakah bunga tabungan masuk otomatis?
-    a: Bunga dihitung sesuai saldo dan ketentuan bank. Cek halaman produk untuk suku bunga yang berlaku.
-  - q: Bisa dipakai tanpa aplikasi Shopee?
-    a: Bisa. SeaBank punya aplikasi sendiri, meski beberapa promo terhubung dengan ekosistem Shopee.
+  - q: Berapa bonus undang teman SeaBank?
+    a: Halaman promo SeaBank menyebut bonus Rp25.000 untuk pengundang dan Rp10.000 untuk teman baru setelah setoran minimal Rp50.000 disimpan 3 hari. Nominal dan periode mengikuti kampanye yang berlaku.
+  - q: Sampai kapan promo undang teman SeaBank berlangsung?
+    a: Pusat bantuan SeaBank menyebut periode 1–31 Oktober 2026. Setelah tanggal itu, cek halaman promo untuk memastikan program diperpanjang atau diganti.
+  - q: Apakah transfer dari sesama rekening SeaBank dihitung?
+    a: Tidak. Setoran memakai dana dari luar rekening SeaBank, lalu saldo disimpan 3 hari. Batas bonus adalah 200 teman atau Rp5.000.000 per bulan.
 officialUrl: https://www.seabank.co.id/
-verificationNote: "Pratinjau: halaman program SeaBank di https://www.seabank.co.id/ dibuka pada 2026-10-24 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+referralUrl: https://app.seabank.co.id/app/main?module=router&type=me&sub_type=referral&login=true&referralCode=43V68B
+verificationNote: Halaman promo SeaBank dan pusat bantuan tentang periode, kriteria, batas, serta pencairan bonus dibuka pada 31 Oktober 2026. Kampanye yang tercantum berakhir 31 Oktober 2026; perpanjangan setelah tanggal itu belum tercantum di halaman promo. Pendaftaran uji tidak dilakukan.
 sources:
-  - label: Situs resmi SeaBank
-    url: https://www.seabank.co.id/
-  - label: Otoritas Jasa Keuangan (OJK)
-    url: https://www.ojk.go.id/
+  - label: Pusat Bantuan SeaBank - Bonus Undang Teman
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10071-bagaimana-kriteria-nasabah-yang-berhak-mendapatkan-bonus-saldo-undang-teman
+  - label: Pusat Bantuan SeaBank - Periode Promo
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10072-sampai-kapan-promo-undang-teman-berlangsung
+  - label: Pusat Bantuan SeaBank - Batas Bonus
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10317-apakah-ada-batas-bonus-saldo-undang-teman-yang-dapat-diterima
+  - label: Pusat Bantuan SeaBank - Pencairan Bonus
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10073-kapan-bonus-saldo-bisa-didapat-oleh-nasabah-yang-sudah-memenuhi-kriteria-promo-undang-teman
+  - label: Halaman Promo SeaBank
+    url: https://www.seabank.co.id/promo/126
 updateLog:
-  - date: '2026-10-24'
-    note: Entri pratinjau SeaBank dibuat dari https://www.seabank.co.id/; kode belum diuji.
+  - date: '2026-10-31'
+    note: Entri SeaBank ditulis dari halaman promo dan pusat bantuan resmi; kode berasal dari pemilik situs.
 author:
   name: Tim editorial KodeReferral
   role: Editor direktori

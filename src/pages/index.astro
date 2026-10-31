@@ -3,16 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchForm from '../components/SearchForm.astro';
 import BrandTable from '../components/BrandTable.astro';
 import { blogCategoryName } from '../data/blog-categories';
-import { categories } from '../data/categories';
 import { formatIdDate, photos } from '../data/site';
-import { brandsInCategory, getArticles, getBrands, sortBrandsByChecked } from '../lib/content';
+import {
+  brandsInCategory,
+  categoriesWithBrands,
+  getArticles,
+  getBrands,
+  sortBrandsByChecked,
+} from '../lib/content';
 import { categoryHref, isDirectoryIndexable } from '../lib/policy';
 
 const brands = await getBrands();
 const articles = await getArticles();
-const latest = sortBrandsByChecked(brands)[0];
-const picks = ['bibit', 'gopay', 'pluang', 'traveloka', 'ajaib', 'jago', 'tokopedia'];
-const ledgerBrands = picks.flatMap((slug) => brands.filter((brand) => brand.slug === slug));
+const sorted = sortBrandsByChecked(brands);
+const latest = sorted[0];
+const ledgerBrands = sorted.slice(0, 7);
+const activeCategories = categoriesWithBrands(brands);
 const featuredArticle = articles[0];
 const moreArticles = articles.slice(1);
 const robots = isDirectoryIndexable(brands) ? 'index' : 'noindex';
@@ -47,7 +53,7 @@ const jsonLd = [
         <h1>Kode referral, bukan teka-teki.</h1>
         <p class="hero__lead">Kami catat kode, tanggal cek, dan syaratnya.</p>
         <SearchForm id="hero-search" />
-        <p class="hero__facts">{brands.length} brand di {categories.length} kategori. Semua bertanggal cek.</p>
+        <p class="hero__facts">{brands.length} brand di {activeCategories.length} kategori. Semua bertanggal cek.</p>
         <p class="hero__links">
           <a class="text-link" href="/kode-referral/">Lihat semua {brands.length} brand</a>
           <a class="text-link" href="/metodologi-verifikasi/">Cara kami mengecek</a>
@@ -66,7 +72,7 @@ const jsonLd = [
             decoding="async"
           />
         </div>
-        <figcaption class="caption">{latest.name} dicek {formatIdDate(latest.checkedAt)}. Kode {latest.code}.</figcaption>
+        <figcaption class="caption">Program {latest.name} dicek {formatIdDate(latest.checkedAt)}. Kode {latest.code}.</figcaption>
       </figure>
     </div>
   </section>
@@ -78,7 +84,7 @@ const jsonLd = [
         <p class="band__label">Cek terbaru</p>
         <p class="band__brand"><a href={`/kode-referral/${latest.slug}/`}>{latest.name}</a></p>
         <p class="band__code">{latest.code}</p>
-        <p class="band__date">Dicek {formatIdDate(latest.checkedAt)}</p>
+        <p class="band__date">Program dicek {formatIdDate(latest.checkedAt)}</p>
         <a class="btn" href="/kode-referral/">Buka direktori</a>
       </div>
     </div>
@@ -93,7 +99,7 @@ const jsonLd = [
       <ol class="steps">
         <li>
           <h3>Buka halaman program resmi</h3>
-          <p>Kami baca halaman brand dan aplikasinya, bukan salinan di forum.</p>
+          <p>Kami baca halaman program, pusat bantuan, dan toko aplikasi brand.</p>
         </li>
         <li>
           <h3>Catat syarat dan bonus</h3>
@@ -101,7 +107,7 @@ const jsonLd = [
         </li>
         <li>
           <h3>Ulangi tiap minggu</h3>
-          <p>Kode yang tidak diterima lagi ditandai, bukan dibiarkan aktif.</p>
+          <p>Entri yang tidak lagi cocok dengan program resmi ditandai, bukan dibiarkan aktif.</p>
         </li>
       </ol>
       <p class="source-line"><a class="text-link" href="/metodologi-verifikasi/">Baca metodologi lengkap</a></p>
@@ -135,11 +141,11 @@ const jsonLd = [
   <section class="ledger">
     <div class="container">
       <div class="section-head">
-        <h2>Tujuh brand, tanggal cek terbaca.</h2>
+        <h2>Tujuh brand terbaru, tanggal cek terbaca.</h2>
         <p>Diurutkan dari yang terbaru.</p>
       </div>
-      <BrandTable items={ledgerBrands} caption="Tujuh brand dengan kode referral terbaru" />
-      <p class="source-line">Tanggal cek diperbarui saat kode ditinjau ulang. <a class="text-link" href="/kode-referral/">Buka direktori</a>.</p>
+      <BrandTable items={ledgerBrands} caption="Brand dengan kode referral dan tanggal cek terbaru" />
+      <p class="source-line">Tanggal cek diperbarui saat halaman program ditinjau ulang. <a class="text-link" href="/kode-referral/">Buka direktori</a>.</p>
     </div>
   </section>
 
@@ -147,10 +153,10 @@ const jsonLd = [
     <div class="container">
       <div class="section-head">
         <h2 id="kategori">Pilih kategori.</h2>
-        <p>Tujuh jenis layanan, syaratnya berbeda.</p>
+        <p>Syaratnya berbeda di tiap layanan.</p>
       </div>
       <ul class="index-list">
-        {categories.map((category) => (
+        {activeCategories.map((category) => (
           <li class="index-row">
             <a href={categoryHref(category, brands)}>
               <span class="index-name">{category.name}</span>

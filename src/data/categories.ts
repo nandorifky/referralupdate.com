@@ -6,6 +6,8 @@ export const categorySlugs = [
   'travel',
   'food-delivery',
   'saas',
+  'bisnis',
+  'hiburan',
 ] as const;
 
 export type CategorySlug = (typeof categorySlugs)[number];
@@ -89,6 +91,26 @@ export const categories: Category[] = [
     intro:
       'Kode referral aplikasi kerja memberi kredit, diskon langganan, atau masa uji tambahan. Cocokkan paket dengan kebutuhan tim, lalu cek apakah kredit melekat pada akun atau bisa dipakai bersama.\n\nJebakan yang perlu dibaca: perpanjangan otomatis, harga setelah masa promo, dan batas jumlah pengguna. Berhenti berlangganan sebelum tanggal perpanjangan jika kredit sudah habis dan paket tidak lagi dipakai.',
     editorialUpdated: '2026-10-30',
+  },
+  {
+    slug: 'bisnis',
+    name: 'Bisnis & UMKM',
+    line: 'Kasir dan komisi.',
+    description:
+      'Layanan pembayaran dan kasir untuk usaha kecil. Bonus biasanya berupa komisi atau potongan biaya.',
+    intro:
+      'Aplikasi bisnis dipakai untuk menerima pembayaran, mencatat penjualan, dan mengatur kas usaha kecil. Program referalnya umumnya memberi komisi per transaksi merchant yang bergabung, bukan bonus tunai sekali masuk, sehingga nilainya bergantung pada aktivitas usaha yang diundang.\n\nJebakan yang perlu dibaca: syarat verifikasi dokumen usaha, biaya transaksi setelah masa promo, dan jangka waktu komisi. Jangan mendaftarkan usaha orang lain tanpa izin, dan pastikan pencairan komisi punya rekening atas nama pemilik usaha yang sama.',
+    editorialUpdated: '2026-10-31',
+  },
+  {
+    slug: 'hiburan',
+    name: 'Hiburan & bacaan',
+    line: 'Poin undangan.',
+    description:
+      'Aplikasi hiburan dan bacaan memberi poin untuk akun baru. Cek cara tukar poin dan masa berlakunya.',
+    intro:
+      'Aplikasi hiburan dan bacaan memakai poin sebagai imbalan membaca, check-in, atau mengundang teman. Poin biasanya baru bernilai setelah ditukar ke hadiah atau saldo, dan kurs tukarnya bisa berubah mengikuti ketentuan aplikasi.\n\nJebakan yang sering muncul adalah poin dengan masa berlaku pendek, syarat tukar yang tinggi, atau tautan undangan yang disebar di luar domain resmi. Sebelum mengundang orang lain, pastikan tautan berasal dari aplikasi resmi dan baca ketentuan penukaran poin.',
+    editorialUpdated: '2026-10-31',
   },
 ];
 

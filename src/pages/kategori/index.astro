@@ -2,10 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { categories } from '../../data/categories';
 import { breadcrumbLd } from '../../data/site';
-import { brandsInCategory, getBrands } from '../../lib/content';
+import { brandsInCategory, categoriesWithBrands, getBrands } from '../../lib/content';
 import { categoryHref, indexableCategories } from '../../lib/policy';
 
 const brands = await getBrands();
+const activeCategories = categoriesWithBrands(brands);
 const origin = Astro.site ?? new URL('https://kode-referral.example');
 const robots = indexableCategories(categories, brands).length > 0 ? 'index' : 'noindex';
 const jsonLd = [
@@ -27,7 +28,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Kategori kode referral"
-  description="Kode referral menurut kategori: e-wallet, bank digital, investasi, e-commerce, travel, food delivery, dan SaaS."
+  description="Kode referral menurut kategori layanan, lengkap dengan tanggal cek dan syarat masing-masing brand."
   jsonLd={jsonLd}
   robots={robots}
 >
@@ -49,7 +50,7 @@ const jsonLd = [
   <section class="categories">
     <div class="container">
       <ul class="index-list">
-        {categories.map((category) => {
+        {activeCategories.map((category) => {
           const count = brandsInCategory(brands, category.slug).length;
           return (
             <li class="index-row">

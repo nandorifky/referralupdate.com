@@ -1,0 +1,35 @@
+name: Novelah
+category: hiburan
+code: '1831553'
+reward: Poin undangan
+checkedAt: '2026-10-31'
+summary: Novelah adalah aplikasi baca fiksi dan novel dari Fameink. Aplikasi ini memberi poin dari membaca harian, check-in, tugas, dan undangan teman; poin dapat ditukar hadiah sesuai ketentuan yang berlaku di aplikasi.
+steps:
+  - Unduh Novelah dari Google Play atau App Store, lalu buat akun baru.
+  - Buka halaman undangan atau isi kode 1831553 pada kolom invitation code saat diminta.
+  - Baca novel, check-in, dan selesaikan tugas untuk mengumpulkan poin.
+  - Tukar poin di menu rewards sesuai hadiah yang tersedia.
+terms:
+  - Poin dikumpulkan dari membaca harian, check-in, tugas, game, undian, dan undangan teman.
+  - Poin dapat ditukar hadiah sesuai ketentuan yang berlaku di aplikasi.
+  - Tautan undangan pada entri ini memakai domain run.app di luar novelah.net, jadi unduh aplikasi hanya dari toko resmi.
+  - Nominal poin undangan dapat berubah dan tidak dijamin oleh halaman resmi Novelah.
+faqs:
+  - q: Berapa poin yang didapat dari kode undangan Novelah?
+    a: Halaman resmi Novelah tidak mencantumkan nominal poin untuk setiap kode undangan. Besaran hadiah dapat berbeda antar kampanye, jadi cek layar konfirmasi di aplikasi sebelum menyelesaikan pendaftaran.
+  - q: Apakah tautan undangan Novelah aman?
+    a: Tautan undangan pada entri ini memakai domain run.app, bukan novelah.net, sehingga status resminya tidak bisa kami pastikan. Unduh aplikasi hanya dari Google Play atau App Store, lalu masukkan kode 1831553 secara manual.
+officialUrl: https://novelah.net/
+referralUrl: https://novelshare-fey3ybur3q-an.a.run.app/dfnow.html?shareDate=20261031&ggc=1831553%257C3%257C1%257C559&t=1
+verificationNote: Halaman Google Play Novelah yang diperbarui 25 Agustus 2026 dan situs novelah.net dibuka pada 31 Oktober 2026 untuk mencatat cara mendapat dan menukar poin. Tautan undangan pengguna berada di domain run.app di luar novelah.net dan pendaftaran uji tidak dilakukan.
+sources:
+  - label: Novelah di Google Play
+    url: https://play.google.com/store/apps/details?id=com.novel.novelah
+  - label: Situs resmi Novelah
+    url: https://novelah.net/
+updateLog:
+  - date: '2026-10-31'
+    note: Entri Novelah ditulis dari halaman toko aplikasi dan situs resmi; kode dan tautan berasal dari pemilik situs.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

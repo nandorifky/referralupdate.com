@@ -65,8 +65,8 @@ const jsonLd = [
         <div class="brand-head__copy">
           <h1>Kode referral {brand.name}.</h1>
           <p class="lead">{brand.summary}</p>
-          <p class="brand-head__meta">Dicek {formatIdDate(brand.checkedAt)}. Dicatat oleh {brand.author.name}, {brand.author.role}.</p>
-          <a class="text-link" href={brand.officialUrl} rel="sponsored nofollow noopener noreferrer" target="_blank">Kunjungi situs resmi</a>
+          <p class="brand-head__meta">Program dicek {formatIdDate(brand.checkedAt)}. Dicatat oleh {brand.author.name}, {brand.author.role}.</p>
+          <a class="text-link" href={brand.officialUrl} rel="noopener noreferrer" target="_blank">Halaman resmi {brand.name}</a>
         </div>
         <CodeCard brand={brand} primary />
       </div>
@@ -87,7 +87,7 @@ const jsonLd = [
             decoding="async"
           />
         </div>
-        <figcaption class="caption">Foto contoh untuk kategori {category.name}. Bukan tangkapan layar resmi {brand.name}.</figcaption>
+        <figcaption class="caption">Foto ilustrasi kategori {category.name}. Bukan tangkapan layar resmi {brand.name}.</figcaption>
       </figure>
     </div>
   </section>
@@ -119,7 +119,7 @@ const jsonLd = [
               </li>
             ))}
           </ul>
-          <p class="source-line">Cek terakhir {formatIdDate(brand.checkedAt)} oleh {brand.author.name}.</p>
+          <p class="source-line">Program dicek terakhir {formatIdDate(brand.checkedAt)} oleh {brand.author.name}.</p>
         </section>
 
         <section class="brand-section">
@@ -168,7 +168,7 @@ const jsonLd = [
         </div>
 
         <div class="aside-block">
-          <p class="aside-source">Halaman ini bisa memuat tautan affiliate. Bonus bisa berubah tanpa pemberitahuan; situs resmi tetap acuan.</p>
+          <p class="aside-source">Tautan referral di halaman ini diberi label dan dapat memberi manfaat bagi pemilik kode. Bonus bisa berubah tanpa pemberitahuan; situs resmi tetap acuan.</p>
         </div>
       </aside>
     </div>

@@ -1,0 +1,35 @@
+name: Pintu
+category: investasi
+code: '@notiska'
+reward: Cashback dari setiap transaksi
+checkedAt: '2026-10-31'
+summary: Pintu adalah aplikasi investasi kripto asal Indonesia. Kode referral Pintu memakai username pengundang, sehingga teman yang memakainya mendapat cashback dari volume transaksi dan pengundang mendapat komisi berjenjang.
+steps:
+  - Unduh aplikasi Pintu versi 3.72 atau lebih baru dari App Store atau Google Play.
+  - Daftar akun baru, verifikasi email, lalu selesaikan verifikasi identitas agar bisa bertransaksi.
+  - Isi username @notiska pada kolom kode referral saat diminta, lalu mulai transaksi jual beli di Pintu.
+  - Cek menu referral untuk melihat status komisi atau cashback yang masuk.
+terms:
+  - Hanya untuk pengguna terverifikasi dengan aplikasi Pintu versi 3.72 ke atas.
+  - Satu orang dengan ID yang sama dihitung sebagai satu akun pengguna.
+  - Komisi dihitung dari transaksi di Pintu, Pintu Pro Spot, dan Futures; tidak termasuk CFX dan pajak.
+  - Pintu dapat mengubah nilai komisi atau menghentikan program lewat kanal resminya.
+faqs:
+  - q: Apakah kode referral Pintu berupa deretan angka?
+    a: Tidak. Halaman resmi Pintu menjelaskan bahwa kode referral menggunakan username pengundang. Untuk entri ini kodenya adalah @notiska, jadi tulis username lengkapnya saat diminta.
+  - q: Berapa cashback yang didapat teman yang diundang?
+    a: Pengguna yang diundang mendapat cashback 0,005% dari volume transaksi di Pintu, serta 5% dari biaya transaksi di Pintu Pro Spot dan Futures, sesuai ketentuan yang berlaku.
+officialUrl: https://pintu.co.id/
+referralUrl: https://apps.pintu.co.id/fjuG/ref_bind?deep_link_sub1=notiska
+verificationNote: Blog resmi Pintu yang diperbarui 16 Mei 2025 dibuka pada 31 Oktober 2026 untuk mencatat skema komisi, syarat versi aplikasi, dan batasan transaksi. Pendaftaran uji tidak dilakukan dan kode dari pemilik situs belum dicoba langsung.
+sources:
+  - label: Blog Program Referral Pintu
+    url: https://pintu.co.id/blog/program-referral-terbaru-pintu
+  - label: Situs resmi Pintu
+    url: https://pintu.co.id/
+updateLog:
+  - date: '2026-10-31'
+    note: Entri Pintu ditulis dari blog program referral resmi; kode username berasal dari pemilik situs.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori
