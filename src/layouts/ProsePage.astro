@@ -21,23 +21,23 @@ const jsonLd = breadcrumbLd(
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <div class="container">
-    <div class="prose-page">
-      <section class="prose-head">
-        <nav aria-label="Breadcrumb">
-          <ol class="breadcrumb">
-            <li><a href="/">Beranda</a></li>
-            <li>{title}</li>
-          </ol>
-        </nav>
-        <div class="prose-page__head">
-          <h1>{title}.</h1>
-          <p class="lead">{lead}</p>
-        </div>
-      </section>
-      <div class="prose">
-        <slot />
+  <section class="page-head">
+    <div class="container">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Beranda</a></li>
+          <li>{title}</li>
+        </ol>
+      </nav>
+      <div class="page-head__body">
+        <h1>{title}.</h1>
+        <p class="lead">{lead}</p>
       </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="prose">
+      <slot />
     </div>
   </div>
 </BaseLayout>

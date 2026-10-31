@@ -1,40 +1,28 @@
 ---
-import { getCategory, type Brand } from '../data/site';
+import { getCategory } from '../data/categories';
+import { formatIdDateShort, PREVIEW } from '../data/site';
+import type { Brand } from '../lib/content';
 
 type Props = {
   brand: Brand;
-  primary?: boolean;
-  compact?: boolean;
 };
 
-const { brand, primary = false, compact = false } = Astro.props;
+const { brand } = Astro.props;
 const category = getCategory(brand.category);
-const shortDate = brand.checked.replace(' 2026', '');
+const shortDate = formatIdDateShort(brand.checkedAt);
 ---
 
-<article class:list={['code-card stock', { 'code-card--compact': compact }]} aria-label={`Kartu kode ${brand.name}`}>
-  <header class="code-card__top">
-    <div>
-      <p class="code-card__brand">{brand.name}</p>
-      <p class="code-card__cat">{category?.name}</p>
-    </div>
-    <p class="stamp">Dicek {shortDate}</p>
-  </header>
-  <dl class="code-card__fields">
-    <div class="code-card__field">
-      <dt>Kode referral</dt>
-      <dd class="code-card__code">{brand.code}</dd>
-    </div>
-    <div class="code-card__field">
-      <dt>Bonus</dt>
-      <dd class="code-card__reward">{brand.reward}</dd>
-    </div>
-  </dl>
+<aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
+  <div class="code-card__top">
+    <p class="code-card__label">Kode {brand.name}, {category?.name}</p>
+    <p class="code-card__date">Dicek {shortDate}</p>
+  </div>
+  <p class="code-card__code">{brand.code}</p>
+  <p class="code-card__reward">{brand.reward}</p>
   <div class="code-card__foot">
-    <button class:list={['btn', primary ? 'btn--ink' : 'btn--card']} type="button" data-copy={brand.code}>Salin kode</button>
-    <p class="code-card__source">
-      <a href="/metodologi-verifikasi/">Cara kami mengecek</a>
-    </p>
+    <button class="btn" type="button" data-copy={brand.code}>Salin kode</button>
     <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
   </div>
-</article>
+  {PREVIEW && <p class="code-card__note">Pratinjau: kode dan tanggal di kartu ini data contoh.</p>}
+  <a class="code-card__link" href="/metodologi-verifikasi/">Cara kami mengecek</a>
+</aside>

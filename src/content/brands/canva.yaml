@@ -1,0 +1,32 @@
+name: Canva
+category: saas
+code: CANVA-N2E
+reward: Kredit Pro
+checkedAt: '2026-10-27'
+summary: Canva adalah alat desain untuk presentasi, konten sosial, dan materi kerja. Program referal biasanya memberi kredit atau diskon untuk langganan Pro.
+steps:
+  - Buat akun Canva baru lewat situs atau aplikasi.
+  - Masukkan kode CANVA-N2E di halaman referal.
+  - Aktifkan paket Pro sesuai syarat kampanye.
+terms:
+  - Berlaku untuk akun baru yang belum pernah berlangganan Pro.
+  - Kredit mengikuti ketentuan kampanye.
+  - Langganan diperpanjang otomatis kecuali dibatalkan.
+faqs:
+  - q: Apakah kredit bisa dipakai untuk tim?
+    a: Tergantung paket. Kredit biasanya melekat pada akun yang memakai kode, bukan seluruh tim.
+  - q: Bisakah berhenti kapan saja?
+    a: Bisa. Batalkan sebelum tanggal perpanjangan agar tidak ditagih untuk periode berikutnya.
+officialUrl: https://www.canva.com/
+verificationNote: "Pratinjau: halaman program Canva di https://www.canva.com/ dibuka pada 2026-10-27 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi Canva
+    url: https://www.canva.com/
+  - label: Kementerian Komunikasi dan Digital
+    url: https://www.komdigi.go.id/
+updateLog:
+  - date: '2026-10-27'
+    note: Entri pratinjau Canva dibuat dari https://www.canva.com/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

@@ -1,26 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CodeCard from '../../components/CodeCard.astro';
-import {
-  articles,
-  brands,
-  brandsByCategory,
-  getCategory,
-  breadcrumbLd,
-  type Brand,
-} from '../../data/site';
+import { getCategory } from '../../data/categories';
+import { breadcrumbLd, brandPhotos, formatIdDate } from '../../data/site';
+import { brandsInCategory, getArticles, getBrands, type Brand } from '../../lib/content';
+import { categoryHref, isBrandIndexable } from '../../lib/policy';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const brands = await getBrands();
   return brands.map((brand) => ({ params: { brand: brand.slug }, props: { brand } }));
 }
 
 const { brand } = Astro.props as { brand: Brand };
+const brands = await getBrands();
+const articles = await getArticles();
 const category = getCategory(brand.category)!;
+const categoryPhoto = brandPhotos[brand.category];
+const categoryPath = categoryHref(category, brands);
+const robots = isBrandIndexable(brand) ? 'index' : 'noindex';
 const origin = Astro.site ?? new URL('https://kode-referral.example');
 const lowerReward = brand.reward.charAt(0).toLowerCase() + brand.reward.slice(1);
-const siblings = brandsByCategory(brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
+const siblings = brandsInCategory(brands, brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
 const relatedArticles = articles.filter((article) => article.relatedBrands.includes(brand.slug));
 const asideArticles = (relatedArticles.length ? relatedArticles : articles).slice(0, 1);
+const latestLog = brand.updateLog[0];
 
 const jsonLd = [
   breadcrumbLd(
@@ -45,92 +48,129 @@ const jsonLd = [
 <BaseLayout
   title={`Kode referral ${brand.name}`}
   description={`Kode referral ${brand.name} dengan ${lowerReward}. Lihat cara pakai, syarat, dan tanggal cek terakhir sebelum mendaftar.`}
+  robots={robots}
   jsonLd={jsonLd}
 >
-  <div class="container">
-    <div class="brand-hero">
+  <section class="brand-head">
+    <div class="container">
       <nav aria-label="Breadcrumb">
         <ol class="breadcrumb">
           <li><a href="/">Beranda</a></li>
           <li><a href="/kode-referral/">Direktori</a></li>
-          <li><a href={`/kategori/${category.slug}/`}>{category.name}</a></li>
+          <li><a href={categoryPath}>{category.name}</a></li>
           <li>{brand.name}</li>
         </ol>
       </nav>
-      <div class="brand-hero__inner">
-        <div class="brand-hero__copy">
-          <div>
-            <h1>Kode referral {brand.name}.</h1>
-            <p class="lead">Dicek {brand.checked}. Syarat dan langkah bisa dibaca.</p>
-          </div>
+      <div class="brand-head__grid">
+        <div class="brand-head__copy">
+          <h1>Kode referral {brand.name}.</h1>
+          <p class="lead">{brand.summary}</p>
+          <p class="brand-head__meta">Dicek {formatIdDate(brand.checkedAt)}. Dicatat oleh {brand.author.name}, {brand.author.role}.</p>
           <a class="text-link" href={brand.officialUrl} rel="sponsored nofollow noopener noreferrer" target="_blank">Kunjungi situs resmi</a>
         </div>
-        <figure class="brand-hero__visual">
-          <CodeCard brand={brand} primary />
-          <figcaption class="disclosure-note">Pratinjau desain. Kode dan tanggal di kartu ini adalah data contoh.</figcaption>
-        </figure>
+        <CodeCard brand={brand} primary />
       </div>
     </div>
+  </section>
 
-    <div class="brand-body">
-      <div class="brand-grid">
-        <div>
-          <section class="brand-section">
-            <h2>Isi kode {brand.code} saat daftar.</h2>
-            <ol class="howto-list">
-              {brand.steps.map((step) => <li><p>{step}</p></li>)}
-            </ol>
-          </section>
+  <section class="brand-cover">
+    <div class="container">
+      <figure>
+        <div class="slot slot--wide" data-slot={`brand-${brand.category}`} data-alt={categoryPhoto.alt}>
+          <img
+            src={categoryPhoto.src}
+            alt={categoryPhoto.alt}
+            width="1920"
+            height="1280"
+            style={`object-position: ${categoryPhoto.position}`}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption class="caption">Foto contoh untuk kategori {category.name}. Bukan tangkapan layar resmi {brand.name}.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-          <section class="brand-section">
-            <h2>Syarat agar {lowerReward} masuk.</h2>
-            <ul class="terms-list">
-              {brand.terms.map((term) => <li>{term}</li>)}
-            </ul>
-          </section>
+  <section class="brand-body">
+    <div class="container brand-grid">
+      <div class="brand-main">
+        <section class="brand-section">
+          <h2>Isi kode {brand.code} saat daftar.</h2>
+          <ol class="howto-list">
+            {brand.steps.map((step) => <li><p>{step}</p></li>)}
+          </ol>
+        </section>
 
-          <section class="brand-section">
-            <h2>Pertanyaan soal kode {brand.name}.</h2>
-            <dl class="faq-list">
-              {brand.faqs.map((faq) => (
-                <div class="faq-item">
-                  <dt>{faq.q}</dt>
-                  <dd>{faq.a}</dd>
-                </div>
-              ))}
-            </dl>
-          </section>
+        <section class="brand-section">
+          <h2>Syarat agar {lowerReward} masuk.</h2>
+          <ul class="terms-list">
+            {brand.terms.map((term) => <li>{term}</li>)}
+          </ul>
+        </section>
 
-          <p class="editor-note">
-            Dicek tim editorial KodeReferral. <a href="/metodologi-verifikasi/">Baca metodologi</a>.
-          </p>
+        <section class="brand-section">
+          <h2>Bagaimana kode ini dicek.</h2>
+          <p>{brand.verificationNote}</p>
+          <ul class="source-list">
+            {brand.sources.map((source) => (
+              <li>
+                <a href={source.url} rel="noopener noreferrer" target="_blank">{source.label}</a>
+              </li>
+            ))}
+          </ul>
+          <p class="source-line">Cek terakhir {formatIdDate(brand.checkedAt)} oleh {brand.author.name}.</p>
+        </section>
+
+        <section class="brand-section">
+          <h2>Pertanyaan soal kode {brand.name}.</h2>
+          <dl class="faq-list">
+            {brand.faqs.map((faq) => (
+              <div class="faq-item">
+                <dt>{faq.q}</dt>
+                <dd>{faq.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section class="brand-section">
+          <h2>Riwayat pengecekan.</h2>
+          <ul class="terms-list">
+            {brand.updateLog.map((entry) => (
+              <li>
+                <strong>{formatIdDate(entry.date)}</strong> {entry.note}
+              </li>
+            ))}
+          </ul>
+          <p class="source-line">Catatan terbaru: {formatIdDate(latestLog.date)}. <a class="text-link" href="/metodologi-verifikasi/">Baca metodologi</a>.</p>
+        </section>
+      </div>
+
+      <aside class="brand-aside" aria-label="Kode dan bacaan lain">
+        <div class="aside-block">
+          <p class="aside-title">Kode lain di {category.name}</p>
+          <ul class="aside-list">
+            {siblings.map((item) => (
+              <li><a href={`/kode-referral/${item.slug}/`}>{item.name}</a></li>
+            ))}
+          </ul>
+          <p class="aside-source"><a class="text-link" href={categoryPath}>Semua {category.name.toLowerCase()}</a></p>
         </div>
 
-        <aside class="brand-aside" aria-label="Kode dan bacaan lain">
-          <div class="aside-block">
-            <p class="aside-title">Kode lain di {category.name}</p>
-            <ul class="aside-list">
-              {siblings.map((item) => (
-                <li><a href={`/kode-referral/${item.slug}/`}>{item.name}</a></li>
-              ))}
-            </ul>
-            <p class="source-line"><a class="text-link" href={`/kategori/${category.slug}/`}>Semua {category.name.toLowerCase()}</a></p>
-          </div>
+        <div class="aside-block">
+          <p class="aside-title">Bacaan</p>
+          <ul class="aside-list">
+            {asideArticles.map((article) => (
+              <li><a href={`/blog/${article.slug}/`}>{article.title}</a></li>
+            ))}
+          </ul>
+        </div>
 
-          <div class="aside-block">
-            <p class="aside-title">Bacaan</p>
-            <ul class="aside-list">
-              {asideArticles.map((article) => (
-                <li><a href={`/blog/${article.slug}/`}>{article.title}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="aside-block">
-            <p class="source-line">Bisa memuat tautan affiliate.</p>
-          </div>
-        </aside>
-      </div>
+        <div class="aside-block">
+          <p class="aside-source">Halaman ini bisa memuat tautan affiliate. Bonus bisa berubah tanpa pemberitahuan; situs resmi tetap acuan.</p>
+        </div>
+      </aside>
     </div>
-  </div>
+  </section>
 </BaseLayout>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Halaman tidak ditemukan"
+  description="Alamat yang kamu buka tidak ada. Mulai lagi dari direktori kode referral atau blog."
+  robots="noindex"
+>
+  <section class="not-found">
+    <div class="container">
+      <p class="not-found__figure" aria-hidden="true">404<span class="dot">.</span></p>
+      <h1>Halaman tidak ditemukan.</h1>
+      <p class="lead">Alamat ini mungkin sudah berubah. Mulai lagi dari direktori atau blog.</p>
+      <p class="not-found__links">
+        <a class="btn" href="/kode-referral/">Buka direktori</a>
+        <a class="text-link" href="/blog/">Baca blog</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

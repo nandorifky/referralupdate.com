@@ -1,22 +1,78 @@
 ---
-import { site } from '../data/site';
+import { PREVIEW, site } from '../data/site';
+
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => path === href || (path.startsWith(href) && href !== '/');
+const items = site.nav.map((item, index) => ({
+  ...item,
+  index: String(index + 1).padStart(2, '0'),
+}));
 ---
 
-<header class="site-nav">
-  <div class="container site-nav__inner">
-    <a class="wordmark" href="/" aria-label="KodeReferral, beranda">KodeReferral<span class="wordmark__dot">.</span></a>
-    <nav class="site-nav__links" aria-label="Navigasi utama">
-      {site.nav.map((item) => <a class="site-nav__link" href={item.href}>{item.label}</a>)}
-    </nav>
-    <div class="site-nav__end">
-      <a class="site-nav__search" href="/kode-referral/">Cari kode</a>
-      <details class="nav-menu">
+<header class="masthead">
+  <div class="masthead__utility">
+    <div class="container masthead__utility-inner">
+      <p class="masthead__tagline">Direktori independen kode referral Indonesia</p>
+      <p class="masthead__utility-end">
+        {PREVIEW && <span class="masthead__preview">Pratinjau data</span>}
+        <a class="masthead__search" href="/kode-referral/">Cari kode</a>
+      </p>
+    </div>
+  </div>
+  <div class="masthead__main">
+    <div class="container masthead__main-inner">
+      <a class="masthead__mark" href="/" aria-label="KodeReferral, beranda">KodeReferral<span aria-hidden="true">.</span></a>
+      <nav class="masthead__nav" aria-label="Navigasi utama">
+        {items.map((item) => (
+          <a class="masthead__link" href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+            <span class="masthead__index" aria-hidden="true">{item.index}</span>
+            <span class="masthead__label">{item.label}</span>
+          </a>
+        ))}
+      </nav>
+      <details class="masthead__menu">
         <summary>Menu</summary>
-        <div class="nav-menu__panel">
-          {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
-          <a href="/kode-referral/">Cari kode</a>
+        <div class="masthead__panel">
+          <div class="masthead__panel-top">
+            <p class="masthead__panel-mark">KodeReferral<span aria-hidden="true">.</span></p>
+            <button class="masthead__panel-close" type="button" data-menu-close>Tutup</button>
+          </div>
+          <nav class="masthead__panel-nav" aria-label="Navigasi menu">
+            {items.map((item) => (
+              <a
+                class="masthead__panel-link"
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+              >
+                <span class="masthead__index" aria-hidden="true">{item.index}</span>
+                <span>{item.label}</span>
+              </a>
+            ))}
+          </nav>
+          <div class="masthead__panel-foot">
+            <a class="btn" href="/kode-referral/">Cari kode</a>
+            <p class="masthead__panel-note">Direktori independen kode referral untuk layanan di Indonesia.</p>
+          </div>
         </div>
       </details>
     </div>
   </div>
 </header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.masthead__menu');
+  if (menu) {
+    const summary = menu.querySelector('summary');
+    menu.addEventListener('toggle', () => {
+      document.documentElement.classList.toggle('menu-open', menu.open);
+      if (menu.open) menu.querySelector<HTMLElement>('.masthead__panel-link')?.focus();
+      else summary?.focus();
+    });
+    menu.querySelector('[data-menu-close]')?.addEventListener('click', () => {
+      menu.open = false;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) menu.open = false;
+    });
+  }
+</script>

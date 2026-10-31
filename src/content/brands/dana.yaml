@@ -1,0 +1,32 @@
+name: DANA
+category: e-wallet
+code: DANA-R4U
+reward: Saldo
+checkedAt: '2026-10-25'
+summary: DANA adalah dompet digital untuk pembayaran QRIS, transfer, dan tagihan. Program referal biasanya memberi saldo untuk pengguna baru yang menyelesaikan transaksi pertama.
+steps:
+  - Unduh DANA dan daftar dengan nomor HP aktif.
+  - Isi kode DANA-R4U pada kolom referal.
+  - Lakukan pembayaran pertama sesuai syarat.
+terms:
+  - Berlaku untuk akun baru yang belum pernah terdaftar di DANA.
+  - Bonus saldo mengikuti kampanye yang berlaku.
+  - Satu nomor HP hanya dapat memakai satu kode.
+faqs:
+  - q: Apakah bonus bisa ditransfer?
+    a: Saldo bonus biasanya punya aturan penggunaan tersendiri. Baca keterangan di aplikasi sebelum mencoba menarik dana.
+  - q: Perlu upgrade akun?
+    a: Beberapa transaksi memerlukan verifikasi identitas. Siapkan KTP dan swafoto sesuai instruksi aplikasi.
+officialUrl: https://www.dana.id/
+verificationNote: "Pratinjau: halaman program DANA di https://www.dana.id/ dibuka pada 2026-10-25 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi DANA
+    url: https://www.dana.id/
+  - label: Otoritas Jasa Keuangan (OJK)
+    url: https://www.ojk.go.id/
+updateLog:
+  - date: '2026-10-25'
+    note: Entri pratinjau DANA dibuat dari https://www.dana.id/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

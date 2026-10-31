@@ -1,5 +1,36 @@
 [
  {
+  "shape": "Manifesto",
+  "theme": "Grid (dealt)",
+  "axes": "light/grotesk-sans/cool",
+  "hero": "Poster over paper: headline, one sentence, two actions, and a 4:5 duotone slot",
+  "nav": "flat paper strip, two-line wordmark and red square mark",
+  "footer": "colophon, credits and license",
+  "imagery": "four replaceable Commons photo slots in duotone, paper captions",
+  "photos": [
+   "businesswoman",
+   "screen printing",
+   "wood type",
+   "open book"
+  ],
+  "entry": "homepage",
+  "fingerprint": "grid-manifesto-referral-directory",
+  "sections": "hero, facts, ultramarine record band, process, split photo, brand ledger, categories, notes, close band, footer",
+  "signature": "the referral code printed on an ultramarine field",
+  "waived": [
+   "49b",
+   "25",
+   "44a",
+   "77",
+   "23"
+  ],
+  "prompt": "redesign the referral code site to Manifesto with dummy image slots",
+  "date": "2026-10-31",
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site"
+ },
+ {
   "shape": "Ecosystem Index",
   "theme": "Coral (by request)",
   "axes": "light/grotesk-sans/warm",

@@ -1,15 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BrandTable from '../../components/BrandTable.astro';
-import { brandsByCategory, categories, breadcrumbLd, type Category } from '../../data/site';
+import { getCategories, type Category } from '../../data/categories';
+import { breadcrumbLd } from '../../data/site';
+import { brandsInCategory, getBrands, sortBrandsByChecked } from '../../lib/content';
+import { isCategoryIndexable } from '../../lib/policy';
 
-export function getStaticPaths() {
-  return categories.map((category) => ({ params: { category: category.slug }, props: { category } }));
+export async function getStaticPaths() {
+  const brands = await getBrands();
+  return getCategories()
+    .filter((category) => isCategoryIndexable(category, brands))
+    .map((category) => ({ params: { category: category.slug }, props: { category } }));
 }
 
 const { category } = Astro.props as { category: Category };
-const listed = brandsByCategory(category.slug);
+const brands = await getBrands();
+const listed = sortBrandsByChecked(brandsInCategory(brands, category.slug));
 const origin = Astro.site ?? new URL('https://kode-referral.example');
+const introParagraphs = category.intro.split(/\n\s*\n/).filter((paragraph) => paragraph.trim());
 
 const jsonLd = [
   breadcrumbLd(
@@ -44,9 +52,10 @@ const jsonLd = [
   title={`Kode referral ${category.name}`}
   description={`${category.description} Lihat ${listed.length} kode referral ${category.name.toLowerCase()} dengan tanggal cek terakhir.`}
   jsonLd={jsonLd}
+  robots="index"
 >
-  <div class="container">
-    <section class="index-head">
+  <section class="page-head">
+    <div class="container">
       <nav aria-label="Breadcrumb">
         <ol class="breadcrumb">
           <li><a href="/">Beranda</a></li>
@@ -54,17 +63,27 @@ const jsonLd = [
           <li>{category.name}</li>
         </ol>
       </nav>
-      <div class="index-head__body">
-        <h1>{category.name}: kode referral yang dicek.</h1>
+      <div class="page-head__body">
+        <h1>{category.name}: kode yang dicek.</h1>
         <p class="lead">{category.description}</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <BrandTable items={listed} caption={`Kode referral ${category.name}`} />
+  <section class="ledger">
+    <div class="container">
+      <div class="category-intro">
+        {introParagraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
 
-    <p class="source-line">
-      {listed.length} brand, diurutkan dari tanggal cek terakhir.{' '}
-      <a class="text-link" href="/blog/">Baca panduan</a>.
-    </p>
-  </div>
+      <BrandTable items={listed} caption={`Kode referral ${category.name}`} />
+
+      <p class="source-line">
+        {listed.length} brand, diurutkan dari tanggal cek terakhir.{' '}
+        <a class="text-link" href="/blog/">Baca panduan</a>.
+      </p>
+    </div>
+  </section>
 </BaseLayout>

@@ -1,0 +1,32 @@
+name: Pluang
+category: investasi
+code: PLUANG-M4Q
+reward: Bonus emas
+checkedAt: '2026-10-28'
+summary: Pluang menyatukan reksa dana, emas, dan aset kripto dalam satu aplikasi. Bonus referal sering diberikan dalam bentuk emas setelah transaksi pertama.
+steps:
+  - Buka aplikasi Pluang dan pilih daftar akun baru.
+  - Masukkan kode PLUANG-M4Q saat diminta kode referal.
+  - Lakukan pembelian pertama sesuai syarat program.
+terms:
+  - Berlaku untuk pengguna baru dengan data yang belum terdaftar.
+  - Bonus dapat berubah mengikuti kampanye yang sedang berjalan.
+  - Transaksi yang dibatalkan tidak dihitung sebagai syarat bonus.
+faqs:
+  - q: Apakah bonus bisa dicairkan?
+    a: Bonus emas dapat dijual setelah memenuhi syarat program. Baca ketentuan di aplikasi sebelum menjual aset.
+  - q: Bisakah memakai kode orang lain?
+    a: Bisa, selama kode masih berlaku dan kamu memenuhi syarat sebagai pengguna baru. Satu akun tetap hanya boleh memakai satu kode.
+officialUrl: https://pluang.com
+verificationNote: "Pratinjau: halaman program Pluang di https://pluang.com dibuka pada 2026-10-28 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi Pluang
+    url: https://pluang.com
+  - label: Otoritas Jasa Keuangan (OJK)
+    url: https://www.ojk.go.id/
+updateLog:
+  - date: '2026-10-28'
+    note: Entri pratinjau Pluang dibuat dari https://pluang.com; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

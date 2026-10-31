@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BrandTable from '../../components/BrandTable.astro';
-import { brands, brandsByChecked, categories, breadcrumbLd } from '../../data/site';
+import { categories } from '../../data/categories';
+import { breadcrumbLd } from '../../data/site';
+import { getBrands, sortBrandsByChecked } from '../../lib/content';
+import { isDirectoryIndexable } from '../../lib/policy';
 
+const brands = await getBrands();
 const origin = Astro.site ?? new URL('https://kode-referral.example');
-const listed = brandsByChecked();
+const listed = sortBrandsByChecked(brands);
+const robots = isDirectoryIndexable(brands) ? 'index' : 'noindex';
 
 const jsonLd = [
   breadcrumbLd(
@@ -38,40 +43,50 @@ const jsonLd = [
   title="Direktori kode referral"
   description="Daftar kode referral Indonesia dengan tanggal cek terakhir, bonus, dan syarat. Filter berdasarkan nama brand atau kategori."
   jsonLd={jsonLd}
+  robots={robots}
 >
-  <div class="container">
-    <section class="index-head index-head--wide">
+  <section class="page-head">
+    <div class="container">
       <nav aria-label="Breadcrumb">
         <ol class="breadcrumb">
           <li><a href="/">Beranda</a></li>
           <li>Direktori</li>
         </ol>
       </nav>
-      <div class="index-head__body">
+      <div class="page-head__body">
         <h1>Direktori kode referral.</h1>
         <p class="lead">{brands.length} brand di {categories.length} kategori, semuanya dengan tanggal cek terakhir.</p>
-        <form class="filter" method="get" action="/kode-referral/" data-filter role="search">
-          <div class="filter__field">
-            <label for="directory-q">Cari brand</label>
-            <input id="directory-q" name="q" type="search" placeholder="Bibit, GoPay, Jago" autocomplete="off" spellcheck="false" />
-          </div>
-          <div class="filter__field">
-            <label for="directory-category">Kategori</label>
-            <select id="directory-category" name="kategori">
-              <option value="">Semua kategori</option>
-              {categories.map((category) => <option value={category.slug}>{category.name}</option>)}
-            </select>
-          </div>
-          <button class="btn btn--ink" type="submit">Terapkan</button>
-          <p class="filter__count" data-filter-count aria-live="polite">{brands.length} brand</p>
-        </form>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <p class="filter__empty" data-filter-empty hidden>Tidak ada brand yang cocok. Coba kata kunci lain atau pilih semua kategori.</p>
+  <section class="field filter-band">
+    <div class="container">
+      <form class="filter" method="get" action="/kode-referral/" data-filter role="search">
+        <div class="filter__field">
+          <label for="directory-q">Cari brand</label>
+          <input id="directory-q" name="q" type="search" placeholder="Bibit, GoPay, Jago" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="filter__field">
+          <label for="directory-category">Kategori</label>
+          <select id="directory-category" name="kategori">
+            <option value="">Semua kategori</option>
+            {categories.map((category) => <option value={category.slug}>{category.name}</option>)}
+          </select>
+        </div>
+        <button class="btn" type="submit">Terapkan</button>
+        <p class="filter__count" data-filter-count aria-live="polite">{brands.length} brand</p>
+      </form>
+    </div>
+  </section>
 
-    <BrandTable items={listed} caption="Semua brand dengan kode referral di direktori" />
+  <section class="ledger">
+    <div class="container">
+      <p class="filter__empty" data-filter-empty hidden>Tidak ada brand yang cocok. Coba kata kunci lain atau pilih semua kategori.</p>
 
-    <p class="source-line">Tanggal cek diperbarui saat kode ditinjau ulang. <a class="text-link" href="/metodologi-verifikasi/">Baca metodologinya</a>.</p>
-  </div>
+      <BrandTable items={listed} caption="Semua brand dengan kode referral di direktori" />
+
+      <p class="source-line">Tanggal cek diperbarui saat kode ditinjau ulang. <a class="text-link" href="/metodologi-verifikasi/">Baca metodologinya</a>.</p>
+    </div>
+  </section>
 </BaseLayout>

@@ -1,0 +1,32 @@
+name: SeaBank
+category: bank-digital
+code: SEABANK-J8F
+reward: Bunga dan bonus
+checkedAt: '2026-10-24'
+summary: SeaBank adalah bank digital yang terhubung dengan ekosistem Shopee dan SeaMoney. Program referal biasanya memberi bonus saldo setelah rekening aktif.
+steps:
+  - Unduh aplikasi SeaBank dan buat rekening baru.
+  - Masukkan kode SEABANK-J8F saat diminta kode referal.
+  - Aktifkan rekening dan lakukan setoran pertama.
+terms:
+  - Berlaku untuk nasabah baru yang belum punya rekening SeaBank.
+  - Bonus mengikuti kampanye yang berlaku.
+  - Rekening harus aktif saat bonus dicairkan.
+faqs:
+  - q: Apakah bunga tabungan masuk otomatis?
+    a: Bunga dihitung sesuai saldo dan ketentuan bank. Cek halaman produk untuk suku bunga yang berlaku.
+  - q: Bisa dipakai tanpa aplikasi Shopee?
+    a: Bisa. SeaBank punya aplikasi sendiri, meski beberapa promo terhubung dengan ekosistem Shopee.
+officialUrl: https://www.seabank.co.id/
+verificationNote: "Pratinjau: halaman program SeaBank di https://www.seabank.co.id/ dibuka pada 2026-10-24 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi SeaBank
+    url: https://www.seabank.co.id/
+  - label: Otoritas Jasa Keuangan (OJK)
+    url: https://www.ojk.go.id/
+updateLog:
+  - date: '2026-10-24'
+    note: Entri pratinjau SeaBank dibuat dari https://www.seabank.co.id/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

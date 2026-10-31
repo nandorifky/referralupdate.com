@@ -1,5 +1,7 @@
 ---
-import { getCategory, type Brand } from '../data/site';
+import { getCategory } from '../data/categories';
+import { formatIdDate } from '../data/site';
+import type { Brand } from '../lib/content';
 
 type Props = {
   items: Brand[];
@@ -28,7 +30,7 @@ const { items, caption } = Astro.props;
           <td data-label="Kode"><span class="table-code">{brand.code}</span></td>
           <td data-label="Kategori">{getCategory(brand.category)?.name}</td>
           <td data-label="Bonus">{brand.reward}</td>
-          <td data-label="Terakhir dicek"><span class="checked-chip">{brand.checked}</span></td>
+          <td data-label="Terakhir dicek"><span class="checked-chip">{formatIdDate(brand.checkedAt)}</span></td>
         </tr>
       ))}
     </tbody>

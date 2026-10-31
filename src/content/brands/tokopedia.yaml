@@ -1,0 +1,32 @@
+name: Tokopedia
+category: e-commerce
+code: TOKOPEDIA-B3S
+reward: Voucher belanja
+checkedAt: '2026-10-26'
+summary: Tokopedia adalah marketplace untuk produk fisik dan digital. Kode referal biasanya memberi voucher belanja untuk pembeli baru dengan minimum transaksi.
+steps:
+  - Buat akun Tokopedia baru lewat aplikasi atau situs.
+  - Masukkan kode TOKOPEDIA-B3S di halaman referal.
+  - Belanja sesuai minimum transaksi yang berlaku.
+terms:
+  - Berlaku untuk akun baru yang belum pernah bertransaksi.
+  - Voucher mengikuti ketentuan kampanye.
+  - Satu akun hanya dapat memakai satu kode.
+faqs:
+  - q: Apakah voucher bisa digabung dengan promo toko?
+    a: Tergantung jenis voucher. Beberapa voucher bisa digabung, beberapa tidak. Cek keterangan di halaman checkout.
+  - q: Kenapa voucher tidak muncul?
+    a: Pastikan akun memenuhi syarat dan minimum belanja. Voucher yang kedaluwarsa juga tidak akan muncul di checkout.
+officialUrl: https://www.tokopedia.com/
+verificationNote: "Pratinjau: halaman program Tokopedia di https://www.tokopedia.com/ dibuka pada 2026-10-26 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi Tokopedia
+    url: https://www.tokopedia.com/
+  - label: Kementerian Komunikasi dan Digital
+    url: https://www.komdigi.go.id/
+updateLog:
+  - date: '2026-10-26'
+    note: Entri pratinjau Tokopedia dibuat dari https://www.tokopedia.com/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

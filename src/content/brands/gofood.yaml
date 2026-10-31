@@ -1,0 +1,32 @@
+name: GoFood
+category: food-delivery
+code: GOFOOD-C7W
+reward: Diskon pesanan
+checkedAt: '2026-10-26'
+summary: GoFood adalah layanan pesan antar makanan di aplikasi Gojek. Kode referal biasanya memberi diskon untuk pesanan pertama pengguna baru.
+steps:
+  - Daftar akun Gojek baru dengan nomor HP aktif.
+  - Masukkan kode GOFOOD-C7W di halaman referal.
+  - Pesan makanan sesuai minimum transaksi.
+terms:
+  - Berlaku untuk akun Gojek baru yang belum pernah memesan GoFood.
+  - Diskon mengikuti kampanye yang berlaku.
+  - Area layanan dan merchant ikut menentukan ketersediaan promo.
+faqs:
+  - q: Apakah diskon berlaku di semua merchant?
+    a: Tidak. Promo biasanya berlaku di merchant tertentu. Cek label promo di halaman restoran.
+  - q: Bisakah kode dipakai berulang?
+    a: Kode referal untuk pengguna baru hanya dapat dipakai sekali per akun.
+officialUrl: https://www.gojek.com/id/food/
+verificationNote: "Pratinjau: halaman program GoFood di https://www.gojek.com/id/food/ dibuka pada 2026-10-26 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi GoFood
+    url: https://www.gojek.com/id/food/
+  - label: Kementerian Komunikasi dan Digital
+    url: https://www.komdigi.go.id/
+updateLog:
+  - date: '2026-10-26'
+    note: Entri pratinjau GoFood dibuat dari https://www.gojek.com/id/food/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

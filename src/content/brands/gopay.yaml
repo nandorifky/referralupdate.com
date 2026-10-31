@@ -1,0 +1,32 @@
+name: GoPay
+category: e-wallet
+code: GOPAY-A8N
+reward: Saldo dan poin
+checkedAt: '2026-10-28'
+summary: GoPay dipakai untuk pembayaran di Gojek dan merchant yang menerima QRIS. Program referal umumnya memberi saldo atau poin untuk akun baru yang melakukan transaksi pertama.
+steps:
+  - Daftar akun Gojek baru dengan nomor HP aktif.
+  - Masukkan kode GOPAY-A8N di halaman pendaftaran atau menu referal.
+  - Lakukan transaksi pertama sesuai syarat program.
+terms:
+  - Berlaku untuk akun Gojek baru yang belum pernah memakai GoPay.
+  - Bonus saldo mengikuti kampanye yang berlaku.
+  - Satu nomor HP hanya dapat memakai satu kode referal.
+faqs:
+  - q: Bisakah kode dipakai di GoFood?
+    a: Kode referal GoPay berlaku untuk akun baru. Untuk pesanan GoFood, cek juga promo merchant yang tersedia di aplikasi.
+  - q: Kenapa bonus belum masuk?
+    a: Pastikan transaksi pertama sudah selesai dan memenuhi minimum. Bonus biasanya masuk setelah periode validasi program.
+officialUrl: https://www.gojek.com/id/gopay/
+verificationNote: "Pratinjau: halaman program GoPay di https://www.gojek.com/id/gopay/ dibuka pada 2026-10-28 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi GoPay
+    url: https://www.gojek.com/id/gopay/
+  - label: Otoritas Jasa Keuangan (OJK)
+    url: https://www.ojk.go.id/
+updateLog:
+  - date: '2026-10-28'
+    note: Entri pratinjau GoPay dibuat dari https://www.gojek.com/id/gopay/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

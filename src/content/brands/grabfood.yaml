@@ -1,0 +1,32 @@
+name: GrabFood
+category: food-delivery
+code: GRABFOOD-S5A
+reward: Diskon pesanan
+checkedAt: '2026-10-24'
+summary: GrabFood adalah layanan pesan antar makanan di aplikasi Grab. Program referal biasanya memberi diskon untuk pengguna baru yang memesan pertama kali.
+steps:
+  - Daftar akun Grab baru dengan nomor HP aktif.
+  - Masukkan kode GRABFOOD-S5A di halaman referal.
+  - Pesan makanan sesuai syarat kampanye.
+terms:
+  - Berlaku untuk akun Grab baru yang belum pernah memesan GrabFood.
+  - Diskon mengikuti ketentuan kampanye.
+  - Biaya pengiriman dan pajak dihitung sesuai lokasi.
+faqs:
+  - q: Apakah diskon termasuk ongkir?
+    a: Tergantung kampanye. Beberapa promo hanya memotong harga makanan, bukan biaya pengiriman.
+  - q: Kenapa promo tidak muncul di checkout?
+    a: Cek area layanan, minimum pesanan, dan merchant. Promo yang tidak memenuhi syarat tidak akan muncul.
+officialUrl: https://www.grab.com/id/food/
+verificationNote: "Pratinjau: halaman program GrabFood di https://www.grab.com/id/food/ dibuka pada 2026-10-24 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi GrabFood
+    url: https://www.grab.com/id/food/
+  - label: Kementerian Komunikasi dan Digital
+    url: https://www.komdigi.go.id/
+updateLog:
+  - date: '2026-10-24'
+    note: Entri pratinjau GrabFood dibuat dari https://www.grab.com/id/food/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori

@@ -1,0 +1,32 @@
+name: Shopee
+category: e-commerce
+code: SHOPEE-L9V
+reward: Koin atau voucher
+checkedAt: '2026-10-25'
+summary: Shopee adalah marketplace dengan promo harian dan program afiliasi. Kode referal pengguna baru biasanya memberi koin atau voucher untuk belanja pertama.
+steps:
+  - Daftar akun Shopee baru dengan nomor HP atau email.
+  - Masukkan kode SHOPEE-L9V saat diminta kode referal.
+  - Selesaikan pembelian pertama sesuai syarat.
+terms:
+  - Berlaku untuk pengguna baru yang belum pernah bertransaksi.
+  - Koin dan voucher mengikuti kampanye yang berlaku.
+  - Satu akun hanya dapat memakai satu kode.
+faqs:
+  - q: Apakah koin bisa dipakai semua produk?
+    a: Tidak. Koin biasanya hanya bisa dipakai pada produk dan toko yang mendukung. Cek saat checkout.
+  - q: Bisa memakai kode setelah checkout?
+    a: Kode referal diisi saat pendaftaran. Untuk potongan belanja, gunakan voucher yang tersedia di halaman checkout.
+officialUrl: https://shopee.co.id/
+verificationNote: "Pratinjau: halaman program Shopee di https://shopee.co.id/ dibuka pada 2026-10-25 untuk mencatat bonus, langkah, dan syarat. Kode masih contoh dan belum diuji ke program berjalan."
+sources:
+  - label: Situs resmi Shopee
+    url: https://shopee.co.id/
+  - label: Kementerian Komunikasi dan Digital
+    url: https://www.komdigi.go.id/
+updateLog:
+  - date: '2026-10-25'
+    note: Entri pratinjau Shopee dibuat dari https://shopee.co.id/; kode belum diuji.
+author:
+  name: Tim editorial KodeReferral
+  role: Editor direktori
