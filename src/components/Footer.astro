@@ -7,7 +7,7 @@ import { photoCredits, site } from '../data/site';
   <div class="container site-footer__grid">
     <div class="site-footer__mark">
       <Brand size="footer" />
-      <p>Direktori independen kode referral untuk layanan di Indonesia.</p>
+      <p>{site.tagline}</p>
     </div>
     <nav class="site-footer__links" aria-label="Navigasi footer">
       {site.footer.map((item) => <a href={item.href}>{item.label}</a>)}

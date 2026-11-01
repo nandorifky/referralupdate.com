@@ -24,6 +24,7 @@ export const defaultOgImage: OgImage = {
 
 export const site = {
   name: 'Referral Update',
+  tagline: 'Pasti Cuan Maksimal!',
   title: 'Direktori kode referral Indonesia',
   description:
     'Cari kode referral aplikasi dan layanan digital di Indonesia. Lihat bonus, syarat, status, dan tanggal cek sebelum mendaftar.',
