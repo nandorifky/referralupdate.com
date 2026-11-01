@@ -4,7 +4,7 @@ import { satteri } from '@astrojs/markdown-satteri';
 import articleSections from './src/lib/article-sections.mjs';
 
 export default defineConfig({
-  site: 'https://kode-referral.example',
+  site: 'https://referralupdate.com',
   output: 'static',
   build: { format: 'directory' },
   markdown: { processor: satteri({ hastPlugins: [articleSections] }) },

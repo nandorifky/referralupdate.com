@@ -3,15 +3,19 @@ category: hiburan
 code: '1831553'
 reward: Poin undangan
 status: unverified
-rewardReferee: Pengguna baru mendapat poin undangan; halaman resmi tidak mencantumkan nominal poin dan besarannya dapat berbeda antar kampanye.
-rewardReferrer: Pengundang juga mendapat poin undangan sesuai ketentuan aplikasi; nominal tidak dicantumkan di halaman resmi Novelah.
+rewardReferee: Pengguna baru mendapat poin undangan. Halaman resmi tidak menyebut nominal poin, dan besarannya bisa berbeda di setiap kampanye.
+rewardReferrer: Pengundang juga mendapat poin undangan sesuai ketentuan aplikasi. Nominalnya tidak dicantumkan di halaman resmi Novelah.
 payoutNote: Poin dari membaca, check-in, tugas, game, undian, dan undangan ditukar hadiah di menu rewards. Halaman resmi tidak mencantumkan kurs poin atau jadwal pencairan tetap.
 eligibility:
   - Akun baru yang mengunduh Novelah dari Google Play atau App Store.
   - Kode 1831553 dimasukkan di kolom invitation code saat pendaftaran.
-  - Tautan undangan berada di domain run.app; unduh aplikasi hanya dari toko resmi.
+  - Tautan undangan memakai domain run.app; unduh aplikasi hanya dari toko resmi.
 checkedAt: '2026-10-31'
-summary: Novelah adalah aplikasi baca fiksi dan novel dari Fameink. Aplikasi ini memberi poin dari membaca harian, check-in, tugas, dan undangan teman; poin dapat ditukar hadiah sesuai ketentuan yang berlaku di aplikasi.
+summary: Novelah adalah aplikasi baca fiksi dan novel dari Fameink. Aplikasi ini memberi poin dari membaca harian, check-in, tugas, dan undangan teman, lalu poin bisa ditukar hadiah sesuai ketentuan di aplikasi.
+seo:
+  title: 'Kode referral Novelah 2026: poin undangan'
+  description: 'Kode 1831553 untuk akun Novelah baru: poin undangan ditukar hadiah di menu rewards. Masih belum terverifikasi karena nominal poin tidak dicantumkan.'
+  h1: 'Kode referral Novelah: poin dari membaca dan undangan.'
 steps:
   - Unduh Novelah dari Google Play atau App Store, lalu buat akun baru.
   - Buka halaman undangan atau isi kode 1831553 pada kolom invitation code saat diminta.
@@ -19,25 +23,25 @@ steps:
   - Tukar poin di menu rewards sesuai hadiah yang tersedia.
 terms:
   - Poin dikumpulkan dari membaca harian, check-in, tugas, game, undian, dan undangan teman.
-  - Poin dapat ditukar hadiah sesuai ketentuan yang berlaku di aplikasi.
-  - Tautan undangan pada entri ini memakai domain run.app di luar novelah.net, jadi unduh aplikasi hanya dari toko resmi.
-  - Nominal poin undangan dapat berubah dan tidak dijamin oleh halaman resmi Novelah.
+  - Poin bisa ditukar hadiah sesuai ketentuan yang berlaku di aplikasi.
+  - Tautan undangan memakai domain run.app di luar novelah.net, jadi unduh aplikasi hanya dari toko resmi.
+  - Nominal poin undangan bisa berubah dan tidak dijamin oleh halaman resmi Novelah.
 faqs:
-  - q: Berapa poin yang didapat dari kode undangan Novelah?
-    a: Halaman resmi Novelah tidak mencantumkan nominal poin untuk setiap kode undangan. Besaran hadiah dapat berbeda antar kampanye, jadi cek layar konfirmasi di aplikasi sebelum menyelesaikan pendaftaran.
+  - q: Berapa poin dari kode undangan Novelah?
+    a: Halaman resmi Novelah tidak mencantumkan nominal poin untuk setiap kode undangan. Besaran hadiah bisa berbeda di setiap kampanye, jadi cek layar konfirmasi di aplikasi sebelum menyelesaikan pendaftaran.
     intent: bonus
   - q: Apakah tautan undangan Novelah aman?
-    a: Tautan undangan pada entri ini memakai domain run.app, bukan novelah.net, sehingga status resminya tidak bisa kami pastikan. Unduh aplikasi hanya dari Google Play atau App Store, lalu masukkan kode 1831553 secara manual.
+    a: Tautan undangan memakai domain run.app, bukan novelah.net, jadi status resminya tidak bisa kami pastikan. Unduh aplikasi hanya dari Google Play atau App Store, lalu masukkan kode 1831553 secara manual.
     intent: keamanan
   - q: Bagaimana poin Novelah ditukar hadiah?
-    a: Poin dikumpulkan dari membaca harian, check-in, tugas, game, undian, dan undangan teman, lalu ditukar di menu rewards aplikasi. Halaman resmi tidak mencantumkan kurs poin atau jadwal pencairan tetap, jadi ikuti ketentuan di aplikasi.
+    a: Poin dikumpulkan dari membaca harian, check-in, tugas, game, undian, dan undangan teman, lalu ditukar di menu rewards. Halaman resmi tidak mencantumkan kurs poin atau jadwal pencairan tetap, jadi ikuti ketentuan di aplikasi.
     intent: pencairan
   - q: Apa syarat memakai kode undangan Novelah?
-    a: Kode berlaku untuk akun baru yang mengunduh Novelah dari Google Play atau App Store dan mengisi 1831553 pada kolom invitation code saat diminta. Tautan undangan di entri ini memakai domain run.app di luar situs resmi, jadi unduh aplikasi hanya dari toko resmi.
+    a: Kode berlaku untuk akun baru yang mengunduh Novelah dari Google Play atau App Store dan mengisi 1831553 pada kolom invitation code. Karena tautan undangan memakai domain run.app, unduh aplikasi hanya dari toko resmi.
     intent: syarat
 officialUrl: https://novelah.net/
 referralUrl: https://novelshare-fey3ybur3q-an.a.run.app/dfnow.html?shareDate=20261031&ggc=1831553%257C3%257C1%257C559&t=1
-verificationNote: Halaman Google Play Novelah yang diperbarui 25 Agustus 2026 dan situs novelah.net dibuka pada 31 Oktober 2026 untuk mencatat cara mendapat dan menukar poin. Tautan undangan pengguna berada di domain run.app di luar novelah.net dan pendaftaran uji tidak dilakukan.
+verificationNote: Halaman Google Play Novelah yang diperbarui 25 Agustus 2026 dan situs novelah.net dibuka pada 31 Oktober 2026 untuk mencatat cara mendapat dan menukar poin. Tautan undangan berada di domain run.app di luar novelah.net. Kami tidak mendaftar untuk mencoba kode ini.
 sources:
   - label: Novelah di Google Play
     url: https://play.google.com/store/apps/details?id=com.novel.novelah
@@ -47,5 +51,5 @@ updateLog:
   - date: '2026-10-31'
     note: Entri Novelah ditulis dari halaman toko aplikasi dan situs resmi; kode dan tautan berasal dari pemilik situs.
 author:
-  name: Tim editorial KodeReferral
+  name: Tim editorial Referral Update
   role: Editor direktori

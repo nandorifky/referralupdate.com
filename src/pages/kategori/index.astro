@@ -4,10 +4,11 @@ import { categories } from '../../data/categories';
 import { breadcrumbLd } from '../../data/site';
 import { brandsInCategory, categoriesWithBrands, getBrands } from '../../lib/content';
 import { categoryHref, indexableCategories } from '../../lib/policy';
+import { categoryIndexOgCard } from '../../lib/og';
 
 const brands = await getBrands();
 const activeCategories = categoriesWithBrands(brands);
-const origin = Astro.site ?? new URL('https://kode-referral.example');
+const origin = Astro.site ?? new URL('https://referralupdate.com');
 const robots = indexableCategories(categories, brands).length > 0 ? 'index' : 'noindex';
 const jsonLd = [
   breadcrumbLd(
@@ -19,7 +20,7 @@ const jsonLd = [
   ),
   {
     '@type': 'CollectionPage',
-    name: 'Kategori kode referral',
+    name: 'Kode referral per kategori',
     url: new URL('/kategori/', origin).toString(),
     inLanguage: 'id',
   },
@@ -27,10 +28,11 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Kategori kode referral"
-  description="Kode referral menurut kategori layanan, lengkap dengan tanggal cek dan syarat masing-masing brand."
+  title="Kode referral per kategori"
+  description="Cari kode referral berdasarkan kategori: e-wallet, bank digital, investasi, bisnis, dan hiburan. Lengkap dengan syarat dan tanggal cek."
   jsonLd={jsonLd}
   robots={robots}
+  image={categoryIndexOgCard(brands)}
 >
   <section class="page-head">
     <div class="container">
@@ -41,8 +43,8 @@ const jsonLd = [
         </ol>
       </nav>
       <div class="page-head__body">
-        <h1>Kategori kode referral.</h1>
-        <p class="lead">Pilih jenis layanan yang kamu pakai, lalu bandingkan syarat dan tanggal ceknya.</p>
+        <h1>Kode referral per kategori.</h1>
+        <p class="lead">Pilih jenis layanan, lalu lihat kode, bonus, syarat, dan tanggal cek.</p>
       </div>
     </div>
   </section>

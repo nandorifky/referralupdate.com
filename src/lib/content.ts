@@ -55,8 +55,27 @@ export async function getArticle(slug: string) {
   return (await getArticles()).find((article) => article.slug === slug);
 }
 
+const statusRank: Record<Brand['status'], number> = {
+  active: 0,
+  unverified: 1,
+  expired: 2,
+};
+const categoryRank = new Map(categories.map((category, index) => [category.slug, index]));
+
 export function sortBrandsByChecked(brands: Brand[]) {
-  return [...brands].sort((a, b) => b.checkedAt.localeCompare(a.checkedAt));
+  return [...brands].sort(
+    (a, b) =>
+      b.checkedAt.localeCompare(a.checkedAt) ||
+      statusRank[a.status] - statusRank[b.status] ||
+      (categoryRank.get(a.category) ?? 99) - (categoryRank.get(b.category) ?? 99) ||
+      a.name.localeCompare(b.name, 'id'),
+  );
+}
+
+export function sortArticlesByUpdated(articles: Article[]) {
+  return [...articles].sort(
+    (a, b) => b.updated.localeCompare(a.updated) || a.title.localeCompare(b.title, 'id'),
+  );
 }
 
 export function brandsInCategory(brands: Brand[], slug: string) {

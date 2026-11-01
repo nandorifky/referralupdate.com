@@ -33,7 +33,7 @@ export function isCategoryIndexable(category: Category, brands: Brand[]) {
     (brand) => brand.category === category.slug && isBrandIndexable(brand),
   );
   const paragraphs = category.intro.split(/\n\s*\n/).filter((paragraph) => paragraph.trim());
-  return listed.length >= 4 && category.intro.length >= 300 && paragraphs.length >= 2;
+  return listed.length >= 2 && category.intro.length >= 300 && paragraphs.length >= 2;
 }
 
 export function indexableCategories(categories: Category[], brands: Brand[]) {
@@ -96,8 +96,24 @@ export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
     brands.map((brand) => ({ slug: brand.slug, value: brand.verificationNote })),
   );
   duplicates('code', brands.map((brand) => ({ slug: brand.slug, value: brand.code })));
+  duplicates(
+    'seo.title',
+    brands.map((brand) => ({ slug: brand.slug, value: brand.seo.title })),
+  );
+  duplicates(
+    'seo.description',
+    brands.map((brand) => ({ slug: brand.slug, value: brand.seo.description })),
+  );
+  duplicates('seo.h1', brands.map((brand) => ({ slug: brand.slug, value: brand.seo.h1 })));
 
   for (const brand of brands) {
+    const name = brand.name.toLowerCase();
+    if (!brand.seo.title.toLowerCase().includes(name)) {
+      problems.push(`${brand.slug}: seo.title harus memuat nama brand`);
+    }
+    if (!brand.seo.h1.toLowerCase().includes(name)) {
+      problems.push(`${brand.slug}: seo.h1 harus memuat nama brand`);
+    }
     if (!(categorySlugs as readonly string[]).includes(brand.category)) {
       problems.push(`${brand.slug}: kategori "${brand.category}" tidak dikenal`);
     }

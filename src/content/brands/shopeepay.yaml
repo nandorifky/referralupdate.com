@@ -3,42 +3,46 @@ category: e-wallet
 code: JL3D5DYVW
 reward: Bonus saldo undang teman
 status: active
-rewardReferee: Teman yang mendaftar akun ShopeePay baru memakai kode mendapat bonus saldo setelah aktivasi ShopeePay Plus sesuai kampanye.
-rewardReferrer: Pengundang juga mendapat bonus saldo dari kampanye Undang Teman; nominal mengikuti kampanye yang tampil di aplikasi.
-payoutNote: Bonus umumnya dicairkan setelah teman menyelesaikan upgrade ShopeePay Plus dan syarat kampanye. Cek status di menu Undang Teman; halaman resmi tidak mencantumkan nominal kampanye terbaru.
+rewardReferee: Teman baru mendapat bonus saldo setelah mendaftar akun ShopeePay memakai kode dan mengaktifkan ShopeePay Plus sesuai kampanye.
+rewardReferrer: Pengundang mendapat bonus saldo dari kampanye Undang Teman. Nominalnya mengikuti penawaran yang tampil di aplikasi ShopeePay.
+payoutNote: Bonus biasanya masuk setelah teman menyelesaikan aktivasi ShopeePay Plus dan semua syarat kampanye. Cek status di menu Undang Teman. Halaman resmi tidak menyebut nominal kampanye terbaru.
 eligibility:
-  - Teman harus pengguna baru yang mengunduh dan mendaftar akun ShopeePay.
-  - Kode dimasukkan saat pendaftaran akun baru, sebelum akun diaktifkan.
-  - Syarat kampanye termasuk aktivasi ShopeePay Plus harus terpenuhi.
+  - Teman harus pengguna baru yang mengunduh dan membuat akun ShopeePay.
+  - Kode dimasukkan saat pendaftaran, sebelum akun diaktifkan.
+  - Syarat kampanye, termasuk aktivasi ShopeePay Plus, harus terpenuhi.
 checkedAt: '2026-10-31'
-summary: ShopeePay adalah dompet digital dari ekosistem Shopee. Program Undang Teman memberi bonus saldo kepada pengundang dan teman yang mendaftar memakai kode referral lalu mengaktifkan ShopeePay Plus sesuai syarat kampanye.
+summary: ShopeePay adalah dompet digital dari Shopee. Lewat program Undang Teman, pengundang dan teman baru sama-sama mendapat bonus saldo setelah kode referral dipakai dan ShopeePay Plus diaktifkan sesuai syarat kampanye.
+seo:
+  title: 'Kode referral ShopeePay 2026: bonus saldo'
+  description: 'Kode JL3D5DYVW untuk teman yang baru membuat akun ShopeePay: bonus saldo setelah kode dipakai dan ShopeePay Plus diaktifkan sesuai syarat kampanye.'
+  h1: 'Kode referral ShopeePay lewat program Undang Teman.'
 steps:
   - Buka aplikasi ShopeePay, masuk ke menu Undang Teman, lalu salin kode JL3D5DYVW atau tautan undangan.
-  - Minta teman mengunduh ShopeePay, mendaftar akun baru, dan memasukkan kode referral sebelum aktivasi.
-  - Pastikan teman menyelesaikan upgrade ShopeePay Plus karena bonus umumnya dicairkan setelah syarat ini.
-  - Cek status undangan dan bonus di menu Undang Teman setelah teman menyelesaikan langkahnya.
+  - Minta teman mengunduh ShopeePay, membuat akun baru, dan memasukkan kode sebelum akun diaktifkan.
+  - Pastikan teman mengaktifkan ShopeePay Plus, karena bonus biasanya cair setelah langkah ini selesai.
+  - Cek status undangan dan bonus di menu Undang Teman setelah teman menyelesaikan semua langkah.
 terms:
-  - Berlaku untuk teman yang baru mengunduh dan mendaftar akun ShopeePay.
-  - Pengundang dan teman perlu memenuhi syarat kampanye, termasuk aktivasi ShopeePay Plus.
-  - Nominal bonus mengikuti kampanye yang sedang berjalan di aplikasi ShopeePay.
-  - Syarat dan masa kampanye dapat berubah; cek halaman Undang Teman di aplikasi.
+  - Hanya untuk teman yang baru mengunduh dan membuat akun ShopeePay.
+  - Pengundang dan teman harus memenuhi syarat kampanye, termasuk aktivasi ShopeePay Plus.
+  - Nominal bonus mengikuti kampanye yang sedang berjalan di aplikasi.
+  - Syarat dan masa kampanye bisa berubah, jadi cek menu Undang Teman sebelum mengundang.
 faqs:
-  - q: Apakah bonus langsung masuk setelah kode dimasukkan?
-    a: Belum tentu. Mengacu blog resmi ShopeePay, bonus diberikan setelah teman menyelesaikan langkah program, termasuk upgrade ke ShopeePay Plus. Cek status di menu Undang Teman.
-    intent: pencairan
-  - q: Di mana kode referral ShopeePay dimasukkan?
-    a: Kode dimasukkan saat teman mendaftar akun ShopeePay baru, sebelum akun diaktifkan. Kode yang sama juga bisa dibagikan lewat tautan undangan dari menu Undang Teman.
-    intent: cara-pakai
-  - q: Berapa bonus saldo undang teman ShopeePay?
-    a: Halaman resmi ShopeePay tidak mencantumkan nominal kampanye terbaru karena besarannya hanya terlihat di aplikasi. Blog resmi menyebut bonus koin pada kampanye tertentu, jadi cek menu Undang Teman sebelum mengundang.
+  - q: Berapa bonus undang teman ShopeePay?
+    a: Halaman resmi ShopeePay tidak mencantumkan nominal kampanye terbaru. Besaran bonus hanya terlihat di aplikasi, jadi buka menu Undang Teman untuk melihat penawaran yang berlaku sebelum mengundang teman.
     intent: bonus
-  - q: Siapa yang berhak mendapat bonus ShopeePay?
-    a: Program berlaku untuk teman yang baru mengunduh dan mendaftar akun ShopeePay, memasukkan kode sebelum aktivasi, lalu menyelesaikan syarat kampanye termasuk upgrade ShopeePay Plus. Akun lama tidak termasuk.
+  - q: Di mana kode referral ShopeePay dimasukkan?
+    a: Kode dimasukkan saat teman membuat akun ShopeePay baru, sebelum akun diaktifkan. Kode yang sama bisa dibagikan lewat tautan undangan dari menu Undang Teman di aplikasi.
+    intent: cara-pakai
+  - q: Kapan bonus ShopeePay cair?
+    a: Bonus biasanya cair setelah teman menyelesaikan aktivasi ShopeePay Plus dan syarat kampanye lain. Statusnya bisa dicek di menu Undang Teman. Halaman resmi tidak menjanjikan waktu cair yang sama untuk setiap akun.
+    intent: pencairan
+  - q: Siapa yang bisa ikut program Undang Teman ShopeePay?
+    a: Program berlaku untuk teman yang baru mengunduh ShopeePay, membuat akun, memasukkan kode sebelum aktivasi, lalu menyelesaikan syarat kampanye termasuk ShopeePay Plus. Akun lama tidak termasuk.
     intent: syarat
 officialUrl: https://shopeepay.co.id/
 programUrl: https://shopeepay.co.id/blog/baru-undang-teman-dan-raih-bonus-10-000-koin-dengan-program-referral-aplikasi-shopeepay
 referralUrl: https://pay.u.shopee.co.id/JsJstim
-verificationNote: Artikel program Undang Teman di blog resmi ShopeePay bertanggal 22 Desember 2024; artikel itu dan halaman produk ShopeePay dibuka pada 31 Oktober 2026. Nominal kampanye terbaru hanya terlihat di aplikasi, jadi entri ini tidak menjanjikan bonus tertentu dan pendaftaran uji tidak dilakukan.
+verificationNote: Blog resmi ShopeePay tentang program Undang Teman dan halaman produk ShopeePay dibuka pada 31 Oktober 2026. Nominal kampanye terbaru hanya terlihat di aplikasi, jadi entri ini tidak menjanjikan bonus tertentu. Kami tidak mendaftar untuk mencoba kode ini.
 sources:
   - label: Blog Undang Teman ShopeePay
     url: https://shopeepay.co.id/blog/baru-undang-teman-dan-raih-bonus-10-000-koin-dengan-program-referral-aplikasi-shopeepay
@@ -48,5 +52,5 @@ updateLog:
   - date: '2026-10-31'
     note: Entri ShopeePay ditulis dari blog program Undang Teman; kode dan tautan berasal dari pemilik situs.
 author:
-  name: Tim editorial KodeReferral
+  name: Tim editorial Referral Update
   role: Editor direktori

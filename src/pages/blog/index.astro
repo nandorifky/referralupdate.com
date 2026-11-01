@@ -1,12 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { blogCategoryName } from '../../data/blog-categories';
 import { breadcrumbLd, formatIdDate, photos } from '../../data/site';
 import { getArticles } from '../../lib/content';
 import { isBlogIndexable } from '../../lib/policy';
+import { blogIndexOgCard } from '../../lib/og';
 
 const articles = (await getArticles()).sort((a, b) => b.updated.localeCompare(a.updated));
-const origin = Astro.site ?? new URL('https://kode-referral.example');
+const origin = Astro.site ?? new URL('https://referralupdate.com');
 const robots = isBlogIndexable(articles) ? 'index' : 'noindex';
 const blogCategories = [...new Set(articles.map((article) => article.category))].map((slug) => {
   const items = articles.filter((article) => article.category === slug);
@@ -39,8 +41,8 @@ const jsonLd = [
   ),
   {
     '@type': 'CollectionPage',
-    name: 'Blog KodeReferral',
-    description: 'Panduan tentang kode referral, keamanan, dan cara mencairkan bonus.',
+    name: 'Blog Referral Update',
+    description: 'Panduan kode referral: pengertian, beda dengan kode promo, keamanan, dan cara klaim bonus.',
     url: new URL('/blog/', origin).toString(),
     inLanguage: 'id',
   },
@@ -58,10 +60,11 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Blog"
-  description="Panduan kode referral: cara kerja, perbedaan dengan kode promo, keamanan, dan cara mencairkan bonus."
+  title="Blog kode referral: panduan dan cara pakai"
+  description="Panduan kode referral: pengertian, beda dengan kode promo, keamanan, dan cara klaim bonus. Ditulis dengan sumber resmi."
   jsonLd={jsonLd}
   robots={robots}
+  image={blogIndexOgCard(articles)}
 >
   <section class="page-head">
     <div class="container">
@@ -72,8 +75,8 @@ const jsonLd = [
         </ol>
       </nav>
       <div class="page-head__body">
-        <h1>Arsip catatan.</h1>
-        <p class="lead">Semua tulisan soal syarat, keamanan, dan bonus, diurutkan dari yang terbaru.</p>
+        <h1>Panduan kode referral.</h1>
+        <p class="lead">Artikel tentang pengertian, cara pakai, keamanan, dan bonus referral.</p>
       </div>
     </div>
   </section>
@@ -82,36 +85,28 @@ const jsonLd = [
     <div class="container archive__grid">
       <aside class="archive__aside">
         <p class="archive__count">
-          {articles.length} catatan di {blogCategories.length} kategori. Terakhir diperbarui{' '}
-          {formatIdDate(articles[0].updated)}.
+          {articles.length} artikel di {blogCategories.length} kategori. Terakhir diperbarui{' '}
+          <time datetime={articles[0].updated}>{formatIdDate(articles[0].updated)}</time>.
         </p>
         <figure>
-          <div class="slot slot--4x5" data-slot="blog" data-alt={photos.blog.alt}>
-            <img
-              src={photos.blog.src}
-              alt={photos.blog.alt}
-              width="1920"
-              height="1280"
-              style={`object-position: ${photos.blog.position}`}
-              loading="lazy"
-              decoding="async"
-            />
+          <div class="slot slot--4x5">
+            <ResponsivePhoto photo={photos.blog} sizes="(max-width: 60rem) 92vw, 26vw" />
           </div>
-          <figcaption class="caption">Kami menulis soal syarat yang tertulis, bukan janji di kolom komentar.</figcaption>
+          <figcaption class="caption">Setiap artikel memakai sumber resmi, bukan rangkuman forum.</figcaption>
         </figure>
         <div class="archive__cats">
           <p class="aside-title">Kategori</p>
           <ul class="archive__cat-list">
             {blogCategories.map((category) => (
-              <li><span>{category.name}</span><span>{category.count} tulisan</span></li>
+              <li><span>{category.name}</span><span>{category.count} artikel</span></li>
             ))}
           </ul>
         </div>
-        <p class="source-line">Semua tulisan memakai sumber resmi. <a class="text-link" href="/metodologi-verifikasi/">Baca metodologi</a>.</p>
+        <p class="source-line">Semua artikel memakai sumber resmi. <a class="text-link" href="/metodologi-verifikasi/">Baca cara pengecekan</a>.</p>
       </aside>
 
       <div class="archive__main">
-        <h2 class="visually-hidden">Semua catatan</h2>
+        <h2 class="visually-hidden">Semua artikel</h2>
         {years.map((group) => (
           <section class="archive-year" aria-labelledby={`tahun-${group.year}`}>
             <h2 class="archive-year__label" id={`tahun-${group.year}`}>{group.year}</h2>

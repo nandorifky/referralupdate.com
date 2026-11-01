@@ -25,21 +25,21 @@ export const categories: Category[] = [
   {
     slug: 'e-wallet',
     name: 'E-wallet',
-    line: 'Saldo dan poin.',
+    line: 'Bayar dan transfer.',
     description:
-      'Dipakai untuk bayar, kirim uang, dan isi ulang. Bonus biasanya berupa saldo atau poin.',
+      'Dipakai untuk bayar QRIS, kirim uang, dan isi ulang. Bonus biasanya berupa saldo atau poin.',
     intro:
-      'Dompet digital dipakai untuk bayar QRIS, transfer, dan isi ulang. Sebelum memakai kode referral, pastikan aplikasinya menerima metode pembayaran yang kamu pakai dan cek apakah bonus berupa saldo yang bisa ditarik atau poin yang hanya berlaku di merchant tertentu.\n\nJebakan yang sering muncul adalah bonus kecil dengan syarat transaksi besar, masa berlaku pendek, atau akun harus di-upgrade lebih dulu. Cocokkan syarat itu dengan kebiasaan harianmu; kode dengan bonus besar tidak berguna kalau layanannya tidak kamu pakai.',
+      'Dompet digital dipakai untuk bayar QRIS, transfer, dan isi ulang. Sebelum memakai kode referral, cek apakah aplikasinya menerima metode pembayaran yang kamu pakai. Lihat juga apakah bonus berupa saldo yang bisa ditarik atau poin yang hanya berlaku di merchant tertentu.\n\nPerhatikan syarat transaksi, masa berlaku bonus, dan kewajiban upgrade akun. Kode dengan bonus besar belum tentu cocok kalau kamu jarang memakai layanannya. Pilih kode yang syaratnya bisa kamu penuhi dengan pemakaian normal.',
     editorialUpdated: '2026-10-30',
   },
   {
     slug: 'bank-digital',
     name: 'Bank digital',
-    line: 'Bunga dan bonus.',
+    line: 'Rekening tanpa cabang.',
     description:
       'Rekening tanpa cabang dengan bonus setelah rekening aktif dan setoran awal.',
     intro:
-      'Bank digital memberi bonus setelah rekening aktif dan ada setoran awal. Perhatikan biaya admin, batas transfer, dan apakah bonus masuk ke rekening utama atau terkunci di kantong tabungan. Rekening yang tidak aktif dalam periode tertentu bisa kehilangan bonus.\n\nJebakan umumnya ada pada setoran minimum dan verifikasi identitas. Siapkan KTP dan rekening atas nama sendiri, lalu baca apakah saldo harus ditahan atau cukup satu transaksi. Bandingkan juga bunga yang berlaku, karena angka promo sering berubah setelah kampanye selesai.',
+      'Bank digital membuka rekening lewat aplikasi tanpa datang ke cabang. Bonus referral biasanya diberikan setelah rekening aktif dan ada setoran awal. Cek biaya admin, batas transfer, dan apakah bonus masuk ke rekening utama atau terkunci di kantong tabungan.\n\nSiapkan KTP dan rekening atas nama sendiri untuk verifikasi. Baca juga apakah saldo harus ditahan beberapa hari atau cukup satu transaksi. Bunga dan bonus promo bisa berubah setelah kampanye selesai, jadi bandingkan syaratnya, bukan hanya nominal bonus.',
     editorialUpdated: '2026-10-30',
   },
   {
@@ -47,19 +47,19 @@ export const categories: Category[] = [
     name: 'Investasi',
     line: 'Reksa dana, emas, saham.',
     description:
-      'Aplikasi reksa dana, emas, dan saham. Bonus masuk setelah transaksi pertama.',
+      'Aplikasi reksa dana, emas, dan saham. Bonus biasanya masuk setelah transaksi pertama.',
     intro:
-      'Kode referral investasi biasanya memberi bonus reksa dana, emas, atau saham setelah transaksi pertama. Pilih aplikasi yang izinnya bisa dicek di OJK, lalu pastikan produk yang kamu beli sesuai profil risiko, bukan sekadar mengejar bonus.\n\nJebakan yang perlu diwaspadai: bonus dengan masa tahan, biaya jual yang menggerus keuntungan, dan syarat transaksi yang memaksa kamu membeli aset berisiko. Bonus tidak pernah menghapus risiko investasi; pakai dana yang memang siap diinvestasikan.',
+      'Aplikasi investasi memakai kode referral untuk memberi bonus reksa dana, emas, atau saham setelah transaksi pertama. Pilih aplikasi yang izinnya bisa dicek di OJK, lalu pastikan produk yang kamu beli sesuai profil risiko. Jangan membeli aset berisiko hanya karena bonusnya.\n\nPerhatikan masa tahan bonus, biaya jual, dan syarat transaksi. Bonus tidak menghapus risiko investasi. Pakai dana yang memang siap diinvestasikan dan baca prospektus atau penjelasan produk sebelum membeli.',
     editorialUpdated: '2026-10-30',
   },
   {
     slug: 'e-commerce',
     name: 'E-commerce',
-    line: 'Voucher dan koin.',
+    line: 'Voucher belanja.',
     description:
       'Marketplace untuk belanja harian. Bonus berupa voucher, koin, atau potongan ongkir.',
     intro:
-      'Marketplace memberi voucher, koin, atau potongan ongkir untuk pembeli baru. Sebelum memakai kode, cek minimum belanja, kategori produk yang ikut promo, dan apakah voucher bisa digabung dengan diskon toko.\n\nJebakan paling sering adalah voucher yang hanya berlaku untuk produk tertentu atau kedaluwarsa cepat. Hitung total akhir di checkout, bukan hanya nilai voucher, lalu pastikan ongkir dan biaya layanan tidak menghapus potongannya.',
+      'Marketplace memberi voucher, koin, atau potongan ongkir untuk pembeli baru. Sebelum memakai kode referral atau kode promo, cek minimum belanja, kategori produk yang ikut promo, dan apakah voucher bisa digabung dengan diskon toko.\n\nHitung total akhir di checkout, bukan hanya nilai voucher. Ongkir dan biaya layanan bisa menghapus potongannya. Pastikan juga kamu memang butuh produk yang dibeli, karena belanja tambahan sering membuat pengeluaran lebih besar daripada bonus yang didapat.',
     editorialUpdated: '2026-10-30',
   },
   {
@@ -69,7 +69,7 @@ export const categories: Category[] = [
     description:
       'Tiket dan hotel dengan potongan untuk pemesanan pertama. Cek aturan pembatalan.',
     intro:
-      'Kode travel biasanya memotong tiket, hotel, atau paket perjalanan untuk pemesanan pertama. Perhatikan produk yang ikut promo, tanggal perjalanan yang berlaku, dan aturan pembatalan sebelum membayar.\n\nJebakan yang sering muncul adalah potongan kecil dengan minimum transaksi besar, biaya ubah jadwal, atau promo yang tidak berlaku saat musim liburan. Bandingkan harga akhir di beberapa tanggal sebelum memutuskan, dan simpan bukti pemesanan jika bonus tidak masuk.',
+      'Kode travel biasanya memotong harga tiket, hotel, atau paket perjalanan untuk pemesanan pertama. Perhatikan produk yang ikut promo, tanggal perjalanan yang berlaku, dan aturan pembatalan sebelum membayar.\n\nBandingkan harga akhir di beberapa tanggal. Biaya ubah jadwal dan promo musim liburan bisa membuat potongan kecil tidak terasa. Simpan bukti pemesanan supaya mudah ditanyakan ke dukungan resmi kalau bonus tidak masuk.',
     editorialUpdated: '2026-10-30',
   },
   {
@@ -79,7 +79,7 @@ export const categories: Category[] = [
     description:
       'Diskon pesanan untuk akun baru. Cek area layanan dan minimum pesanan sebelum memakai kode.',
     intro:
-      'Diskon food delivery berlaku untuk pesanan pertama di merchant tertentu. Cek area layanan, minimum pesanan, biaya pengiriman, dan apakah diskon memotong harga makanan atau hanya ongkir.\n\nJebakan umumnya ada pada promo yang tidak berlaku di semua restoran dan biaya layanan yang tetap dihitung. Pesan dari merchant yang benar-benar kamu inginkan, bukan sekadar mengejar diskon yang akhirnya membuat total pesanan lebih mahal.',
+      'Diskon food delivery berlaku untuk pesanan pertama di merchant tertentu. Cek area layanan, minimum pesanan, biaya pengiriman, dan apakah diskon memotong harga makanan atau hanya ongkir.\n\nPilih restoran yang memang ingin kamu pesan. Biaya layanan dan ongkir tetap dihitung, jadi total pesanan bisa lebih mahal meskipun ada diskon. Bandingkan total akhir sebelum checkout.',
     editorialUpdated: '2026-10-30',
   },
   {
@@ -89,17 +89,17 @@ export const categories: Category[] = [
     description:
       'Aplikasi kerja seperti desain dan catatan memberi kredit atau diskon langganan untuk akun baru.',
     intro:
-      'Kode referral aplikasi kerja memberi kredit, diskon langganan, atau masa uji tambahan. Cocokkan paket dengan kebutuhan tim, lalu cek apakah kredit melekat pada akun atau bisa dipakai bersama.\n\nJebakan yang perlu dibaca: perpanjangan otomatis, harga setelah masa promo, dan batas jumlah pengguna. Berhenti berlangganan sebelum tanggal perpanjangan jika kredit sudah habis dan paket tidak lagi dipakai.',
+      'Kode referral aplikasi kerja memberi kredit, diskon langganan, atau masa uji tambahan. Cocokkan paket dengan kebutuhan tim, lalu cek apakah kredit melekat pada satu akun atau bisa dipakai bersama.\n\nBaca harga setelah masa promo dan aturan perpanjangan otomatis. Berhenti berlangganan sebelum tanggal perpanjangan kalau kredit sudah habis dan paket tidak lagi dipakai. Jangan memilih paket tahunan hanya karena diskonnya lebih besar.',
     editorialUpdated: '2026-10-30',
   },
   {
     slug: 'bisnis',
     name: 'Bisnis & UMKM',
-    line: 'Kasir dan komisi.',
+    line: 'Pembayaran usaha.',
     description:
       'Layanan pembayaran dan kasir untuk usaha kecil. Bonus biasanya berupa komisi atau potongan biaya.',
     intro:
-      'Aplikasi bisnis dipakai untuk menerima pembayaran, mencatat penjualan, dan mengatur kas usaha kecil. Program referalnya umumnya memberi komisi per transaksi merchant yang bergabung, bukan bonus tunai sekali masuk, sehingga nilainya bergantung pada aktivitas usaha yang diundang.\n\nJebakan yang perlu dibaca: syarat verifikasi dokumen usaha, biaya transaksi setelah masa promo, dan jangka waktu komisi. Jangan mendaftarkan usaha orang lain tanpa izin, dan pastikan pencairan komisi punya rekening atas nama pemilik usaha yang sama.',
+      'Aplikasi bisnis dipakai untuk menerima pembayaran, mencatat penjualan, dan mengatur kas usaha kecil. Program referalnya biasanya memberi komisi per merchant yang bergabung, bukan bonus tunai sekali masuk. Nilai komisi bergantung pada aktivitas usaha yang diundang.\n\nPerhatikan syarat verifikasi dokumen usaha, biaya transaksi setelah masa promo, dan jangka waktu komisi. Mendaftarkan usaha orang lain tanpa izin bisa menimbulkan masalah. Pastikan rekening pencairan komisi memakai nama pemilik usaha yang sama.',
     editorialUpdated: '2026-10-31',
   },
   {
@@ -109,7 +109,7 @@ export const categories: Category[] = [
     description:
       'Aplikasi hiburan dan bacaan memberi poin untuk akun baru. Cek cara tukar poin dan masa berlakunya.',
     intro:
-      'Aplikasi hiburan dan bacaan memakai poin sebagai imbalan membaca, check-in, atau mengundang teman. Poin biasanya baru bernilai setelah ditukar ke hadiah atau saldo, dan kurs tukarnya bisa berubah mengikuti ketentuan aplikasi.\n\nJebakan yang sering muncul adalah poin dengan masa berlaku pendek, syarat tukar yang tinggi, atau tautan undangan yang disebar di luar domain resmi. Sebelum mengundang orang lain, pastikan tautan berasal dari aplikasi resmi dan baca ketentuan penukaran poin.',
+      'Aplikasi hiburan dan bacaan memberi poin untuk membaca, check-in, atau mengundang teman. Poin biasanya baru bernilai setelah ditukar ke hadiah atau saldo. Kurs tukarnya bisa berubah mengikuti ketentuan aplikasi.\n\nCek masa berlaku poin dan syarat penukaran sebelum mengumpulkan banyak poin. Untuk tautan undangan, pastikan domainnya sesuai dengan situs resmi aplikasi. Unduh aplikasi hanya dari Google Play atau App Store.',
     editorialUpdated: '2026-10-31',
   },
 ];

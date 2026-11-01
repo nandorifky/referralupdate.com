@@ -12,12 +12,12 @@ const category = getCategory(brand.category);
 const shortDate = formatIdDateShort(brand.checkedAt);
 const isExpired = brand.status === 'expired';
 const statusLabel = {
-  active: 'Aktif, belum diuji',
+  active: 'Aktif',
   unverified: 'Belum terverifikasi',
   expired: 'Program berakhir',
 }[brand.status];
 const refereeReward =
-  brand.rewardReferee ?? 'Halaman resmi tidak mencantumkan bonus untuk pendaftar.';
+  brand.rewardReferee ?? 'Halaman resmi tidak menyebut bonus untuk pendaftar.';
 ---
 
 <aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
@@ -37,7 +37,7 @@ const refereeReward =
     </span>
     {isExpired && (
       <span class="code-card__expired">
-        Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}. Tautan referral tidak lagi ditampilkan.
+        Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}. Tautan pendaftaran tidak ditampilkan.
       </span>
     )}
   </p>
@@ -52,13 +52,13 @@ const refereeReward =
             rel="sponsored nofollow noopener noreferrer"
             target="_blank"
           >
-            Buka tautan referral
+            Buka tautan pendaftaran
           </a>
         )}
         <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
       </div>
       {!brand.referralUrl && (
-        <p class="code-card__note">Belum ada tautan referral publik. Masukkan kode ini saat mendaftar.</p>
+        <p class="code-card__note">Belum ada tautan pendaftaran publik. Masukkan kode ini saat daftar.</p>
       )}
     </>
   )}

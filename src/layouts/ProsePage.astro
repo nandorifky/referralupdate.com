@@ -10,7 +10,7 @@ type Props = {
 };
 
 const { title, description, lead, path } = Astro.props;
-const origin = Astro.site ?? new URL('https://kode-referral.example');
+const origin = Astro.site ?? new URL('https://referralupdate.com');
 const jsonLd = breadcrumbLd(
   [
     { name: 'Beranda', path: '/' },

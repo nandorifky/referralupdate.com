@@ -1,10 +1,13 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Toc from '../../components/Toc.astro';
+import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { blogCategoryName } from '../../data/blog-categories';
-import { breadcrumbLd, formatIdDate, photos } from '../../data/site';
+import { breadcrumbLd, formatIdDate, photos, site } from '../../data/site';
 import { getArticles, getBrands, type Article } from '../../lib/content';
 import { isArticleIndexable } from '../../lib/policy';
+import { articleOgCard } from '../../lib/og';
 
 export async function getStaticPaths() {
   const articles = await getArticles();
@@ -20,9 +23,20 @@ const brands = await getBrands();
 const relatedBrands = brands.filter((brand) => article.relatedBrands.includes(brand.slug));
 const otherArticles = articles.filter((item) => item.slug !== article.slug).slice(0, 2);
 const categoryName = blogCategoryName(article.category);
-const { Content } = await render(article.entry);
+const { Content, headings } = await render(article.entry);
 const robots = isArticleIndexable(article) ? 'index' : 'noindex';
-const origin = Astro.site ?? new URL('https://kode-referral.example');
+const origin = Astro.site ?? new URL('https://referralupdate.com');
+const published = article.published ?? article.updated;
+const publishedIso = new Date(`${published}T00:00:00+07:00`).toISOString();
+const updatedIso = new Date(`${article.updated}T00:00:00+07:00`).toISOString();
+const imageUrl = new URL(articleOgCard(article).path, origin).toString();
+const toc = [
+  ...headings
+    .filter((heading) => heading.depth === 2)
+    .map((heading) => ({ href: `#${heading.slug}`, label: heading.text })),
+  { href: '#sumber', label: 'Sumber' },
+];
+const tags = [categoryName, ...relatedBrands.map((brand) => brand.name)];
 
 const jsonLd = [
   breadcrumbLd(
@@ -37,14 +51,24 @@ const jsonLd = [
     '@type': 'BlogPosting',
     headline: article.title,
     description: article.excerpt,
-    datePublished: article.updated,
+    datePublished: published,
     dateModified: article.updated,
+    image: imageUrl,
     inLanguage: 'id',
     articleSection: categoryName,
+    keywords: tags.join(', '),
     url: new URL(`/blog/${article.slug}/`, origin).toString(),
     mainEntityOfPage: new URL(`/blog/${article.slug}/`, origin).toString(),
-    author: { '@type': 'Organization', name: article.author.name },
-    publisher: { '@type': 'Organization', name: 'KodeReferral' },
+    author: {
+      '@type': 'Person',
+      name: article.author.name,
+      jobTitle: article.author.role,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      logo: { '@type': 'ImageObject', url: new URL('/brand-mark.svg', origin).toString() },
+    },
     citation: article.sources.map((source) => source.url),
   },
 ];
@@ -55,7 +79,13 @@ const jsonLd = [
   description={article.excerpt}
   ogType="article"
   robots={robots}
+  image={articleOgCard(article)}
   jsonLd={jsonLd}
+  publishedTime={publishedIso}
+  modifiedTime={updatedIso}
+  section={categoryName}
+  tags={tags}
+  author={article.author.name}
 >
   <article>
     <section class="article-head">
@@ -80,7 +110,7 @@ const jsonLd = [
             </div>
             <div>
               <dt>Diperbarui</dt>
-              <dd>{formatIdDate(article.updated)}</dd>
+              <dd><time datetime={article.updated}>{formatIdDate(article.updated)}</time></dd>
             </div>
             <div>
               <dt>Penulis</dt>
@@ -90,19 +120,10 @@ const jsonLd = [
         </div>
 
         <figure class="article-figure">
-          <div class="slot slot--wide" data-slot="article" data-alt={photos.article.alt}>
-            <img
-              src={photos.article.src}
-              alt={photos.article.alt}
-              width="1920"
-              height="1280"
-              style={`object-position: ${photos.article.position}`}
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+          <div class="slot slot--wide">
+            <ResponsivePhoto photo={photos.article} sizes="(max-width: 60rem) 92vw, 72rem" eager />
           </div>
-          <figcaption class="caption">Catatan ini bersumber dari halaman resmi, bukan rekap forum.</figcaption>
+          <figcaption class="caption">Artikel ini memakai sumber resmi, bukan rangkuman forum.</figcaption>
         </figure>
       </div>
     </section>
@@ -110,10 +131,11 @@ const jsonLd = [
     <section class="article-body">
       <div class="container">
         <div class="article-body__inner">
+          <Toc items={toc} />
           <Content />
 
           <div class="article-sources">
-            <h2>Sumber</h2>
+            <h2 id="sumber">Sumber</h2>
             <ul>
               {article.sources.map((source) => (
                 <li>
@@ -121,12 +143,13 @@ const jsonLd = [
                 </li>
               ))}
             </ul>
-            <p><a class="text-link" href="/metodologi-verifikasi/">Baca metodologi verifikasi</a>.</p>
+            <p><a class="text-link" href="/metodologi-verifikasi/">Baca cara kami mengecek kode</a>.</p>
           </div>
 
           <p class="author-box">
-            oleh {article.author.name}, {article.author.role}. Diperbarui {formatIdDate(article.updated)}.
-            Koreksi lewat halaman kontak.
+            oleh {article.author.name}, {article.author.role}. Diperbarui{' '}
+            <time datetime={article.updated}>{formatIdDate(article.updated)}</time>. Koreksi lewat
+            halaman kontak.
           </p>
         </div>
       </div>
@@ -138,7 +161,7 @@ const jsonLd = [
       {relatedBrands.length > 0 && (
         <div class="article-cta field">
           <div class="container">
-            <h2>Kode untuk brand di artikel ini.</h2>
+            <h2>Kode referral brand yang dibahas.</h2>
             <div class="cta-grid">
               {relatedBrands.map((brand) => (
                 <a class="cta-item" href={`/kode-referral/${brand.slug}/`}>
@@ -155,8 +178,8 @@ const jsonLd = [
         <div class="related-articles">
           <div class="container">
             <div class="section-head">
-              <h2>Baca juga.</h2>
-              <p>Tulisan lain dengan sumber yang sama-sama terbuka.</p>
+              <h2>Panduan lain.</h2>
+              <p>Panduan lain dengan sumber resmi.</p>
             </div>
             <div class="blog-list">
               {otherArticles.map((item) => (
@@ -166,8 +189,8 @@ const jsonLd = [
                 </a>
               ))}
               <a class="blog-row" href="/blog/">
-                <h3>Semua tulisan</h3>
-                <p>Arsip blog</p>
+                <h3>Semua artikel</h3>
+                <p>Daftar panduan kode referral</p>
               </a>
             </div>
           </div>

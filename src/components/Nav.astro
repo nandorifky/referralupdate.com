@@ -1,4 +1,5 @@
 ---
+import Brand from './Brand.astro';
 import { PREVIEW, site } from '../data/site';
 
 const path = Astro.url.pathname;
@@ -21,7 +22,7 @@ const items = site.nav.map((item, index) => ({
   </div>
   <div class="masthead__main">
     <div class="container masthead__main-inner">
-      <a class="masthead__mark" href="/" aria-label="KodeReferral, beranda">KodeReferral<span aria-hidden="true">.</span></a>
+      <Brand />
       <nav class="masthead__nav" aria-label="Navigasi utama">
         {items.map((item) => (
           <a class="masthead__link" href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
@@ -34,7 +35,7 @@ const items = site.nav.map((item, index) => ({
         <summary>Menu</summary>
         <div class="masthead__panel">
           <div class="masthead__panel-top">
-            <p class="masthead__panel-mark">KodeReferral<span aria-hidden="true">.</span></p>
+            <Brand size="panel" />
             <button class="masthead__panel-close" type="button" data-menu-close>Tutup</button>
           </div>
           <nav class="masthead__panel-nav" aria-label="Navigasi menu">

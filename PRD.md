@@ -5,7 +5,7 @@
 | Versi | 1.3 (Draft untuk review) |
 | Tanggal | 31 Oktober 2026 |
 | Pemilik | Product |
-| Nama kerja | KodeReferral (nama final TBD) |
+| Nama | Referral Update (referralupdate.com) |
 | Model produk | Direktori publik kode referral + blog editorial |
 | Pasar | Indonesia, Bahasa Indonesia |
 | Monetisasi | Affiliate + iklan display, sponsored listing/konten sebagai fase lanjutan |
@@ -20,7 +20,7 @@
 
 ## 1. Ringkasan Produk
 
-KodeReferral adalah direktori independen yang membantu orang Indonesia menemukan **kode referral yang masih aktif** untuk aplikasi dan layanan populer — mulai dari e-wallet, bank digital, investasi, e-commerce, travel, sampai SaaS. Setiap kode ditampilkan bersama besaran bonus, syarat ringkas, cara pakai, status verifikasi, dan tanggal terakhir dicek.
+Referral Update adalah direktori independen yang membantu orang Indonesia menemukan **kode referral yang masih aktif** untuk aplikasi dan layanan populer — mulai dari e-wallet, bank digital, investasi, e-commerce, travel, sampai SaaS. Setiap kode ditampilkan bersama besaran bonus, syarat ringkas, cara pakai, status verifikasi, dan tanggal terakhir dicek.
 
 Situs berdiri di atas dua pilar:
 
@@ -1027,7 +1027,7 @@ Catatan: domain tetap berbayar. Cloudflare Images tidak dipakai — optimasi gam
   },
   "publisher": {
     "@type": "Organization",
-    "name": "KodeReferral",
+    "name": "Referral Update",
     "logo": {
       "@type": "ImageObject",
       "url": "https://example.id/logo.png"
@@ -1064,7 +1064,7 @@ Catatan: domain tetap berbayar. Cloudflare Images tidak dipakai — optimasi gam
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "KodeReferral",
+  "name": "Referral Update",
   "url": "https://example.id/",
   "logo": "https://example.id/logo.png",
   "sameAs": [

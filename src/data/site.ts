@@ -1,24 +1,44 @@
+import type { ImageMetadata } from 'astro';
 import type { CategorySlug } from './categories';
 
-export const PREVIEW = true;
+import businesswomanSrc from '../assets/images/young-businesswoman-holding-her-smartphone-in-the-home-offic-1920.jpg';
+import screenPrintingSrc from '../assets/images/screen-printing-demonstration-1920.jpg';
+import woodTypeSrc from '../assets/images/wood-type-close-up-1920.jpg';
+import openBookSrc from '../assets/images/open-book-b-w-1920.jpg';
+import phonePaymentSrc from '../assets/images/mobile-payment-hand-1920.jpg';
+import cardTerminalSrc from '../assets/images/mobile-payment-1920.jpg';
+import goldBarsSrc from '../assets/images/gold-bars-1920.jpg';
+import cargoBikeSrc from '../assets/images/cargo-bike-parcels-1920.jpg';
+import airportHallSrc from '../assets/images/helsinki-airport-1920.jpg';
+import morningMarketSrc from '../assets/images/morning-market-1920.jpg';
+import deskWorkspaceSrc from '../assets/images/desk-workspace-1920.jpg';
+
+export const PREVIEW = false;
+
+export type OgImage = { path: string; alt: string };
+
+export const defaultOgImage: OgImage = {
+  path: '/open-graph/default.png',
+  alt: 'Kartu Referral Update: direktori independen kode referral Indonesia.',
+};
 
 export const site = {
-  name: 'KodeReferral',
-  title: 'Kode referral Indonesia yang dicek ulang',
+  name: 'Referral Update',
+  title: 'Direktori kode referral Indonesia',
   description:
-    'Cari kode referral untuk e-wallet, bank digital, investasi, hingga aplikasi bisnis dan hiburan. Lihat bonus, syarat, dan tanggal cek sebelum mendaftar.',
+    'Cari kode referral aplikasi dan layanan digital di Indonesia. Lihat bonus, syarat, status, dan tanggal cek sebelum mendaftar.',
   nav: [
     { label: 'Direktori', href: '/kode-referral/' },
     { label: 'Kategori', href: '/kategori/' },
     { label: 'Blog', href: '/blog/' },
-    { label: 'Metodologi', href: '/metodologi-verifikasi/' },
+    { label: 'Cara kami cek', href: '/metodologi-verifikasi/' },
   ],
   footer: [
     { label: 'Direktori', href: '/kode-referral/' },
     { label: 'Kategori', href: '/kategori/' },
     { label: 'Blog', href: '/blog/' },
-    { label: 'Metodologi', href: '/metodologi-verifikasi/' },
-    { label: 'Disclosure affiliate', href: '/disclosure-affiliate/' },
+    { label: 'Cara kami cek', href: '/metodologi-verifikasi/' },
+    { label: 'Tautan affiliate', href: '/disclosure-affiliate/' },
     { label: 'Privasi', href: '/privasi/' },
     { label: 'Tentang', href: '/tentang/' },
   ],
@@ -46,7 +66,7 @@ export function formatIdDateShort(iso: string) {
 }
 
 export type Photo = {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   position: string;
   author: string;
@@ -55,7 +75,7 @@ export type Photo = {
 };
 
 const businesswoman: Photo = {
-  src: '/images/young-businesswoman-holding-her-smartphone-in-the-home-offic-1920.jpg',
+  src: businesswomanSrc,
   alt: 'Perempuan muda memegang ponsel di meja kerjanya.',
   position: '60% 45%',
   author: 'Shixart1985',
@@ -65,7 +85,7 @@ const businesswoman: Photo = {
 };
 
 const screenPrinting: Photo = {
-  src: '/images/screen-printing-demonstration-1920.jpg',
+  src: screenPrintingSrc,
   alt: 'Tangan menarik rakel di atas layar sablon berwarna merah.',
   position: '50% 50%',
   author: 'Ahmad Ali Karim',
@@ -75,7 +95,7 @@ const screenPrinting: Photo = {
 };
 
 const woodType: Photo = {
-  src: '/images/wood-type-close-up-1920.jpg',
+  src: woodTypeSrc,
   alt: 'Blok huruf kayu letterpress tersusun terbalik.',
   position: '50% 50%',
   author: 'Adam Lusch',
@@ -84,7 +104,7 @@ const woodType: Photo = {
 };
 
 const openBook: Photo = {
-  src: '/images/open-book-b-w-1920.jpg',
+  src: openBookSrc,
   alt: 'Buku terbuka dengan halaman bertulisan.',
   position: '50% 60%',
   author: 'Bibliothek Wissenschaftspark Albert Einstein',
@@ -93,7 +113,7 @@ const openBook: Photo = {
 };
 
 const phonePayment: Photo = {
-  src: '/images/mobile-payment-hand-1920.jpg',
+  src: phonePaymentSrc,
   alt: 'Tangan memegang ponsel di dekat mesin pembaca kartu.',
   position: '50% 55%',
   author: 'Bogdan Hoyaux / European Commission',
@@ -102,7 +122,7 @@ const phonePayment: Photo = {
 };
 
 const cardTerminal: Photo = {
-  src: '/images/mobile-payment-1920.jpg',
+  src: cardTerminalSrc,
   alt: 'Mesin pembaca kartu dan ponsel di atas meja.',
   position: '50% 50%',
   author: 'European Commission',
@@ -111,7 +131,7 @@ const cardTerminal: Photo = {
 };
 
 const goldBars: Photo = {
-  src: '/images/gold-bars-1920.jpg',
+  src: goldBarsSrc,
   alt: 'Batangan emas berjajar dengan cap berat dan kadar.',
   position: '50% 55%',
   author: 'Chepry (Andrzej Barabasz)',
@@ -120,7 +140,7 @@ const goldBars: Photo = {
 };
 
 const cargoBike: Photo = {
-  src: '/images/cargo-bike-parcels-1920.jpg',
+  src: cargoBikeSrc,
   alt: 'Sepeda kargo memuat tumpukan paket di jalan kota.',
   position: '50% 55%',
   author: 'Alan',
@@ -129,7 +149,7 @@ const cargoBike: Photo = {
 };
 
 const airportHall: Photo = {
-  src: '/images/helsinki-airport-1920.jpg',
+  src: airportHallSrc,
   alt: 'Aula keberangkatan bandara dengan langit-langit melengkung.',
   position: '50% 45%',
   author: 'kallerna',
@@ -138,7 +158,7 @@ const airportHall: Photo = {
 };
 
 const morningMarket: Photo = {
-  src: '/images/morning-market-1920.jpg',
+  src: morningMarketSrc,
   alt: 'Pasar pagi dengan dagangan sayur yang ditata rapi.',
   position: '50% 45%',
   author: 'Touam (Hervé Agnoux)',
@@ -148,7 +168,7 @@ const morningMarket: Photo = {
 };
 
 const deskWorkspace: Photo = {
-  src: '/images/desk-workspace-1920.jpg',
+  src: deskWorkspaceSrc,
   alt: 'Laptop, cangkir kopi, dan tanaman di meja kerja.',
   position: '50% 50%',
   author: 'Shixart1985',

@@ -1,44 +1,48 @@
 name: Binance
 category: investasi
 code: GGBINANCE
-reward: Voucher rebat biaya trading
+reward: Voucher potongan biaya trading
 status: active
-rewardReferee: Voucher rebat biaya trading sekali pakai untuk Referral Lite; halaman resmi menyebut hingga 100 USD untuk pembelian pertama dan hingga 1.000 USD bila volume trading teman melewati 100 USD, tanpa jaminan nominal per akun.
-rewardReferrer: Komisi berkelanjutan dari biaya trading teman untuk Referral Pro; satu pengguna baru hanya boleh mengikuti satu mode referral.
-payoutNote: Voucher dan komisi mengikuti tugas kampanye yang tampil di akun. Cek halaman Rewards atau Referral untuk masa berlaku dan status hadiah; halaman resmi tidak mencantumkan tanggal pencairan tetap.
+rewardReferee: Voucher potongan biaya trading sekali pakai untuk Referral Lite. Halaman resmi menyebut hadiah sampai 100 USD untuk pembelian pertama dan sampai 1.000 USD kalau volume trading teman melewati 100 USD, tanpa jaminan nominal per akun.
+rewardReferrer: Komisi berkelanjutan dari biaya trading teman untuk Referral Pro. Satu pengguna baru hanya boleh memilih satu mode referral.
+payoutNote: Voucher dan komisi mengikuti tugas kampanye yang tampil di akun. Cek halaman Rewards atau Referral untuk masa berlaku dan status hadiah. Halaman resmi tidak menyebut tanggal pencairan tetap.
 eligibility:
-  - Pengguna baru; satu pengguna hanya boleh mengikuti satu mode referral, Lite atau Pro.
-  - Menyelesaikan verifikasi identitas bila diminta dan memenuhi tugas kampanye yang tampil di akun.
-  - Pembelian kripto dihitung bila lewat deposit tunai, kartu, atau P2P; transfer internal tidak dihitung.
+  - Pengguna baru; satu pengguna hanya boleh memilih satu mode referral, Lite atau Pro.
+  - Menyelesaikan verifikasi identitas kalau diminta dan memenuhi tugas kampanye di akun.
+  - Pembelian kripto dihitung kalau lewat deposit tunai, kartu, atau P2P. Transfer internal tidak dihitung.
 checkedAt: '2026-10-31'
-summary: Binance menjalankan program referral dengan dua mode. Referral Lite memberi voucher rebat biaya trading sekali pakai, sedangkan Referral Pro memberi komisi berkelanjutan dari biaya trading teman. Kode GGBINANCE dipakai saat mendaftar akun baru.
+summary: Binance punya dua mode program referral. Referral Lite memberi voucher potongan biaya trading sekali pakai, sedangkan Referral Pro memberi komisi berkelanjutan dari biaya trading teman. Kode GGBINANCE dipakai saat mendaftar akun baru.
+seo:
+  title: 'Kode referral Binance 2026: voucher trading'
+  description: 'Kode GGBINANCE untuk akun Binance baru: voucher potongan biaya trading lewat Referral Lite atau komisi berkelanjutan lewat Referral Pro.'
+  h1: 'Kode referral Binance: voucher atau komisi trading.'
 steps:
   - Unduh aplikasi Binance lewat tautan resmi atau buka binance.com, lalu pilih daftar akun baru.
   - Isi kode GGBINANCE di kolom Referral ID pada formulir pendaftaran sebelum akun dibuat.
-  - Selesaikan verifikasi identitas bila diminta dan penuhi tugas kampanye yang tampil di akunmu.
+  - Selesaikan verifikasi identitas kalau diminta dan penuhi tugas kampanye yang tampil di akunmu.
   - Cek halaman Rewards atau Referral untuk melihat voucher, masa berlaku, dan status hadiah.
 terms:
-  - Hanya pengguna baru; satu pengguna hanya boleh mengikuti satu mode referral.
-  - Voucher Referral Lite bersifat sekali pakai dan tidak memberi komisi berkelanjutan.
-  - Pembelian kripto dihitung bila lewat deposit tunai, kartu, atau P2P; transfer internal tidak dihitung.
+  - Hanya pengguna baru; satu pengguna hanya boleh memilih satu mode referral.
+  - Voucher Referral Lite hanya bisa dipakai sekali dan tidak memberi komisi berkelanjutan.
+  - Pembelian kripto dihitung kalau lewat deposit tunai, kartu, atau P2P; transfer internal tidak dihitung.
   - Nominal hadiah mengikuti tugas dan kampanye yang berlaku, bukan nilai tetap untuk setiap kode.
 faqs:
   - q: Apa beda Referral Lite dan Referral Pro di Binance?
-    a: Referral Lite memberi hadiah sekali pakai berupa voucher rebat biaya trading, sedangkan Referral Pro memberi komisi berkelanjutan dari biaya trading pengguna yang diundang. Satu pengguna baru hanya bisa mengikuti salah satunya.
+    a: Referral Lite memberi hadiah sekali pakai berupa voucher potongan biaya trading. Referral Pro memberi komisi berkelanjutan dari biaya trading pengguna yang diundang. Satu pengguna baru hanya bisa memilih salah satunya.
     intent: bonus
   - q: Apakah kode GGBINANCE menjamin bonus tertentu?
-    a: Tidak. Binance menyebut hadiah mengikuti tugas dan kampanye yang berlaku. Halaman resmi menyebut voucher rebat hingga 100 USD untuk pembelian pertama dan hingga 1.000 USD bila volume trading teman melewati 100 USD, tanpa jaminan nominal untuk setiap akun.
+    a: Tidak. Binance menyebut hadiah mengikuti tugas dan kampanye yang berlaku. Halaman resmi menyebut voucher sampai 100 USD untuk pembelian pertama dan sampai 1.000 USD kalau volume trading teman melewati 100 USD, tanpa jaminan nominal untuk setiap akun.
     intent: syarat
   - q: Kapan voucher atau komisi Binance masuk?
-    a: Binance meminta pengguna memantau halaman Rewards atau Referral untuk melihat status, masa berlaku, dan hadiah. Halaman resmi tidak mencantumkan tanggal pencairan tetap; nominal mengikuti tugas kampanye.
+    a: Binance meminta pengguna memantau halaman Rewards atau Referral untuk melihat status, masa berlaku, dan hadiah. Halaman resmi tidak menyebut tanggal pencairan tetap; nominal mengikuti tugas kampanye.
     intent: pencairan
   - q: Di mana kode GGBINANCE dimasukkan?
-    a: Isi kode GGBINANCE di kolom Referral ID pada formulir pendaftaran akun baru sebelum akun dibuat. Selesaikan verifikasi identitas bila diminta, lalu penuhi tugas kampanye yang tampil di akun.
+    a: Isi kode GGBINANCE di kolom Referral ID pada formulir pendaftaran akun baru. Selesaikan verifikasi identitas kalau diminta, lalu penuhi tugas kampanye yang tampil di akun.
     intent: cara-pakai
 officialUrl: https://www.binance.com/
 programUrl: https://www.binance.com/en/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d
 referralUrl: https://binance.onelink.me/y874/iddownload
-verificationNote: Halaman FAQ program referral Binance yang diperbarui 25 Maret 2026 dibuka pada 31 Oktober 2026 untuk mencatat mode, tugas, dan syarat hadiah. Pendaftaran uji tidak dilakukan; kode dan tautan berasal dari pemilik situs.
+verificationNote: Kami membuka FAQ program referral Binance yang diperbarui 25 Maret 2026 pada 31 Oktober 2026 untuk mencatat mode, tugas, dan syarat hadiah. Kami tidak mendaftar untuk mencoba kode ini; kode dan tautan berasal dari pemilik situs.
 sources:
   - label: Pengantar Program Referral Binance
     url: https://www.binance.com/en/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d
@@ -48,5 +52,5 @@ updateLog:
   - date: '2026-10-31'
     note: Entri Binance ditulis dari FAQ program referral resmi; kode dan tautan undangan berasal dari pemilik situs.
 author:
-  name: Tim editorial KodeReferral
+  name: Tim editorial Referral Update
   role: Editor direktori

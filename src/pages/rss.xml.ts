@@ -12,7 +12,7 @@ const escape = (value: string) =>
     .replace(/'/g, '&apos;');
 
 export const GET: APIRoute = async ({ site: configured }) => {
-  const origin = configured ?? new URL('https://kode-referral.example');
+  const origin = configured ?? new URL('https://referralupdate.com');
   const articles = (await getArticles()).filter(isArticleIndexable);
   const updated = articles[0]?.updated;
 

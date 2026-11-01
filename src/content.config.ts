@@ -41,6 +41,11 @@ const brands = defineCollection({
       eligibility: z.array(z.string().min(15)).min(2),
       checkedAt: z.iso.date(),
       summary: z.string().min(120),
+      seo: z.object({
+        title: z.string().min(20).max(45),
+        description: z.string().min(120).max(158),
+        h1: z.string().min(15).max(70),
+      }),
       steps: z.array(z.string().min(20)).min(3),
       terms: z.array(z.string().min(15)).min(3),
       faqs: z
@@ -93,6 +98,7 @@ const blog = defineCollection({
     title: z.string().min(10),
     excerpt: z.string().min(100),
     category: z.enum(blogCategorySlugs),
+    published: z.iso.date().optional(),
     updated: z.iso.date(),
     author: z.object({
       name: z.string().min(3),
