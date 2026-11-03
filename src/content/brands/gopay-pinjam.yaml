@@ -1,0 +1,151 @@
+name: GoPay Pinjam
+category: e-wallet
+
+image:
+  src: ../../assets/images/features/brands/kode-undangan-gopay-pinjam.webp
+  alt: 'Grafik kode undangan GoPay Pinjam QJHP4P dengan latar belakang terang.'
+  caption: 'Grafik kode undangan GoPay Pinjam QJHP4P, bukan tampilan resmi aplikasi.'
+  position: '50% 50%'
+
+code: QJHP4P
+reward: Bonus saldo GoPay Rp50.000 untuk pendaftar dan pengundang
+status: active
+
+validFrom: '2026-10-09'
+
+rewardReferee: >-
+  Bonus saldo GoPay Rp50.000 untuk pengguna baru yang mengaktifkan GoPay
+  Pinjam dengan kode undangan QJHP4P, disetujui, dan melakukan pencairan
+  pinjaman pertama. Hadiah dikirim paling lambat 24 jam setelah pencairan
+  pertama berhasil.
+
+rewardReferrer: >-
+  Bonus saldo GoPay Rp50.000 untuk pengundang setiap teman yang memakai
+  kode QJHP4P dan berhasil melakukan pencairan pinjaman pertama. Setiap
+  pengundang berhak menerima hadiah maksimal 20 kali.
+
+payoutNote: >-
+  Saldo bonus dikirim ke akun GoPay penerima paling lambat 24 jam setelah
+  pencairan pinjaman pertama disetujui. Pengundang hanya mendapat bonus
+  untuk teman yang benar-benar mencairkan pinjaman, bukan sekadar
+  mendaftar. Batas hadiah pengundang adalah 20 kali. Halaman resmi tidak
+  menyebut tanggal berakhir program.
+
+eligibility:
+  - Pengguna baru yang belum pernah mengaktifkan GoPay Pinjam atau menerima limit pinjaman.
+  - Kode undangan QJHP4P dimasukkan saat proses aktivasi GoPay Pinjam di aplikasi GoPay.
+  - Pengajuan pinjaman harus disetujui dan pencairan pertama harus berhasil.
+  - Akun GoPay harus aktif dan terverifikasi sesuai ketentuan GoPay Pinjam.
+  - Pengguna yang sudah pernah aktivasi atau punya limit GoPay Pinjam tidak memenuhi kriteria.
+
+checkedAt: '2026-11-03'
+
+summary: >-
+  Kode undangan GoPay Pinjam QJHP4P bisa dipakai saat aktivasi pinjaman pertama
+  di aplikasi GoPay. Pendaftar yang disetujui dan mencairkan pinjaman
+  pertama berhak atas bonus saldo GoPay Rp50.000, begitu juga pengundang
+  untuk setiap teman yang memenuhi syarat. Program ini hanya untuk
+  pengguna baru yang belum pernah mengaktifkan GoPay Pinjam. Bonus dikirim
+  maksimal 24 jam setelah pencairan pertama, dengan hadiah maksimal 20 kali
+  untuk pengundang. Kode undangan tidak menjamin pengajuan disetujui.
+  Pinjaman tetap punya bunga dan biaya, jadi jangan meminjam hanya demi
+  bonus.
+
+seo:
+  title: 'Kode Undangan GoPay Pinjam agar Di-ACC dan Dapat Rp50.000'
+  description: 'Gunakan kode undangan GoPay Pinjam QJHP4P untuk bonus saldo Rp50.000 setelah pinjaman pertama cair. Cek syarat ACC, cara pakai, dan risikonya.'
+  h1: 'Kode Undangan GoPay Pinjam Terbaru.'
+
+steps:
+  - Buka aplikasi GoPay, masuk ke halaman GoPay Pinjam, lalu pilih menu Undang Teman.
+  - Masukkan kode undangan QJHP4P pada kolom kode referral saat aktivasi, lalu klik Lanjut.
+  - Lengkapi data diri, ajukan aktivasi GoPay Pinjam, dan tunggu persetujuan limit.
+  - Setelah disetujui, ajukan pencairan pinjaman pertama sesuai kebutuhan dan kemampuan bayar.
+  - Cek saldo GoPay paling lambat 24 jam setelah pencairan pertama untuk memastikan bonus masuk.
+
+terms:
+  - Program berlaku untuk pengguna baru GoPay Pinjam yang belum pernah aktivasi dan belum punya limit.
+  - Bonus pendaftar Rp50.000 diberikan setelah pengajuan disetujui dan pencairan pinjaman pertama berhasil.
+  - Bonus pengundang Rp50.000 diberikan untuk setiap teman yang memenuhi syarat, maksimal 20 kali.
+  - Hadiah saldo GoPay dikirim paling lambat 24 jam setelah pencairan pertama.
+  - GoPay Pinjam berhak membatalkan promo jika ada indikasi penyalahgunaan atau kecurangan.
+  - Syarat dan ketentuan dapat berubah atau dihentikan tanpa pemberitahuan sebelumnya.
+  - Pinjaman memiliki bunga, biaya, dan risiko gagal bayar; bonus tidak menghapus kewajiban tersebut.
+
+faqs:
+  - q: Berapa bonus dari kode undangan GoPay Pinjam QJHP4P?
+    a: >-
+      Pendaftar yang menggunakan kode QJHP4P, disetujui, dan mencairkan
+      pinjaman pertama berhak atas saldo GoPay Rp50.000. Pengundang juga
+      mendapat Rp50.000 untuk setiap teman yang memenuhi syarat, dengan
+      batas maksimal 20 hadiah. Bonus dikirim paling lambat 24 jam setelah
+      pencairan pertama.
+    intent: bonus
+  - q: Apa syarat agar kode undangan GoPay Pinjam di-ACC?
+    a: >-
+      Kamu harus merupakan pengguna baru yang belum pernah mengaktifkan
+      GoPay Pinjam, memasukkan kode QJHP4P saat aktivasi, dan menyelesaikan
+      proses pengajuan hingga disetujui. Kode undangan tidak menjamin
+      persetujuan; keputusan tetap mengikuti penilaian GoPay Pinjam
+      terhadap data dan kemampuan bayar kamu.
+    intent: syarat
+  - q: Kapan bonus saldo GoPay Pinjam masuk?
+    a: >-
+      Bonus dikirim paling lambat 24 jam setelah pencairan pinjaman pertama
+      berhasil. Cek saldo GoPay secara berkala. Kalau bonus belum masuk
+      setelah batas waktu tersebut, hubungi layanan resmi GoPay melalui
+      aplikasi atau situs gopay.co.id, bukan pihak yang mengirim kode.
+    intent: pencairan
+  - q: Sampai kapan program undang teman GoPay Pinjam berlaku?
+    a: >-
+      Halaman resmi GoPay tidak mencantumkan tanggal berakhir program.
+      Informasi di halaman ini diperiksa pada 3 November 2026. GoPay Pinjam
+      dapat mengubah syarat atau menghentikan promosi sewaktu-waktu, jadi
+      cek kembali halaman resmi sebelum mengajukan pinjaman.
+    intent: masa-berlaku
+  - q: Bagaimana cara memakai kode undangan QJHP4P?
+    a: >-
+      Buka aplikasi GoPay, masuk ke GoPay Pinjam, lalu pilih menu Undang
+      Teman atau Aktivasi. Masukkan QJHP4P pada kolom kode referral,
+      lengkapi data diri, dan kirim pengajuan. Setelah disetujui, lakukan
+      pencairan pinjaman pertama untuk memenuhi syarat bonus.
+    intent: cara-pakai
+  - q: Apakah aman memakai kode undangan GoPay Pinjam?
+    a: >-
+      Gunakan kode hanya melalui aplikasi resmi GoPay. Kode undangan bukan
+      PIN, kata sandi, atau OTP, jadi jangan pernah membagikan kode
+      verifikasi kepada siapa pun. Ingat juga bahwa pinjaman menimbulkan
+      kewajiban bayar beserta bunga dan biaya; jangan meminjam hanya untuk
+      mengejar bonus saldo.
+    intent: keamanan
+
+officialUrl: https://gopay.co.id/pinjam
+programUrl: https://gopay.co.id/blog/undang-teman-pakai-gopay-pinjam
+
+verificationNote: >-
+  Informasi diperiksa pada 3 November 2026 dari blog resmi GoPay tentang
+  Undang Teman GoPay Pinjam dan halaman produk GoPay Pinjam. Halaman resmi
+  menyebut bonus Rp50.000 untuk pendaftar dan pengundang, dengan syarat
+  aktivasi, persetujuan, dan pencairan pinjaman pertama. Bagian FAQ resmi
+  menyebut bonus pendaftar setelah aktivasi; kami mengikuti mekanisme yang
+  mensyaratkan pencairan pertama. Tanggal mulai diisi 9 Oktober 2026
+  mengikuti tanggal publikasi blog resmi, sedangkan tanggal berakhir tidak
+  dicantumkan. Kode undangan QJHP4P berasal dari data internal tim
+  editorial, dan kami tidak melakukan pendaftaran atau pencairan percobaan.
+
+sources:
+  - label: Blog Resmi GoPay - Undang Teman Pakai GoPay Pinjam
+    url: https://gopay.co.id/blog/undang-teman-pakai-gopay-pinjam
+  - label: Halaman Produk GoPay Pinjam
+    url: https://gopay.co.id/pinjam
+
+updateLog:
+  - date: '2026-11-03'
+    note: >-
+      Entri awal GoPay Pinjam dibuat dari blog resmi Undang Teman dan
+      halaman produk GoPay. Kode undangan QJHP4P, bonus Rp50.000, dan
+      tanggal mulai 9 Oktober 2026 dicatat sesuai sumber resmi.
+
+author:
+  name: Notiska
+  role: Tim Editorial
