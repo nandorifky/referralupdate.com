@@ -26,10 +26,23 @@ const realUrl = z.url().refine((value) => {
 
 const brands = defineCollection({
   loader: yamlCollection('./src/content/brands'),
-  schema: z
-    .object({
-      name: z.string().min(2),
-      category: z.enum(categorySlugs),
+  schema: ({ image }) =>
+    z
+      .object({
+        name: z.string().min(2),
+        category: z.enum(categorySlugs),
+        image: z.object({
+          src: image(),
+          alt: z.string().min(20).max(160),
+          caption: z.string().min(20).max(200),
+          position: z
+            .string()
+            .regex(/^\d{1,3}% \d{1,3}%$/)
+            .default('50% 50%'),
+          author: z.string().min(1).optional(),
+          license: z.string().min(1).optional(),
+          source: z.url().optional(),
+        }),
       code: z.string().min(4),
       reward: z.string().min(3),
       status: z.enum(['active', 'unverified', 'expired']),
@@ -42,7 +55,7 @@ const brands = defineCollection({
       checkedAt: z.iso.date(),
       summary: z.string().min(120),
       seo: z.object({
-        title: z.string().min(20).max(45),
+        title: z.string().min(20).max(75),
         description: z.string().min(120).max(158),
         h1: z.string().min(15).max(70),
       }),
@@ -94,19 +107,32 @@ const brands = defineCollection({
 
 const blog = defineCollection({
   loader: glob({ pattern: '*.mdx', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string().min(10),
-    excerpt: z.string().min(100),
-    category: z.enum(blogCategorySlugs),
-    published: z.iso.date().optional(),
-    updated: z.iso.date(),
-    author: z.object({
-      name: z.string().min(3),
-      role: z.string().min(3),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(10),
+      excerpt: z.string().min(100),
+      category: z.enum(blogCategorySlugs),
+      published: z.iso.date().optional(),
+      updated: z.iso.date(),
+      image: z.object({
+        src: image(),
+        alt: z.string().min(20).max(160),
+        caption: z.string().min(20).max(200),
+        position: z
+          .string()
+          .regex(/^\d{1,3}% \d{1,3}%$/)
+          .default('50% 50%'),
+        author: z.string().min(1).optional(),
+        license: z.string().min(1).optional(),
+        source: z.url().optional(),
+      }),
+      author: z.object({
+        name: z.string().min(3),
+        role: z.string().min(3),
+      }),
+      sources: z.array(source).min(1),
+      relatedBrands: z.array(z.string()).default([]),
     }),
-    sources: z.array(source).min(1),
-    relatedBrands: z.array(z.string()).default([]),
-  }),
 });
 
 export const collections = { brands, blog };

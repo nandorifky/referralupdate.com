@@ -1,9 +1,9 @@
 ---
 import { Picture } from 'astro:assets';
-import type { Photo } from '../data/site';
+import type { PhotoFrame } from '../data/site';
 
 type Props = {
-  photo: Photo;
+  photo: PhotoFrame;
   sizes: string;
   widths?: number[];
   eager?: boolean;
@@ -13,7 +13,7 @@ type Props = {
 const {
   photo,
   sizes,
-  widths = [640, 960, 1280, 1920],
+  widths = [480, 640, 960, 1280, 1920],
   eager = false,
   quality = 68,
 } = Astro.props;

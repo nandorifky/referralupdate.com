@@ -24,12 +24,13 @@ export function yamlCollection(base: string): Loader {
           throw new Error(`Entry ${base}/${file} must be a YAML object.`);
         }
         const id = basename(file, '.yaml');
+        const filePath = relative(fileURLToPath(config.root), fileURLToPath(fileUrl));
         const data = await parseData({
           id,
           data: raw as Record<string, unknown>,
-          filePath: relative(fileURLToPath(config.root), fileURLToPath(fileUrl)),
+          filePath,
         });
-        store.set({ id, data, digest: generateDigest(contents) });
+        store.set({ id, data, filePath, digest: generateDigest(contents) });
       }
 
       const files = (await readdir(dirPath)).filter((file) => file.endsWith('.yaml')).sort();

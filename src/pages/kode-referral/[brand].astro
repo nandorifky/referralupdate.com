@@ -1,10 +1,11 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CodeCard from '../../components/CodeCard.astro';
 import Toc from '../../components/Toc.astro';
 import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { getCategory } from '../../data/categories';
-import { breadcrumbLd, brandPhotos, formatIdDate } from '../../data/site';
+import { breadcrumbLd, formatIdDate } from '../../data/site';
 import { brandsInCategory, getArticles, getBrands, type Brand } from '../../lib/content';
 import { categoryHref, isBrandIndexable } from '../../lib/policy';
 import { brandOgCard } from '../../lib/og';
@@ -18,10 +19,15 @@ const { brand } = Astro.props as { brand: Brand };
 const brands = await getBrands();
 const articles = await getArticles();
 const category = getCategory(brand.category)!;
-const categoryPhoto = brandPhotos[brand.category];
 const categoryPath = categoryHref(category, brands);
 const robots = isBrandIndexable(brand) ? 'index' : 'noindex';
 const origin = Astro.site ?? new URL('https://referralupdate.com');
+const coverImage = await getImage({
+  src: brand.image.src,
+  width: 1280,
+  format: 'jpg',
+  quality: 80,
+});
 const siblings = brandsInCategory(brands, brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
 const relatedArticles = articles.filter((article) => article.relatedBrands.includes(brand.slug));
 const asideArticles = (relatedArticles.length ? relatedArticles : articles).slice(0, 1);
@@ -50,9 +56,12 @@ const validity = (() => {
       : period;
   }
   if (brand.expiresAt) {
-    return `Berakhir ${formatIdDate(brand.expiresAt)}.`;
+    return `Program ini akan berakhir pada ${formatIdDate(brand.expiresAt)}.`;
   }
-  return `Halaman resmi tidak mencantumkan tanggal mulai atau berakhir; status dicek ${formatIdDate(brand.checkedAt)}.`;
+  if (brand.validFrom) {
+    return `Berlaku sejak ${formatIdDate(brand.validFrom)}, halaman resmi tidak mencantumkan tanggal berakhir. Terakhir dicek: ${formatIdDate(brand.checkedAt)}, dan masih valid hingga saat ini.`;
+  }
+  return `Halaman resmi tidak mencantumkan tanggal mulai maupun tanggal berakhir; status dicek ${formatIdDate(brand.checkedAt)}.`;
 })();
 
 const jsonLd = [
@@ -61,6 +70,7 @@ const jsonLd = [
     name: brand.seo.h1,
     url: new URL(`/kode-referral/${brand.slug}/`, origin).toString(),
     description: brand.seo.description,
+    image: new URL(coverImage.src, origin).toString(),
     inLanguage: 'id',
     dateModified: brand.checkedAt,
   },
@@ -133,9 +143,12 @@ const jsonLd = [
       )}
       <figure>
         <div class="slot slot--wide">
-          <ResponsivePhoto photo={categoryPhoto} sizes="(max-width: 60rem) 92vw, 72rem" />
+          <ResponsivePhoto
+            photo={brand.image}
+            sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(100vw - 3rem), (min-width: 90rem) 82rem, calc(100vw - 8rem)"
+          />
         </div>
-        <figcaption class="caption">Foto ilustrasi kategori {category.name}. Bukan tangkapan layar resmi {brand.name}.</figcaption>
+        <figcaption class="caption">{brand.image.caption}</figcaption>
       </figure>
     </div>
   </section>
@@ -187,7 +200,7 @@ const jsonLd = [
         </section>
 
         <section class="brand-section" aria-labelledby="syarat-lengkap">
-          <h2 id="syarat-lengkap">Syarat lengkap program.</h2>
+          <h2 id="syarat-lengkap">Syarat & kententuan program referral {brand.name}.</h2>
           <ul class="terms-list">
             {brand.terms.map((term) => <li>{term}</li>)}
           </ul>

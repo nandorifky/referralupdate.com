@@ -108,7 +108,7 @@ export function homeOgCard(brands: Brand[]): OgCard {
   return card({
     path: '/open-graph/home.png',
     alt: `Kartu Referral Update: ${active} dari ${brands.length} brand aktif, dicek hingga ${date}.`,
-    title: 'Kode referral aktif di Indonesia',
+    title: 'Referral Update: Cuan dari kode referral.',
     description: `${active} dari ${brands.length} brand aktif. Dicek hingga ${date}.`,
     kind: 'page',
   });

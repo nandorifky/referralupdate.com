@@ -1,6 +1,16 @@
 ---
 import Brand from './Brand.astro';
-import { photoCredits, site } from '../data/site';
+import { site } from '../data/site';
+import { getPhotoCredits, type PhotoCredit } from '../lib/photos';
+
+const credits = await getPhotoCredits();
+
+function creditLabel(credit: PhotoCredit) {
+  if (credit.author && credit.license) return `${credit.author} (${credit.license})`;
+  if (credit.author) return credit.author;
+  if (credit.license) return credit.license;
+  return 'Sumber foto';
+}
 ---
 
 <footer class="site-footer">
@@ -16,11 +26,20 @@ import { photoCredits, site } from '../data/site';
     <div class="site-footer__meta">
       <p>Kode dan syarat mengikuti halaman resmi di setiap entri. Tanggal cek tercatat di tiap halaman brand.</p>
       <p>© 2026 {site.name}</p>
-      <p class="credits" data-credits>
-        Foto: {photoCredits.map((photo, index) => (
-          <><a href={photo.source} rel="noopener noreferrer" target="_blank">{photo.author} ({photo.license})</a>{index < photoCredits.length - 1 ? ', ' : '.'}</>
-        ))}
-      </p>
+      {credits.length > 0 && (
+        <p class="credits" data-credits>
+          Foto: {credits.map((credit, index) => (
+            <>
+              {credit.source ? (
+                <a href={credit.source} rel="noopener noreferrer" target="_blank">{creditLabel(credit)}</a>
+              ) : (
+                creditLabel(credit)
+              )}
+              {index < credits.length - 1 ? ', ' : '.'}
+            </>
+          ))}
+        </p>
+      )}
     </div>
   </div>
 </footer>

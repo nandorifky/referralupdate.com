@@ -25,11 +25,12 @@ const latest = activeBrands[0] ?? sorted[0];
 const ledgerBrands = activeBrands.slice(0, 4);
 const activeCategories = categoriesWithBrands(brands);
 const sortedArticles = sortArticlesByUpdated(articles);
-const featuredArticle = sortedArticles[0];
-const moreArticles = sortedArticles.slice(1);
 const robots = isDirectoryIndexable(brands) ? 'index' : 'noindex';
 const origin = Astro.site ?? new URL('https://referralupdate.com');
-const heroSizes = '(max-width: 60rem) 92vw, 32vw';
+const heroSizes =
+  '(max-width: 32rem) calc(100vw - 2rem), (max-width: 60rem) 30rem, (max-width: 72rem) calc(41.667vw - 4.5rem), (min-width: 90rem) 26rem, calc(33.333vw - 4rem)';
+const noteSizes =
+  '(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(41.667vw - 2rem), (min-width: 90rem) 26rem, calc(33.333vw - 4rem)';
 const heroPreload = await getImage({
   src: photos.hero.src,
   widths: [640, 960, 1280, 1920],
@@ -74,32 +75,32 @@ const jsonLd = [
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <h1>Kode referral aktif di Indonesia.</h1>
-        <p class="hero__lead">Kode, bonus, syarat, dan tanggal cek dalam satu tempat.</p>
+        <h1>Referral Update.</h1>
+        <p class="hero__lead">Dapatkan informasi valid dan terkini tentang kode referral dari berbagai platform, pasti cuan maksimal!</p>
         <SearchForm id="hero-search" />
         <p class="hero__facts">{activeBrands.length} dari {brands.length} brand berstatus aktif di {activeCategories.length} kategori.</p>
         <p class="hero__links">
           <a class="text-link" href="/kode-referral/">Lihat semua kode referral</a>
-          <a class="text-link" href="/metodologi-verifikasi/">Cara kami mengecek kode</a>
+          <a class="text-link" href="/metodologi-verifikasi/">Baca metodologi verifikasi</a>
         </p>
       </div>
       <figure class="hero__figure">
         <div class="slot slot--4x5">
           <ResponsivePhoto photo={photos.hero} sizes={heroSizes} eager />
         </div>
-        <figcaption class="caption">Program {latest.name} dicek <time datetime={latest.checkedAt}>{formatIdDate(latest.checkedAt)}</time>. Kode {latest.code}.</figcaption>
+        <figcaption class="caption">Program Referral {latest.name} dicek <time datetime={latest.checkedAt}>{formatIdDate(latest.checkedAt)}</time>. Kode {latest.code}.</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="band field" aria-labelledby="catatan">
     <div class="container band__grid">
-      <p class="statement" id="catatan">Setiap kode punya tanggal cek dan sumber.</p>
+      <p class="statement" id="catatan">Kode referral aktif terbaru yang bisa kamu gunakan.</p>
       <div class="band__record">
         <p class="band__label">Brand aktif</p>
         <p class="band__brand"><a href={`/kode-referral/${latest.slug}/`}>{latest.name}</a></p>
         <p class="band__code">{latest.code}</p>
-        <p class="band__date">Program dicek {formatIdDate(latest.checkedAt)}</p>
+        <p class="band__date">Terakhir diperbarui {formatIdDate(latest.checkedAt)}</p>
         <a class="btn" href="/kode-referral/">Lihat semua kode</a>
       </div>
     </div>
@@ -109,9 +110,13 @@ const jsonLd = [
     <div class="container">
       <div class="section-head">
         <h2>Cara kami mengecek kode referral.</h2>
-        <p>Tiga langkah, dengan pengecekan ulang berkala.</p>
+        <p>Empat langkah, dengan pengecekan ulang berkala.</p>
       </div>
       <ol class="steps">
+         <li>
+          <h3>Kode dari tim editorial</h3>
+          <p>Kami membagikan kode referral valid yang digunakan oleh tim editorial.</p>
+        </li>
         <li>
           <h3>Buka halaman program resmi</h3>
           <p>Kami baca halaman program, pusat bantuan, dan toko aplikasi brand.</p>
@@ -129,19 +134,30 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="split">
-    <div class="container split__grid">
-      <figure class="split__figure">
-        <div class="slot slot--4x3">
-          <ResponsivePhoto photo={photos.split} sizes="(max-width: 60rem) 92vw, 42vw" />
-        </div>
-        <figcaption class="caption">Tanggal cek dicatat untuk setiap brand.</figcaption>
-      </figure>
-      <div class="split__copy">
-        <h2>Urutan dari tanggal cek, bukan bonus.</h2>
-        <p>Tabel diurutkan dari kode yang paling baru dicek, bukan dari bonus terbesar.</p>
-        <a class="text-link" href="/metodologi-verifikasi/">Baca cara kami mengecek</a>
+  <section class="checks" aria-labelledby="syarat">
+    <div class="container checks__grid">
+      <div class="checks__intro">
+        <h2 id="syarat">Cek syaratnya sebelum mengejar bonus.</h2>
+        <a class="text-link" href="/blog/cara-aman-memakai-kode-referral/">Baca panduan keamanan</a>
       </div>
+      <ul class="checks__list">
+        <li>
+          <h3>Kode masuk saat mendaftar.</h3>
+          <p>Beberapa program hanya menerima kode sebelum akun aktif.</p>
+        </li>
+        <li>
+          <h3>Syaratnya bisa kamu penuhi.</h3>
+          <p>Verifikasi identitas, transaksi pertama, atau saldo ditahan bisa menjadi syarat.</p>
+        </li>
+        <li>
+          <h3>Masa berlakunya masih terbuka.</h3>
+          <p>Cek tanggal berakhir dan batas klaim sebelum bertransaksi.</p>
+        </li>
+        <li>
+          <h3>Biaya tidak melebihi bonus.</h3>
+          <p>Hitung total biaya sebelum bertransaksi.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -149,7 +165,7 @@ const jsonLd = [
     <div class="container">
       <div class="section-head">
         <h2>Kode referral aktif dan tanggal ceknya.</h2>
-        <p>Diurutkan dari tanggal cek terbaru. Brand belum terverifikasi dan yang sudah berakhir tetap ada di direktori.</p>
+        <p>Diurutkan dari tanggal cek terbaru.</p>
       </div>
       <BrandTable items={ledgerBrands} caption="Brand aktif dengan kode referral dan tanggal cek" />
       <p class="source-line">Menampilkan brand aktif saja. <a class="text-link" href="/kode-referral/">Lihat semua kode</a> untuk entri lain.</p>
@@ -183,21 +199,18 @@ const jsonLd = [
         <p>Baca soal syarat, keamanan, dan cara klaim bonus.</p>
       </div>
       <div class="notes__grid">
-        <a class="feature" href={`/blog/${featuredArticle.slug}/`}>
-          <div class="slot slot--4x3">
-            <ResponsivePhoto photo={photos.blog} sizes="(max-width: 60rem) 92vw, 30vw" />
-          </div>
-          <h3>{featuredArticle.title}</h3>
-          <p class="meta">{blogCategoryName(featuredArticle.category)}, diperbarui <time datetime={featuredArticle.updated}>{formatIdDate(featuredArticle.updated)}</time></p>
-        </a>
-        <div class="blog-list">
-          {moreArticles.map((article) => (
-            <a class="blog-row" href={`/blog/${article.slug}/`}>
-              <h3>{article.title}</h3>
-              <p>{blogCategoryName(article.category)}, diperbarui {formatIdDate(article.updated)}</p>
-            </a>
-          ))}
-        </div>
+        {sortedArticles.map((article) => (
+          <a class="note" href={`/blog/${article.slug}/`}>
+            <p class="note__meta">
+              <span>{blogCategoryName(article.category)}</span>
+              <time datetime={article.updated}>{formatIdDate(article.updated)}</time>
+            </p>
+            <div class="slot">
+              <ResponsivePhoto photo={article.image} sizes={noteSizes} widths={[480, 640, 960]} />
+            </div>
+            <h3>{article.title}</h3>
+          </a>
+        ))}
       </div>
     </div>
   </section>

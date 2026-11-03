@@ -1,56 +1,201 @@
 name: Binance
 category: investasi
+
+image:
+  src: ../../assets/images/features/brands/kode-referral-binance.webp
+  alt: 'Laptop dengan grafik pasar abstrak di meja kerja dekat jendela.'
+  caption: 'Ilustrasi meja kerja dengan grafik pasar abstrak, bukan data atau tampilan resmi.'
+  position: '50% 50%'
+
 code: GGBINANCE
-reward: Voucher potongan biaya trading
+reward: Voucher rabat biaya trading
+
 status: active
-rewardReferee: Voucher potongan biaya trading sekali pakai untuk Referral Lite. Halaman resmi menyebut hadiah sampai 100 USD untuk pembelian pertama dan sampai 1.000 USD kalau volume trading teman melewati 100 USD, tanpa jaminan nominal per akun.
-rewardReferrer: Komisi berkelanjutan dari biaya trading teman untuk Referral Pro. Satu pengguna baru hanya boleh memilih satu mode referral.
-payoutNote: Voucher dan komisi mengikuti tugas kampanye yang tampil di akun. Cek halaman Rewards atau Referral untuk masa berlaku dan status hadiah. Halaman resmi tidak menyebut tanggal pencairan tetap.
+
+rewardReferee: >-
+  Pengguna baru yang mendaftar melalui Referral Lite dapat memperoleh voucher
+  rabat biaya trading hingga setara 100 USD setelah pembelian kripto kumulatif
+  melebihi 50 USD. Jika kemudian menyelesaikan trading kumulatif lebih dari
+  100 USD melalui Spot atau Convert, tersedia voucher tambahan hingga
+  setara 1.000 USD. Total maksimum yang disebut Binance adalah hingga
+  1.100 USD, bukan nominal yang dijamin untuk setiap akun.
+
+rewardReferrer: >-
+  Pada Referral Lite, pemberi referral dapat memperoleh voucher rabat biaya
+  trading hingga setara 1.000 USD setelah pengguna yang diundang menyelesaikan
+  kedua tugas. Pada Referral Pro, pemberi referral memperoleh komisi dari
+  biaya trading pengguna yang diundang. Persentase dan ketentuan komisi
+  mengikuti pengaturan akun serta program yang berlaku. Satu pengguna baru
+  hanya dapat menggunakan satu mode referral.
+
+payoutNote: >-
+  Untuk Referral Lite, voucher didistribusikan dalam waktu hingga 48 jam
+  setelah tugas terkait selesai. Voucher harus diklaim melalui Rewards Hub
+  dalam 7 hari setelah didistribusikan dan berlaku selama 14 hari setelah
+  diaktifkan. Voucher referral digunakan untuk rabat biaya trading Spot,
+  bukan untuk mengurangi seluruh jenis biaya transaksi. Untuk Referral Pro,
+  komisi mengikuti ketentuan program dan tercatat pada akun pemberi referral.
+  Periksa Rewards Hub atau halaman Referral untuk status dan detail hadiah.
+
 eligibility:
-  - Pengguna baru; satu pengguna hanya boleh memilih satu mode referral, Lite atau Pro.
-  - Menyelesaikan verifikasi identitas kalau diminta dan memenuhi tugas kampanye di akun.
-  - Pembelian kripto dihitung kalau lewat deposit tunai, kartu, atau P2P. Transfer internal tidak dihitung.
-checkedAt: '2026-10-31'
-summary: Binance punya dua mode program referral. Referral Lite memberi voucher potongan biaya trading sekali pakai, sedangkan Referral Pro memberi komisi berkelanjutan dari biaya trading teman. Kode GGBINANCE dipakai saat mendaftar akun baru.
+  - Pengguna harus memenuhi ketentuan pengguna baru Binance dan belum menggunakan mode referral lain.
+  - Pendaftaran harus menggunakan undangan atau kode dari mode referral yang sesuai.
+  - Untuk tugas Referral Lite, pembelian kripto kumulatif harus melebihi 50 USD dalam 14 hari setelah pendaftaran.
+  - Untuk tugas voucher berikutnya, volume trading kumulatif harus melebihi 100 USD melalui Spot atau Convert.
+  - Pembelian yang diperhitungkan meliputi setoran tunai, pembelian dengan kartu debit/kredit, dan perdagangan P2P.
+  - Setoran kripto, transfer internal dari akun Binance lain, dan metode pembayaran pihak ketiga tidak dihitung sebagai pembelian yang memenuhi tugas.
+  - Pengguna harus menyelesaikan verifikasi identitas (KYC) untuk mengklaim voucher.
+  - Ketersediaan program tetap mengikuti ketentuan wilayah dan kelayakan akun Binance.
+
+checkedAt: '2026-11-02'
+validFrom: '2026-03-01'
+summary: >-
+  Kode referral Binance GGBINANCE dapat dimasukkan saat membuat akun baru.
+  Binance memiliki Referral Lite dengan voucher rabat biaya trading sekali
+  pakai dan Referral Pro dengan komisi berkelanjutan bagi pemberi referral.
+  Pada Referral Lite, pengguna baru berpotensi memperoleh voucher hingga
+  setara 1.100 USD setelah memenuhi tugas pembelian dan trading, sedangkan
+  pemberi referral dapat memperoleh hingga 1.000 USD. Nominal sebenarnya
+  mengikuti kampanye, kelayakan akun, dan ketentuan Binance. Satu pengguna
+  baru hanya dapat memilih satu mode referral.
+
 seo:
-  title: 'Kode referral Binance 2026: voucher trading'
-  description: 'Kode GGBINANCE untuk akun Binance baru: voucher potongan biaya trading lewat Referral Lite atau komisi berkelanjutan lewat Referral Pro.'
-  h1: 'Kode referral Binance: voucher atau komisi trading.'
+  title: 'Kode Referral Binance GGBINANCE Bonus Hingga 1.100 USD'
+  description: 'Kode referral Binance GGBINANCE untuk akun baru. Simak bonus voucher, syarat Referral Lite dan Pro, serta cara klaimnya.'
+  h1: 'Kode Referral Binance.'
+
 steps:
-  - Unduh aplikasi Binance lewat tautan resmi atau buka binance.com, lalu pilih daftar akun baru.
-  - Isi kode GGBINANCE di kolom Referral ID pada formulir pendaftaran sebelum akun dibuat.
-  - Selesaikan verifikasi identitas kalau diminta dan penuhi tugas kampanye yang tampil di akunmu.
-  - Cek halaman Rewards atau Referral untuk melihat voucher, masa berlaku, dan status hadiah.
+  - Buka situs resmi binance.com atau unduh aplikasi Binance melalui halaman unduhan resminya.
+  - Pilih pendaftaran akun baru dan periksa apakah formulir menyediakan kolom Referral ID atau kode referral.
+  - Masukkan kode GGBINANCE sebelum menyelesaikan pendaftaran akun.
+  - Pastikan mode referral dan ketentuan hadiah yang tampil sesuai dengan program yang ingin diikuti.
+  - Selesaikan verifikasi identitas jika diminta dan periksa tugas yang tersedia di halaman Referral atau Rewards Hub.
+  - Untuk Referral Lite, selesaikan pembelian kripto dan volume trading sesuai batas serta tenggat yang ditampilkan.
+  - Periksa Rewards Hub untuk mengetahui status voucher, batas waktu klaim, dan masa berlaku.
+
 terms:
-  - Hanya pengguna baru; satu pengguna hanya boleh memilih satu mode referral.
-  - Voucher Referral Lite hanya bisa dipakai sekali dan tidak memberi komisi berkelanjutan.
-  - Pembelian kripto dihitung kalau lewat deposit tunai, kartu, atau P2P; transfer internal tidak dihitung.
-  - Nominal hadiah mengikuti tugas dan kampanye yang berlaku, bukan nilai tetap untuk setiap kode.
+  - Program referral hanya berlaku bagi pengguna yang memenuhi persyaratan Binance.
+  - Pengguna baru hanya dapat mengikuti satu mode referral, yaitu Referral Lite atau Referral Pro.
+  - Referral Lite memberikan voucher satu kali berdasarkan penyelesaian tugas, bukan komisi trading berkelanjutan.
+  - Pembelian kripto lebih dari 50 USD dan trading lebih dari 100 USD merupakan ambang tugas, bukan nominal bonus.
+  - Tugas Referral Lite harus diselesaikan dalam 14 hari setelah pendaftaran.
+  - Pembelian yang diperhitungkan meliputi setoran tunai, kartu debit/kredit, dan P2P.
+  - Volume trading yang diperhitungkan untuk tugas ini berasal dari Spot atau Convert. Trading API dan bot tidak berlaku.
+  - Voucher harus diklaim dalam 7 hari setelah distribusi dan berlaku 14 hari setelah aktivasi.
+  - Voucher rabat biaya trading dari program ini hanya berlaku untuk biaya trading Spot.
+  - Nominal reward dapat berbeda sesuai kampanye, kelayakan akun, dan ketentuan Binance.
+  - Binance dapat mengubah mekanisme, persyaratan, dan ketersediaan program.
+
 faqs:
-  - q: Apa beda Referral Lite dan Referral Pro di Binance?
-    a: Referral Lite memberi hadiah sekali pakai berupa voucher potongan biaya trading. Referral Pro memberi komisi berkelanjutan dari biaya trading pengguna yang diundang. Satu pengguna baru hanya bisa memilih salah satunya.
+  - q: 'Berapa bonus dari kode referral Binance GGBINANCE?'
+    a: >-
+      Kode GGBINANCE digunakan untuk pendaftaran akun baru. Pada Referral Lite,
+      pengguna baru berpotensi memperoleh voucher rabat biaya trading hingga
+      setara 100 USD setelah pembelian kripto melebihi 50 USD dan hingga
+      tambahan 1.000 USD setelah volume trading melebihi 100 USD melalui
+      Spot atau Convert. Totalnya dapat mencapai 1.100 USD, tetapi bukan
+      bonus tetap atau jaminan untuk setiap akun.
     intent: bonus
-  - q: Apakah kode GGBINANCE menjamin bonus tertentu?
-    a: Tidak. Binance menyebut hadiah mengikuti tugas dan kampanye yang berlaku. Halaman resmi menyebut voucher sampai 100 USD untuk pembelian pertama dan sampai 1.000 USD kalau volume trading teman melewati 100 USD, tanpa jaminan nominal untuk setiap akun.
+
+  - q: 'Apa syarat mendapatkan bonus referral Binance?'
+    a: >-
+      Pengguna harus memenuhi ketentuan akun baru dan menyelesaikan tugas
+      Referral Lite dalam 14 hari setelah pendaftaran. Tugasnya meliputi
+      pembelian kripto kumulatif lebih dari 50 USD melalui saluran yang
+      memenuhi syarat serta trading kumulatif lebih dari 100 USD melalui
+      Spot atau Convert. Verifikasi identitas diperlukan untuk mengklaim
+      voucher. Ketentuan akhir mengikuti kampanye yang tampil di akun.
     intent: syarat
-  - q: Kapan voucher atau komisi Binance masuk?
-    a: Binance meminta pengguna memantau halaman Rewards atau Referral untuk melihat status, masa berlaku, dan hadiah. Halaman resmi tidak menyebut tanggal pencairan tetap; nominal mengikuti tugas kampanye.
+
+  - q: 'Kapan bonus referral Binance masuk?'
+    a: >-
+      Menurut ketentuan Referral Lite, voucher didistribusikan dalam waktu
+      hingga 48 jam setelah tugas terkait selesai. Pengguna perlu membuka
+      Rewards Hub untuk mengklaimnya. Untuk Referral Pro, komisi mengikuti
+      mekanisme distribusi dan pencatatan pada akun pemberi referral.
     intent: pencairan
-  - q: Di mana kode GGBINANCE dimasukkan?
-    a: Isi kode GGBINANCE di kolom Referral ID pada formulir pendaftaran akun baru. Selesaikan verifikasi identitas kalau diminta, lalu penuhi tugas kampanye yang tampil di akun.
+
+  - q: 'Berapa lama masa berlaku voucher referral Binance?'
+    a: >-
+      Voucher Referral Lite harus diklaim dalam 7 hari setelah didistribusikan.
+      Setelah diaktifkan, voucher berlaku selama 14 hari. Periksa tanggal
+      kedaluwarsa yang tercantum di Rewards Hub karena voucher yang melewati
+      masa klaim atau masa berlaku tidak dapat digunakan.
+    intent: masa-berlaku
+
+  - q: 'Bagaimana cara memasukkan kode referral Binance GGBINANCE?'
+    a: >-
+      Buka situs atau aplikasi resmi Binance, pilih pendaftaran akun baru,
+      lalu masukkan GGBINANCE pada kolom Referral ID jika tersedia.
+      Masukkan kode sebelum menyelesaikan pendaftaran. Setelah akun dibuat,
+      selesaikan verifikasi identitas dan tugas kampanye yang memenuhi syarat.
     intent: cara-pakai
-officialUrl: https://www.binance.com/
-programUrl: https://www.binance.com/en/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d
-referralUrl: https://binance.onelink.me/y874/iddownload
-verificationNote: Kami membuka FAQ program referral Binance yang diperbarui 25 Maret 2026 pada 31 Oktober 2026 untuk mencatat mode, tugas, dan syarat hadiah. Kami tidak mendaftar untuk mencoba kode ini; kode dan tautan berasal dari pemilik situs.
+
+  - q: 'Apakah aman menggunakan kode referral Binance?'
+    a: >-
+      Kode referral hanya berfungsi sebagai identitas undangan dan tidak
+      menggantikan proses keamanan akun. Masukkan kode melalui situs atau
+      aplikasi resmi Binance. Jangan pernah memberikan kata sandi, kode OTP,
+      kunci keamanan, atau seed phrase kepada pihak yang mengaku membantu
+      proses referral. Periksa alamat situs sebelum masuk atau melakukan
+      transaksi.
+    intent: keamanan
+
+  - q: 'Apa perbedaan Referral Lite dan Referral Pro Binance?'
+    a: >-
+      Referral Lite memberikan reward satu kali berupa voucher rabat biaya
+      trading setelah tugas kampanye selesai. Referral Pro memberikan
+      komisi berdasarkan biaya trading pengguna yang diundang. Pengguna
+      baru hanya dapat memilih salah satu mode dan tidak dapat memperoleh
+      kedua jenis reward dari pendaftaran yang sama.
+    intent: bonus
+
+  - q: 'Apakah kode GGBINANCE menjamin bonus 1.100 USD?'
+    a: >-
+      Tidak. Angka hingga 1.100 USD merupakan batas maksimum voucher yang
+      dapat diperoleh pengguna baru melalui penyelesaian dua tugas Referral
+      Lite. Besaran aktual mengikuti perhitungan reward, kampanye, dan
+      kelayakan akun yang ditetapkan Binance. Penggunaan kode saja tidak
+      otomatis menghasilkan bonus.
+    intent: syarat
+
+officialUrl: 'https://www.binance.com/'
+programUrl: 'https://www.binance.com/id/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d'
+referralUrl: 'https://binance.onelink.me/y874/iddownload'
+
+verificationNote: >-
+  Tim editorial memeriksa FAQ resmi Pengantar Program Referral Binance
+  versi Indonesia yang tercatat diperbarui pada 9 Juni 2026, serta FAQ
+  Referral Lite pada 2 November 2026. Kode GGBINANCE dan tautan undangan
+  berasal dari informasi akun tim editorial. Tim editorial tidak melakukan
+  pendaftaran percobaan untuk memverifikasi penerimaan reward. Status kode
+  tidak boleh ditafsirkan sebagai jaminan bonus atau persetujuan Binance
+  terhadap materi editorial ini.
+
 sources:
-  - label: Pengantar Program Referral Binance
-    url: https://www.binance.com/en/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d
-  - label: Halaman unduh aplikasi Binance
-    url: https://www.binance.com/en/download
+  - label: 'Pengantar Program Referral Binance (Bahasa Indonesia)'
+    url: 'https://www.binance.com/id/support/faq/detail/d10f95a5ac8847bdb6f422a26921745d'
+  - label: 'FAQ Referral Lite Binance (Bahasa Indonesia)'
+    url: 'https://www.binance.com/id/support/faq/detail/5e284447daa34a338a968d64f7023c73'
+  - label: 'Halaman program Referral Binance'
+    url: 'https://www.binance.com/id/activity/referral/offers'
+  - label: 'Halaman unduh aplikasi Binance'
+    url: 'https://www.binance.com/en/download'
+  - label: 'Ketentuan Program Referral Binance'
+    url: 'https://bin.bnbstatic.com/static/cms/cg08ou2ak0tn7mcplvfg/file/a5e636670752136098b4a50869c32758a8f3e558f35b68645b8676bf83984e4f.pdf'
+
 updateLog:
+  - date: '2026-11-02'
+    note: >-
+      Memperbarui informasi bonus, tugas pembelian dan trading, tenggat
+      penyelesaian, distribusi voucher, masa klaim, masa berlaku, dan
+      perbedaan Referral Lite serta Referral Pro berdasarkan dokumentasi
+      resmi Binance.
   - date: '2026-10-31'
-    note: Entri Binance ditulis dari FAQ program referral resmi; kode dan tautan undangan berasal dari pemilik situs.
+    note: >-
+      Entri awal Binance ditulis dari FAQ program referral resmi;
+      kode dan tautan undangan berasal dari akun tim editorial.
+
 author:
-  name: Tim editorial Referral Update
-  role: Editor direktori
+  name: Notiska
+  role: Tim Editorial

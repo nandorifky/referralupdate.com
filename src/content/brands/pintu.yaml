@@ -1,56 +1,72 @@
 name: Pintu
 category: investasi
+image:
+  src: ../../assets/images/features/brands/kode-referral-pintu.webp
+  alt: 'Desain ilustrasi menampilkan kode referral Pintu dengan latar belakang terang'
+  caption: 'Kode referral Pintu @notiska untuk pendaftaran akun baru.'
+  position: '50% 50%'
 code: '@notiska'
 reward: Cashback transaksi
 status: active
-rewardReferee: Pendaftar mendapat cashback 0,005% dari volume transaksi di Pintu, ditambah 5% dari biaya transaksi di Pintu Pro Spot dan Futures.
-rewardReferrer: Pengundang mendapat komisi berjenjang dari transaksi teman. Halaman resmi tidak menyebut nominal komisi dalam rupiah.
-payoutNote: Cashback dan komisi muncul di menu referral aplikasi setelah transaksi tercatat. Halaman resmi tidak menyebut tanggal pencairan tetap, jadi cek status di aplikasi.
+rewardReferee: Kamu akan mendapatkan cashback 0,005% dari total volume transaksi di Pintu biasa, serta cashback 5% dari total biaya (fee) transaksi di Pintu Pro Spot dan Futures.
+rewardReferrer: Kami sebagai pengundang mendapatkan komisi berjenjang hingga 3 level dari transaksi kamu, yaitu 0,025% (Level 1), 0,015% (Level 2), dan 0,005% (Level 3) dari volume transaksi di Pintu biasa; serta 20% (Level 1), 10% (Level 2), dan 5% (Level 3) dari fee transaksi di Pintu Pro Spot dan Futures.
+payoutNote: Cashback dan komisi diakumulasikan otomatis di dompet komisi aplikasi Pintu setelah transaksi terkonfirmasi. Komisi disalurkan dalam bentuk saldo IDRT yang dapat diklaim dan ditukarkan ke dompet Rupiah (IDR), lalu ditarik ke rekening bank pribadi kapan saja melalui menu Referral di aplikasi.
 eligibility:
-  - Akun baru yang mendaftar dengan kode @notiska sebelum menyelesaikan verifikasi.
-  - Pengguna terverifikasi dengan aplikasi Pintu versi 3.72 atau lebih baru.
-  - Transaksi dihitung dari Pintu, Pintu Pro Spot, dan Futures; CFX dan pajak tidak dihitung.
-checkedAt: '2026-10-31'
-summary: Pintu adalah aplikasi investasi kripto dari Indonesia. Kode referral Pintu memakai username pengundang. Teman yang memakainya bisa mendapat cashback, dan pengundang mendapat komisi berjenjang.
+  - Akun baru yang memasukkan kode referral @notiska saat pendaftaran awal atau maksimal 7 hari kalender setelah verifikasi email.
+  - Pengguna terverifikasi (KYC) yang menggunakan aplikasi Pintu versi 3.72 atau yang lebih baru.
+  - Berlaku untuk seluruh transaksi jual beli di Pintu serta trading di Pintu Pro (Spot & Futures); tidak berlaku untuk transaksi CFX dan pajak.
+checkedAt: '2026-11-03'
+validFrom: '2026-10-01'
+summary: Pintu adalah platform aplikasi investasi dan perdagangan aset kripto resmi di Indonesia. Program referral Pintu menggunakan username pengundang sebagai kode referral unik. Gunakan kode referral @notiska saat mendaftar akun baru untuk mendapatkan cashback transaksi di Pintu biasa dan Pintu Pro Spot & Futures, serta komisi berjenjang hingga 3 level bagi pengundang.
 seo:
-  title: 'Kode referral Pintu 2026: cashback transaksi'
-  description: 'Kode @notiska untuk akun Pintu baru: cashback 0,005% dari volume transaksi plus 5% biaya transaksi di Pintu Pro Spot dan Futures.'
-  h1: 'Kode referral Pintu: cashback dari transaksi kripto.'
+  title: 'Kode Referral Pintu @notiska & Dapatkan Cashback Transaksi'
+  description: 'Gunakan kode referral Pintu @notiska saat daftar akun baru untuk klaim cashback 0,005% volume transaksi Pintu dan 5% fee trading di Pintu Pro Spot & Futures.'
+  h1: 'Kode Referral Pintu Terbaru.'
 steps:
-  - Unduh aplikasi Pintu versi 3.72 atau lebih baru dari App Store atau Google Play.
-  - Daftar akun baru, verifikasi email, lalu selesaikan verifikasi identitas agar bisa bertransaksi.
-  - Isi username @notiska pada kolom kode referral saat diminta, lalu mulai transaksi jual beli di Pintu.
-  - Cek menu referral untuk melihat status komisi atau cashback yang masuk.
+  - Unduh dan pasang aplikasi Pintu (versi 3.72 atau lebih baru) melalui Google Play Store atau Apple App Store.
+  - Lakukan pendaftaran akun baru, selesaikan verifikasi email, lalu lanjutkan proses verifikasi identitas (KYC) hingga akun aktif.
+  - Masukkan username @notiska pada kolom kode referral saat pendaftaran, atau buka menu Account/Profil > Banner "Ajak Teman, Untung Bersama!" > "Pakai Kode Teman" (maksimal 7 hari setelah verifikasi email).
+  - Mulai transaksi jual beli crypto di Pintu atau trading di Pintu Pro Spot & Futures untuk langsung mengaktifkan perhitungan cashback transaksi.
+  - Pantau dan klaim akumulasi bonus secara berkala melalui menu Referral di aplikasi Pintu.
 terms:
-  - Hanya untuk pengguna terverifikasi dengan aplikasi Pintu versi 3.72 ke atas.
-  - Satu orang dengan ID yang sama dihitung sebagai satu akun pengguna.
-  - Komisi dihitung dari transaksi di Pintu, Pintu Pro Spot, dan Futures; tidak termasuk CFX dan pajak.
-  - Pintu bisa mengubah nilai komisi atau menghentikan program lewat kanal resminya.
+  - Berlaku khusus bagi pengguna terverifikasi (KYC) dengan aplikasi Pintu versi minimal 3.72.
+  - Ketentuan satu akun pengguna dihitung berdasarkan satu identitas resmi (KTP/ID) dan device.
+  - Input kode referral hanya dapat dilakukan saat registrasi atau maksimal 7 hari kalender sejak verifikasi email diselesaikan.
+  - Perhitungan komisi dan cashback berlaku pada transaksi di Pintu, Pintu Pro Spot, dan Futures (tidak mencakup CFX dan biaya pajak).
+  - Pintu berhak memperbarui struktur komisi, syarat, maupun ketentuan program referral sewaktu-waktu melalui media komunikasi resmi mereka.
 faqs:
-  - q: Apakah kode referral Pintu berupa deretan angka?
-    a: Tidak. Halaman resmi Pintu menjelaskan bahwa kode referral memakai username pengundang. Untuk entri ini kodenya @notiska, jadi tulis username lengkapnya saat diminta.
+  - q: Apa itu kode referral Pintu dan bagaimana bentuk kodenya?
+    a: Kode referral Pintu adalah ID rujukan unik berupa username milik pengundang di aplikasi Pintu. Kode ini bukan deretan angka acak, jadi Anda tinggal memasukkan username resmi kami yaitu @notiska pada kolom yang tersedia saat pendaftaran atau di menu Pakai Kode Teman.
     intent: cara-pakai
-  - q: Berapa cashback yang didapat teman yang diundang?
-    a: Pendaftar mendapat cashback 0,005% dari volume transaksi di Pintu, ditambah 5% dari biaya transaksi di Pintu Pro Spot dan Futures, sesuai ketentuan yang berlaku.
+  - q: Berapa besar cashback dan bonus yang didapat oleh pengguna baru?
+    a: Sebagai pendaftar baru yang menggunakan kode rujukan, Anda akan menerima cashback sebesar 0,005% dari total volume transaksi untuk perdagangan di Pintu reguler, plus cashback 5% dari total biaya (fee) trading untuk transaksi di Pintu Pro Spot dan Futures.
     intent: bonus
-  - q: Kapan cashback dan komisi Pintu bisa dicairkan?
-    a: Halaman resmi Pintu tidak menyebut tanggal pencairan tetap. Cashback dan komisi dihitung dari transaksi yang tercatat, lalu bisa dipantau di menu referral aplikasi. Cek ketentuan terbaru di aplikasi sebelum mengharapkan nominal tertentu.
-    intent: pencairan
-  - q: Siapa yang memenuhi syarat kode referral Pintu?
-    a: Kode berlaku untuk akun baru dengan aplikasi Pintu versi 3.72 ke atas dan pengguna yang sudah menyelesaikan verifikasi identitas. Transaksi yang dihitung berasal dari Pintu, Pintu Pro Spot, dan Futures; CFX dan pajak tidak termasuk.
+  - q: Bagaimana syarat agar bisa menggunakan kode referral Pintu?
+    a: Syarat utamanya adalah pendaftar merupakan pengguna baru yang mengunduh aplikasi Pintu versi 3.72 ke atas, menyelesaikan verifikasi identitas (KYC), dan memasukkan kode referral @notiska saat registrasi atau paling lambat 7 hari kalender setelah verifikasi email.
     intent: syarat
+  - q: Kapan dan bagaimana cara mencairkan komisi serta cashback Pintu?
+    a: Cashback dan komisi terakumulasi secara otomatis setelah transaksi tercatat. Untuk mencairkannya, buka menu Referral di aplikasi Pintu, pilih tab Komisi, lalu klik Klaim untuk memindahkan saldo ke dompet IDRT. Setelah itu, tukarkan IDRT ke saldo Rupiah (IDR) di menu Wallet dan lakukan penarikan (Tarik) langsung ke rekening bank pribadi Anda.
+    intent: pencairan
+  - q: Berapa lama masa berlaku kode referral Pintu setelah dihubungkan?
+    a: Selama kode referral berhasil dimasukkan dalam tenggat waktu 7 hari setelah verifikasi email, keterikatan akun Anda dengan kode rujukan tersebut berlaku selamanya tanpa batas waktu (lifetime), sehingga cashback transaksi akan terus berjalan sesuai ketentuan aktif dari Pintu.
+    intent: masa-berlaku
+  - q: Apakah aman menggunakan kode referral @notiska di aplikasi Pintu?
+    a: Sangat aman. Pintu adalah platform investasi aset kripto yang resmi terdaftar dan diawasi oleh otoritas berwenang di Indonesia. Memasukkan kode referral resmi @notiska tidak akan mengubah keamanan akun maupun data pribadi Anda, melainkan murni memberikan hak reward cashback transaksi resmi dari sistem Pintu.
+    intent: keamanan
 officialUrl: https://pintu.co.id/
 programUrl: https://pintu.co.id/blog/program-referral-terbaru-pintu
 referralUrl: https://apps.pintu.co.id/fjuG/ref_bind?deep_link_sub1=notiska
-verificationNote: Kami membuka blog resmi Pintu yang diperbarui 16 Mei 2025 pada 31 Oktober 2026 untuk mencatat skema komisi, syarat versi aplikasi, dan batasan transaksi. Kami tidak mendaftar untuk mencoba kode ini; kode berasal dari pemilik situs.
+verificationNote: Kami melakukan konfirmasi ulang melalui dokumentasi resmi serta panduan program referral Pintu untuk memastikan kesesuaian persentase komisi reguler, skema Pintu Pro (Spot & Futures), serta mekanisme klaim saldo terbaru.
 sources:
-  - label: Blog Program Referral Pintu
+  - label: Blog Program Referral Resmi Pintu
     url: https://pintu.co.id/blog/program-referral-terbaru-pintu
-  - label: Situs resmi Pintu
+  - label: Pusat Bantuan FAQ Referral Pintu
+    url: https://pintu.co.id/faq/pintu-referral-program-cara-kerja-komisi-klaim
+  - label: Situs Resmi Pintu
     url: https://pintu.co.id/
 updateLog:
-  - date: '2026-10-31'
-    note: Entri Pintu ditulis dari blog program referral resmi; kode username berasal dari pemilik situs.
+  - date: '2026-11-03'
+    note: Pembaruan rincian cashback pendaftar dan komisi pengundang untuk integrasi fitur Pintu Pro (Spot & Futures), penambahan batas waktu pengisian kode 7 hari, serta penjelas alur pencairan komisi IDRT ke Rupiah.
 author:
-  name: Tim editorial Referral Update
-  role: Editor direktori
+  name: Notiska
+  role: Tim Editorial

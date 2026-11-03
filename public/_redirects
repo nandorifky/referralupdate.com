@@ -1,0 +1,58 @@
+# Old site URLs that have no matching page in the new site.
+# Pages that already use the same path (/, /kode-referral/, the seven brand
+# pages, /kategori/, /kategori/investasi/, /tentang/, /kontak/, /rss.xml)
+# are served directly by the new build.
+
+/arsip /blog/ 301
+/arsip/ /blog/ 301
+/arsip/* /blog/ 301
+
+/posts /blog/ 301
+/posts/ /blog/ 301
+/posts/* /blog/ 301
+
+/tags /blog/ 301
+/tags/ /blog/ 301
+/tags/* /blog/ 301
+
+/search /kode-referral/ 301
+/search/ /kode-referral/ 301
+/search/* /kode-referral/ 301
+
+/disclaimer /disclosure-affiliate/ 301
+/disclaimer/ /disclosure-affiliate/ 301
+
+/kebijakan-privasi /privasi/ 301
+/kebijakan-privasi/ /privasi/ 301
+
+/kurasi-kode-referral /metodologi-verifikasi/ 301
+/kurasi-kode-referral/ /metodologi-verifikasi/ 301
+
+/laporkan-masalah /kontak/ 301
+/laporkan-masalah/ /kontak/ 301
+
+/tautan /tentang/ 301
+/tautan/ /tentang/ 301
+
+/kategori/keuangan /kategori/ 301
+/kategori/keuangan/ /kategori/ 301
+/kategori/hiburan /kode-referral/novelah/ 301
+/kategori/hiburan/ /kode-referral/novelah/ 301
+
+/kategori/binance /kode-referral/binance/ 301
+/kategori/binance/ /kode-referral/binance/ 301
+/kategori/bybit /kode-referral/bybit/ 301
+/kategori/bybit/ /kode-referral/bybit/ 301
+/kategori/dana-bisnis /kode-referral/dana-bisnis/ 301
+/kategori/dana-bisnis/ /kode-referral/dana-bisnis/ 301
+/kategori/novelah /kode-referral/novelah/ 301
+/kategori/novelah/ /kode-referral/novelah/ 301
+/kategori/pintu /kode-referral/pintu/ 301
+/kategori/pintu/ /kode-referral/pintu/ 301
+/kategori/seabank /kode-referral/seabank/ 301
+/kategori/seabank/ /kode-referral/seabank/ 301
+/kategori/shopeepay /kode-referral/shopeepay/ 301
+/kategori/shopeepay/ /kode-referral/shopeepay/ 301
+
+/sitemap-index.xml /sitemap.xml 301
+/sitemap-0.xml /sitemap.xml 301

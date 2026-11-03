@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import { getCategories } from '../data/categories';
-import { brandPhotos, photos, PREVIEW, type Photo } from '../data/site';
+import { photos, PREVIEW } from '../data/site';
 import { brandsInCategory, getArticles, getBrands } from '../lib/content';
 import {
   indexableBrands,
@@ -31,7 +31,7 @@ export const GET: APIRoute = async ({ site }) => {
   const buildDate = new Date().toISOString().slice(0, 10);
   const imageCache = new Map<ImageMetadata, string>();
 
-  const imageLoc = async (photo: Photo) => {
+  const imageLoc = async (photo: { src: ImageMetadata; alt: string }) => {
     let loc = imageCache.get(photo.src);
     if (!loc) {
       const generated = await getImage({
@@ -69,23 +69,19 @@ export const GET: APIRoute = async ({ site }) => {
     }
 
     for (const brand of listed) {
-      const photo = brandPhotos[brand.category];
       urls.set(`/kode-referral/${brand.slug}/`, {
         lastmod: brand.checkedAt,
-        images: [{ loc: await imageLoc(photo), title: photo.alt }],
+        images: [{ loc: await imageLoc(brand.image), title: brand.image.alt }],
       });
     }
 
     if (isBlogIndexable(articles)) {
-      urls.set('/blog/', {
-        lastmod: latestArticle ?? buildDate,
-        images: [{ loc: await imageLoc(photos.blog), title: photos.blog.alt }],
-      });
+      urls.set('/blog/', { lastmod: latestArticle ?? buildDate });
     }
     for (const article of indexableArticles) {
       urls.set(`/blog/${article.slug}/`, {
         lastmod: article.updated,
-        images: [{ loc: await imageLoc(photos.article), title: photos.article.alt }],
+        images: [{ loc: await imageLoc(article.image), title: article.image.alt }],
       });
     }
 
@@ -108,7 +104,7 @@ export const GET: APIRoute = async ({ site }) => {
       '/disclosure-affiliate/',
       '/privasi/',
     ]) {
-      urls.set(path, { lastmod: buildDate });
+      urls.set(path, {});
     }
   }
 

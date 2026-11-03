@@ -1,64 +1,226 @@
+
 name: SeaBank
 category: bank-digital
+
+image:
+  src: ../../assets/images/features/brands/kode-referral-seabank.webp
+  alt: 'Desain ilustrasi menampilkan kode referral SeaBank 43V68B dengan latar belakang terang.'
+  caption: 'Kode referral SeaBank 43V68B untuk pendaftaran rekening pengguna baru.'
+  position: '50% 50%'
+
 code: 43V68B
-reward: Bonus saldo undang teman
-status: expired
-validFrom: '2026-10-01'
-expiresAt: '2026-10-31'
-rewardReferee: Teman baru mendapat Rp10.000 setelah setoran minimal Rp50.000 dari luar SeaBank disimpan 3 hari.
-rewardReferrer: Pengundang mendapat Rp25.000 per teman, dengan batas 200 teman atau Rp5.000.000 per bulan.
-payoutNote: Bonus diklaim lewat halaman Undang Teman atau Referral, lalu diproses maksimal 48 jam setelah klaim. Kampanye berakhir 31 Oktober 2026, jadi klaim setelah tanggal itu tidak dijanjikan.
+reward: Bonus saldo SeaBank Rp10.000 untuk pengguna baru
+status: active
+
+validFrom: '2026-11-01'
+expiresAt: '2026-11-30'
+
+rewardReferee: >-
+  Pengguna baru yang membuka rekening SeaBank menggunakan kode referral
+  43V68B berhak mendapatkan bonus saldo Rp10.000. Untuk memenuhi syarat,
+  pengguna harus membuka rekening SeaBank untuk pertama kali, memasukkan
+  kode referral saat registrasi, melakukan pengisian saldo minimal
+  Rp50.000 dari sumber selain rekening SeaBank, dan mempertahankan saldo
+  tersebut selama 3 hari. Bonus harus diklaim melalui halaman Undang Teman
+  atau Referral. Setelah seluruh persyaratan terpenuhi dan klaim dilakukan,
+  bonus dikirimkan maksimal 48 jam.
+
+rewardReferrer: >-
+  Pengirim kode referral mendapatkan bonus saldo Rp25.000 untuk setiap
+  teman yang berhasil membuka rekening SeaBank menggunakan kode referral,
+  melakukan pengisian saldo minimal Rp50.000, dan mempertahankan saldo
+  tersebut selama 3 hari. Pengundang dapat memperoleh bonus dari maksimal
+  200 teman atau setara dengan total Rp5.000.000 dalam satu bulan.
+  Undangan yang melebihi batas tersebut tidak mendapatkan bonus tambahan.
+
+payoutNote: >-
+  Bonus saldo Rp10.000 dikirimkan maksimal 48 jam setelah pengguna
+  memenuhi seluruh persyaratan kampanye dan melakukan klaim bonus
+  melalui halaman Undang Teman atau Referral di aplikasi SeaBank.
+  Pastikan pengisian saldo minimal Rp50.000 berasal dari luar rekening
+  SeaBank dan saldo tersebut dipertahankan selama 3 hari. Pengisian
+  saldo melalui transfer dari sesama rekening SeaBank tidak dihitung.
+
 eligibility:
-  - Nasabah baru yang membuka rekening SeaBank dengan verifikasi KTP dan video.
-  - Setoran minimal Rp50.000 berasal dari luar SeaBank dan disimpan 3 hari.
-  - Transaksi berada dalam periode kampanye 1–31 Oktober 2026.
-checkedAt: '2026-10-31'
-summary: SeaBank adalah bank digital yang terhubung dengan ekosistem Shopee dan SeaMoney. Kampanye undang teman memberi bonus saldo untuk pengundang dan teman baru setelah rekening dibuka dan syarat setoran terpenuhi.
+  - Pengguna merupakan nasabah baru yang pertama kali membuka rekening SeaBank.
+  - Pengguna yang pernah menutup rekening SeaBank lalu membuka rekening kembali tidak berhak mengikuti promo.
+  - Kode referral 43V68B harus dimasukkan saat proses registrasi rekening.
+  - Pengguna wajib melakukan pengisian saldo minimal Rp50.000.
+  - Dana pengisian saldo harus berasal dari luar rekening SeaBank.
+  - Transfer dari sesama rekening SeaBank tidak dihitung sebagai pengisian saldo yang memenuhi syarat.
+  - Saldo minimal Rp50.000 tersebut harus dipertahankan selama 3 hari.
+  - Bonus harus diklaim melalui halaman Undang Teman atau Referral.
+  - Pengguna yang diundang pada urutan ke-201 dan seterusnya tidak berhak menerima bonus.
+  - Seluruh persyaratan harus dipenuhi selama periode kampanye 1-30 November 2026.
+
+checkedAt: '2026-11-03'
+
+summary: >-
+  Kode referral SeaBank yang dapat digunakan untuk mendapatkan bonus saldo
+  Rp10.000 adalah 43V68B. Masukkan kode tersebut saat
+  registrasi rekening baru, lalu lakukan pengisian saldo minimal Rp50.000
+  dari luar SeaBank dan pertahankan saldo selama 3 hari. Setelah memenuhi
+  persyaratan, klaim bonus melalui halaman Undang Teman atau Referral.
+  Saldo bonus dikirimkan maksimal 48 jam setelah seluruh persyaratan
+  terpenuhi dan klaim dilakukan. SeaBank merupakan layanan perbankan
+  digital dari PT Bank SeaBank Indonesia yang menyediakan rekening
+  tabungan dan transaksi perbankan melalui aplikasi.
+
 seo:
-  title: 'Kode referral SeaBank 2026: sudah berakhir'
-  description: 'Kode 43V68B untuk Undang Teman SeaBank: Rp25.000 untuk pengundang dan Rp10.000 untuk teman baru setelah setoran Rp50.000 disimpan 3 hari. Sudah berakhir.'
-  h1: 'Kode referral SeaBank berakhir 31 Oktober 2026.'
+  title: 'Kode Referral SeaBank 43V68B, Bonus Saldo Rp10.000 November 2026'
+  description: >-
+    Gunakan kode referral SeaBank 43V68B untuk mendapatkan bonus saldo
+    Rp10.000. Cek syarat pengguna baru dan cara klaim bonusnya.
+  h1: 'Kode Referral SeaBank Terbaru'
+
 steps:
-  - Unduh aplikasi SeaBank, buka rekening baru atas namamu, lalu selesaikan verifikasi KTP dan video.
-  - Isi kode referral 43V68B saat pendaftaran atau buka tautan undangan yang kamu terima.
-  - Setor minimal Rp50.000 dari sumber selain rekening SeaBank, lalu simpan saldo itu selama 3 hari.
-  - Klaim bonus di halaman Undang Teman atau Referral setelah teman memenuhi syarat. Bonus diproses maksimal 48 jam setelah klaim.
+  - >-
+    Buka tautan undangan SeaBank berikut melalui ponsel:
+    https://app.seabank.co.id/app/main?module=router&type=me&sub_type=referral&login=true&referralCode=43V68B
+  - >-
+    Unduh aplikasi SeaBank melalui Play Store atau App Store apabila belum
+    memilikinya, kemudian buka aplikasi untuk memulai pendaftaran.
+  - >-
+    Buat rekening SeaBank baru atas nama sendiri. Program ini berlaku
+    bagi pengguna yang pertama kali membuka rekening SeaBank.
+  - >-
+    Masukkan kode referral 43V68B saat proses registrasi. Pastikan kode
+    sudah dimasukkan sebelum menyelesaikan pendaftaran rekening.
+  - >-
+    Setelah rekening berhasil dibuka, lakukan pengisian saldo minimal
+    Rp50.000 dari sumber selain rekening SeaBank.
+  - >-
+    Pertahankan saldo hasil pengisian tersebut selama 3 hari.
+    Jangan melakukan pengosongan atau penarikan dana yang menyebabkan
+    persyaratan saldo tidak terpenuhi.
+  - >-
+    Setelah seluruh persyaratan selesai, buka halaman Undang Teman atau
+    Referral di aplikasi SeaBank untuk melakukan klaim Bonus Saldo.
+  - >-
+    Tunggu proses pengiriman bonus. SeaBank menetapkan waktu pengiriman
+    maksimal 48 jam setelah persyaratan terpenuhi dan klaim dilakukan.
+
 terms:
-  - Kampanye berlaku 1–31 Oktober 2026 untuk nasabah baru. Tidak ada perpanjangan yang tercantum di halaman promo.
-  - Setoran minimal Rp50.000 berasal dari luar SeaBank dan disimpan 3 hari. Transfer sesama rekening SeaBank tidak dihitung.
-  - Bonus pengundang Rp25.000 dan bonus teman Rp10.000 mengikuti kriteria kampanye, dengan batas 200 teman atau Rp5.000.000 per bulan.
-  - Bonus harus diklaim dan tidak bisa digabung dengan promo buka rekening lain.
+  - Promo Undang Teman 35RB berlangsung pada 1-30 November 2026.
+  - Bonus untuk penerima kode referral adalah saldo SeaBank sebesar Rp10.000.
+  - Promo berlaku bagi pengguna yang pertama kali membuka rekening SeaBank.
+  - Pengguna yang pernah menutup rekening dan membuka kembali rekening SeaBank tidak berhak mengikuti promo.
+  - Kode referral harus dimasukkan saat proses registrasi rekening.
+  - Pengguna wajib melakukan pengisian saldo minimal Rp50.000.
+  - Sumber dana pengisian saldo harus berasal dari luar SeaBank.
+  - Transfer dari sesama rekening SeaBank tidak termasuk pengisian saldo yang memenuhi persyaratan promo.
+  - Saldo minimal Rp50.000 harus dipertahankan selama 3 hari.
+  - Pengguna wajib melakukan klaim Bonus Saldo melalui halaman Undang Teman atau Referral.
+  - Bonus dikirimkan maksimal 48 jam setelah seluruh persyaratan terpenuhi dan klaim dilakukan.
+  - Pengguna yang diundang pada urutan ke-201 dan seterusnya oleh pengundang yang sama tidak berhak memperoleh bonus.
+  - Apabila terdapat perbedaan data jumlah undangan untuk 200 teman pertama, data yang berlaku adalah data pada sistem SeaBank.
+  - Promo tidak dapat digabungkan dengan program promosi pembukaan rekening SeaBank lainnya.
+
 faqs:
-  - q: Berapa bonus undang teman SeaBank?
-    a: Halaman promo SeaBank menyebut bonus Rp25.000 untuk pengundang dan Rp10.000 untuk teman baru setelah setoran minimal Rp50.000 disimpan 3 hari. Nominal dan periode mengikuti kampanye yang berlaku.
+  - q: Berapa bonus yang didapat dari kode referral SeaBank 43V68B?
+    a: >-
+      Pengguna baru yang memakai kode referral SeaBank 43V68B berhak
+      mendapatkan bonus saldo Rp10.000. Bonus diberikan setelah pengguna
+      pertama kali membuka rekening SeaBank, memasukkan kode saat
+      registrasi, mengisi saldo minimal Rp50.000 dari luar SeaBank,
+      dan mempertahankan saldo tersebut selama 3 hari. Jangan lupa
+      melakukan klaim melalui halaman Undang Teman atau Referral.
     intent: bonus
-  - q: Sampai kapan promo undang teman SeaBank berlangsung?
-    a: Pusat bantuan SeaBank menyebut periode 1–31 Oktober 2026, dan halaman promo tidak mencantumkan perpanjangan setelah tanggal itu. Karena itu entri ini ditandai berakhir. Jika ada kampanye baru, periode dan syaratnya perlu dicek ulang.
-    intent: masa-berlaku
-  - q: Apakah transfer dari sesama rekening SeaBank dihitung?
-    a: Tidak. Setoran memakai dana dari luar rekening SeaBank, lalu saldo disimpan 3 hari. Batas bonus adalah 200 teman atau Rp5.000.000 per bulan.
+
+  - q: Apa syarat mendapatkan bonus referral SeaBank Rp10.000?
+    a: >-
+      Kamu harus menjadi pengguna yang pertama kali membuka rekening
+      SeaBank dan memasukkan kode referral saat registrasi. Selanjutnya,
+      lakukan pengisian saldo minimal Rp50.000 dari sumber selain
+      rekening SeaBank dan pertahankan saldo tersebut selama 3 hari.
+      Transfer dari sesama rekening SeaBank tidak dihitung. Setelah
+      memenuhi persyaratan, klaim bonus melalui halaman Undang Teman
+      atau Referral.
     intent: syarat
-  - q: Kapan bonus SeaBank dicairkan?
-    a: Bonus diklaim lewat halaman Undang Teman atau Referral dan diproses maksimal 48 jam setelah klaim. Kampanye berakhir 31 Oktober 2026, jadi entri ini tidak menjanjikan pencairan untuk transaksi setelah tanggal tersebut.
+
+  - q: Kapan bonus referral SeaBank masuk ke rekening?
+    a: >-
+      Bonus dikirimkan maksimal 48 jam setelah kamu memenuhi seluruh
+      persyaratan kampanye dan melakukan klaim Bonus Saldo melalui
+      halaman Undang Teman atau Referral. Pastikan pengisian saldo
+      minimal Rp50.000 sudah dipertahankan selama 3 hari sebelum
+      melakukan klaim.
     intent: pencairan
+
+  - q: Sampai kapan promo kode referral SeaBank 43V68B berlaku?
+    a: >-
+      Program Undang Teman 35RB berlangsung mulai 1 November sampai
+      30 November 2026. Pengguna harus mengikuti seluruh mekanisme
+      promo dalam periode tersebut. Setelah 30 November 2026, kampanye
+      ini telah melewati periode yang ditentukan, kecuali SeaBank
+      mengumumkan perpanjangan atau program baru.
+    intent: masa-berlaku
+
+  - q: Bagaimana cara menggunakan kode referral SeaBank 43V68B?
+    a: >-
+      Buka aplikasi SeaBank dan mulai pendaftaran rekening baru.
+      Masukkan kode referral 43V68B saat registrasi. Setelah rekening
+      berhasil dibuka, lakukan pengisian saldo minimal Rp50.000 dari
+      luar SeaBank dan pertahankan saldo selama 3 hari. Kemudian,
+      klaim bonus saldo Rp10.000 melalui halaman Undang Teman atau
+      Referral. Bonus dikirimkan maksimal 48 jam setelah persyaratan
+      terpenuhi dan klaim dilakukan.
+    intent: cara-pakai
+
+  - q: Apakah aman menggunakan kode referral SeaBank?
+    a: >-
+      Penggunaan kode referral melalui aplikasi resmi SeaBank merupakan
+      bagian dari program Undang Teman. Pastikan tautan pendaftaran
+      mengarah ke aplikasi atau kanal resmi SeaBank. Jangan pernah
+      membagikan PIN, kata sandi, atau kode OTP kepada pengirim kode
+      referral maupun pihak lain yang mengaku sebagai petugas bank.
+      Kode referral digunakan untuk menghubungkan pendaftaran dengan
+      program promosi, bukan untuk meminta akses ke rekening kamu.
+    intent: keamanan
+
 officialUrl: https://www.seabank.co.id/
 programUrl: https://www.seabank.co.id/promo/126
 referralUrl: https://app.seabank.co.id/app/main?module=router&type=me&sub_type=referral&login=true&referralCode=43V68B
-verificationNote: Halaman promo SeaBank dan pusat bantuan tentang periode, kriteria, batas, serta pencairan bonus dibuka pada 31 Oktober 2026. Kampanye yang tercantum berakhir 31 Oktober 2026 dan tidak ada perpanjangan yang dinyatakan, sehingga entri ditandai berakhir. Kami tidak mendaftar untuk mencoba kode ini.
+
+verificationNote: >-
+  Informasi diperbarui pada 3 November 2026 berdasarkan mekanisme program
+  Undang Teman 35RB periode 1-30 November 2026 yang ditampilkan pada
+  halaman kampanye SeaBank. Ketentuan penerima kode menyebutkan bonus
+  saldo Rp10.000 bagi pengguna yang pertama kali membuka rekening,
+  memasukkan kode referral saat registrasi, melakukan pengisian saldo
+  minimal Rp50.000 dari luar SeaBank, dan mempertahankan saldo selama
+  3 hari. Bonus harus diklaim melalui halaman Undang Teman atau Referral
+  dan dikirimkan maksimal 48 jam setelah seluruh persyaratan terpenuhi
+  serta klaim dilakukan. Pengguna yang pernah menutup rekening lalu
+  membukanya kembali tidak memenuhi kriteria. Kode referral dan tautan
+  undangan dipertahankan sesuai data internal tim editorial.
+  Kami tidak melakukan pendaftaran percobaan menggunakan rekening baru.
+
 sources:
-  - label: Pusat Bantuan SeaBank - Bonus Undang Teman
-    url: https://www.seabank.co.id/pusat-bantuan/artikel/10071-bagaimana-kriteria-nasabah-yang-berhak-mendapatkan-bonus-saldo-undang-teman
-  - label: Pusat Bantuan SeaBank - Periode Promo
-    url: https://www.seabank.co.id/pusat-bantuan/artikel/10072-sampai-kapan-promo-undang-teman-berlangsung
-  - label: Pusat Bantuan SeaBank - Batas Bonus
-    url: https://www.seabank.co.id/pusat-bantuan/artikel/10317-apakah-ada-batas-bonus-saldo-undang-teman-yang-dapat-diterima
-  - label: Pusat Bantuan SeaBank - Pencairan Bonus
-    url: https://www.seabank.co.id/pusat-bantuan/artikel/10073-kapan-bonus-saldo-bisa-didapat-oleh-nasabah-yang-sudah-memenuhi-kriteria-promo-undang-teman
-  - label: Halaman Promo SeaBank
+  - label: Halaman Promo SeaBank - Undang Teman 35RB
     url: https://www.seabank.co.id/promo/126
+  - label: Pusat Bantuan SeaBank - Kriteria Penerima Bonus Undang Teman
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10071-bagaimana-kriteria-nasabah-yang-berhak-mendapatkan-bonus-saldo-undang-teman
+  - label: Pusat Bantuan SeaBank - Periode Promo Undang Teman
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10072-sampai-kapan-promo-undang-teman-berlangsung
+  - label: Pusat Bantuan SeaBank - Batas Bonus Undang Teman
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10317-apakah-ada-batas-bonus-saldo-undang-teman-yang-dapat-diterima
+  - label: Pusat Bantuan SeaBank - Waktu Pengiriman Bonus
+    url: https://www.seabank.co.id/pusat-bantuan/artikel/10073-kapan-bonus-saldo-bisa-didapat-oleh-nasabah-yang-sudah-memenuhi-kriteria-promo-undang-teman
+  - label: Situs Resmi SeaBank
+    url: https://www.seabank.co.id/
+  - label: SeaBank - Waspada Modus Penipuan Link Palsu
+    url: https://www.seabank.co.id/blog/waspada-modus-penipuan-link-palsu-berkedok-penukaran-poin-atau-hadiah
+
 updateLog:
-  - date: '2026-10-31'
-    note: Entri SeaBank ditulis dari halaman promo dan pusat bantuan resmi; kampanye berakhir 31 Oktober 2026 tanpa perpanjangan yang tercantum. Kode berasal dari pemilik situs.
+  - date: '2026-11-03'
+    note: >-
+      Memperbarui periode kampanye menjadi 1-30 November 2026,
+      menyesuaikan bonus penerima kode menjadi Rp10.000, memperjelas
+      persyaratan pengisian saldo minimal Rp50.000 dari luar SeaBank,
+      masa penahanan saldo selama 3 hari, serta mekanisme klaim
+      dan pengiriman bonus maksimal 48 jam setelah klaim.
+
 author:
-  name: Tim editorial Referral Update
-  role: Editor direktori
+  name: Notiska
+  role: Tim Editorial

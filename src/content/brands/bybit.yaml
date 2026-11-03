@@ -1,57 +1,217 @@
 name: Bybit
 category: investasi
+
+image:
+  src: ../../assets/images/features/brands/kode-referral-bybit.webp
+  alt: 'Desain grafik kode referral Bybit RX452A2 dengan latar belakang terang.'
+  caption: 'Kode referral Bybit RX452A2 untuk pendaftaran akun baru.'
+  position: '50% 50%'
+
 code: RX452A2
-reward: Bonus trading hingga 500 USDT
+
+reward: Bonus referral hingga 250 USDT per pihak
+
 status: active
-rewardReferee: Bonus 50 USDT setelah trading pertama minimal 50 USD dalam 14 hari. Bonus tambahan diberikan setelah volume trading mencapai 500 USD dan 10.000 USD dalam 30 hari, dengan total sampai 500 USDT.
-rewardReferrer: Komisi 20% dari biaya trading teman selama 365 hari. Komisi bisa naik sampai 30% kalau tugas program terpenuhi.
-payoutNote: Bonus diperiksa risiko selama 3 hari dan harus diklaim dalam 10 hari. Halaman resmi tidak menjanjikan waktu masuk yang sama untuk setiap akun.
+
+rewardReferee: >-
+  Pengguna baru bisa memperoleh bonus referral hingga 250 USDT jika
+  menyelesaikan seluruh tugas program. Bonus terdiri dari 50 USDT setelah
+  First Trade minimal 50 USD dalam 14 hari sejak pendaftaran, 100 USDT
+  setelah volume trading kumulatif mencapai 500 USD, dan 100 USDT lagi
+  setelah volume trading kumulatif mencapai 10.000 USD. Dua tugas volume
+  terakhir harus diselesaikan dalam 30 hari setelah First Time Trade.
+  FAQ Bybit juga menyebut Welcome Gift tambahan senilai 100 USD untuk
+  pengguna baru, tetapi penawaran tersebut memiliki ketentuan tersendiri
+  dan tidak termasuk dalam total bonus referral 500 USDT.
+
+rewardReferrer: >-
+  Pemberi referral dapat memperoleh bonus hingga 250 USDT dari tiga tugas
+  referral yang sama. Selain itu, tersedia komisi dari biaya trading bersih
+  pengguna yang diundang selama 365 hari sejak pendaftaran. Tingkat komisi
+  awal adalah 20%, dapat meningkat menjadi 25% setelah mengundang 5
+  referee yang memenuhi syarat dalam satu kuartal, atau 30% setelah
+  mengundang 100 referee yang memenuhi syarat atau mencapai volume
+  trading Derivatif sebesar 15 juta USD melalui referral dalam satu kuartal.
+  Komisi dihitung dari biaya trading bersih setelah dikurangi bonus,
+  kupon, kredit, dan diskon biaya lainnya.
+
+payoutNote: >-
+  Bonus referral menjalani pemeriksaan risiko selama 3 hari sebelum
+  dikreditkan. Setelah didistribusikan, hadiah harus diklaim dalam
+  waktu 10 hari melalui Rewards Hub atau halaman riwayat referral.
+  Bonus memiliki ketentuan penggunaan dan masa kedaluwarsa tersendiri
+  serta tidak dapat ditarik sebagai uang tunai. Komisi referral
+  didistribusikan setiap hari pada pukul 04.00 UTC berdasarkan biaya
+  trading bersih. Periksa status dan detail setiap hadiah pada akun Bybit.
+
 eligibility:
-  - Pengguna baru yang mendaftar dengan kode atau tautan undangan; kode tidak bisa ditambahkan setelah akun dibuat.
-  - Menyelesaikan verifikasi identitas dan tugas trading yang muncul di akun.
-  - Trading pertama minimal 50 USD dalam 14 hari untuk bonus awal; bonus volume dihitung dalam 30 hari.
-checkedAt: '2026-10-31'
-summary: Bybit adalah bursa kripto dengan program referral untuk pengguna baru dan pengundang. Pengguna baru bisa mendapat bonus setelah trading pertama, sedangkan pengundang mendapat komisi dari biaya trading teman. Besaran bonus mengikuti kampanye yang berlaku.
+  - Pengguna harus mendaftar sebagai pengguna baru menggunakan kode atau tautan referral sebelum akun dibuat.
+  - Skema bonus ini berlaku untuk pengguna yang mendaftar pada atau setelah 10 Oktober 2026 pukul 12.00 UTC.
+  - First Trade minimal 50 USD harus diselesaikan dalam 14 hari sejak pendaftaran untuk memperoleh bonus pertama.
+  - Tugas volume trading 500 USD dan 10.000 USD dihitung dalam 30 hari setelah First Time Trade.
+  - Pengguna harus memenuhi ketentuan akun dan menyelesaikan verifikasi identitas atau KYC jika diminta untuk mengklaim hadiah.
+  - Ketersediaan program mengikuti ketentuan Bybit Global dan pembatasan wilayah yang berlaku.
+
+validFrom: '2026-10-10'
+
+checkedAt: '2026-11-02'
+
+summary: >-
+  Kode referral Bybit RX452A2 digunakan ketika mendaftar akun baru.
+  Pengguna baru dapat memperoleh bonus referral hingga 250 USDT setelah
+  menyelesaikan tugas trading yang ditentukan. Pemberi referral juga
+  berhak memperoleh bonus dengan nilai yang sama serta komisi hingga
+  30% dari biaya trading bersih pengguna yang diundang selama 365 hari.
+  Total bonus referral untuk kedua pihak dapat mencapai 500 USDT.
+  Besaran hadiah bergantung pada penyelesaian tugas dan kelayakan akun.
+
 seo:
-  title: 'Kode referral Bybit 2026: bonus trading USDT'
-  description: 'Kode RX452A2 untuk akun Bybit baru: bonus 50 USDT setelah trading pertama minimal 50 USD, dengan tambahan sampai 500 USDT.'
-  h1: 'Kode referral Bybit untuk bonus trading hingga 500 USDT.'
+  title: 'Kode Referral Bybit RX452A2, Dapatkan Bonus Hingga 250 USDT'
+  description: 'Gunakan kode RX452A2 saat daftar Bybit. Dapatkan bonus hingga 250 USDT, syarat trading, masa klaim, dan komisi referral, cek informasi selengkapnya disini.'
+  h1: 'Kode Referral Bybit Terbaru.'
+
 steps:
-  - Buka tautan undangan Bybit atau daftar akun baru di bybit.com. Isi kode RX452A2 saat mendaftar.
-  - Selesaikan verifikasi identitas dan tugas trading yang muncul di akunmu.
-  - Trading pertama minimal 50 USD dalam 14 hari untuk bonus 50 USDT bagi pendaftar dan pengundang.
-  - Capai volume kumulatif 500 USD dan 10.000 USD dalam 30 hari untuk bonus tambahan, lalu klaim sebelum batas klaim berakhir.
+  - Buka tautan undangan Bybit atau kunjungi situs resmi bybit.com dan pilih pendaftaran akun baru.
+  - Periksa apakah kode RX452A2 sudah terpasang melalui tautan undangan. Jika mendaftar secara langsung, masukkan kode pada kolom Referral Code sebelum menekan tombol pendaftaran.
+  - Selesaikan pendaftaran dan verifikasi identitas jika diminta oleh Bybit.
+  - Lakukan First Trade minimal 50 USD dalam 14 hari sejak pendaftaran untuk memenuhi tugas bonus pertama.
+  - Setelah First Time Trade, lanjutkan aktivitas trading hingga volume kumulatif mencapai 500 USD dan 10.000 USD dalam 30 hari sesuai tugas yang tersedia.
+  - Buka Referral History atau Rewards Hub untuk memeriksa status hadiah dan klaim bonus sebelum batas waktunya berakhir.
+
 terms:
-  - Hanya untuk pengguna baru yang mendaftar dengan kode atau tautan undangan.
-  - Tugas dan nominal mengikuti tanggal pendaftaran. Pengguna baru sejak 10 Oktober 2026 memakai aturan trading pertama.
-  - Kode tidak bisa ditambahkan setelah akun terdaftar, jadi isi saat mendaftar.
-  - Bonus diperiksa risiko selama 3 hari dan harus diklaim dalam 10 hari.
-  - Teman yang tidak bertransaksi selama 180 hari bisa kehilangan hubungan referral.
+  - Bonus referral ini mengikuti skema untuk pengguna yang mendaftar pada atau setelah 10 Oktober 2026 pukul 12.00 UTC.
+  - Pengguna baru wajib menggunakan kode atau tautan referral ketika mendaftar. Kode tidak dapat ditambahkan setelah akun dibuat.
+  - First Trade minimal 50 USD harus dilakukan dalam 14 hari sejak pendaftaran agar pengguna baru dan pemberi referral masing-masing memperoleh bonus 50 USDT.
+  - Volume trading kumulatif minimal 500 USD dalam 30 hari setelah First Time Trade memberikan bonus 100 USDT kepada masing-masing pihak.
+  - Volume trading kumulatif minimal 10.000 USD dalam periode yang sama memberikan bonus tambahan 100 USDT kepada masing-masing pihak.
+  - Total maksimal bonus referral adalah 250 USDT untuk pengguna baru dan 250 USDT untuk pemberi referral, atau 500 USDT secara gabungan.
+  - First Time Trade dan perhitungan volume trading mengikuti jenis produk yang diakui dalam program. Pasangan trading tanpa biaya pada Spot, Derivatif, dan Options tidak dihitung dalam volume yang memenuhi syarat.
+  - KYC diperlukan untuk mengklaim hadiah sesuai ketentuan Rewards Hub.
+  - Bonus tidak dapat ditarik sebagai uang tunai, tetapi dapat digunakan untuk aktivitas trading yang didukung sesuai jenis bonus. Keuntungan dari perdagangan menggunakan bonus mengikuti ketentuan penarikan yang berlaku.
+  - Setiap bonus dapat memiliki batas waktu klaim dan tanggal kedaluwarsa tersendiri.
+  - Komisi referral berlaku selama 365 hari sejak pengguna yang diundang mendaftar dan dihitung berdasarkan biaya trading bersih.
+  - Komisi awal sebesar 20% dapat meningkat menjadi 25% setelah mengundang 5 referee yang memenuhi syarat dalam satu kuartal.
+  - Komisi dapat meningkat menjadi 30% setelah mengundang 100 referee yang memenuhi syarat atau mencapai volume trading Derivatif sebesar 15 juta USD melalui referral dalam satu kuartal.
+  - Komisi referral dibatasi maksimal 5.000 USD per pemberi referral setiap kuartal. Batas tersebut dapat dihapus untuk kuartal berikutnya jika pemberi referral mengundang minimal 15 pengguna baru dalam satu kuartal yang masing-masing melakukan deposit minimal 100 USD dan menyelesaikan First Time Trade.
+  - Hubungan referral dapat dihentikan jika pengguna yang diundang tidak melakukan trading selama 180 hari berturut-turut.
+  - Bonus dan komisi tetap mengikuti pemeriksaan kelayakan, batas reward, dan ketentuan program Bybit yang berlaku.
+
 faqs:
-  - q: Apakah kode referral bisa dipakai setelah akun dibuat?
-    a: Tidak. FAQ resmi Bybit menyebut pengguna yang lupa memakai kode atau tautan undangan saat mendaftar tidak tercatat sebagai referee, jadi bonus referral tidak bisa diberikan.
-    intent: cara-pakai
-  - q: Berapa lama komisi referral Bybit berlaku?
-    a: Komisi pengundang berlaku untuk transaksi teman selama 365 hari sejak pendaftaran. Tingkat awal 20% bisa naik sampai 30% kalau tugas program terpenuhi.
+  - q: 'Berapa bonus yang bisa didapatkan dengan kode referral Bybit RX452A2?'
+    a: >-
+      Pengguna baru bisa memperoleh bonus referral hingga 250 USDT.
+      Rinciannya adalah 50 USDT setelah First Trade minimal 50 USD dalam
+      14 hari sejak pendaftaran, 100 USDT setelah volume trading kumulatif
+      mencapai 500 USD, dan tambahan 100 USDT setelah mencapai 10.000 USD.
+      Dua target volume tersebut memiliki batas penyelesaian 30 hari setelah
+      First Time Trade. Pemberi referral juga dapat memperoleh bonus
+      hingga 250 USDT sehingga total hadiah kedua pihak mencapai 500 USDT.
     intent: bonus
-  - q: Kapan bonus referral Bybit cair?
-    a: Bonus diperiksa risiko selama 3 hari lalu harus diklaim dalam 10 hari. Cek status klaim di akun Bybit. Halaman resmi tidak menjanjikan waktu masuk yang sama untuk setiap akun.
-    intent: pencairan
-  - q: Apa syarat agar bonus referral Bybit masuk?
-    a: Daftar sebagai pengguna baru dengan kode, selesaikan verifikasi identitas, lalu penuhi tugas trading. Minimal 50 USD dalam 14 hari untuk bonus awal, dan volume tertentu dalam 30 hari untuk bonus tambahan.
+
+  - q: 'Apa syarat mendapatkan bonus referral Bybit?'
+    a: >-
+      Daftar sebagai pengguna baru menggunakan kode atau tautan referral.
+      Lakukan First Trade minimal 50 USD dalam 14 hari sejak pendaftaran
+      untuk memperoleh bonus pertama. Setelah itu, selesaikan volume trading
+      kumulatif 500 USD dan 10.000 USD dalam 30 hari setelah First Time
+      Trade untuk memperoleh bonus lanjutan. Pengguna juga harus memenuhi
+      ketentuan akun dan KYC jika diminta saat mengklaim hadiah.
     intent: syarat
-officialUrl: https://www.bybit.com/
-programUrl: https://www.bybit.com/en/help-center/article/Bybit-Referral-Program-General-FAQ
-referralUrl: https://www.bybit.global/invite?ref=RX452A2
-verificationNote: Kami membuka FAQ program referral Bybit Global dan halaman undangan RX452A2 pada 31 Oktober 2026 untuk mencatat bonus, tugas, dan syarat. Kami tidak mendaftar untuk mencoba kode ini; kode berasal dari pemilik situs.
+
+  - q: 'Kapan bonus referral Bybit masuk dan bagaimana cara mencairkannya?'
+    a: >-
+      Bybit menerapkan pemeriksaan risiko selama 3 hari sebelum hadiah
+      dikreditkan. Setelah hadiah didistribusikan, pengguna memiliki waktu
+      10 hari untuk mengklaimnya. Bonus dapat digunakan untuk aktivitas
+      trading yang didukung, tetapi tidak dapat ditarik sebagai uang tunai.
+      Keuntungan dari trading menggunakan bonus dapat ditarik sesuai
+      ketentuan produk. Komisi referral dibagikan setiap hari pada pukul
+      04.00 UTC.
+    intent: pencairan
+
+  - q: 'Bagaimana cara menggunakan kode referral Bybit RX452A2?'
+    a: >-
+      Buka tautan undangan Bybit atau halaman pendaftaran resmi. Jika
+      menggunakan tautan undangan, pastikan kode RX452A2 sudah terpasang.
+      Jika mendaftar langsung, masukkan kode tersebut pada kolom Referral
+      Code sebelum menyelesaikan pendaftaran. Kode referral tidak dapat
+      ditambahkan setelah akun berhasil dibuat.
+    intent: cara-pakai
+
+  - q: 'Berapa lama masa berlaku bonus referral Bybit?'
+    a: >-
+      Hadiah harus diklaim maksimal 10 hari setelah didistribusikan.
+      Setelah diklaim, bonus dapat memiliki tanggal kedaluwarsa tersendiri.
+      Periksa informasi pada Rewards Hub atau halaman detail hadiah di akun
+      Bybit untuk mengetahui batas waktu penggunaan setiap bonus.
+    intent: masa-berlaku
+
+  - q: 'Apakah bonus referral Bybit bisa ditarik ke rekening atau dompet?'
+    a: >-
+      Tidak. Bonus Bybit tidak dapat ditarik sebagai uang tunai atau
+      dipindahkan ke dompet eksternal. Pengguna dapat memanfaatkannya
+      untuk aktivitas trading yang didukung sesuai jenis bonus.
+      Keuntungan yang diperoleh dari perdagangan menggunakan bonus dapat
+      ditarik mengikuti ketentuan Bybit.
+    intent: pencairan
+
+  - q: 'Apakah kode referral Bybit RX452A2 aman digunakan?'
+    a: >-
+      Kode referral digunakan untuk menghubungkan akun baru dengan program
+      undangan dan bukan jaminan keuntungan trading. Lakukan pendaftaran
+      melalui situs atau aplikasi resmi Bybit, periksa kode sebelum
+      menyelesaikan pendaftaran, dan jangan membagikan kata sandi maupun
+      kode verifikasi kepada orang lain. Perhatikan juga pembatasan wilayah
+      karena program pada halaman Bybit Global tidak otomatis tersedia
+      untuk semua yurisdiksi.
+    intent: keamanan
+
+officialUrl: 'https://www.bybit.com/'
+
+programUrl: 'https://www.bybit.com/en/help-center/article/Bybit-Referral-Program-General-FAQ'
+
+referralUrl: 'https://www.bybit.global/invite?ref=RX452A2'
+
+verificationNote: >-
+  Pemeriksaan dilakukan pada 2 November 2026 dengan mengacu pada FAQ resmi
+  Bybit Global yang diperbarui pada 10 Oktober 2026, termasuk informasi
+  tugas bonus untuk pendaftar baru, masa pemeriksaan hadiah, periode klaim,
+  komisi referral, dan ketentuan Rewards Hub. Kode RX452A2 dan tautan
+  undangan dipertahankan dari data akun tim editorial. Kami tidak melakukan
+  pendaftaran untuk menguji kode tersebut dan tidak mengklaim telah menerima
+  bonus. Kelayakan kode, bonus, dan akses program tetap mengikuti ketentuan
+  yang muncul pada akun pengguna.
+
 sources:
-  - label: FAQ Program Referral Bybit
-    url: https://www.bybit.com/en/help-center/article/Bybit-Referral-Program-General-FAQ
-  - label: Halaman undangan Bybit RX452A2
-    url: https://www.bybit.global/invite?ref=RX452A2
+  - label: FAQ Program Referral Bybit Global - Bahasa Indonesia
+    url: 'https://www.bybit.com/id-ID/help-center/article/Bybit-Referral-Program-General-FAQ'
+
+  - label: FAQ Program Referral Bybit Global - Bahasa Inggris
+    url: 'https://www.bybit.com/en/help-center/article/Bybit-Referral-Program-General-FAQ'
+
+  - label: FAQ Rewards Hub Bybit
+    url: 'https://www.bybit.com/id-ID/help-center/article/FAQ-Rewards-Hub'
+
+  - label: Panduan Pendaftaran Akun Bybit
+    url: 'https://www.bybit.com/en/help-center/article/How-to-register-an-account?category=3d12d51cab73b17552'
+
+  - label: Halaman Undangan Bybit RX452A2
+    url: 'https://www.bybit.global/invite?ref=RX452A2'
+
 updateLog:
+  - date: '2026-11-02'
+    note: >-
+      Memperbarui skema bonus untuk pendaftar sejak 10 Oktober 2026,
+      mengoreksi maksimal bonus menjadi 250 USDT per pihak atau 500 USDT
+      secara gabungan, memperbarui target First Trade dan volume trading,
+      komisi referral, masa pemeriksaan risiko, periode klaim, serta
+      ketentuan Rewards Hub berdasarkan dokumentasi resmi Bybit.
+
   - date: '2026-10-31'
-    note: Entri Bybit ditulis dari FAQ program referral dan halaman undangan resmi; kode berasal dari pemilik situs.
+    note: >-
+      Entri Bybit sebelumnya ditulis dari FAQ program referral Bybit Global
+      dan halaman undangan resmi. Kode berasal dari akun tim editorial.
+
 author:
-  name: Tim editorial Referral Update
-  role: Editor direktori
+  name: Notiska
+  role: Tim Editorial

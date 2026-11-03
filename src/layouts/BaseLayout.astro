@@ -37,7 +37,11 @@ const {
 } = Astro.props;
 const robotsContent =
   PREVIEW || robots === 'noindex' ? 'noindex, follow' : 'index, follow, max-image-preview:large';
-const pageTitle = title ? `${title} | ${site.name}` : `${site.name}: direktori kode referral Indonesia`;
+const pageTitle = title
+  ? title.includes(site.name)
+    ? title
+    : `${title} | ${site.name}`
+  : `${site.name}: direktori kode referral Indonesia`;
 const origin = Astro.site ?? new URL('https://referralupdate.com');
 const canonical =
   canonicalOverride === null
@@ -70,7 +74,12 @@ const baseLd = [
     '@id': organizationId,
     name: site.name,
     url: rootUrl,
-    logo: { '@type': 'ImageObject', url: new URL('/brand-mark.svg', origin).toString() },
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/brand-mark-512.png', origin).toString(),
+      width: 512,
+      height: 512,
+    },
     description: 'Direktori independen kode referral untuk layanan digital di Indonesia.',
   },
 ];
@@ -142,8 +151,8 @@ const isArticle = ogType === 'article';
         fetchpriority="high"
       />
     )}
-    <link rel="preload" href="/fonts/radio-canada.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/radio-canada-big.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/radio-canada.v1.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/radio-canada-big.v1.woff2" as="font" type="font/woff2" crossorigin />
     <script type="application/ld+json" set:html={structuredJson} />
   </head>
   <body>

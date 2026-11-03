@@ -1,10 +1,11 @@
 ---
+import { getImage } from 'astro:assets';
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Toc from '../../components/Toc.astro';
 import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { blogCategoryName } from '../../data/blog-categories';
-import { breadcrumbLd, formatIdDate, photos, site } from '../../data/site';
+import { breadcrumbLd, formatIdDate, site } from '../../data/site';
 import { getArticles, getBrands, type Article } from '../../lib/content';
 import { isArticleIndexable } from '../../lib/policy';
 import { articleOgCard } from '../../lib/og';
@@ -26,10 +27,17 @@ const categoryName = blogCategoryName(article.category);
 const { Content, headings } = await render(article.entry);
 const robots = isArticleIndexable(article) ? 'index' : 'noindex';
 const origin = Astro.site ?? new URL('https://referralupdate.com');
+const organizationRef = `${new URL('/', origin).toString()}#organization`;
 const published = article.published ?? article.updated;
 const publishedIso = new Date(`${published}T00:00:00+07:00`).toISOString();
 const updatedIso = new Date(`${article.updated}T00:00:00+07:00`).toISOString();
-const imageUrl = new URL(articleOgCard(article).path, origin).toString();
+const coverImage = await getImage({
+  src: article.image.src,
+  width: 1200,
+  format: 'jpg',
+  quality: 80,
+});
+const imageUrl = new URL(coverImage.src, origin).toString();
 const toc = [
   ...headings
     .filter((heading) => heading.depth === 2)
@@ -60,14 +68,20 @@ const jsonLd = [
     url: new URL(`/blog/${article.slug}/`, origin).toString(),
     mainEntityOfPage: new URL(`/blog/${article.slug}/`, origin).toString(),
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: article.author.name,
-      jobTitle: article.author.role,
+      url: new URL('/tentang/', origin).toString(),
     },
     publisher: {
       '@type': 'Organization',
+      '@id': organizationRef,
       name: site.name,
-      logo: { '@type': 'ImageObject', url: new URL('/brand-mark.svg', origin).toString() },
+      logo: {
+        '@type': 'ImageObject',
+        url: new URL('/brand-mark-512.png', origin).toString(),
+        width: 512,
+        height: 512,
+      },
     },
     citation: article.sources.map((source) => source.url),
   },
@@ -118,15 +132,24 @@ const jsonLd = [
             </div>
           </dl>
         </div>
-
-        <figure class="article-figure">
-          <div class="slot slot--wide">
-            <ResponsivePhoto photo={photos.article} sizes="(max-width: 60rem) 92vw, 72rem" eager />
-          </div>
-          <figcaption class="caption">Artikel ini memakai sumber resmi, bukan rangkuman forum.</figcaption>
-        </figure>
       </div>
     </section>
+
+    <div class="article-cover">
+      <div class="container">
+        <figure class="article-figure">
+          <div class="slot">
+            <ResponsivePhoto
+              photo={article.image}
+              sizes="(max-width: 40rem) calc(100vw - 2rem), 44rem"
+              widths={[480, 640, 960, 1280]}
+              eager
+            />
+          </div>
+          <figcaption class="caption">{article.image.caption}</figcaption>
+        </figure>
+      </div>
+    </div>
 
     <section class="article-body">
       <div class="container">
@@ -143,13 +166,12 @@ const jsonLd = [
                 </li>
               ))}
             </ul>
-            <p><a class="text-link" href="/metodologi-verifikasi/">Baca cara kami mengecek kode</a>.</p>
+            <!--<p><a class="text-link" href="/metodologi-verifikasi/">Baca cara kami mengecek kode</a>.</p>-->
           </div>
 
           <p class="author-box">
             oleh {article.author.name}, {article.author.role}. Diperbarui{' '}
-            <time datetime={article.updated}>{formatIdDate(article.updated)}</time>. Koreksi lewat
-            halaman kontak.
+            <time datetime={article.updated}>{formatIdDate(article.updated)}</time>.
           </p>
         </div>
       </div>
@@ -161,7 +183,7 @@ const jsonLd = [
       {relatedBrands.length > 0 && (
         <div class="article-cta field">
           <div class="container">
-            <h2>Kode referral brand yang dibahas.</h2>
+            <h2>Gunakan kode referral dibawah dan dapatkan keuntungan.</h2>
             <div class="cta-grid">
               {relatedBrands.map((brand) => (
                 <a class="cta-item" href={`/kode-referral/${brand.slug}/`}>
@@ -178,8 +200,8 @@ const jsonLd = [
         <div class="related-articles">
           <div class="container">
             <div class="section-head">
-              <h2>Panduan lain.</h2>
-              <p>Panduan lain dengan sumber resmi.</p>
+              <h2>Artikel terkait.</h2>
+              <p>Baca juga artikel lainnya yang relevan dengan topik ini.</p>
             </div>
             <div class="blog-list">
               {otherArticles.map((item) => (
