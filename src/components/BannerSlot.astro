@@ -1,0 +1,95 @@
+---
+import ResponsivePhoto from './ResponsivePhoto.astro';
+import { banners, type Banner, type BannerId } from '../data/banners';
+
+type Props = { id: BannerId };
+
+const { id } = Astro.props;
+const banner: Banner = banners[id];
+
+if (import.meta.env.DEV && banner.enabled) {
+  if (!banner.image && !banner.adUnit) {
+    throw new Error(`Banner "${id}" aktif tanpa image atau adUnit.`);
+  }
+  if (banner.image && !banner.image.alt.trim()) {
+    throw new Error(`Banner "${id}" memakai image tanpa alt.`);
+  }
+}
+
+const showBanner = banner.enabled;
+const showPlaceholder = !banner.enabled && import.meta.env.DEV;
+const isExternal = banner.href ? /^https?:\/\//.test(banner.href) : false;
+
+const sizes: Record<Banner['format'], string> = {
+  billboard: '(max-width: 48rem) calc(100vw - 2rem), 1280px',
+  leaderboard: '(max-width: 48rem) calc(100vw - 2rem), 1280px',
+  inline: '(max-width: 40rem) calc(100vw - 2rem), 44rem',
+  rail: '(max-width: 60rem) calc(100vw - 2rem), 416px',
+};
+
+const widths: Record<Banner['format'], number[]> = {
+  billboard: [480, 640, 960, 1280],
+  leaderboard: [480, 640, 960, 1280],
+  inline: [480, 640, 960],
+  rail: [320, 480, 640],
+};
+---
+
+{showBanner && (
+  <aside class={`banner-slot banner-slot--${banner.format}`} aria-label="Iklan">
+    <p class="banner-slot__label">{banner.label ?? 'Iklan'}</p>
+    <div class="banner-slot__media">
+      {banner.adUnit ? (
+        <ins
+          class="adsbygoogle"
+          data-ad-client={banner.adUnit.client}
+          data-ad-slot={banner.adUnit.slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+      ) : (
+        banner.image &&
+        (banner.href ? (
+          <a
+            class="banner-slot__link"
+            href={banner.href}
+            target={isExternal ? '_blank' : undefined}
+            rel="sponsored nofollow noopener noreferrer"
+          >
+            <ResponsivePhoto
+              photo={{
+                src: banner.image.src,
+                alt: banner.image.alt,
+                position: banner.image.position ?? '50% 50%',
+              }}
+              sizes={sizes[banner.format]}
+              widths={widths[banner.format]}
+            />
+          </a>
+        ) : (
+          <ResponsivePhoto
+            photo={{
+              src: banner.image.src,
+              alt: banner.image.alt,
+              position: banner.image.position ?? '50% 50%',
+            }}
+            sizes={sizes[banner.format]}
+            widths={widths[banner.format]}
+          />
+        ))
+      )}
+    </div>
+  </aside>
+)}
+
+{showPlaceholder && (
+  <div
+    class={`banner-slot banner-slot--${banner.format} banner-slot--placeholder`}
+    aria-hidden="true"
+  >
+    <div class="banner-slot__media">
+      {/* <p class="banner-slot__hint">Slot iklan · {banner.position} · {banner.format}</p> */}
+      <p class="banner-slot__hint">Slot iklan untuk kamu, hubungi kami</p>
+    </div>
+  </div>
+)}

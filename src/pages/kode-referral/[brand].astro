@@ -1,6 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BannerSlot from '../../components/BannerSlot.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CodeCard from '../../components/CodeCard.astro';
 import Toc from '../../components/Toc.astro';
@@ -297,6 +298,8 @@ const jsonLd = [
         <div class="aside-block">
           <p class="aside-source">Tautan referral di halaman ini bisa memberi komisi untuk pemilik kode. Bonus dan syarat bisa berubah; cek situs resmi sebelum mendaftar.</p>
         </div>
+
+        <BannerSlot id="brand-rail" />
       </aside>
     </div>
   </section>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BannerSlot from '../../components/BannerSlot.astro';
 import BrandTable from '../../components/BrandTable.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { ui } from '../../data/copy';
@@ -106,6 +107,8 @@ const jsonLd = [
       <p class="source-line">Mau mengundang teman dan dapat bonus? <a class="text-link" href={routes.programReferral.href}>Baca panduan program referral</a>.</p>
 
       <p class="source-line">Tanggal cek diperbarui saat halaman program dicek ulang. <a class="text-link" href={routes.methodology.href}>Baca cara pengecekan</a>.</p>
+
+      <BannerSlot id="directory-leaderboard" />
     </div>
   </section>
 </BaseLayout>

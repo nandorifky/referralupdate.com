@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BannerSlot from '../../components/BannerSlot.astro';
 import BrandTable from '../../components/BrandTable.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCategories, type Category } from '../../data/categories';
@@ -100,6 +101,8 @@ const jsonLd = [
         {listed.length} brand, diurutkan dari yang paling baru dicek.{' '}
         <a class="text-link" href={routes.blog.href}>Baca panduan</a>.
       </p>
+
+      <BannerSlot id="category-leaderboard" />
     </div>
   </section>
 </BaseLayout>

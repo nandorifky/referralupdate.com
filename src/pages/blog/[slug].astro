@@ -2,6 +2,7 @@
 import { getImage } from 'astro:assets';
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BannerSlot from '../../components/BannerSlot.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import SectionHead from '../../components/SectionHead.astro';
 import Toc from '../../components/Toc.astro';
@@ -150,11 +151,12 @@ const jsonLd = [
         </figure>
       </div>
     </div>
-
+    
     <section class="article-body">
       <div class="container">
         <div class="article-body__inner">
           <Toc items={toc} />
+          <BannerSlot id="article-inline" />
           <Content />
 
           <div class="article-sources">
@@ -173,6 +175,8 @@ const jsonLd = [
             oleh {article.author.name}, {article.author.role}. Diperbarui{' '}
             <time datetime={article.updated}>{formatIdDate(article.updated)}</time>.
           </p>
+
+          <BannerSlot id="article-inline" />
         </div>
       </div>
     </section>
