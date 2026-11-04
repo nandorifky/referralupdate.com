@@ -1,0 +1,45 @@
+---
+import { formatIdDate } from '../data/site';
+import { brandStatusLabels } from '../data/status';
+import { getBrand } from '../lib/content';
+
+type Props = {
+  slug: string;
+};
+
+const { slug } = Astro.props;
+const brand = await getBrand(slug);
+
+if (!brand) {
+  throw new Error(
+    `ReferralCta: brand "${slug}" tidak ditemukan di src/content/brands.`,
+  );
+}
+
+const isExpired = brand.status === 'expired';
+const actionLabel = isExpired
+  ? 'Lihat status program'
+  : brand.status === 'unverified'
+    ? 'Cek status kode'
+    : 'Cek info program';
+---
+<aside class="referral-cta field" aria-label={`Kode referral ${brand.name}`}>
+  <div class="referral-cta__head">
+    <p class="referral-cta__kicker"><i>Gunakan kode referral {brand.name} saat mendaftar sebagai pengguna baru.</i></p>
+  </div>
+  <div class="referral-cta__identity">
+    <p class="referral-cta__brand">Pakai kode referral {brand.name}</p>
+    <p class:list={['referral-cta__code', { 'referral-cta__code--ended': isExpired }]}>
+      {brand.code}
+    </p>
+    {isExpired && (
+      <p class="referral-cta__note">
+        Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}.
+      </p>
+    )}
+  </div>
+  <div class="referral-cta__offer">
+    <p class="referral-cta__brief">{brand.reward}</p>
+    <a class="btn referral-cta__action" href={`/kode-referral/${brand.slug}/`}>{actionLabel}</a>
+  </div>
+</aside>
