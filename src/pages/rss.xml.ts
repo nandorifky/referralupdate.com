@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getImage } from 'astro:assets';
-import { site } from '../data/site';
+import { routes } from '../data/routes';
+import { site, siteOrigin } from '../data/site';
 import { getArticles } from '../lib/content';
 import { isArticleIndexable } from '../lib/policy';
 
@@ -13,7 +14,7 @@ const escape = (value: string) =>
     .replace(/'/g, '&apos;');
 
 export const GET: APIRoute = async ({ site: configured }) => {
-  const origin = configured ?? new URL('https://referralupdate.com');
+  const origin = siteOrigin(configured);
   const articles = (await getArticles()).filter(isArticleIndexable);
   const updated = articles[0]?.updated;
 
@@ -47,7 +48,7 @@ export const GET: APIRoute = async ({ site: configured }) => {
     '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">',
     '  <channel>',
     `    <title>${escape(site.name)}</title>`,
-    `    <link>${escape(new URL('/blog/', origin).toString())}</link>`,
+    `    <link>${escape(new URL(routes.blog.href, origin).toString())}</link>`,
     `    <description>${escape(site.description)}</description>`,
     '    <language>id-ID</language>',
     updated ? `    <lastBuildDate>${new Date(`${updated}T00:00:00Z`).toUTCString()}</lastBuildDate>` : '',

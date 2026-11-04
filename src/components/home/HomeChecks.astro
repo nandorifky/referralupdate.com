@@ -1,0 +1,20 @@
+---
+import { homeChecks } from '../../data/home';
+---
+
+<section class="checks" aria-labelledby={homeChecks.headingId}>
+  <div class="container checks__grid">
+    <div class="checks__intro">
+      <h2 id={homeChecks.headingId}>{homeChecks.heading}</h2>
+      <a class="text-link" href={homeChecks.link.href}>{homeChecks.link.label}</a>
+    </div>
+    <ul class="checks__list">
+      {homeChecks.items.map((item) => (
+        <li>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

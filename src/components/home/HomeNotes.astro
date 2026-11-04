@@ -1,0 +1,38 @@
+---
+import ResponsivePhoto from '../ResponsivePhoto.astro';
+import SectionHead from '../SectionHead.astro';
+import { blogCategoryName } from '../../data/blog-categories';
+import { homeNotes } from '../../data/home';
+import { formatIdDate } from '../../data/site';
+import type { Article } from '../../lib/content';
+
+type Props = {
+  articles: Article[];
+};
+
+const { articles } = Astro.props;
+---
+
+<section class="notes">
+  <div class="container">
+    <SectionHead title={homeNotes.heading} intro={homeNotes.intro} />
+    <div class="notes__grid">
+      {articles.map((article) => (
+        <a class="note" href={`/blog/${article.slug}/`}>
+          <p class="note__meta">
+            <span>{blogCategoryName(article.category)}</span>
+            <time datetime={article.updated}>{formatIdDate(article.updated)}</time>
+          </p>
+          <div class="slot">
+            <ResponsivePhoto
+              photo={article.image}
+              sizes={homeNotes.imageSizes}
+              widths={homeNotes.imageWidths}
+            />
+          </div>
+          <h3>{article.title}</h3>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

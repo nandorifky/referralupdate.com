@@ -1,65 +1,91 @@
 ---
 import { getCategory } from '../data/categories';
+import { ui } from '../data/copy';
 import { formatIdDate, formatIdDateShort } from '../data/site';
+import { brandStatusLabels } from '../data/status';
 import type { Brand } from '../lib/content';
 
 type Props = {
   brand: Brand;
+  variant?: 'full' | 'hero';
+  label?: string;
+  detailLabel?: string;
+  ariaLabel?: string;
 };
 
-const { brand } = Astro.props;
+const { brand, variant = 'full', label, detailLabel, ariaLabel } = Astro.props;
+const isHero = variant === 'hero';
 const category = getCategory(brand.category);
 const shortDate = formatIdDateShort(brand.checkedAt);
 const isExpired = brand.status === 'expired';
-const statusLabel = {
-  active: 'Aktif',
-  unverified: 'Belum terverifikasi',
-  expired: 'Program berakhir',
-}[brand.status];
+const statusLabel = brandStatusLabels[brand.status];
 const refereeReward =
   brand.rewardReferee ?? 'Halaman resmi tidak menyebut bonus untuk pendaftar.';
 ---
 
-<aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
-  <div class="code-card__top">
-    <p class="code-card__label">Kode {brand.name}, {category?.name}</p>
+{isHero ? (
+  <aside class="code-card hero__card" aria-label={ariaLabel}>
+    <p class="code-card__label">{label}</p>
+    <p class="hero__card-brand">
+      <a href={`/kode-referral/${brand.slug}/`}>{brand.name}</a>
+    </p>
+    <p class="code-card__code">{brand.code}</p>
+    <p class="code-card__reward">{brand.reward}</p>
     <p class="code-card__date">
-      Terakhir diperbarui {shortDate}
+      {ui.lastChecked}{' '}
+      <time datetime={brand.checkedAt}>{formatIdDate(brand.checkedAt)}</time>{' '}
       <span class="status-chip">{statusLabel}</span>
     </p>
-  </div>
-  <p class="code-card__code">{brand.code}</p>
-  <p class="code-card__reward">
-    {brand.reward}
-    <span class="code-card__for">
-      <span class="code-card__for-label">Untuk pendaftar</span>
-      {refereeReward}
-    </span>
-    {isExpired && (
-      <span class="code-card__expired">
-        Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}. Tautan pendaftaran tidak ditampilkan.
-      </span>
-    )}
-  </p>
-  {!isExpired && (
-    <>
-      <div class="code-card__foot">
-        <button class="btn" type="button" data-copy={brand.code}>Salin kode</button>
-        {brand.referralUrl && (
-          <a
-            class="code-card__cta"
-            href={brand.referralUrl}
-            rel="sponsored nofollow noopener noreferrer"
-            target="_blank"
-          >
-            Buka tautan pendaftaran
-          </a>
-        )}
-        <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
-      </div>
-      {!brand.referralUrl && (
-        <p class="code-card__note">Belum ada tautan pendaftaran publik. Masukkan kode ini saat daftar.</p>
+    <div class="code-card__foot">
+      {!isExpired && (
+        <button class="btn" type="button" data-copy={brand.code}>{ui.copyCode}</button>
       )}
-    </>
-  )}
-</aside>
+      <a class="code-card__cta" href={`/kode-referral/${brand.slug}/`}>{detailLabel}</a>
+      <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+    </div>
+  </aside>
+) : (
+  <aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
+    <div class="code-card__top">
+      <p class="code-card__label">Kode {brand.name}, {category?.name}</p>
+      <p class="code-card__date">
+        {ui.lastChecked} {shortDate}
+        <span class="status-chip">{statusLabel}</span>
+      </p>
+    </div>
+    <p class="code-card__code">{brand.code}</p>
+    <p class="code-card__reward">
+      {brand.reward}
+      <span class="code-card__for">
+        <span class="code-card__for-label">Untuk pendaftar</span>
+        {refereeReward}
+      </span>
+      {isExpired && (
+        <span class="code-card__expired">
+          Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}. Tautan pendaftaran tidak ditampilkan.
+        </span>
+      )}
+    </p>
+    {!isExpired && (
+      <>
+        <div class="code-card__foot">
+          <button class="btn" type="button" data-copy={brand.code}>{ui.copyCode}</button>
+          {brand.referralUrl && (
+            <a
+              class="code-card__cta"
+              href={brand.referralUrl}
+              rel="sponsored nofollow noopener noreferrer"
+              target="_blank"
+            >
+              Buka tautan pendaftaran
+            </a>
+          )}
+          <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+        </div>
+        {!brand.referralUrl && (
+          <p class="code-card__note">Belum ada tautan pendaftaran publik. Masukkan kode ini saat daftar.</p>
+        )}
+      </>
+    )}
+  </aside>
+)}

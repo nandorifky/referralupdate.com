@@ -1,16 +1,18 @@
 ---
 import ProsePage from '../layouts/ProsePage.astro';
+import { routes } from '../data/routes';
+import { site } from '../data/site';
 ---
 
 <ProsePage
   title="Kontak Referral Update"
   description="Kirim koreksi kode, usulan brand, atau pertanyaan soal kode referral lewat email. Jangan kirim password, OTP, atau data rekening."
   lead="Kirim koreksi kode, usulan brand, atau pertanyaan."
-  path="/kontak/"
+  path={routes.contact.href}
 >
   <section class="prose-section">
     <h2>Alamat email</h2>
-    <a class="contact-mail" href="mailto:halo@referralupdate.com">halo@referralupdate.com</a>
+    <a class="contact-mail" href={`mailto:${site.email}`}>{site.email}</a>
     <p>Tulis dari alamat email yang bisa menerima balasan, dan sertakan tautan sumber agar laporan bisa dicek.</p>
   </section>
 

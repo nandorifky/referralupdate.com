@@ -1,6 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { breadcrumbLd } from '../data/site';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { homeCrumb, routes } from '../data/routes';
+import { breadcrumbLd, siteOrigin } from '../data/site';
 
 type Props = {
   title: string;
@@ -10,25 +12,19 @@ type Props = {
 };
 
 const { title, description, lead, path } = Astro.props;
-const origin = Astro.site ?? new URL('https://referralupdate.com');
-const jsonLd = breadcrumbLd(
-  [
-    { name: 'Beranda', path: '/' },
-    { name: title, path },
-  ],
-  origin,
-);
+const origin = siteOrigin(Astro.site);
+const jsonLd = breadcrumbLd([homeCrumb, { name: title, path }], origin);
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <section class="page-head">
     <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="/">Beranda</a></li>
-          <li>{title}</li>
-        </ol>
-      </nav>
+      <Breadcrumb
+        items={[
+          { label: routes.home.label, href: routes.home.href },
+          { label: title },
+        ]}
+      />
       <div class="page-head__body">
         <h1>{title}.</h1>
         <p class="lead">{lead}</p>

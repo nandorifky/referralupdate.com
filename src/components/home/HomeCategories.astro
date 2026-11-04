@@ -1,0 +1,38 @@
+---
+import SectionHead from '../SectionHead.astro';
+import { ui } from '../../data/copy';
+import type { Category } from '../../data/categories';
+import { homeCategories } from '../../data/home';
+import { brandsInCategory, type Brand } from '../../lib/content';
+import { categoryHref } from '../../lib/policy';
+
+type Props = {
+  categories: Category[];
+  brands: Brand[];
+};
+
+const { categories, brands } = Astro.props;
+---
+
+<section class="categories" aria-labelledby={homeCategories.headingId}>
+  <div class="container">
+    <SectionHead
+      title={homeCategories.heading}
+      intro={homeCategories.intro}
+      id={homeCategories.headingId}
+    />
+    <ul class="index-list">
+      {categories.map((category) => (
+        <li class="index-row">
+          <a href={categoryHref(category, brands)}>
+            <span class="index-name">{category.name}</span>
+            <span class="index-line">{category.line}</span>
+            <span class="index-count">
+              {ui.brandCount(brandsInCategory(brands, category.slug).length)}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

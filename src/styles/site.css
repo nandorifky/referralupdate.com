@@ -1,5 +1,5 @@
 /* Hallmark · shape: Manifesto · genre: editorial · theme: Grid (dealt) · job: find a working referral code · draw: n/a (shape named)
- * hero: Poster over paper, one duotone photograph · nav: two-tier masthead, numbered index and full-screen menu · footer: colophon · imagery: replaceable library slots in duotone, one per category · signature: the code printed on an ultramarine field
+ * hero: Poster over paper, the latest verified code on an ultramarine card · nav: two-tier masthead, numbered index and full-screen menu · footer: colophon · imagery: replaceable library slots in duotone, one per category · signature: the code printed on an ultramarine field
  * axes: light/grotesk-sans/cool · posture: committed · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · redesign: full depth · kept: 29 routes, both search fields, filter and copy wiring, every content field · changed: theme Coral to Grid, shape Ecosystem Index to Manifesto, cards to fields */
 /* Hallmark · revise: blog index to dated archive, nav to two-tier masthead, category photo on every brand page · kept: all article links, filters, copy wiring and JSON-LD */
@@ -7,6 +7,8 @@
 /* Hallmark · revise: article head and body align to one centered measure, section heads above copy · kept: numbered sections, sources, CTAs and JSON-LD */
 /* Hallmark · revise: featured images per article and brand, blog archive to a typographic ledger · kept: copy, anchors, OG cards, JSON-LD wiring */
 /* Hallmark · revise: homepage ordering split becomes a four-check band, notes become a three-up article record · kept: all article links, titles, dates, search and JSON-LD */
+/* Hallmark · revise: hero photograph becomes the brand mark plate, photo credit removed · kept: layout, latest-brand caption, search, facts and links */
+/* Hallmark · revise: hero brand-mark plate becomes the latest verified code card; the duplicate latest-code band is removed · kept: closing band, both search fields, copy wiring, ledger and JSON-LD */
 /* Hallmark · pre-emit critique: P4 H5 E4 S4 R4 V5 · weakest: P, a directory is a utility page and the poster voice must not slow the lookup */
 /* Hallmark · finish-review: subagent · 8 findings · 6 resolved 1 partial 1 unresolved (balance kept for F3) */
 /* Hallmark · reworded "Kode referral, dicek tiap minggu." to "Kode referral, bukan teka-teki." · 44b, the poster needs a shorter and sharper headline than the old weekly promise */
@@ -73,7 +75,6 @@ p a:hover, li a:hover, dd a:hover, figcaption a:hover { text-decoration-color: v
 .field a { color: inherit; text-decoration-color: color-mix(in oklab, var(--color-field-ink) 55%, transparent); }
 .field a:hover { color: inherit; text-decoration-color: var(--color-field-ink); }
 
-.statement { font-family: var(--font-display); font-weight: 400; font-size: var(--text-statement); line-height: 1.02; letter-spacing: -0.02em; max-width: 26ch; }
 .caption { margin-top: var(--space-sm); max-width: 42ch; font-size: var(--text-sm); line-height: 1.5; color: var(--color-muted); }
 .source-line { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); }
 
@@ -160,20 +161,11 @@ html.menu-open { overflow: hidden; }
 .hero .search { margin-top: var(--space-xl); max-width: 30rem; }
 .hero__facts { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); }
 .hero__links { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); margin-top: var(--space-sm); font-size: var(--text-sm); }
-.hero__figure { grid-column: 9 / span 4; min-width: 0; }
+.hero__figure { grid-column: 9 / span 4; min-width: 0; display: grid; align-self: stretch; }
 
 /* Bands */
 .band { padding-block: var(--space-3xl); }
 .band__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); align-items: end; }
-.band .statement { grid-column: 1 / span 8; }
-.band__record { grid-column: 9 / span 4; display: grid; gap: var(--space-2xs); align-content: end; }
-.band__label { font-size: var(--text-sm); font-weight: 500; color: color-mix(in oklab, var(--color-field-ink) 72%, transparent); }
-.band__brand { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; }
-.band__brand a { text-decoration: none; }
-.band__brand a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
-.band__code { font-family: var(--font-display); font-size: var(--text-code); font-weight: 400; line-height: 1; letter-spacing: -0.01em; overflow-wrap: anywhere; }
-.band__date { font-size: var(--text-sm); color: color-mix(in oklab, var(--color-field-ink) 72%, transparent); }
-.band__record .btn { justify-self: start; margin-top: var(--space-md); }
 .band--close__copy { grid-column: 1 / span 7; }
 .band--close h2 { max-width: 14ch; font-size: var(--text-statement); line-height: 1.02; letter-spacing: -0.02em; }
 .band--close p { margin-top: var(--space-md); max-width: 42ch; color: color-mix(in oklab, var(--color-field-ink) 80%, transparent); }
@@ -286,6 +278,13 @@ html.menu-open { overflow: hidden; }
 .code-card a { color: inherit; text-decoration-color: color-mix(in oklab, var(--color-field-ink) 55%, transparent); }
 .code-card a:hover { color: inherit; text-decoration-color: var(--color-field-ink); }
 .copy-status { min-height: 1lh; font-size: var(--text-sm); color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
+.hero__card { height: 100%; padding: var(--space-xl); }
+.hero__card-brand { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+.hero__card-brand a { text-decoration: none; }
+.hero__card-brand a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.hero__card .code-card__code { font-size: clamp(2rem, 2.6vw + 0.75rem, 3rem); white-space: normal; overflow-wrap: anywhere; }
+.hero__card .code-card__reward { font-size: var(--text-md); }
+.hero__card .code-card__foot { margin-top: auto; padding-top: var(--space-lg); }
 
 /* Brand page */
 .brand-head { padding-block: var(--space-2xl); }
@@ -473,9 +472,8 @@ html.menu-open { overflow: hidden; }
   .hero__grid { grid-template-columns: minmax(0, 1fr); }
   .hero__copy, .hero__figure { grid-column: 1 / -1; }
   .hero__figure { max-width: 30rem; }
-  .hero__figure .slot--4x5 { aspect-ratio: 4 / 3; }
   .band__grid { grid-template-columns: minmax(0, 1fr); }
-  .band .statement, .band__record, .band--close__copy, .band__search { grid-column: 1 / -1; }
+  .band--close__copy, .band__search { grid-column: 1 / -1; }
   .section-head { grid-template-columns: minmax(0, 1fr); }
   .section-head h2, .section-head p { grid-column: 1 / -1; }
   .steps li { grid-template-columns: 2rem minmax(0, 1fr); }

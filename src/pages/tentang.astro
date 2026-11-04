@@ -1,12 +1,13 @@
 ---
 import ProsePage from '../layouts/ProsePage.astro';
+import { routes } from '../data/routes';
 ---
 
 <ProsePage
   title="Tentang Referral Update"
   description="Kenali Referral Update, direktori kode referral yang dikelola tim editorial, cara kode diperiksa, dan komitmen memperbarui syarat serta informasi program."
   lead="Direktori kode referral yang dikelola tim editorial, dengan bonus, syarat, dan tanggal cek yang bisa kamu baca sebelum mendaftar."
-  path="/tentang/"
+  path={routes.about.href}
 >
   <section class="prose-section">
     <h2>Apa yang kami bagikan</h2>

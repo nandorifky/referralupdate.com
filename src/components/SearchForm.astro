@@ -1,4 +1,5 @@
 ---
+import { ui } from '../data/copy';
 import { getBrands } from '../lib/content';
 
 type Props = {
@@ -13,19 +14,19 @@ const brands = await getBrands();
 ---
 
 <form class={`search search--${variant}`} action="/kode-referral/" method="get" role="search">
-  <label for={id}>Cari platform</label>
+  <label for={id}>{ui.search.label}</label>
   <div class="search__row">
     <input
       id={id}
       name="q"
       type="search"
-      placeholder={isBand ? 'Ketik nama brand' : 'Bybit, SeaBank, ShopeePay'}
+      placeholder={isBand ? ui.search.bandPlaceholder : ui.search.heroPlaceholder}
       value={value}
       list={`${id}-brand-options`}
       autocomplete="off"
       spellcheck="false"
     />
-    <button class="btn" type="submit">{isBand ? 'Cari' : 'Cari kode'}</button>
+    <button class="btn" type="submit">{isBand ? ui.search.bandSubmit : ui.search.heroSubmit}</button>
   </div>
   <datalist id={`${id}-brand-options`}>
     {brands.map((brand) => <option value={brand.name}></option>)}

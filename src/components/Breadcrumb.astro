@@ -1,0 +1,17 @@
+---
+import { ui } from '../data/copy';
+
+type Props = {
+  items: { label: string; href?: string }[];
+};
+
+const { items } = Astro.props;
+---
+
+<nav aria-label={ui.breadcrumbLabel}>
+  <ol class="breadcrumb">
+    {items.map((item) => (
+      <li>{item.href ? <a href={item.href}>{item.label}</a> : item.label}</li>
+    ))}
+  </ol>
+</nav>

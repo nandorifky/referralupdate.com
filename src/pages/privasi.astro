@@ -1,12 +1,13 @@
 ---
 import ProsePage from '../layouts/ProsePage.astro';
+import { routes } from '../data/routes';
 ---
 
 <ProsePage
   title="Kebijakan privasi"
   description="Data yang diproses Referral Update, penggunaan analitik, dan hak pengguna menurut UU Perlindungan Data Pribadi."
   lead="Data apa yang diproses saat kamu memakai situs ini."
-  path="/privasi/"
+  path={routes.privacy.href}
 >
   <section class="prose-section">
     <h2>Data yang kamu kirim</h2>

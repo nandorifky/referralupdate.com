@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BrandTable from '../../components/BrandTable.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCategories, type Category } from '../../data/categories';
-import { breadcrumbLd } from '../../data/site';
+import { homeCrumb, routes } from '../../data/routes';
+import { breadcrumbLd, siteOrigin } from '../../data/site';
 import { brandsInCategory, getBrands, sortBrandsByChecked } from '../../lib/content';
 import { isCategoryIndexable } from '../../lib/policy';
 import { categoryOgCard } from '../../lib/og';
@@ -17,14 +19,14 @@ export async function getStaticPaths() {
 const { category } = Astro.props as { category: Category };
 const brands = await getBrands();
 const listed = sortBrandsByChecked(brandsInCategory(brands, category.slug));
-const origin = Astro.site ?? new URL('https://referralupdate.com');
+const origin = siteOrigin(Astro.site);
 const introParagraphs = category.intro.split(/\n\s*\n/).filter((paragraph) => paragraph.trim());
 
 const jsonLd = [
   breadcrumbLd(
     [
-      { name: 'Beranda', path: '/' },
-      { name: 'Kategori', path: '/kategori/' },
+      homeCrumb,
+      { name: routes.categories.label, path: routes.categories.href },
       { name: category.name, path: `/kategori/${category.slug}/` },
     ],
     origin,
@@ -58,13 +60,13 @@ const jsonLd = [
 >
   <section class="page-head">
     <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="/">Beranda</a></li>
-          <li><a href="/kategori/">Kategori</a></li>
-          <li>{category.name}</li>
-        </ol>
-      </nav>
+      <Breadcrumb
+        items={[
+          { label: routes.home.label, href: routes.home.href },
+          { label: routes.categories.label, href: routes.categories.href },
+          { label: category.name },
+        ]}
+      />
       <div class="page-head__body">
         <h1>Kode referral {category.name}.</h1>
         <p class="lead">{category.description}</p>
@@ -84,7 +86,7 @@ const jsonLd = [
 
       <p class="source-line">
         {listed.length} brand, diurutkan dari yang paling baru dicek.{' '}
-        <a class="text-link" href="/blog/">Baca panduan</a>.
+        <a class="text-link" href={routes.blog.href}>Baca panduan</a>.
       </p>
     </div>
   </section>

@@ -1,6 +1,7 @@
 ---
 import { getCategory } from '../data/categories';
 import { formatIdDate } from '../data/site';
+import { brandStatusLabelsShort } from '../data/status';
 import type { Brand } from '../lib/content';
 
 type Props = {
@@ -34,7 +35,7 @@ const { items, caption } = Astro.props;
             <span class="checked-chip">{formatIdDate(brand.checkedAt)}</span>
             {brand.status !== 'active' && (
               <span class="checked-status" data-status={brand.status}>
-                {brand.status === 'expired' ? 'Berakhir' : 'Belum terverifikasi'}
+                {brandStatusLabelsShort[brand.status]}
               </span>
             )}
           </td>

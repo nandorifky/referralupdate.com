@@ -1,20 +1,22 @@
 ---
-import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchForm from '../components/SearchForm.astro';
-import BrandTable from '../components/BrandTable.astro';
-import ResponsivePhoto from '../components/ResponsivePhoto.astro';
-import { blogCategoryName } from '../data/blog-categories';
-import { formatIdDate, photos, site } from '../data/site';
+import HomeHero from '../components/home/HomeHero.astro';
+import HomeProcess from '../components/home/HomeProcess.astro';
+import HomeChecks from '../components/home/HomeChecks.astro';
+import HomeLedger from '../components/home/HomeLedger.astro';
+import HomeCategories from '../components/home/HomeCategories.astro';
+import HomeNotes from '../components/home/HomeNotes.astro';
+import HomeClosing from '../components/home/HomeClosing.astro';
+import { homeLedger, homeMeta, homeStructuredData } from '../data/home';
+import { site, siteOrigin } from '../data/site';
 import {
-  brandsInCategory,
   categoriesWithBrands,
   getArticles,
   getBrands,
   sortArticlesByUpdated,
   sortBrandsByChecked,
 } from '../lib/content';
-import { categoryHref, isDirectoryIndexable } from '../lib/policy';
+import { isDirectoryIndexable } from '../lib/policy';
 import { homeOgCard } from '../lib/og';
 
 const brands = await getBrands();
@@ -22,38 +24,28 @@ const articles = await getArticles();
 const sorted = sortBrandsByChecked(brands);
 const activeBrands = sorted.filter((brand) => brand.status === 'active');
 const latest = activeBrands[0] ?? sorted[0];
-const ledgerBrands = activeBrands.slice(0, 4);
+const ledgerBrands = activeBrands.slice(0, homeLedger.limit);
 const activeCategories = categoriesWithBrands(brands);
 const sortedArticles = sortArticlesByUpdated(articles);
 const robots = isDirectoryIndexable(brands) ? 'index' : 'noindex';
-const origin = Astro.site ?? new URL('https://referralupdate.com');
-const heroSizes =
-  '(max-width: 32rem) calc(100vw - 2rem), (max-width: 60rem) 30rem, (max-width: 72rem) calc(41.667vw - 4.5rem), (min-width: 90rem) 26rem, calc(33.333vw - 4rem)';
-const noteSizes =
-  '(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(41.667vw - 2rem), (min-width: 90rem) 26rem, calc(33.333vw - 4rem)';
-const heroPreload = await getImage({
-  src: photos.hero.src,
-  widths: [640, 960, 1280, 1920],
-  format: 'avif',
-  quality: 68,
-});
+const origin = siteOrigin(Astro.site);
 
 const jsonLd = [
   {
     '@type': 'CollectionPage',
-    name: 'Kode referral aktif di Indonesia',
+    name: homeStructuredData.collectionPageName,
     url: new URL('/', origin).toString(),
     inLanguage: 'id',
     isPartOf: { '@type': 'WebSite', name: site.name, url: new URL('/', origin).toString() },
   },
   {
     '@type': 'ItemList',
-    name: 'Kode referral aktif dengan tanggal cek',
+    name: homeStructuredData.itemListName,
     numberOfItems: ledgerBrands.length,
     itemListElement: ledgerBrands.map((brand, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: `Kode referral ${brand.name}`,
+      name: homeStructuredData.itemName(brand.name),
       url: new URL(`/kode-referral/${brand.slug}/`, origin).toString(),
     })),
   },
@@ -61,169 +53,22 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Kode referral aktif di Indonesia"
-  description="Brand aktif dengan kode referral dan tanggal ceknya. Lihat bonus, syarat, dan status sebelum mendaftar, lalu buka direktori untuk semua brand."
+  title={homeMeta.title}
+  description={homeMeta.description}
   jsonLd={jsonLd}
   robots={robots}
   image={homeOgCard(brands)}
-  preloadImage={{
-    href: heroPreload.src,
-    srcset: heroPreload.srcSet.attribute,
-    sizes: heroSizes,
-  }}
 >
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__copy">
-        <h1>Referral Update.</h1>
-        <p class="hero__lead">Dapatkan informasi valid dan terkini tentang kode referral dari berbagai platform, pasti cuan maksimal!</p>
-        <SearchForm id="hero-search" />
-        <p class="hero__facts">{activeBrands.length} dari {brands.length} brand berstatus aktif di {activeCategories.length} kategori.</p>
-        <p class="hero__links">
-          <a class="text-link" href="/kode-referral/">Lihat semua kode referral</a>
-          <a class="text-link" href="/metodologi-verifikasi/">Baca metodologi verifikasi</a>
-        </p>
-      </div>
-      <figure class="hero__figure">
-        <div class="slot slot--4x5">
-          <ResponsivePhoto photo={photos.hero} sizes={heroSizes} eager />
-        </div>
-        <figcaption class="caption">Program Referral {latest.name} dicek <time datetime={latest.checkedAt}>{formatIdDate(latest.checkedAt)}</time>. Kode {latest.code}.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="band field" aria-labelledby="catatan">
-    <div class="container band__grid">
-      <p class="statement" id="catatan">Kode referral aktif terbaru yang bisa kamu gunakan.</p>
-      <div class="band__record">
-        <p class="band__label">Brand aktif</p>
-        <p class="band__brand"><a href={`/kode-referral/${latest.slug}/`}>{latest.name}</a></p>
-        <p class="band__code">{latest.code}</p>
-        <p class="band__date">Terakhir diperbarui {formatIdDate(latest.checkedAt)}</p>
-        <a class="btn" href="/kode-referral/">Lihat semua kode</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="process">
-    <div class="container">
-      <div class="section-head">
-        <h2>Cara kami mengecek kode referral.</h2>
-        <p>Empat langkah, dengan pengecekan ulang berkala.</p>
-      </div>
-      <ol class="steps">
-         <li>
-          <h3>Kode dari tim editorial</h3>
-          <p>Kami membagikan kode referral valid yang digunakan oleh tim editorial.</p>
-        </li>
-        <li>
-          <h3>Buka halaman program resmi</h3>
-          <p>Kami baca halaman program, pusat bantuan, dan toko aplikasi brand.</p>
-        </li>
-        <li>
-          <h3>Catat bonus dan syarat</h3>
-          <p>Kami catat pengguna baru, minimum transaksi, dan masa berlaku.</p>
-        </li>
-        <li>
-          <h3>Tandai entri lewat 30 hari</h3>
-          <p>Entri yang lewat 30 hari masuk daftar pengecekan ulang. Kalau program berubah, status kode diperbarui.</p>
-        </li>
-      </ol>
-      <p class="source-line"><a class="text-link" href="/metodologi-verifikasi/">Baca cara pengecekan lengkap</a></p>
-    </div>
-  </section>
-
-  <section class="checks" aria-labelledby="syarat">
-    <div class="container checks__grid">
-      <div class="checks__intro">
-        <h2 id="syarat">Cek syaratnya sebelum mengejar bonus.</h2>
-        <a class="text-link" href="/blog/cara-aman-memakai-kode-referral/">Baca panduan keamanan</a>
-      </div>
-      <ul class="checks__list">
-        <li>
-          <h3>Kode masuk saat mendaftar.</h3>
-          <p>Beberapa program hanya menerima kode sebelum akun aktif.</p>
-        </li>
-        <li>
-          <h3>Syaratnya bisa kamu penuhi.</h3>
-          <p>Verifikasi identitas, transaksi pertama, atau saldo ditahan bisa menjadi syarat.</p>
-        </li>
-        <li>
-          <h3>Masa berlakunya masih terbuka.</h3>
-          <p>Cek tanggal berakhir dan batas klaim sebelum bertransaksi.</p>
-        </li>
-        <li>
-          <h3>Biaya tidak melebihi bonus.</h3>
-          <p>Hitung total biaya sebelum bertransaksi.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="ledger">
-    <div class="container">
-      <div class="section-head">
-        <h2>Kode referral aktif dan tanggal ceknya.</h2>
-        <p>Diurutkan dari tanggal cek terbaru.</p>
-      </div>
-      <BrandTable items={ledgerBrands} caption="Brand aktif dengan kode referral dan tanggal cek" />
-      <p class="source-line">Menampilkan brand aktif saja. <a class="text-link" href="/kode-referral/">Lihat semua kode</a> untuk entri lain.</p>
-    </div>
-  </section>
-
-  <section class="categories" aria-labelledby="kategori">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="kategori">Cari kode referral per kategori.</h2>
-        <p>Syaratnya berbeda di tiap layanan.</p>
-      </div>
-      <ul class="index-list">
-        {activeCategories.map((category) => (
-          <li class="index-row">
-            <a href={categoryHref(category, brands)}>
-              <span class="index-name">{category.name}</span>
-              <span class="index-line">{category.line}</span>
-              <span class="index-count">{brandsInCategory(brands, category.slug).length} brand</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <section class="notes">
-    <div class="container">
-      <div class="section-head">
-        <h2>Panduan sebelum memakai kode referral.</h2>
-        <p>Baca soal syarat, keamanan, dan cara klaim bonus.</p>
-      </div>
-      <div class="notes__grid">
-        {sortedArticles.map((article) => (
-          <a class="note" href={`/blog/${article.slug}/`}>
-            <p class="note__meta">
-              <span>{blogCategoryName(article.category)}</span>
-              <time datetime={article.updated}>{formatIdDate(article.updated)}</time>
-            </p>
-            <div class="slot">
-              <ResponsivePhoto photo={article.image} sizes={noteSizes} widths={[480, 640, 960]} />
-            </div>
-            <h3>{article.title}</h3>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="band band--close field">
-    <div class="container band__grid">
-      <div class="band--close__copy">
-        <h2>Cari kode referral brand yang kamu pakai.</h2>
-        <p>Cek syarat dan bonus sebelum mendaftar.</p>
-      </div>
-      <div class="band__search">
-        <SearchForm id="band-search" variant="band" />
-      </div>
-    </div>
-  </section>
+  <HomeHero
+    latest={latest}
+    activeCount={activeBrands.length}
+    totalCount={brands.length}
+    categoryCount={activeCategories.length}
+  />
+  <HomeProcess />
+  <HomeChecks />
+  <HomeLedger items={ledgerBrands} />
+  <HomeCategories categories={activeCategories} brands={brands} />
+  <HomeNotes articles={sortedArticles} />
+  <HomeClosing />
 </BaseLayout>

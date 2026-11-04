@@ -1,0 +1,24 @@
+---
+import BrandTable from '../BrandTable.astro';
+import SectionHead from '../SectionHead.astro';
+import { homeLedger } from '../../data/home';
+import type { Brand } from '../../lib/content';
+
+type Props = {
+  items: Brand[];
+};
+
+const { items } = Astro.props;
+---
+
+<section class="ledger">
+  <div class="container">
+    <SectionHead title={homeLedger.heading} intro={homeLedger.intro} />
+    <BrandTable items={items} caption={homeLedger.caption} />
+    <p class="source-line">
+      {homeLedger.noteBefore}{' '}
+      <a class="text-link" href={homeLedger.link.href}>{homeLedger.link.label}</a>{' '}
+      {homeLedger.noteAfter}
+    </p>
+  </div>
+</section>

@@ -1,12 +1,13 @@
 ---
 import ProsePage from '../layouts/ProsePage.astro';
+import { routes } from '../data/routes';
 ---
 
 <ProsePage
   title="Kebijakan tautan affiliate dan disclaimer"
   description="Cara kerja tautan affiliate Referral Update, sumber kode, batasan informasi, dan tanggung jawab saat memakai tautan atau kode di situs ini."
   lead="Sebagian tautan keluar bisa memberi komisi untuk kami."
-  path="/disclosure-affiliate/"
+  path={routes.disclosure.href}
 >
   <section class="prose-section">
     <h2>Cara kerja tautan affiliate</h2>

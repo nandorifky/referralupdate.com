@@ -1,34 +1,37 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { categories } from '../../data/categories';
-import { breadcrumbLd } from '../../data/site';
+import { ui } from '../../data/copy';
+import { homeCrumb, routes } from '../../data/routes';
+import { breadcrumbLd, siteOrigin } from '../../data/site';
 import { brandsInCategory, categoriesWithBrands, getBrands } from '../../lib/content';
 import { categoryHref, indexableCategories } from '../../lib/policy';
 import { categoryIndexOgCard } from '../../lib/og';
 
 const brands = await getBrands();
 const activeCategories = categoriesWithBrands(brands);
-const origin = Astro.site ?? new URL('https://referralupdate.com');
+const origin = siteOrigin(Astro.site);
 const robots = indexableCategories(categories, brands).length > 0 ? 'index' : 'noindex';
 const jsonLd = [
   breadcrumbLd(
     [
-      { name: 'Beranda', path: '/' },
-      { name: 'Kategori', path: '/kategori/' },
+      homeCrumb,
+      { name: routes.categories.label, path: routes.categories.href },
     ],
     origin,
   ),
   {
     '@type': 'CollectionPage',
     name: 'Kode referral per kategori',
-    url: new URL('/kategori/', origin).toString(),
+    url: new URL(routes.categories.href, origin).toString(),
     inLanguage: 'id',
   },
 ];
 ---
 
 <BaseLayout
-  title="Kode referral per kategori"
+  title="Cari Kode Referral Berdasarkan Kategori"
   description="Cari kode referral berdasarkan kategori: e-wallet, bank digital, investasi, bisnis, dan hiburan. Lengkap dengan syarat dan tanggal cek."
   jsonLd={jsonLd}
   robots={robots}
@@ -36,12 +39,12 @@ const jsonLd = [
 >
   <section class="page-head">
     <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="/">Beranda</a></li>
-          <li>Kategori</li>
-        </ol>
-      </nav>
+      <Breadcrumb
+        items={[
+          { label: routes.home.label, href: routes.home.href },
+          { label: routes.categories.label },
+        ]}
+      />
       <div class="page-head__body">
         <h1>Kode referral per kategori.</h1>
         <p class="lead">Pilih jenis layanan, lalu lihat kode, bonus, syarat, dan tanggal cek.</p>
@@ -59,14 +62,14 @@ const jsonLd = [
               <a href={categoryHref(category, brands)}>
                 <span class="index-name">{category.name}</span>
                 <span class="index-line">{category.line}</span>
-                <span class="index-count">{count} brand</span>
+                <span class="index-count">{ui.brandCount(count)}</span>
               </a>
             </li>
           );
         })}
       </ul>
 
-      <p class="source-line"><a class="text-link" href="/kode-referral/">Lihat semua brand di direktori</a>.</p>
+      <p class="source-line"><a class="text-link" href={routes.directory.href}>Lihat semua brand di direktori</a>.</p>
     </div>
   </section>
 </BaseLayout>

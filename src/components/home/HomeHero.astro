@@ -1,0 +1,40 @@
+---
+import CodeCard from '../CodeCard.astro';
+import SearchForm from '../SearchForm.astro';
+import { homeHero } from '../../data/home';
+import type { Brand } from '../../lib/content';
+
+type Props = {
+  latest: Brand;
+  activeCount: number;
+  totalCount: number;
+  categoryCount: number;
+};
+
+const { latest, activeCount, totalCount, categoryCount } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1>{homeHero.heading}</h1>
+      <p class="hero__lead">{homeHero.lead}</p>
+      <SearchForm id="hero-search" />
+      <p class="hero__facts">{homeHero.facts(activeCount, totalCount, categoryCount)}</p>
+      <p class="hero__links">
+        {homeHero.links.map((link) => (
+          <a class="text-link" href={link.href}>{link.label}</a>
+        ))}
+      </p>
+    </div>
+    <div class="hero__figure">
+      <CodeCard
+        brand={latest}
+        variant="hero"
+        label={homeHero.card.label}
+        detailLabel={homeHero.card.detailLabel}
+        ariaLabel={homeHero.card.ariaLabel(latest.name)}
+      />
+    </div>
+  </div>
+</section>

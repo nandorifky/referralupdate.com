@@ -1,7 +1,9 @@
 import type { OGImageOptions } from 'astro-og-canvas';
 import { blogCategoryName } from '../data/blog-categories';
 import { categories, type Category } from '../data/categories';
-import { defaultOgImage, formatIdDate, type OgImage } from '../data/site';
+import { homeOg } from '../data/home';
+import { defaultOgImage, formatIdDate, site, type OgImage } from '../data/site';
+import { brandStatusLabelsShort } from '../data/status';
 import {
   brandsInCategory,
   categoriesWithBrands,
@@ -36,12 +38,6 @@ const fonts = [
   './src/assets/og/radio-canada-400.ttf',
 ];
 
-const statusLabels: Record<Brand['status'], string> = {
-  active: 'Aktif',
-  unverified: 'Belum terverifikasi',
-  expired: 'Berakhir',
-};
-
 const titleLimits = { brand: 16, article: 90, page: 80 };
 const descriptionLimit = 140;
 
@@ -74,10 +70,10 @@ export function brandOgCard(brand: Brand): OgCard {
   const expiry = brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi';
   const status = expired
     ? `Berakhir ${expiry}.`
-    : `${statusLabels[brand.status]}, dicek ${formatIdDate(brand.checkedAt)}.`;
+    : `${brandStatusLabelsShort[brand.status]}, dicek ${formatIdDate(brand.checkedAt)}.`;
   const altStatus = expired
     ? `berakhir ${expiry}`
-    : `${statusLabels[brand.status].toLowerCase()}, dicek ${formatIdDate(brand.checkedAt)}`;
+    : `${brandStatusLabelsShort[brand.status].toLowerCase()}, dicek ${formatIdDate(brand.checkedAt)}`;
 
   return card({
     path: `/open-graph/kode-referral/${brand.slug}.png`,
@@ -107,9 +103,9 @@ export function homeOgCard(brands: Brand[]): OgCard {
 
   return card({
     path: '/open-graph/home.png',
-    alt: `Kartu Referral Update: ${active} dari ${brands.length} brand aktif, dicek hingga ${date}.`,
-    title: 'Referral Update: Cuan dari kode referral.',
-    description: `${active} dari ${brands.length} brand aktif. Dicek hingga ${date}.`,
+    alt: homeOg.alt(active, brands.length, date),
+    title: homeOg.title,
+    description: homeOg.description(active, brands.length, date),
     kind: 'page',
   });
 }
@@ -170,7 +166,7 @@ export function defaultOgCard(): OgCard {
     path: defaultOgImage.path,
     alt: defaultOgImage.alt,
     title: 'Referral Update',
-    description: 'Direktori independen kode referral untuk layanan digital di Indonesia.',
+    description: site.orgDescription,
     kind: 'page',
   });
 }

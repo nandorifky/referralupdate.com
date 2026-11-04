@@ -1,5 +1,7 @@
 ---
 import Brand from './Brand.astro';
+import { ui } from '../data/copy';
+import { feed } from '../data/routes';
 import { site } from '../data/site';
 import { getPhotoCredits, type PhotoCredit } from '../lib/photos';
 
@@ -9,7 +11,7 @@ function creditLabel(credit: PhotoCredit) {
   if (credit.author && credit.license) return `${credit.author} (${credit.license})`;
   if (credit.author) return credit.author;
   if (credit.license) return credit.license;
-  return 'Sumber foto';
+  return ui.footer.photoCreditFallback;
 }
 ---
 
@@ -17,15 +19,15 @@ function creditLabel(credit: PhotoCredit) {
   <div class="container site-footer__grid">
     <div class="site-footer__mark">
       <Brand size="footer" />
-      <p>{site.tagline}</p>
+      <p>{ui.footer.disclaimer}</p>
     </div>
-    <nav class="site-footer__links" aria-label="Navigasi footer">
+    <nav class="site-footer__links" aria-label={ui.footer.navLabel}>
       {site.footer.map((item) => <a href={item.href}>{item.label}</a>)}
-      <a href="/rss.xml">RSS</a>
+      <a href={feed.href}>{feed.label}</a>
     </nav>
     <div class="site-footer__meta">
-      <p>Kode dan syarat mengikuti halaman resmi di setiap entri. Tanggal cek tercatat di tiap halaman brand.</p>
-      <p>© 2026 {site.name}</p>
+      <p><strong>Informasi Kode Referral Terbaru, Valid, dan Aktif</strong></p>
+      <p>© {site.copyrightYear} {site.name}</p>
       {credits.length > 0 && (
         <p class="credits" data-credits>
           Foto: {credits.map((credit, index) => (

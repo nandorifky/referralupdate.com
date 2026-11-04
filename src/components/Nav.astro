@@ -1,5 +1,7 @@
 ---
 import Brand from './Brand.astro';
+import { ui } from '../data/copy';
+import { routes } from '../data/routes';
 import { PREVIEW, site } from '../data/site';
 
 const path = Astro.url.pathname;
@@ -16,14 +18,14 @@ const items = site.nav.map((item, index) => ({
       <p class="masthead__tagline">{site.tagline}</p>
       <p class="masthead__utility-end">
         {PREVIEW && <span class="masthead__preview">Mode pratinjau</span>}
-        <a class="masthead__search" href="/kode-referral/">Cari kode</a>
+        <a class="masthead__search" href={routes.directory.href}>{ui.nav.search}</a>
       </p>
     </div>
   </div>
   <div class="masthead__main">
     <div class="container masthead__main-inner">
       <Brand />
-      <nav class="masthead__nav" aria-label="Navigasi utama">
+      <nav class="masthead__nav" aria-label={ui.nav.mainLabel}>
         {items.map((item) => (
           <a class="masthead__link" href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
             <span class="masthead__index" aria-hidden="true">{item.index}</span>
@@ -32,13 +34,13 @@ const items = site.nav.map((item, index) => ({
         ))}
       </nav>
       <details class="masthead__menu">
-        <summary>Menu</summary>
+        <summary>{ui.nav.menuToggle}</summary>
         <div class="masthead__panel">
           <div class="masthead__panel-top">
             <Brand size="panel" />
-            <button class="masthead__panel-close" type="button" data-menu-close>Tutup</button>
+            <button class="masthead__panel-close" type="button" data-menu-close>{ui.nav.close}</button>
           </div>
-          <nav class="masthead__panel-nav" aria-label="Navigasi menu">
+          <nav class="masthead__panel-nav" aria-label={ui.nav.menuLabel}>
             {items.map((item) => (
               <a
                 class="masthead__panel-link"
@@ -51,7 +53,7 @@ const items = site.nav.map((item, index) => ({
             ))}
           </nav>
           <div class="masthead__panel-foot">
-            <a class="btn" href="/kode-referral/">Cari kode</a>
+            <a class="btn" href={routes.directory.href}>{ui.nav.search}</a>
             <p class="masthead__panel-note">{site.tagline}</p>
           </div>
         </div>

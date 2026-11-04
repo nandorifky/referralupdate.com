@@ -2,10 +2,13 @@
 import { getImage } from 'astro:assets';
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import SectionHead from '../../components/SectionHead.astro';
 import Toc from '../../components/Toc.astro';
 import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { blogCategoryName } from '../../data/blog-categories';
-import { breadcrumbLd, formatIdDate, site } from '../../data/site';
+import { homeCrumb, routes } from '../../data/routes';
+import { breadcrumbLd, formatIdDate, site, siteOrigin } from '../../data/site';
 import { getArticles, getBrands, type Article } from '../../lib/content';
 import { isArticleIndexable } from '../../lib/policy';
 import { articleOgCard } from '../../lib/og';
@@ -26,7 +29,7 @@ const otherArticles = articles.filter((item) => item.slug !== article.slug).slic
 const categoryName = blogCategoryName(article.category);
 const { Content, headings } = await render(article.entry);
 const robots = isArticleIndexable(article) ? 'index' : 'noindex';
-const origin = Astro.site ?? new URL('https://referralupdate.com');
+const origin = siteOrigin(Astro.site);
 const organizationRef = `${new URL('/', origin).toString()}#organization`;
 const published = article.published ?? article.updated;
 const publishedIso = new Date(`${published}T00:00:00+07:00`).toISOString();
@@ -49,8 +52,8 @@ const tags = [categoryName, ...relatedBrands.map((brand) => brand.name)];
 const jsonLd = [
   breadcrumbLd(
     [
-      { name: 'Beranda', path: '/' },
-      { name: 'Blog', path: '/blog/' },
+      homeCrumb,
+      { name: routes.blog.label, path: routes.blog.href },
       { name: article.title, path: `/blog/${article.slug}/` },
     ],
     origin,
@@ -70,7 +73,7 @@ const jsonLd = [
     author: {
       '@type': 'Organization',
       name: article.author.name,
-      url: new URL('/tentang/', origin).toString(),
+      url: new URL(routes.about.href, origin).toString(),
     },
     publisher: {
       '@type': 'Organization',
@@ -78,9 +81,9 @@ const jsonLd = [
       name: site.name,
       logo: {
         '@type': 'ImageObject',
-        url: new URL('/brand-mark-512.png', origin).toString(),
-        width: 512,
-        height: 512,
+        url: new URL(site.logo.path, origin).toString(),
+        width: site.logo.width,
+        height: site.logo.height,
       },
     },
     citation: article.sources.map((source) => source.url),
@@ -104,14 +107,14 @@ const jsonLd = [
   <article>
     <section class="article-head">
       <div class="container">
-        <nav aria-label="Breadcrumb">
-          <ol class="breadcrumb">
-            <li><a href="/">Beranda</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li>{categoryName}</li>
-            <li>{article.title}</li>
-          </ol>
-        </nav>
+        <Breadcrumb
+          items={[
+            { label: routes.home.label, href: routes.home.href },
+            { label: routes.blog.label, href: routes.blog.href },
+            { label: categoryName },
+            { label: article.title },
+          ]}
+        />
         <div class="article-head__grid">
           <div class="article-head__copy">
             <h1>{article.title}</h1>
@@ -199,10 +202,10 @@ const jsonLd = [
       {otherArticles.length > 0 && (
         <div class="related-articles">
           <div class="container">
-            <div class="section-head">
-              <h2>Artikel terkait.</h2>
-              <p>Baca juga artikel lainnya yang relevan dengan topik ini.</p>
-            </div>
+            <SectionHead
+              title="Artikel terkait."
+              intro="Baca juga artikel lainnya yang relevan dengan topik ini."
+            />
             <div class="blog-list">
               {otherArticles.map((item) => (
                 <a class="blog-row" href={`/blog/${item.slug}/`}>
@@ -210,7 +213,7 @@ const jsonLd = [
                   <p>{blogCategoryName(item.category)}, diperbarui {formatIdDate(item.updated)}</p>
                 </a>
               ))}
-              <a class="blog-row" href="/blog/">
+              <a class="blog-row" href={routes.blog.href}>
                 <h3>Semua artikel</h3>
                 <p>Daftar panduan kode referral</p>
               </a>

@@ -1,0 +1,16 @@
+---
+import SearchForm from '../SearchForm.astro';
+import { homeClosing } from '../../data/home';
+---
+
+<section class="band band--close field">
+  <div class="container band__grid">
+    <div class="band--close__copy">
+      <h2>{homeClosing.heading}</h2>
+      <p>{homeClosing.intro}</p>
+    </div>
+    <div class="band__search">
+      <SearchForm id="band-search" variant="band" />
+    </div>
+  </div>
+</section>

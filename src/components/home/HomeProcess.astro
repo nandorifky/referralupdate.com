@@ -1,0 +1,21 @@
+---
+import SectionHead from '../SectionHead.astro';
+import { homeProcess } from '../../data/home';
+---
+
+<section class="process">
+  <div class="container">
+    <SectionHead title={homeProcess.heading} intro={homeProcess.intro} />
+    <ol class="steps">
+      {homeProcess.steps.map((step) => (
+        <li>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="source-line">
+      <a class="text-link" href={homeProcess.link.href}>{homeProcess.link.label}</a>
+    </p>
+  </div>
+</section>

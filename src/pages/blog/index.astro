@@ -1,13 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { blogCategoryName } from '../../data/blog-categories';
-import { breadcrumbLd, formatIdDate } from '../../data/site';
+import { ui } from '../../data/copy';
+import { homeCrumb, routes } from '../../data/routes';
+import { breadcrumbLd, formatIdDate, siteOrigin } from '../../data/site';
 import { getArticles } from '../../lib/content';
 import { isBlogIndexable } from '../../lib/policy';
 import { blogIndexOgCard } from '../../lib/og';
 
 const articles = (await getArticles()).sort((a, b) => b.updated.localeCompare(a.updated));
-const origin = Astro.site ?? new URL('https://referralupdate.com');
+const origin = siteOrigin(Astro.site);
 const robots = isBlogIndexable(articles) ? 'index' : 'noindex';
 const blogCategories = [...new Set(articles.map((article) => article.category))].map((slug) => {
   const items = articles.filter((article) => article.category === slug);
@@ -33,8 +36,8 @@ const years = [...new Set(dated.map((article) => article.year))].map((year) => (
 const jsonLd = [
   breadcrumbLd(
     [
-      { name: 'Beranda', path: '/' },
-      { name: 'Blog', path: '/blog/' },
+      homeCrumb,
+      { name: routes.blog.label, path: routes.blog.href },
     ],
     origin,
   ),
@@ -42,7 +45,7 @@ const jsonLd = [
     '@type': 'CollectionPage',
     name: 'Blog Referral Update',
     description: 'Panduan kode referral: pengertian, beda dengan kode promo, keamanan, dan cara klaim bonus.',
-    url: new URL('/blog/', origin).toString(),
+    url: new URL(routes.blog.href, origin).toString(),
     inLanguage: 'id',
   },
   {
@@ -67,12 +70,12 @@ const jsonLd = [
 >
   <section class="page-head">
     <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="/">Beranda</a></li>
-          <li>Blog</li>
-        </ol>
-      </nav>
+      <Breadcrumb
+        items={[
+          { label: routes.home.label, href: routes.home.href },
+          { label: routes.blog.label },
+        ]}
+      />
       <div class="page-head__body">
         <h1>Panduan kode referral.</h1>
         <p class="lead">Artikel tentang pengertian, cara pakai, keamanan, dan bonus referral.</p>
@@ -86,9 +89,9 @@ const jsonLd = [
         <div class="archive__summary-copy">
           <p class="archive__count">{articles.length} artikel di {blogCategories.length} kategori.</p>
           <p class="archive__updated">
-            Terakhir diperbarui <time datetime={articles[0].updated}>{formatIdDate(articles[0].updated)}</time>.
+            {ui.lastChecked} <time datetime={articles[0].updated}>{formatIdDate(articles[0].updated)}</time>.
           </p>
-          <p class="source-line">Semua artikel memakai sumber resmi. <a class="text-link" href="/metodologi-verifikasi/">Baca metodologi</a>.</p>
+          <p class="source-line">Semua artikel memakai sumber resmi. <a class="text-link" href={routes.methodology.href}>Baca metodologi</a>.</p>
         </div>
         <ul class="archive__categories">
           {blogCategories.map((category) => (

@@ -2,7 +2,8 @@ import type { APIRoute } from 'astro';
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import { getCategories } from '../data/categories';
-import { photos, PREVIEW } from '../data/site';
+import { sitemapStaticRoutes } from '../data/routes';
+import { PREVIEW, siteOrigin } from '../data/site';
 import { brandsInCategory, getArticles, getBrands } from '../lib/content';
 import {
   indexableBrands,
@@ -26,7 +27,7 @@ type Entry = {
 };
 
 export const GET: APIRoute = async ({ site }) => {
-  const origin = site ?? new URL('https://referralupdate.com');
+  const origin = siteOrigin(site);
   const urls = new Map<string, Entry>();
   const buildDate = new Date().toISOString().slice(0, 10);
   const imageCache = new Map<ImageMetadata, string>();
@@ -61,10 +62,7 @@ export const GET: APIRoute = async ({ site }) => {
     );
 
     if (isDirectoryIndexable(brands)) {
-      urls.set('/', {
-        lastmod: latestBrand ?? buildDate,
-        images: [{ loc: await imageLoc(photos.hero), title: photos.hero.alt }],
-      });
+      urls.set('/', { lastmod: latestBrand ?? buildDate });
       urls.set('/kode-referral/', { lastmod: latestBrand ?? buildDate });
     }
 
@@ -97,14 +95,8 @@ export const GET: APIRoute = async ({ site }) => {
       urls.set(`/kategori/${category.slug}/`, { lastmod: latest ?? buildDate });
     }
 
-    for (const path of [
-      '/tentang/',
-      '/kontak/',
-      '/metodologi-verifikasi/',
-      '/disclosure-affiliate/',
-      '/privasi/',
-    ]) {
-      urls.set(path, {});
+    for (const route of sitemapStaticRoutes) {
+      urls.set(route.href, {});
     }
   }
 

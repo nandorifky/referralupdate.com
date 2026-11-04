@@ -2,7 +2,9 @@
 import '../styles/site.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { defaultOgImage, PREVIEW, site, type OgImage } from '../data/site';
+import { ui } from '../data/copy';
+import { feed, routes } from '../data/routes';
+import { defaultOgImage, PREVIEW, site, siteOrigin, type OgImage } from '../data/site';
 
 type Props = {
   title?: string;
@@ -42,7 +44,7 @@ const pageTitle = title
     ? title
     : `${title} | ${site.name}`
   : `${site.name}: direktori kode referral Indonesia`;
-const origin = Astro.site ?? new URL('https://referralupdate.com');
+const origin = siteOrigin(Astro.site);
 const canonical =
   canonicalOverride === null
     ? null
@@ -64,7 +66,7 @@ const baseLd = [
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${new URL('/kode-referral/', origin).toString()}?q={search_term_string}`,
+        urlTemplate: `${new URL(routes.directory.href, origin).toString()}?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -76,11 +78,11 @@ const baseLd = [
     url: rootUrl,
     logo: {
       '@type': 'ImageObject',
-      url: new URL('/brand-mark-512.png', origin).toString(),
-      width: 512,
-      height: 512,
+      url: new URL(site.logo.path, origin).toString(),
+      width: site.logo.width,
+      height: site.logo.height,
     },
-    description: 'Direktori independen kode referral untuk layanan digital di Indonesia.',
+    description: site.orgDescription,
   },
 ];
 const structured = {
@@ -139,7 +141,7 @@ const isArticle = ogType === 'article';
       rel="alternate"
       type="application/rss+xml"
       title={`${site.name} RSS`}
-      href={new URL('/rss.xml', origin).toString()}
+      href={new URL(feed.href, origin).toString()}
     />
     {preloadImage && (
       <link
@@ -156,7 +158,7 @@ const isArticle = ogType === 'article';
     <script type="application/ld+json" set:html={structuredJson} />
   </head>
   <body>
-    <a class="skip" href="#main">Lewati ke konten</a>
+    <a class="skip" href="#main">{ui.skipLink}</a>
     <Nav />
     <main id="main">
       <slot />
