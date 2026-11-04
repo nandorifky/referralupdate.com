@@ -31,7 +31,7 @@ export const banners = {
     position: 'Artikel · akhir isi',
       image: {
       src: promoBank,
-      alt: 'Promo transfer bank tanpa biaya dari Bank Contoh',
+      alt: 'Promo Seabank',
       position: '50% 50%',         // opsional, titik fokus crop
     },
     href: '#!', // opsional
