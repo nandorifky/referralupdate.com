@@ -25,9 +25,12 @@
 /* Hallmark · waive 44a · interior index, brand and prose heads end below the fold by design · these pages open as a Banner sized by their content, not stretched to the screen */
 /* Hallmark · waive 77 · article, brand and prose sections are reading blocks with a 65ch body · the measure stays narrow on purpose; index pages are content pages, not landing strips */
 /* Hallmark · waive 59 · article sections sit 80px apart at 1440 · the owner asked for a tighter read; numbered heads and the running measure separate them instead of landing-page bands */
-/* Hallmark · waive 23 · the ultramarine field covers 34% of /kode-referral/ and 14% of a brand page at 1280px · Grid's field is the theme's structural band, not an accent wash, and the rest of the page stays paper */
+/* Hallmark · waive 23 · the ultramarine field covers 34% of /kode-referral/, 14% of a brand page and the article CTA band at 1280px · Grid's field is the theme's structural band, chosen for the referral CTA, not an accent wash, and the rest of the page stays paper */
 /* Hallmark · open 58 · long-form article sections can exceed 80 words in a 900px window · the owner's content stays unchanged; this is a known Floor finding, not a waiver */
-/* Hallmark · waive 44c · interior article head and its lead photograph end below 1440x900 · a content-sized banner, not a landing hero, matching waive 44a */
+/* Hallmark · waive 44c · interior article heads end with their lead photograph well above the fold, and the /program-referral/ page head ends at 553px of 1440x900 · content-sized article and interior page banners, not landing heroes */
+/* Hallmark · copy: approved plan · 58 reports 157 words at the ledger window, 149 at the page head · the plan requires the definition, five invite steps, eleven-brand bonus table and seven FAQs as material; table rows opened to 40px and the ledger intro cut to 40 words, down from 191 */
+/* Hallmark · component: referral CTA in articles · genre: editorial · theme: Grid · redesign: full · inset field band chosen by the owner for random article placement · states: .btn link inherits 8 states; active/unverified/expired · contrast: pass · v2.0.0 */
+/* Hallmark · revise: referral CTA becomes an inset ultramarine field band with a white code and white button · kept: slug API, brand data, status copy and link */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -236,6 +239,25 @@ html.menu-open { overflow: hidden; }
 .checked-status { display: block; margin-top: var(--space-2xs); font-size: var(--text-xs); color: var(--color-muted); white-space: nowrap; }
 .checked-status[data-status="expired"] { color: var(--color-mark); }
 
+/* Program referral table */
+.program-table { width: 100%; border-collapse: collapse; font-size: var(--text-md); }
+.program-table th { padding: 0 var(--space-md) var(--space-sm) 0; border-bottom: var(--rule-hair) solid var(--color-rule); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); text-align: left; }
+.program-table td { padding: var(--space-xl) var(--space-md) var(--space-xl) 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: top; overflow-wrap: break-word; }
+.program-table th:last-child, .program-table td:last-child { padding-right: 0; text-align: right; }
+.program-table a { text-decoration: none; }
+.program-table a:hover { color: var(--color-mark); }
+.program-table td:first-child a { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 48rem) {
+  .program-table thead { display: none; }
+  .program-table tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2xs) var(--space-md); padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
+  .program-table td { padding: 0; border: 0; }
+  .program-table td[data-label="Brand"] { grid-column: 1; grid-row: 1; }
+  .program-table td[data-label="Terakhir dicek"] { grid-column: 2; grid-row: 1; text-align: right; }
+  .program-table td[data-label="Kategori"] { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--color-muted); }
+  .program-table td[data-label="Bonus pengundang"] { grid-column: 1 / -1; }
+  .program-table tbody tr:last-child td { border: 0; }
+}
+
 /* Search */
 .search { display: grid; gap: var(--space-xs); }
 .search label { font-size: var(--text-sm); font-weight: 500; color: var(--color-ink-2); }
@@ -337,6 +359,13 @@ html.menu-open { overflow: hidden; }
 .faq-item:first-child { padding-top: 0; border-top: 0; }
 .faq-item dt { max-width: 40ch; font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.2; }
 .faq-item dd { margin: var(--space-xs) 0 0; max-width: var(--measure); color: var(--color-ink-2); }
+.prose .faq-item summary { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); min-height: 44px; max-width: 40ch; font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.2; cursor: pointer; list-style: none; }
+.prose .faq-item summary::-webkit-details-marker { display: none; }
+.prose .faq-item summary::after { content: "+"; flex: none; font-family: var(--font-body); font-weight: 400; color: var(--color-muted); }
+.prose .faq-item[open] summary::after { content: "−"; }
+.prose .faq-item summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.prose .faq-item:not([open]) > p { display: none; }
+.prose .faq-item p { margin: var(--space-xs) 0 0; max-width: var(--measure); color: var(--color-ink-2); }
 .source-list { list-style: none; margin: var(--space-md) 0 0; padding: 0; display: grid; gap: var(--space-2xs); font-size: var(--text-sm); }
 
 /* Blog archive */
@@ -432,6 +461,24 @@ html.menu-open { overflow: hidden; }
 .cta-name { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); }
 .cta-code { font-family: var(--font-display); font-weight: 400; font-size: var(--text-md); }
 .cta-item:hover .cta-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+.referral-cta { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); grid-template-areas: "head head" "identity offer"; gap: var(--space-lg) var(--gap-columns); margin-block: var(--space-2xl); padding: var(--space-lg) var(--space-xl); }
+.referral-cta .referral-cta__head { grid-area: head; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2xs) var(--space-md); }
+.referral-cta p { margin: 0; line-height: 1.5; }
+.referral-cta .referral-cta__kicker { font-size: var(--text-sm); font-weight: 500; color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
+.referral-cta .referral-cta__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2xs) var(--space-md); font-size: var(--text-sm); color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
+.referral-cta .referral-cta__identity { grid-area: identity; min-width: 0; }
+.referral-cta .referral-cta__brand { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--text-title); line-height: 1.05; letter-spacing: -0.02em; }
+.referral-cta p.referral-cta__code { margin-top: var(--space-xs); font-family: var(--font-display); font-weight: 700; font-size: var(--text-3xl); line-height: 0.95; letter-spacing: 0.01em; overflow-wrap: break-word; }
+.referral-cta .referral-cta__code--ended { color: color-mix(in oklab, var(--color-field-ink) 60%, transparent); }
+.referral-cta p.referral-cta__note { margin-top: var(--space-sm); font-size: var(--text-sm); color: color-mix(in oklab, var(--color-field-ink) 76%, transparent); }
+.referral-cta .referral-cta__offer { grid-area: offer; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: var(--space-lg); min-width: 0; }
+.referral-cta .referral-cta__brief { max-width: 34ch; color: color-mix(in oklab, var(--color-field-ink) 88%, transparent); }
+.referral-cta .referral-cta__action { margin-top: var(--space-xs); }
+.referral-cta .status-chip { color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
+@media (max-width: 40rem) {
+  .referral-cta { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "identity" "offer"; gap: var(--space-lg); padding: var(--space-lg); }
+  .referral-cta .referral-cta__action { width: 100%; }
+}
 .related-articles { padding-top: var(--section-gap); }
 .related-articles .blog-list { margin-top: var(--space-xl); }
 
@@ -447,6 +494,10 @@ html.menu-open { overflow: hidden; }
 .prose-section > p:first-of-type { margin-top: 0; }
 .prose ul { margin: var(--space-md) 0 0; padding-left: var(--space-lg); max-width: var(--measure); }
 .prose li + li { margin-top: var(--space-xs); }
+.prose .steps { margin: 0; padding: 0; list-style: none; }
+.prose .steps li + li { margin-top: 0; }
+.prose .check-list { margin: var(--space-lg) 0 0; padding: 0; list-style: none; }
+.prose .check-list li + li { margin-top: 0; }
 
 /* 404 */
 .not-found { display: flex; align-items: center; min-height: calc(100svh - var(--nav-h)); padding-block: var(--space-2xl); }

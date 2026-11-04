@@ -3,6 +3,7 @@ export type Route = { label: string; href: string; ldLabel?: string };
 export const routes = {
   home: { label: 'Beranda', href: '/' },
   directory: { label: 'Direktori', href: '/kode-referral/', ldLabel: 'Direktori kode referral' },
+  programReferral: { label: 'Program referral', href: '/program-referral/' },
   categories: { label: 'Kategori', href: '/kategori/' },
   blog: { label: 'Blog', href: '/blog/' },
   methodology: { label: 'Cara kami cek', href: '/metodologi-verifikasi/' },
@@ -16,6 +17,7 @@ export const navItems = [routes.directory, routes.categories, routes.blog, route
 
 export const footerItems = [
   ...navItems,
+  routes.programReferral,
   routes.disclosure,
   routes.privacy,
   routes.about,
@@ -27,6 +29,7 @@ export const sitemapStaticRoutes = [
   routes.methodology,
   routes.disclosure,
   routes.privacy,
+  routes.programReferral,
 ];
 
 export const feed = { label: 'RSS', href: '/rss.xml' };

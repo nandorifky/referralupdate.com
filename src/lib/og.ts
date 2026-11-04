@@ -14,7 +14,7 @@ import {
   type Article,
   type Brand,
 } from './content';
-import { isCategoryIndexable } from './policy';
+import { indexableBrands, isCategoryIndexable } from './policy';
 
 export type OgCard = OgImage & {
   title: string;
@@ -122,6 +122,18 @@ export function directoryOgCard(brands: Brand[]): OgCard {
   });
 }
 
+export function programReferralOgCard(brands: Brand[]): OgCard {
+  const date = checkedThrough(brands);
+
+  return card({
+    path: '/open-graph/program-referral.png',
+    alt: `Kartu Referral Update: ${brands.length} program dan event undang teman untuk pengundang.`,
+    title: 'Program referral & event undang teman',
+    description: `${brands.length} program dan event undang teman: bonus pengundang, batas undangan, dicek hingga ${date}.`,
+    kind: 'page',
+  });
+}
+
 export function categoryIndexOgCard(brands: Brand[]): OgCard {
   const count = categoriesWithBrands(brands).length;
   const date = checkedThrough(brands);
@@ -216,6 +228,7 @@ export function getOgCards(): Promise<Record<string, OgCard>> {
       default: defaultOgCard(),
       home: homeOgCard(brands),
       'kode-referral': directoryOgCard(brands),
+      'program-referral': programReferralOgCard(indexableBrands(brands)),
       kategori: categoryIndexOgCard(brands),
       blog: blogIndexOgCard(articles),
     };

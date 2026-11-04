@@ -10,6 +10,7 @@ reward: Cashback transaksi
 status: active
 rewardReferee: Kamu akan mendapatkan cashback 0,005% dari total volume transaksi di Pintu biasa, serta cashback 5% dari total biaya (fee) transaksi di Pintu Pro Spot dan Futures.
 rewardReferrer: Kami sebagai pengundang mendapatkan komisi berjenjang hingga 3 level dari transaksi kamu, yaitu 0,025% (Level 1), 0,015% (Level 2), dan 0,005% (Level 3) dari volume transaksi di Pintu biasa; serta 20% (Level 1), 10% (Level 2), dan 5% (Level 3) dari fee transaksi di Pintu Pro Spot dan Futures.
+rewardReferrerShort: 'Komisi 3 level: 0,025%/0,015%/0,005% volume transaksi dan 20%/10%/5% fee Pro Spot/Futures.'
 payoutNote: Cashback dan komisi diakumulasikan otomatis di dompet komisi aplikasi Pintu setelah transaksi terkonfirmasi. Komisi disalurkan dalam bentuk saldo IDRT yang dapat diklaim dan ditukarkan ke dompet Rupiah (IDR), lalu ditarik ke rekening bank pribadi kapan saja melalui menu Referral di aplikasi.
 eligibility:
   - Akun baru yang memasukkan kode referral @notiska saat pendaftaran awal atau maksimal 7 hari kalender setelah verifikasi email.

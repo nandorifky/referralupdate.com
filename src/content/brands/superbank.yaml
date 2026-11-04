@@ -34,6 +34,8 @@ rewardReferrer: >-
   dan pengundang juga tidak mendapat reward untuk undangan tersebut.
   Cashback dikirim ke Tabungan Utama pengundang.
 
+rewardReferrerShort: Rp15.000 per teman yang buka rekening, tautkan Grab, dan dua transaksi direct debit; maksimal 20 per bulan.
+
 payoutNote: >-
   Cashback masuk otomatis ke rekening Tabungan Utama, bukan saldo
   terpisah, dan hanya untuk rekening yang masih aktif. Jadwal resmi:
@@ -68,7 +70,7 @@ seo:
   description: >-
     Gunakan kode referral Superbank 8HRB64AK untuk cashback Rp15.000.
     Cukup tautkan akun Grab dan transaksi 2 kali pakai saldo Superbank.
-  h1: 'Kode Referral Superbank 8HRB64AK Terbaru'
+  h1: 'Kode Referral Superbank Terbaru.'
 
 steps:
   - >-

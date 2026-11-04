@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import { getCategories } from '../data/categories';
-import { sitemapStaticRoutes } from '../data/routes';
+import { routes, sitemapStaticRoutes } from '../data/routes';
 import { PREVIEW, siteOrigin } from '../data/site';
 import { brandsInCategory, getArticles, getBrands } from '../lib/content';
 import {
@@ -101,7 +101,12 @@ export const GET: APIRoute = async ({ site }) => {
     }
 
     for (const route of sitemapStaticRoutes) {
-      urls.set(route.href, {});
+      urls.set(
+        route.href,
+        route.href === routes.programReferral.href
+          ? { lastmod: latestBrand ?? buildDate }
+          : {},
+      );
     }
   }
 

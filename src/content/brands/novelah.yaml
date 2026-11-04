@@ -10,6 +10,7 @@ reward: Bonus poin pengguna baru 30.000 poin
 status: active
 rewardReferee: Anda sebagai pengguna baru akan langsung mendapatkan bonus sebesar 30.000 poin saat pertama kali memasukkan kode undangan 1831553 di aplikasi Novelah.
 rewardReferrer: Kami sebagai pengundang memperoleh akumulasi poin apresiasi sesuai dengan syarat dan ketentuan program referral yang berlaku di aplikasi.
+rewardReferrerShort: Poin apresiasi terkumpul untuk pengundang sesuai syarat program referral di aplikasi.
 payoutNote: Poin yang terkumpul dari bonus pendaftaran, membaca novel harian, check-in, dan misi harian dapat ditukarkan menjadi saldo e-wallet (seperti DANA, OVO, GoPay) atau transfer bank langsung melalui menu penarikan di aplikasi.
 eligibility:
   - Pengguna baru yang mengunduh dan menginstal aplikasi Novelah di perangkat Android atau iOS.

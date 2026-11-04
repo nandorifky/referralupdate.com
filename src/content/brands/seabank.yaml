@@ -33,6 +33,8 @@ rewardReferrer: >-
   200 teman atau setara dengan total Rp5.000.000 dalam satu bulan.
   Undangan yang melebihi batas tersebut tidak mendapatkan bonus tambahan.
 
+rewardReferrerShort: Rp25.000 per teman yang isi saldo minimal Rp50.000 dan bertahan 3 hari; maksimal Rp5.000.000 per bulan.
+
 payoutNote: >-
   Bonus saldo Rp10.000 dikirimkan maksimal 48 jam setelah pengguna
   memenuhi seluruh persyaratan kampanye dan melakukan klaim bonus
@@ -71,7 +73,7 @@ seo:
   description: >-
     Gunakan kode referral SeaBank 43V68B untuk mendapatkan bonus saldo
     Rp10.000. Cek syarat pengguna baru dan cara klaim bonusnya.
-  h1: 'Kode Referral SeaBank Terbaru'
+  h1: 'Kode Referral SeaBank Terbaru.'
 
 steps:
   - >-

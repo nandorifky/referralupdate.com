@@ -10,6 +10,7 @@ reward: Aktivasi QRIS dan kemudahan pengelolaan transaksi UMKM
 status: active
 rewardReferee: Mendapatkan akses penuh ke ekosistem DANA Bisnis (QRIS, pencatatan keuangan, dan fitur operasional usaha) dengan menggunakan kode referral RFK43V saat pendaftaran atau verifikasi akun usaha.
 rewardReferrer: Kami sebagai peserta Affiliate DANA Bisnis berhak mendapatkan komisi dari referral UMKM yang berhasil bergabung dan memenuhi ketentuan program.
+rewardReferrerShort: Komisi affiliate untuk UMKM yang bergabung lewat referral dan memenuhi ketentuan program.
 payoutNote: Pencairan komisi dan insentif affiliate diproses langsung melalui sistem resmi DANA sesuai dengan ketentuan program yang berlaku bagi mitra.
 eligibility:
   - Pelaku usaha perorangan maupun badan usaha dengan data identitas dan profil toko yang valid.

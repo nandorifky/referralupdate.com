@@ -50,6 +50,7 @@ const brands = defineCollection({
       expiresAt: z.iso.date().optional(),
       rewardReferee: z.string().min(20).optional(),
       rewardReferrer: z.string().min(20).optional(),
+      rewardReferrerShort: z.string().min(40).max(120),
       payoutNote: z.string().min(40),
       eligibility: z.array(z.string().min(15)).min(2),
       checkedAt: z.iso.date(),
