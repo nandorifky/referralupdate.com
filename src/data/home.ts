@@ -104,9 +104,8 @@ export const homeStructuredData = {
 };
 
 export const homeOg = {
-  alt: (active: number, total: number, date: string) =>
-    `Kartu Referral Update: ${active} dari ${total} brand aktif, dicek hingga ${date}.`,
+  alt: (active: number, total: number) =>
+    `Kartu Referral Update: ${active} dari ${total} brand aktif.`,
   title: 'Referral Update: Cuan dari kode referral.',
-  description: (active: number, total: number, date: string) =>
-    `${active} dari ${total} brand aktif. Dicek hingga ${date}.`,
+  description: (active: number, total: number) => `${active} dari ${total} brand aktif.`,
 };
