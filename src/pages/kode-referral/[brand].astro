@@ -7,7 +7,7 @@ import Toc from '../../components/Toc.astro';
 import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { getCategory } from '../../data/categories';
 import { homeCrumb, routes } from '../../data/routes';
-import { breadcrumbLd, formatIdDate, siteOrigin } from '../../data/site';
+import { breadcrumbLd, formatIdDate, siteIds, siteOrigin } from '../../data/site';
 import { brandsInCategory, getArticles, getBrands, type Brand } from '../../lib/content';
 import { categoryHref, isBrandIndexable } from '../../lib/policy';
 import { brandOgCard } from '../../lib/og';
@@ -24,6 +24,11 @@ const category = getCategory(brand.category)!;
 const categoryPath = categoryHref(category, brands);
 const robots = isBrandIndexable(brand) ? 'index' : 'noindex';
 const origin = siteOrigin(Astro.site);
+const pageUrl = new URL(`/kode-referral/${brand.slug}/`, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const faqId = `${pageUrl}#faq`;
 const coverImage = await getImage({
   src: brand.image.src,
   width: 1280,
@@ -69,23 +74,37 @@ const validity = (() => {
 const jsonLd = [
   {
     '@type': 'WebPage',
+    '@id': webpageId,
     name: brand.seo.h1,
-    url: new URL(`/kode-referral/${brand.slug}/`, origin).toString(),
+    url: pageUrl,
     description: brand.seo.description,
     image: new URL(coverImage.src, origin).toString(),
     inLanguage: 'id',
     dateModified: brand.checkedAt,
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    breadcrumb: { '@id': breadcrumbId },
+    author: {
+      '@type': 'Person',
+      name: brand.author.name,
+      jobTitle: brand.author.role,
+    },
+    mainEntity: { '@id': faqId },
   },
   breadcrumbLd(
     [
       homeCrumb,
       { name: routes.directory.ldLabel ?? routes.directory.label, path: routes.directory.href },
+      { name: category.name, path: categoryPath },
       { name: `Kode referral ${brand.name}`, path: `/kode-referral/${brand.slug}/` },
     ],
     origin,
+    breadcrumbId,
   ),
   {
     '@type': 'FAQPage',
+    '@id': faqId,
+    isPartOf: { '@id': websiteId },
     mainEntity: brand.faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.q,

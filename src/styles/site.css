@@ -520,9 +520,9 @@ html.menu-open { overflow: hidden; }
   .brand-table thead { display: none; }
   .brand-table tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2xs) var(--space-md); padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
   .brand-table td { padding: 0; border: 0; }
-  .brand-table td[data-label="Kategori"], .brand-table td[data-label="Yang didapat"] { grid-column: 1 / -1; }
+  .brand-table td[data-label="Kategori"], .brand-table td[data-label="Bonus"] { grid-column: 1 / -1; }
   .brand-table td[data-label="Kode"] { grid-column: 1; }
-  .brand-table td[data-label="Terakhir diperbarui"] { grid-column: 2; grid-row: 1; }
+  .brand-table td[data-label="Terakhir dicek"] { grid-column: 2; grid-row: 1; }
   .brand-table td[data-label="Brand"] { grid-column: 1; }
   .brand-table td[data-label="Brand"] a { font-size: var(--text-xl); font-variant-numeric: tabular-nums; }
   .brand-table tbody tr:last-child td { border: 0; }

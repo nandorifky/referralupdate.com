@@ -1,6 +1,6 @@
 # Old site URLs that have no matching page in the new site.
-# Pages that already use the same path (/, /kode-referral/, the seven brand
-# pages, /kategori/, /kategori/investasi/, /tentang/, /kontak/, /rss.xml)
+# Pages that already use the same path (/, /kode-referral/, the brand pages,
+# /kategori/, /kategori/investasi/, /tentang/, /kontak/, /rss.xml)
 # are served directly by the new build.
 
 /arsip /blog/ 301
@@ -38,6 +38,9 @@
 /kategori/keuangan/ /kategori/ 301
 /kategori/hiburan /kode-referral/novelah/ 301
 /kategori/hiburan/ /kode-referral/novelah/ 301
+
+/kategori/bisnis /kode-referral/?kategori=bisnis 301
+/kategori/bisnis/ /kode-referral/?kategori=bisnis 301
 
 /kategori/binance /kode-referral/binance/ 301
 /kategori/binance/ /kode-referral/binance/ 301

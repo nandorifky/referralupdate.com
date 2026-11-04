@@ -4,7 +4,7 @@ import BrandTable from '../../components/BrandTable.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCategories, type Category } from '../../data/categories';
 import { homeCrumb, routes } from '../../data/routes';
-import { breadcrumbLd, siteOrigin } from '../../data/site';
+import { breadcrumbLd, siteIds, siteOrigin } from '../../data/site';
 import { brandsInCategory, getBrands, sortBrandsByChecked } from '../../lib/content';
 import { isCategoryIndexable } from '../../lib/policy';
 import { categoryOgCard } from '../../lib/og';
@@ -21,6 +21,11 @@ const brands = await getBrands();
 const listed = sortBrandsByChecked(brandsInCategory(brands, category.slug));
 const origin = siteOrigin(Astro.site);
 const introParagraphs = category.intro.split(/\n\s*\n/).filter((paragraph) => paragraph.trim());
+const pageUrl = new URL(`/kategori/${category.slug}/`, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const itemListId = `${pageUrl}#itemlist`;
 
 const jsonLd = [
   breadcrumbLd(
@@ -30,16 +35,23 @@ const jsonLd = [
       { name: category.name, path: `/kategori/${category.slug}/` },
     ],
     origin,
+    breadcrumbId,
   ),
   {
     '@type': 'CollectionPage',
+    '@id': webpageId,
     name: `Kode referral ${category.name}`,
     description: category.description,
-    url: new URL(`/kategori/${category.slug}/`, origin).toString(),
+    url: pageUrl,
     inLanguage: 'id',
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    breadcrumb: { '@id': breadcrumbId },
+    mainEntity: { '@id': itemListId },
   },
   {
     '@type': 'ItemList',
+    '@id': itemListId,
     numberOfItems: listed.length,
     itemListElement: listed.map((brand, index) => ({
       '@type': 'ListItem',

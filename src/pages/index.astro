@@ -8,7 +8,7 @@ import HomeCategories from '../components/home/HomeCategories.astro';
 import HomeNotes from '../components/home/HomeNotes.astro';
 import HomeClosing from '../components/home/HomeClosing.astro';
 import { homeLedger, homeMeta, homeStructuredData } from '../data/home';
-import { site, siteOrigin } from '../data/site';
+import { siteIds, siteOrigin } from '../data/site';
 import {
   categoriesWithBrands,
   getArticles,
@@ -29,17 +29,24 @@ const activeCategories = categoriesWithBrands(brands);
 const sortedArticles = sortArticlesByUpdated(articles);
 const robots = isDirectoryIndexable(brands) ? 'index' : 'noindex';
 const origin = siteOrigin(Astro.site);
+const { root: rootUrl, website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${rootUrl}#webpage`;
+const itemListId = `${rootUrl}#itemlist`;
 
 const jsonLd = [
   {
     '@type': 'CollectionPage',
+    '@id': webpageId,
     name: homeStructuredData.collectionPageName,
-    url: new URL('/', origin).toString(),
+    url: rootUrl,
     inLanguage: 'id',
-    isPartOf: { '@type': 'WebSite', name: site.name, url: new URL('/', origin).toString() },
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    mainEntity: { '@id': itemListId },
   },
   {
     '@type': 'ItemList',
+    '@id': itemListId,
     name: homeStructuredData.itemListName,
     numberOfItems: ledgerBrands.length,
     itemListElement: ledgerBrands.map((brand, index) => ({

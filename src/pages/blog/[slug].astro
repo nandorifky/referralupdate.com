@@ -8,7 +8,7 @@ import Toc from '../../components/Toc.astro';
 import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { blogCategoryName } from '../../data/blog-categories';
 import { homeCrumb, routes } from '../../data/routes';
-import { breadcrumbLd, formatIdDate, site, siteOrigin } from '../../data/site';
+import { breadcrumbLd, formatIdDate, siteIds, siteOrigin } from '../../data/site';
 import { getArticles, getBrands, type Article } from '../../lib/content';
 import { isArticleIndexable } from '../../lib/policy';
 import { articleOgCard } from '../../lib/og';
@@ -30,7 +30,10 @@ const categoryName = blogCategoryName(article.category);
 const { Content, headings } = await render(article.entry);
 const robots = isArticleIndexable(article) ? 'index' : 'noindex';
 const origin = siteOrigin(Astro.site);
-const organizationRef = `${new URL('/', origin).toString()}#organization`;
+const articleUrl = new URL(`/blog/${article.slug}/`, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const articleId = `${articleUrl}#article`;
+const breadcrumbId = `${articleUrl}#breadcrumb`;
 const published = article.published ?? article.updated;
 const publishedIso = new Date(`${published}T00:00:00+07:00`).toISOString();
 const updatedIso = new Date(`${article.updated}T00:00:00+07:00`).toISOString();
@@ -57,35 +60,29 @@ const jsonLd = [
       { name: article.title, path: `/blog/${article.slug}/` },
     ],
     origin,
+    breadcrumbId,
   ),
   {
     '@type': 'BlogPosting',
+    '@id': articleId,
     headline: article.title,
     description: article.excerpt,
-    datePublished: published,
-    dateModified: article.updated,
+    datePublished: publishedIso,
+    dateModified: updatedIso,
     image: imageUrl,
     inLanguage: 'id',
     articleSection: categoryName,
     keywords: tags.join(', '),
-    url: new URL(`/blog/${article.slug}/`, origin).toString(),
-    mainEntityOfPage: new URL(`/blog/${article.slug}/`, origin).toString(),
+    url: articleUrl,
+    mainEntityOfPage: articleUrl,
+    isPartOf: { '@id': websiteId },
     author: {
-      '@type': 'Organization',
+      '@type': 'Person',
       name: article.author.name,
-      url: new URL(routes.about.href, origin).toString(),
+      jobTitle: article.author.role,
+      worksFor: { '@id': organizationId },
     },
-    publisher: {
-      '@type': 'Organization',
-      '@id': organizationRef,
-      name: site.name,
-      logo: {
-        '@type': 'ImageObject',
-        url: new URL(site.logo.path, origin).toString(),
-        width: site.logo.width,
-        height: site.logo.height,
-      },
-    },
+    publisher: { '@id': organizationId },
     citation: article.sources.map((source) => source.url),
   },
 ];

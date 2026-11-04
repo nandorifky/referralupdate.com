@@ -2,18 +2,36 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { homeCrumb, routes } from '../data/routes';
-import { breadcrumbLd, siteOrigin } from '../data/site';
+import { breadcrumbLd, siteIds, siteOrigin } from '../data/site';
 
 type Props = {
   title: string;
   description: string;
   lead: string;
   path: string;
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage';
 };
 
-const { title, description, lead, path } = Astro.props;
+const { title, description, lead, path, pageType = 'WebPage' } = Astro.props;
 const origin = siteOrigin(Astro.site);
-const jsonLd = breadcrumbLd([homeCrumb, { name: title, path }], origin);
+const pageUrl = new URL(path, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const jsonLd = [
+  breadcrumbLd([homeCrumb, { name: title, path }], origin, breadcrumbId),
+  {
+    '@type': pageType,
+    '@id': webpageId,
+    name: title,
+    description,
+    url: pageUrl,
+    inLanguage: 'id',
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    breadcrumb: { '@id': breadcrumbId },
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>

@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getImage } from 'astro:assets';
 import { routes } from '../data/routes';
 import { site, siteOrigin } from '../data/site';
-import { getArticles } from '../lib/content';
+import { getArticles, sortArticlesByUpdated } from '../lib/content';
 import { isArticleIndexable } from '../lib/policy';
 
 const escape = (value: string) =>
@@ -15,7 +15,7 @@ const escape = (value: string) =>
 
 export const GET: APIRoute = async ({ site: configured }) => {
   const origin = siteOrigin(configured);
-  const articles = (await getArticles()).filter(isArticleIndexable);
+  const articles = sortArticlesByUpdated((await getArticles()).filter(isArticleIndexable));
   const updated = articles[0]?.updated;
 
   const items = (
@@ -35,7 +35,7 @@ export const GET: APIRoute = async ({ site: configured }) => {
           `      <link>${escape(url)}</link>`,
           `      <guid isPermaLink="true">${escape(url)}</guid>`,
           `      <description>${escape(article.excerpt)}</description>`,
-          `      <pubDate>${new Date(`${article.updated}T00:00:00Z`).toUTCString()}</pubDate>`,
+          `      <pubDate>${new Date(`${article.published ?? article.updated}T00:00:00Z`).toUTCString()}</pubDate>`,
           `      <media:content url="${escape(imageUrl)}" medium="image" type="image/jpeg" />`,
           '    </item>',
         ].join('\n');
@@ -45,12 +45,13 @@ export const GET: APIRoute = async ({ site: configured }) => {
 
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">',
     '  <channel>',
     `    <title>${escape(site.name)}</title>`,
     `    <link>${escape(new URL(routes.blog.href, origin).toString())}</link>`,
     `    <description>${escape(site.description)}</description>`,
     '    <language>id-ID</language>',
+    `    <atom:link href="${escape(new URL('/rss.xml', origin).toString())}" rel="self" type="application/rss+xml" />`,
     updated ? `    <lastBuildDate>${new Date(`${updated}T00:00:00Z`).toUTCString()}</lastBuildDate>` : '',
     items,
     '  </channel>',

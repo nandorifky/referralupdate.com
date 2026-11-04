@@ -60,9 +60,14 @@ export const GET: APIRoute = async ({ site }) => {
       (latest, article) => (!latest || article.updated > latest ? article.updated : latest),
       undefined,
     );
+    const latestHome =
+      [latestBrand, latestArticle]
+        .filter((value): value is string => Boolean(value))
+        .sort()
+        .at(-1) ?? buildDate;
 
     if (isDirectoryIndexable(brands)) {
-      urls.set('/', { lastmod: latestBrand ?? buildDate });
+      urls.set('/', { lastmod: latestHome });
       urls.set('/kode-referral/', { lastmod: latestBrand ?? buildDate });
     }
 

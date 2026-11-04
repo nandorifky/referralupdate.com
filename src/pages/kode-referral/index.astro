@@ -4,7 +4,7 @@ import BrandTable from '../../components/BrandTable.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { ui } from '../../data/copy';
 import { homeCrumb, routes } from '../../data/routes';
-import { breadcrumbLd, siteOrigin } from '../../data/site';
+import { breadcrumbLd, siteIds, siteOrigin } from '../../data/site';
 import { categoriesWithBrands, getBrands, sortBrandsByChecked } from '../../lib/content';
 import { isDirectoryIndexable } from '../../lib/policy';
 import { directoryOgCard } from '../../lib/og';
@@ -14,6 +14,11 @@ const activeCategories = categoriesWithBrands(brands);
 const origin = siteOrigin(Astro.site);
 const listed = sortBrandsByChecked(brands);
 const robots = isDirectoryIndexable(brands) ? 'index' : 'noindex';
+const pageUrl = new URL(routes.directory.href, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const itemListId = `${pageUrl}#itemlist`;
 
 const jsonLd = [
   breadcrumbLd(
@@ -22,16 +27,23 @@ const jsonLd = [
       { name: routes.directory.ldLabel ?? routes.directory.label, path: routes.directory.href },
     ],
     origin,
+    breadcrumbId,
   ),
   {
     '@type': 'CollectionPage',
+    '@id': webpageId,
     name: 'Direktori kode referral Indonesia',
     description: 'Daftar kode referral untuk e-wallet, bank digital, investasi, layanan bisnis, dan hiburan.',
-    url: new URL(routes.directory.href, origin).toString(),
+    url: pageUrl,
     inLanguage: 'id',
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    breadcrumb: { '@id': breadcrumbId },
+    mainEntity: { '@id': itemListId },
   },
   {
     '@type': 'ItemList',
+    '@id': itemListId,
     numberOfItems: listed.length,
     itemListElement: listed.map((brand, index) => ({
       '@type': 'ListItem',

@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { categories } from '../../data/categories';
 import { ui } from '../../data/copy';
 import { homeCrumb, routes } from '../../data/routes';
-import { breadcrumbLd, siteOrigin } from '../../data/site';
+import { breadcrumbLd, siteIds, siteOrigin } from '../../data/site';
 import { brandsInCategory, categoriesWithBrands, getBrands } from '../../lib/content';
 import { categoryHref, indexableCategories } from '../../lib/policy';
 import { categoryIndexOgCard } from '../../lib/og';
@@ -13,6 +13,11 @@ const brands = await getBrands();
 const activeCategories = categoriesWithBrands(brands);
 const origin = siteOrigin(Astro.site);
 const robots = indexableCategories(categories, brands).length > 0 ? 'index' : 'noindex';
+const pageUrl = new URL(routes.categories.href, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const itemListId = `${pageUrl}#itemlist`;
 const jsonLd = [
   breadcrumbLd(
     [
@@ -20,12 +25,29 @@ const jsonLd = [
       { name: routes.categories.label, path: routes.categories.href },
     ],
     origin,
+    breadcrumbId,
   ),
   {
     '@type': 'CollectionPage',
+    '@id': webpageId,
     name: 'Kode referral per kategori',
-    url: new URL(routes.categories.href, origin).toString(),
+    url: pageUrl,
     inLanguage: 'id',
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    breadcrumb: { '@id': breadcrumbId },
+    mainEntity: { '@id': itemListId },
+  },
+  {
+    '@type': 'ItemList',
+    '@id': itemListId,
+    numberOfItems: activeCategories.length,
+    itemListElement: activeCategories.map((category, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: category.name,
+      url: new URL(categoryHref(category, brands), origin).toString(),
+    })),
   },
 ];
 ---

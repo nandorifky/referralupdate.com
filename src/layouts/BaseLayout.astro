@@ -3,8 +3,8 @@ import '../styles/site.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { ui } from '../data/copy';
-import { feed, routes } from '../data/routes';
-import { defaultOgImage, PREVIEW, site, siteOrigin, type OgImage } from '../data/site';
+import { feed } from '../data/routes';
+import { defaultOgImage, PREVIEW, site, siteIds, siteOrigin, type OgImage } from '../data/site';
 
 type Props = {
   title?: string;
@@ -49,10 +49,8 @@ const canonical =
   canonicalOverride === null
     ? null
     : new URL(canonicalOverride ?? Astro.url.pathname, origin).toString();
-const rootUrl = new URL('/', origin).toString();
+const { root: rootUrl, website: websiteId, organization: organizationId } = siteIds(origin);
 const ogImageUrl = new URL(image.path, origin).toString();
-const organizationId = `${rootUrl}#organization`;
-const websiteId = `${rootUrl}#website`;
 const baseLd = [
   {
     '@type': 'WebSite',
@@ -62,14 +60,6 @@ const baseLd = [
     inLanguage: 'id',
     description: site.description,
     publisher: { '@id': organizationId },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${new URL(routes.directory.href, origin).toString()}?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   },
   {
     '@type': 'Organization',
@@ -83,6 +73,15 @@ const baseLd = [
       height: site.logo.height,
     },
     description: site.orgDescription,
+    email: site.email,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: site.email,
+        availableLanguage: ['id'],
+      },
+    ],
   },
 ];
 const structured = {

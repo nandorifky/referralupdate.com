@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { blogCategoryName } from '../../data/blog-categories';
 import { ui } from '../../data/copy';
 import { homeCrumb, routes } from '../../data/routes';
-import { breadcrumbLd, formatIdDate, siteOrigin } from '../../data/site';
+import { breadcrumbLd, formatIdDate, siteIds, siteOrigin } from '../../data/site';
 import { getArticles } from '../../lib/content';
 import { isBlogIndexable } from '../../lib/policy';
 import { blogIndexOgCard } from '../../lib/og';
@@ -12,6 +12,11 @@ import { blogIndexOgCard } from '../../lib/og';
 const articles = (await getArticles()).sort((a, b) => b.updated.localeCompare(a.updated));
 const origin = siteOrigin(Astro.site);
 const robots = isBlogIndexable(articles) ? 'index' : 'noindex';
+const pageUrl = new URL(routes.blog.href, origin).toString();
+const { website: websiteId, organization: organizationId } = siteIds(origin);
+const webpageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const itemListId = `${pageUrl}#itemlist`;
 const blogCategories = [...new Set(articles.map((article) => article.category))].map((slug) => {
   const items = articles.filter((article) => article.category === slug);
   return { slug, name: blogCategoryName(slug), count: items.length };
@@ -40,16 +45,23 @@ const jsonLd = [
       { name: routes.blog.label, path: routes.blog.href },
     ],
     origin,
+    breadcrumbId,
   ),
   {
     '@type': 'CollectionPage',
+    '@id': webpageId,
     name: 'Blog Referral Update',
     description: 'Panduan kode referral: pengertian, beda dengan kode promo, keamanan, dan cara klaim bonus.',
-    url: new URL(routes.blog.href, origin).toString(),
+    url: pageUrl,
     inLanguage: 'id',
+    isPartOf: { '@id': websiteId },
+    publisher: { '@id': organizationId },
+    breadcrumb: { '@id': breadcrumbId },
+    mainEntity: { '@id': itemListId },
   },
   {
     '@type': 'ItemList',
+    '@id': itemListId,
     numberOfItems: articles.length,
     itemListElement: articles.map((article, index) => ({
       '@type': 'ListItem',

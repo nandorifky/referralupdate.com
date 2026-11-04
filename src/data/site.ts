@@ -8,6 +8,11 @@ export function siteOrigin(configured?: URL) {
   return configured ?? new URL(SITE_URL);
 }
 
+export function siteIds(origin: URL) {
+  const root = new URL('/', origin).toString();
+  return { root, website: `${root}#website`, organization: `${root}#organization` };
+}
+
 export type OgImage = { path: string; alt: string };
 
 export const defaultOgImage: OgImage = {
@@ -56,9 +61,10 @@ export type PhotoFrame = {
   position: string;
 };
 
-export function breadcrumbLd(items: { name: string; path: string }[], origin: URL) {
+export function breadcrumbLd(items: { name: string; path: string }[], origin: URL, id?: string) {
   return {
     '@type': 'BreadcrumbList',
+    ...(id ? { '@id': id } : {}),
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
