@@ -1,4 +1,6 @@
+import { blogCategories, type BlogCategory } from '../data/blog-categories';
 import { categorySlugs, type Category } from '../data/categories';
+import { relatedArticles } from '../data/related-articles';
 import { PREVIEW } from '../data/site';
 import type { Article, Brand } from './content';
 
@@ -73,6 +75,19 @@ export function isBlogIndexable(articles: Article[]) {
   return !PREVIEW && articles.filter(isArticleIndexable).length >= 3;
 }
 
+export function isBlogCategoryIndexable(category: BlogCategory, articles: Article[]) {
+  if (PREVIEW) return false;
+  const listed = articles.filter(
+    (article) => article.category === category.slug && isArticleIndexable(article),
+  );
+  const paragraphs = category.intro.split(/\n\s*\n/).filter((paragraph) => paragraph.trim());
+  return listed.length >= 1 && category.intro.length >= 300 && paragraphs.length >= 2;
+}
+
+export function indexableBlogCategories(articles: Article[]) {
+  return blogCategories.filter((category) => isBlogCategoryIndexable(category, articles));
+}
+
 export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
   const problems: string[] = [];
   const slugs = new Set(brands.map((brand) => brand.slug));
@@ -137,6 +152,21 @@ export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
     for (const slug of article.relatedBrands) {
       if (!slugs.has(slug)) {
         problems.push(`${article.slug}: relatedBrands "${slug}" tidak ada di koleksi brand`);
+      }
+    }
+  }
+
+  const articleSlugs = new Set(articles.map((article) => article.slug));
+  for (const [slug, targets] of Object.entries(relatedArticles)) {
+    if (!articleSlugs.has(slug)) {
+      problems.push(`related-articles: "${slug}" bukan artikel yang ada`);
+    }
+    for (const target of targets) {
+      if (target === slug) {
+        problems.push(`${slug}: related menunjuk artikelnya sendiri`);
+      }
+      if (!articleSlugs.has(target)) {
+        problems.push(`${slug}: related "${target}" tidak ada di koleksi artikel`);
       }
     }
   }

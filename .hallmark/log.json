@@ -1,5 +1,34 @@
 [
  {
+  "entry": "blog category archive",
+  "mode": "build",
+  "depth": "revise: blog taxonomy and category archives",
+  "scope": "blog index, category hub and archive pages",
+  "shape": "Manifesto",
+  "theme": "Grid (dealt)",
+  "axes": "light/grotesk-sans/cool",
+  "hero": "unchanged",
+  "nav": "unchanged",
+  "footer": "unchanged",
+  "imagery": "true colour slots; article and brand frames follow the library images (4:3 articles, 16:9 brand covers)",
+  "photos": [],
+  "fingerprint": "grid-manifesto-referral-directory",
+  "sections": "page head, category rows hub, dated category archive rows with the category intro, closing links, footer",
+  "signature": "the referral code printed on an ultramarine field",
+  "waived": [
+   "26a",
+   "50",
+   "26b",
+   "77"
+  ],
+  "open": [
+   "58"
+  ],
+  "prompt": "new blog categories (Knowledge, Review, Perbandingan, Verifikasi akun, Bonus pengguna baru) plus a category archive, and drop the duotone filter",
+  "date": "2026-11-14",
+  "calls": "hub 0 FAIL; knowledge archive 1 FAIL 58 (172 words at 1440); the file tier reports 26a and 50 only, both satisfied by base.css and clean in the URL tier"
+ },
+ {
   "shape": "Manifesto",
   "theme": "Grid (dealt)",
   "axes": "light/grotesk-sans/cool",

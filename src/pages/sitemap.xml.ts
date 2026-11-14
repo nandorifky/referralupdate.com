@@ -6,6 +6,7 @@ import { routes, sitemapStaticRoutes } from '../data/routes';
 import { PREVIEW, siteOrigin } from '../data/site';
 import { brandsInCategory, getArticles, getBrands } from '../lib/content';
 import {
+  indexableBlogCategories,
   indexableBrands,
   isArticleIndexable,
   isBlogIndexable,
@@ -85,6 +86,28 @@ export const GET: APIRoute = async ({ site }) => {
       urls.set(`/blog/${article.slug}/`, {
         lastmod: article.updated,
         images: [{ loc: await imageLoc(article.image), title: article.image.alt }],
+      });
+    }
+
+    const blogCategoryPages = indexableBlogCategories(articles);
+    if (blogCategoryPages.length > 0) {
+      urls.set(routes.blogCategories.href, {
+        lastmod:
+          blogCategoryPages
+            .map((category) => category.editorialUpdated)
+            .sort()
+            .at(-1) ?? latestArticle ?? buildDate,
+      });
+    }
+    for (const category of blogCategoryPages) {
+      const latest = indexableArticles
+        .filter((article) => article.category === category.slug)
+        .reduce<string | undefined>(
+          (value, article) => (!value || article.updated > value ? article.updated : value),
+          undefined,
+        );
+      urls.set(`/blog/kategori/${category.slug}/`, {
+        lastmod: [latest, category.editorialUpdated].filter(Boolean).sort().at(-1) ?? buildDate,
       });
     }
 

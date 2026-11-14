@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { blogCategories } from '../data/blog-categories';
 import { categories } from '../data/categories';
 import { assertContentIntegrity } from './policy';
 
@@ -85,5 +86,15 @@ export function brandsInCategory(brands: Brand[], slug: string) {
 export function categoriesWithBrands(brands: Brand[]) {
   return categories.filter((category) =>
     brands.some((brand) => brand.category === category.slug),
+  );
+}
+
+export function articlesInBlogCategory(articles: Article[], slug: string) {
+  return articles.filter((article) => article.category === slug);
+}
+
+export function blogCategoriesWithArticles(articles: Article[]) {
+  return blogCategories.filter((category) =>
+    articles.some((article) => article.category === category.slug),
   );
 }

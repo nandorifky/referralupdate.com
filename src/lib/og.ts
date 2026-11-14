@@ -1,4 +1,5 @@
 import { blogCategoryName } from '../data/blog-categories';
+import type { BlogCategory } from '../data/blog-categories';
 import { categories, type Category } from '../data/categories';
 import { homeOg } from '../data/home';
 import { defaultOgImage, site, type OgImage } from '../data/site';
@@ -11,7 +12,7 @@ import {
   type Article,
   type Brand,
 } from './content';
-import { indexableBrands, isCategoryIndexable } from './policy';
+import { indexableBlogCategories, indexableBrands, isCategoryIndexable } from './policy';
 
 export type OgCard = OgImage & {
   title: string;
@@ -131,13 +132,36 @@ export function categoryIndexOgCard(brands: Brand[]): OgCard {
   });
 }
 
-export function blogIndexOgCard(articles: Article[]): OgCard {
-  return card({
+export function blogIndexOgCard(articles: Article[]): OgCard {  return card({
     path: '/open-graph/blog.png',
     alt: `Kartu Referral Update: ${articles.length} panduan kode referral.`,
     title: 'Panduan kode referral',
     description: `${articles.length} artikel dengan sumber resmi.`,
     label: 'Panduan',
+    kind: 'page',
+  });
+}
+
+export function blogCategoryIndexOgCard(listed: BlogCategory[]): OgCard {
+  return card({
+    path: '/open-graph/blog/kategori.png',
+    alt: `Kartu Referral Update: ${listed.length} kategori panduan kode referral.`,
+    title: 'Kategori panduan kode referral',
+    description: `${listed.length} kategori: ${listed.map((category) => category.name).join(', ')}.`,
+    label: 'Panduan',
+    kind: 'page',
+  });
+}
+
+export function blogCategoryOgCard(category: BlogCategory, articles: Article[]): OgCard {
+  const listed = articles.filter((article) => article.category === category.slug);
+
+  return card({
+    path: `/open-graph/blog/kategori/${category.slug}.png`,
+    alt: `Kartu Referral Update: ${listed.length} artikel kategori ${category.name}.`,
+    title: `Panduan ${category.name}`,
+    description: fitText(category.description, descriptionLimit),
+    label: 'Kategori',
     kind: 'page',
   });
 }
@@ -185,6 +209,13 @@ export function getOgCards(): Promise<Record<string, OgCard>> {
     }
     for (const article of articles) {
       cards[`blog/${article.slug}`] = articleOgCard(article);
+    }
+    const blogCategoryPages = indexableBlogCategories(articles);
+    if (blogCategoryPages.length > 0) {
+      cards['blog/kategori'] = blogCategoryIndexOgCard(blogCategoryPages);
+    }
+    for (const category of blogCategoryPages) {
+      cards[`blog/kategori/${category.slug}`] = blogCategoryOgCard(category, articles);
     }
     for (const category of categories) {
       if (isCategoryIndexable(category, brands)) {

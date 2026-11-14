@@ -9,7 +9,7 @@ import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { getCategory } from '../../data/categories';
 import { homeCrumb, routes } from '../../data/routes';
 import { breadcrumbLd, formatIdDate, siteIds, siteOrigin } from '../../data/site';
-import { brandsInCategory, getArticles, getBrands, type Brand } from '../../lib/content';
+import { brandsInCategory, getArticles, getBrands, sortArticlesByUpdated, type Brand } from '../../lib/content';
 import { categoryHref, isBrandIndexable } from '../../lib/policy';
 import { brandOgCard } from '../../lib/og';
 
@@ -38,7 +38,9 @@ const coverImage = await getImage({
 });
 const siblings = brandsInCategory(brands, brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
 const relatedArticles = articles.filter((article) => article.relatedBrands.includes(brand.slug));
-const asideArticles = (relatedArticles.length ? relatedArticles : articles).slice(0, 1);
+const asideArticles = sortArticlesByUpdated(
+  relatedArticles.length ? relatedArticles : articles,
+).slice(0, 3);
 const latestLog = brand.updateLog[0];
 const refereeReward =
   brand.rewardReferee ?? 'Halaman resmi tidak mencantumkan bonus untuk pendaftar.';

@@ -18,10 +18,10 @@ if (!brand) {
 
 const isExpired = brand.status === 'expired';
 const actionLabel = isExpired
-  ? 'Lihat status program'
+  ? `Status kode referral ${brand.name}`
   : brand.status === 'unverified'
-    ? 'Cek status kode'
-    : 'Cek info program';
+    ? `Cek kode referral ${brand.name}`
+    : `Lihat kode referral ${brand.name}`;
 ---
 <aside class="referral-cta field" aria-label={`Kode referral ${brand.name}`}>
   <div class="referral-cta__head">

@@ -31,6 +31,12 @@
 /* Hallmark · copy: approved plan · 58 reports 157 words at the ledger window, 149 at the page head · the plan requires the definition, five invite steps, eleven-brand bonus table and seven FAQs as material; table rows opened to 40px and the ledger intro cut to 40 words, down from 191 */
 /* Hallmark · component: referral CTA in articles · genre: editorial · theme: Grid · redesign: full · inset field band chosen by the owner for random article placement · states: .btn link inherits 8 states; active/unverified/expired · contrast: pass · v2.0.0 */
 /* Hallmark · revise: referral CTA becomes an inset ultramarine field band with a white code and white button · kept: slug API, brand data, status copy and link */
+/* Hallmark · revise: frames follow the library images (articles 4:3, brand covers 16:9) and the slot duotone is dropped for true colour · kept: slots, object-position focus, OG cards, JSON-LD */
+/* Hallmark · revise: blog categories become Knowledge, Review, Perbandingan, Verifikasi akun and Bonus pengguna baru, each with its own archive page and hub · kept: dated archive rows, blog index, OG cards and JSON-LD wiring */
+/* Hallmark · waive 26a, 50 · the focus ring (base.css :focus-visible) and the head overflow-wrap (base.css h1, h2, h3) live in the global stylesheet; the file tier cannot read them, the URL tier renders both */
+/* Hallmark · waive 26b · archive and index rows are links, not controls · hover and focus-visible carry their feedback, the eight-state guard covers controls */
+/* Hallmark · waive 77 · the category hub and its archive pages are interior index pages · rows and counts carry the mass, as on /kategori/ · three sections is the index shape, not a landing strip */
+/* Hallmark · open 58 · /blog/ measures 147 words at 1440 and the category archives 132-172 · a row list plus the category's own copy is the material; cutting either loses the index or its only unique text, so the finding stays open like the long-form note above */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -83,12 +89,11 @@ p a:hover, li a:hover, dd a:hover, figcaption a:hover { text-decoration-color: v
 
 .slot { position: relative; overflow: hidden; width: 100%; background: var(--color-paper-2); isolation: isolate; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
 .slot > picture { position: absolute; inset: 0; display: block; }
-.slot > img, .slot > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: grayscale(1) contrast(1.12); mix-blend-mode: multiply; }
-.slot::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--color-ink); mix-blend-mode: lighten; pointer-events: none; }
+.slot > img, .slot > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .slot--4x5 { aspect-ratio: 4 / 5; }
 .slot--4x3 { aspect-ratio: 4 / 3; }
 .slot--1x1 { aspect-ratio: 1; }
-.slot--wide { aspect-ratio: 16 / 7; }
+.slot--wide { aspect-ratio: 16 / 9; }
 
 .breadcrumb { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); color: var(--color-muted); }
 .breadcrumb li + li::before { content: "/"; margin-right: var(--space-xs); color: var(--color-rule); }
@@ -215,7 +220,7 @@ html.menu-open { overflow: hidden; }
 .notes__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); align-items: start; }
 .note { display: grid; gap: var(--space-md); min-width: 0; text-decoration: none; }
 .note__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2xs) var(--space-md); padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); }
-.note .slot { aspect-ratio: 3 / 2; }
+.note .slot { aspect-ratio: 4 / 3; }
 .note h3 { max-width: 22ch; font-size: var(--text-xl); line-height: 1.1; }
 .note:hover h3 { color: var(--color-mark); }
 .blog-list { display: grid; }
@@ -323,7 +328,6 @@ html.menu-open { overflow: hidden; }
 .brand-cover .brand-alert { margin-bottom: var(--space-xl); }
 .brand-head .code-card { grid-column: 9 / span 4; }
 .brand-cover { padding-top: var(--space-2xl); }
-.brand-cover .slot--wide { aspect-ratio: 16 / 7; }
 .brand-body { padding-block: var(--section-gap-s) var(--section-gap-l); }
 .brand-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-3xl) var(--gap-columns); align-items: start; }
 .brand-main { grid-column: 1 / span 8; display: grid; gap: var(--section-gap-s); }
@@ -390,6 +394,9 @@ html.menu-open { overflow: hidden; }
 .archive-entry__body { display: grid; gap: var(--space-xs); min-width: 0; }
 .archive-entry__excerpt { max-width: 58ch; font-size: var(--text-sm); line-height: 1.55; color: var(--color-muted); }
 .archive-entry__cat { font-size: var(--text-sm); color: var(--color-muted); }
+.archive-list--category .archive-entry { grid-template-columns: 5rem minmax(0, 1fr); }
+.archive__categories a { text-decoration: none; }
+.archive__categories a:hover { color: var(--color-mark); }
 .archive-entry h3 { max-width: 30ch; font-size: var(--text-title); line-height: 1.15; }
 .archive-entry:hover h3 { color: var(--color-mark); }
 .category-intro { display: grid; gap: var(--space-md); max-width: var(--measure); margin-bottom: var(--space-2xl); color: var(--color-ink-2); }
@@ -407,7 +414,7 @@ html.menu-open { overflow: hidden; }
 .article-meta dd { margin: 0; color: var(--color-ink-2); }
 .article-cover { padding-block: var(--space-xl) 0; }
 .article-figure { max-width: 44rem; margin: 0 auto; }
-.article-figure .slot { aspect-ratio: 3 / 2; }
+.article-figure .slot { aspect-ratio: 4 / 3; }
 .article-body { padding-block: var(--space-2xl); }
 @media (min-width: 90rem) {
   .article-head { padding-block: var(--space-xl) 0; }
@@ -457,7 +464,8 @@ html.menu-open { overflow: hidden; }
 .article-cta { padding-block: var(--space-3xl); }
 .article-cta h2 { max-width: 14ch; font-size: var(--text-section); }
 .cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--space-lg); margin-top: var(--space-xl); }
-.cta-item { display: flex; align-items: baseline; gap: var(--space-sm); min-height: 52px; padding-top: var(--space-sm); border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 45%, transparent); text-decoration: none; white-space: nowrap; }
+.cta-item { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-sm); min-height: 52px; padding-top: var(--space-sm); border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 45%, transparent); text-decoration: none; }
+.cta-kicker { flex-basis: 100%; font-size: var(--text-sm); font-weight: 500; color: color-mix(in oklab, var(--color-field-ink) 76%, transparent); }
 .cta-name { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); }
 .cta-code { font-family: var(--font-display); font-weight: 400; font-size: var(--text-md); }
 .cta-item:hover .cta-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
@@ -552,7 +560,6 @@ html.menu-open { overflow: hidden; }
   .brand-grid { grid-template-columns: minmax(0, 1fr); }
   .brand-main, .brand-aside { grid-column: 1 / -1; }
   .brand-aside { position: static; }
-  .brand-cover .slot--wide { aspect-ratio: 16 / 9; }
   .article-section { padding-block: var(--space-xl); }
   .article-section h2 { max-width: none; }
   .prose-section { display: block; padding-block: var(--space-2xl); }
@@ -565,6 +572,7 @@ html.menu-open { overflow: hidden; }
   .archive__summary { grid-template-columns: minmax(0, 1fr); }
   .archive-entry { grid-template-columns: 4rem minmax(0, 1fr); }
   .archive-entry__cat { grid-column: 2; }
+  .archive-list--category .archive-entry { grid-template-columns: 4rem minmax(0, 1fr); }
 }
 
 @media (max-width: 48rem) {
@@ -595,6 +603,7 @@ html.menu-open { overflow: hidden; }
   .site-footer__grid { grid-template-columns: minmax(0, 1fr); }
   .site-footer__links, .site-footer__meta { grid-column: 1; }
   .archive-entry { grid-template-columns: 3.5rem minmax(0, 1fr); gap: var(--space-sm) var(--space-md); padding-block: var(--space-lg); }
+  .archive-list--category .archive-entry { grid-template-columns: 3.5rem minmax(0, 1fr); }
   .archive-entry h3 { font-size: var(--text-lg); }
   .not-found__figure { font-size: clamp(5rem, 28vw, 8rem); }
 }

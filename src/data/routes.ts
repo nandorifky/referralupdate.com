@@ -6,6 +6,7 @@ export const routes = {
   programReferral: { label: 'Program referral', href: '/program-referral/' },
   categories: { label: 'Kategori', href: '/kategori/' },
   blog: { label: 'Blog', href: '/blog/' },
+  blogCategories: { label: 'Kategori panduan', href: '/blog/kategori/' },
   methodology: { label: 'Cara kami cek', href: '/metodologi-verifikasi/' },
   disclosure: { label: 'Tautan affiliate', href: '/disclosure-affiliate/' },
   privacy: { label: 'Privasi', href: '/privasi/' },
