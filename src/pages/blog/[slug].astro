@@ -6,6 +6,7 @@ import BannerSlot from '../../components/BannerSlot.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import SectionHead from '../../components/SectionHead.astro';
 import Toc from '../../components/Toc.astro';
+import ReviewSummary from '../../components/ReviewSummary.astro';
 import ResponsivePhoto from '../../components/ResponsivePhoto.astro';
 import { blogCategoryName } from '../../data/blog-categories';
 import { relatedArticles } from '../../data/related-articles';
@@ -84,6 +85,70 @@ const toc = [
 ];
 const tags = [categoryName, ...relatedBrands.map((brand) => brand.name)];
 
+// Ulasan ditulis sebagai node `Review` mandiri dengan `itemReviewed`. Kalau
+// di-nest lewat properti `review` milik BlogPosting, Google menganggap yang
+// diulas adalah artikelnya sendiri dan `itemReviewed` harus dihilangkan.
+const review = article.review;
+const reviewLd = review
+  ? {
+      '@type': 'Review',
+      '@id': `${articleUrl}#review`,
+      itemReviewed: {
+        '@type': 'SoftwareApplication',
+        name: review.itemName,
+        applicationCategory: review.applicationCategory,
+        operatingSystem: review.operatingSystem,
+        ...(review.itemUrl ? { url: review.itemUrl } : {}),
+      },
+      ...(review.title ? { name: review.title } : {}),
+      ...(review.verdict ? { reviewBody: review.verdict } : {}),
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating.value,
+        bestRating: review.rating.best,
+        worstRating: review.rating.worst,
+      },
+      author: {
+        '@type': 'Person',
+        name: review.reviewer?.name ?? article.author.name,
+        jobTitle: review.reviewer?.role ?? article.author.role,
+        worksFor: { '@id': organizationId },
+      },
+      publisher: { '@id': organizationId },
+      datePublished: publishedIso,
+      dateModified: updatedIso,
+      inLanguage: 'id',
+      url: articleUrl,
+      ...(review.pros
+        ? {
+            positiveNotes: {
+              '@type': 'ItemList',
+              itemListElement: review.pros.map((note, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name: note,
+              })),
+            },
+          }
+        : {}),
+      ...(review.cons
+        ? {
+            negativeNotes: {
+              '@type': 'ItemList',
+              itemListElement: review.cons.map((note, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name: note,
+              })),
+            },
+          }
+        : {}),
+    }
+  : null;
+const reviewReviewer = review
+  ? (review.reviewer?.name ?? article.author.name)
+  : article.author.name;
+
 const jsonLd = [
   breadcrumbLd(
     [
@@ -118,6 +183,7 @@ const jsonLd = [
     publisher: { '@id': organizationId },
     citation: article.sources.map((source) => source.url),
   },
+  ...(reviewLd ? [reviewLd] : []),
 ];
 ---
 
@@ -189,6 +255,9 @@ const jsonLd = [
     <section class="article-body">
       <div class="container">
         <div class="article-body__inner">
+          {review && (
+            <ReviewSummary review={review} reviewer={reviewReviewer} updated={article.updated} />
+          )}
           <Toc items={toc} />
           <BannerSlot id="article-inline" />
           <Content />

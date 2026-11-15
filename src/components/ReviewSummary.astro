@@ -1,0 +1,70 @@
+---
+import { formatIdDate } from '../data/site';
+import type { Article } from '../lib/content';
+
+type Props = {
+  review: NonNullable<Article['review']>;
+  reviewer: string;
+  updated: string;
+};
+
+const { review, reviewer, updated } = Astro.props;
+const decimal = new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1 });
+const best = review.rating.best;
+const value = decimal.format(review.rating.value);
+const score = `${value}/${best}`;
+const percent = Math.max(0, Math.min(100, (review.rating.value / best) * 100));
+---
+
+<section class="review-summary" aria-labelledby="review-summary-title">
+  <h2 class="review-summary__title" id="review-summary-title">Review:</h2>
+
+  <div class="review-summary__head">
+    <p class="review-summary__score">
+      <span class="visually-hidden">Skor {score}</span>
+      <span class="review-summary__value" aria-hidden="true">{value}</span>
+      <span class="review-summary__max" aria-hidden="true">/{best}</span>
+    </p>
+    <span class="review-summary__scale" aria-hidden="true">
+      <span class="review-summary__fill" style={`--review-score: ${percent}%`}></span>
+    </span>
+    <p class="review-summary__item">{review.itemName}</p>
+  </div>
+
+  {(review.pros || review.cons) && (
+    <div class="review-summary__notes">
+      {review.pros && (
+        <div class="review-summary__note">
+          <h3 class="review-summary__note-title">Kelebihan</h3>
+          <ul class="review-summary__list review-summary__list--pro">
+            {review.pros.map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {review.cons && (
+        <div class="review-summary__note">
+          <h3 class="review-summary__note-title">Kekurangan</h3>
+          <ul class="review-summary__list review-summary__list--con">
+            {review.cons.map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )}
+
+  {review.verdict && <p class="review-summary__verdict">{review.verdict}</p>}
+
+  {review.method && <p class="review-summary__method">Metode penilaian: {review.method}</p>}
+
+  <p class="review-summary__byline">
+    Ditinjau oleh <strong>{reviewer}</strong> pada{' '}
+    <time datetime={updated}>{formatIdDate(updated)}</time>.
+  </p>
+  <p class="review-summary__note4u">
+     *Artikel review {review.itemName} ini ditulis dengan sudut pandang pertama penulis sesuai pengalaman pribadi, dengan tujuan memberikan informasi dan opini penulis, bukan sebagai saran keuangan atau investasi. Hasil penilaian dapat berbeda tergantung pengalaman pengguna.
+  </p>
+</section>

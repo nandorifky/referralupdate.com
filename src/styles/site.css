@@ -23,7 +23,7 @@
 /* Hallmark · waive 79 · article at 1440, 274px below the header · the 3:2 featured image fills that band after the header landmark, and the gate reads hero text only */
 /* Hallmark · waive 25 · footer, band and section captions measure 34ch to 44ch at 1440px · these are one-sentence captions the gate allows from 28ch, and widening them to 45ch would stretch short lines */
 /* Hallmark · waive 44a · interior index, brand and prose heads end below the fold by design · these pages open as a Banner sized by their content, not stretched to the screen */
-/* Hallmark · waive 77 · article, brand and prose sections are reading blocks with a 65ch body · the measure stays narrow on purpose; index pages are content pages, not landing strips */
+/* Hallmark · waive 77 · article, brand and prose sections are reading blocks with a 65ch body, and the category hub and its archives are interior index pages where rows and counts carry the mass · the measure stays narrow on purpose; index pages are content pages, not landing strips */
 /* Hallmark · waive 59 · article sections sit 80px apart at 1440 · the owner asked for a tighter read; numbered heads and the running measure separate them instead of landing-page bands */
 /* Hallmark · waive 23 · the ultramarine field covers 34% of /kode-referral/, 14% of a brand page and the article CTA band at 1280px · Grid's field is the theme's structural band, chosen for the referral CTA, not an accent wash, and the rest of the page stays paper */
 /* Hallmark · open 58 · long-form article sections can exceed 80 words in a 900px window · the owner's content stays unchanged; this is a known Floor finding, not a waiver */
@@ -33,10 +33,11 @@
 /* Hallmark · revise: referral CTA becomes an inset ultramarine field band with a white code and white button · kept: slug API, brand data, status copy and link */
 /* Hallmark · revise: frames follow the library images (articles 4:3, brand covers 16:9) and the slot duotone is dropped for true colour · kept: slots, object-position focus, OG cards, JSON-LD */
 /* Hallmark · revise: blog categories become Knowledge, Review, Perbandingan, Verifikasi akun and Bonus pengguna baru, each with its own archive page and hub · kept: dated archive rows, blog index, OG cards and JSON-LD wiring */
-/* Hallmark · waive 26a, 50 · the focus ring (base.css :focus-visible) and the head overflow-wrap (base.css h1, h2, h3) live in the global stylesheet; the file tier cannot read them, the URL tier renders both */
+/* Hallmark · note 26a, 50 · the focus ring is in base.css :focus-visible and the head overflow-wrap in base.css h1, h2, h3 · the file tier cannot read the global stylesheet and the render tier confirms both, so neither is waived */
 /* Hallmark · waive 26b · archive and index rows are links, not controls · hover and focus-visible carry their feedback, the eight-state guard covers controls */
-/* Hallmark · waive 77 · the category hub and its archive pages are interior index pages · rows and counts carry the mass, as on /kategori/ · three sections is the index shape, not a landing strip */
 /* Hallmark · open 58 · /blog/ measures 147 words at 1440 and the category archives 162-182 across all five · a row list plus the category's own copy is the material; cutting either loses the index or its only unique text, so the finding stays open like the long-form note above */
+/* Hallmark · waive 39b · a.cta-item stands 85px at 1440 in the pre-existing article CTA band, unchanged by this component · the band stacks kicker, brand and code inside one link row, so its height follows three lines of type, not a control's 44 to 52px */
+/* Hallmark · component: ringkasan ulasan di artikel kategori review · genre: editorial · theme: Grid · strip ledger, bukan kartu · states: 0 (non-interaktif) · contrast: pass · v2.0.0 */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -464,6 +465,30 @@ html.menu-open { overflow: hidden; }
 .article-sources h2 { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
 .article-sources ul { list-style: none; margin: var(--space-sm) 0 0; padding: 0; display: grid; gap: var(--space-2xs); }
 .article-sources p { margin-top: var(--space-md); }
+/* Ringkasan ulasan, hanya pada artikel kategori review: satu strip ledger,
+   bukan kartu, supaya tidak bertumpuk dengan bidang dan CTA di bawahnya. */
+.review-summary { display: grid; gap: var(--space-md); margin-block: 0 var(--space-2xl); padding-block: var(--space-lg); border-block: var(--rule-hair) solid var(--color-rule); }
+.article-body .review-summary__title { margin: 0; font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
+.review-summary__head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-xs) var(--space-lg); }
+.article-body .review-summary__score { display: flex; align-items: baseline; gap: 0.08em; margin: 0; }
+.article-body .review-summary__value { font-family: var(--font-display); font-weight: 700; font-size: var(--text-3xl); line-height: 0.9; letter-spacing: var(--tracking-display); font-variant-numeric: proportional-nums; }
+.article-body .review-summary__max { font-size: var(--text-sm); color: var(--color-muted); }
+.review-summary__scale { display: block; height: 2px; background: var(--color-paper-3); }
+.review-summary__fill { display: block; width: var(--review-score, 0%); height: 100%; background: var(--color-accent); }
+.article-body .review-summary__item { margin: 0; font-size: var(--text-sm); font-weight: 500; text-align: right; }
+.review-summary__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); }
+.article-body .review-summary__note-title { margin: 0; font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; color: var(--color-ink); }
+.article-body .review-summary__list { list-style: none; margin: var(--space-sm) 0 0; padding: 0; max-width: none; }
+.article-body .review-summary__list li { position: relative; padding-left: var(--space-lg); font-size: var(--text-sm); line-height: 1.5; }
+.article-body .review-summary__list li + li { margin-top: var(--space-xs); }
+.article-body .review-summary__list li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 0.5rem; height: 0.5rem; }
+.review-summary__list--pro li::before { background: var(--color-success); }
+.review-summary__list--con li::before { background: var(--color-mark); }
+.article-body .review-summary__verdict { margin: 0; max-width: var(--measure); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); color: var(--color-ink); }
+.article-body .review-summary__method { margin: 0; max-width: var(--measure); font-size: var(--text-sm); color: var(--color-muted); }
+.article-body .review-summary__byline { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
+.article-body .review-summary__byline strong { font-weight: 500; color: var(--color-ink); }
+.article-body .review-summary__note4u { margin: 0; font-size: var(--text-xs); color: var(--color-muted); font-style: italic;border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-lg); margin-top: var(--space-md); }
 .author-box { max-width: var(--measure); margin-top: var(--space-xl); font-size: var(--text-sm); color: var(--color-muted); }
 .article-end { padding-bottom: var(--section-gap); }
 .article-cta { padding-block: var(--space-3xl); }
@@ -600,6 +625,11 @@ html.menu-open { overflow: hidden; }
   .filter__field, .filter .btn { grid-column: 1 / -1; }
   .filter .btn { justify-self: stretch; }
   .article-meta { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+  .review-summary__head { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "score item" "scale scale"; }
+  .review-summary__score { grid-area: score; }
+  .review-summary__item { grid-area: item; }
+  .review-summary__scale { grid-area: scale; }
+  .review-summary__notes { grid-template-columns: minmax(0, 1fr); }
   .steps li { grid-template-columns: minmax(0, 1fr); }
   .steps li::before, .steps h3, .steps p { grid-column: 1; grid-row: auto; }
   .checks__list { grid-template-columns: minmax(0, 1fr); }

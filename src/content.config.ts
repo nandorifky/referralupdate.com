@@ -107,6 +107,32 @@ const brands = defineCollection({
     }),
 });
 
+// Blok ulasan untuk kategori `review`. `reviewBody` versi ringkas ada di
+// `verdict`; `method` dan `pros`/`cons` hanya tampil di halaman karena Google
+// tidak membaca properti itu di JSON-LD.
+const review = z.object({
+  itemName: z.string().min(3),
+  itemUrl: realUrl.optional(),
+  applicationCategory: z.string().min(3),
+  operatingSystem: z.string().min(2),
+  rating: z.object({
+    value: z.number().min(0).max(10),
+    best: z.number().default(10),
+    worst: z.number().default(0),
+  }),
+  title: z.string().min(10).optional(),
+  verdict: z.string().min(80).optional(),
+  pros: z.array(z.string().min(15)).max(6).optional(),
+  cons: z.array(z.string().min(15)).max(6).optional(),
+  method: z.string().min(40).optional(),
+  reviewer: z
+    .object({
+      name: z.string().min(3).max(100),
+      role: z.string().min(3).optional(),
+    })
+    .optional(),
+});
+
 const blog = defineCollection({
   loader: glob({ pattern: '*.mdx', base: './src/content/blog' }),
   schema: ({ image }) =>
@@ -134,6 +160,37 @@ const blog = defineCollection({
       }),
       sources: z.array(source).min(1),
       relatedBrands: z.array(z.string()).default([]),
+      review: review.optional(),
+    })
+    .superRefine((data, ctx) => {
+      if (data.category === 'review' && !data.review) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['review'],
+          message: 'Kategori review wajib mengisi blok review.',
+        });
+      }
+      if (data.category !== 'review' && data.review) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['review'],
+          message: 'Blok review hanya untuk artikel kategori review.',
+        });
+      }
+      if (data.review && data.review.rating.value > data.review.rating.best) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['review', 'rating', 'value'],
+          message: 'rating.value tidak boleh melebihi rating.best.',
+        });
+      }
+      if (data.review?.reviewer && !data.review.reviewer.role) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['review', 'reviewer', 'role'],
+          message: 'reviewer.role wajib diisi bila nama reviewer dicantumkan.',
+        });
+      }
     }),
 });
 
