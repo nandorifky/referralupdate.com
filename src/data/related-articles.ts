@@ -179,4 +179,12 @@ export const relatedArticles: Record<string, string[]> = {
   ],
 
   // Klaster Seabank, pilar di /kode-referral/seabank/
+  'kelebihan-dan-kekurangan-seabank': [
+    'bonus-pengguna-baru-seabank',
+    'apa-itu-kode-referral',
+  ],
+  'bonus-pengguna-baru-seabank': [
+    'kelebihan-dan-kekurangan-seabank',
+    'apa-itu-kode-referral',
+  ],
 };

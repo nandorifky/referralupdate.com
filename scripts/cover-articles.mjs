@@ -390,6 +390,12 @@ const COVERS = [
     penjelas: ['Cara Membedakan', 'Penyebabnya'],
     desc: 'ShopeePay error bisa berasal dari akun, jaringan, atau layanan yang sedang terganggu. Ketahui cara membedakan penyebabnya, langkah pemeriksaan, dan kapan menghubungi bantuan.',
   },
+  {
+    slug: 'kelebihan-dan-kekurangan-seabank',
+    headline: hl('SEA', 'BANK'),
+    penjelas: ['Review Jujur Setelah', '1 Tahun Pemakaian'],
+    desc: 'SeaBank adalah bank digital dari PT Bank SeaBank Indonesia dengan bunga tabungan harian dan transfer gratis. Ulasan ini menilai kelebihan dan kekurangannya dari pemakaian satu tahun dan biaya resmi.',
+  },
 ];
 
 const COVER_DIR = 'src/assets/images/features/articles';
