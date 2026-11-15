@@ -4,6 +4,8 @@ import { ui } from '../data/copy';
 import { formatIdDate, formatIdDateShort } from '../data/site';
 import { brandStatusLabels } from '../data/status';
 import type { Brand } from '../lib/content';
+import InlineText from './InlineText.astro';
+import { parseInlineText, toParagraphs } from '../lib/paragraphs';
 
 type Props = {
   brand: Brand;
@@ -21,6 +23,7 @@ const isExpired = brand.status === 'expired';
 const statusLabel = brandStatusLabels[brand.status];
 const refereeReward =
   brand.rewardReferee ?? 'Halaman resmi tidak menyebut bonus untuk pendaftar.';
+const refereeParagraphs = toParagraphs(refereeReward).map(parseInlineText);
 ---
 
 {isHero ? (
@@ -58,7 +61,9 @@ const refereeReward =
       {brand.reward}
       <span class="code-card__for">
         <span class="code-card__for-label">Untuk pendaftar</span>
-        {refereeReward}
+        {refereeParagraphs.map((paragraph) => (
+          <span class="code-card__for-text"><InlineText parts={paragraph} /></span>
+        ))}
       </span>
       {isExpired && (
         <span class="code-card__expired">

@@ -4,6 +4,8 @@ export const blogCategorySlugs = [
   'perbandingan',
   'verifikasi-akun',
   'bonus-pengguna-baru',
+  'cara-cek-kode-referral',
+  'cara-memasukkan-kode-referral',
 ] as const;
 
 export type BlogCategorySlug = (typeof blogCategorySlugs)[number];
@@ -66,6 +68,26 @@ export const blogCategories: BlogCategory[] = [
       'Bonus dan promo untuk pengguna baru: besar bonus, syarat klaim, masa berlaku, dan kapan bonus benar-benar cair.',
     intro:
       'Bonus pengguna baru biasanya cair setelah akun aktif dan syarat tertentu terpenuhi, bukan saat kode dimasukkan.\n\nArtikel di kategori ini menuliskan syarat itu satu per satu: transaksi minimum, masa aktif, dan batas waktu klaim. Nominal bonus selalu disertai tanggal pengecekan, dan bentuk bonusnya dijelaskan, apakah saldo yang bisa ditarik atau poin yang hanya berlaku di merchant tertentu.',
+    editorialUpdated: '2026-11-14',
+  },
+  {
+    slug: 'cara-cek-kode-referral',
+    name: 'Cara cek kode referral',
+    line: 'Temukan kode referral sendiri.',
+    description:
+      'Panduan menemukan kode referral di aplikasi atau website brand, termasuk cara menyalin dan membagikannya.',
+    intro:
+      'Kode referral biasanya ada di menu profil, pengaturan akun, atau halaman khusus yang menampilkan kode dan link undangan.\n\nArtikel di kategori ini menuliskan langkah menemukan kode itu di aplikasi atau website brand, cara menyalinnya, dan membagikannya ke teman. Setiap langkah mengacu ke panduan resmi brand yang berlaku saat artikel diperbarui.',
+    editorialUpdated: '2026-11-14',
+  },
+  {
+    slug: 'cara-memasukkan-kode-referral',
+    name: 'Cara memasukkan kode referral',
+    line: 'Masukkan kode saat daftar.',
+    description:
+      'Panduan memasukkan kode referral saat pendaftaran atau upgrade akun, termasuk langkah yang harus diikuti agar bonus tercatat.',
+    intro:
+      'Kode referral harus dimasukkan pada langkah tertentu saat pendaftaran atau upgrade akun, dan biasanya ada batas waktu untuk melakukannya.\n\nArtikel di kategori ini menuliskan langkah memasukkan kode itu secara berurutan, termasuk apa yang harus dilakukan agar bonus tercatat. Setiap langkah mengacu ke panduan resmi brand yang berlaku saat artikel diperbarui.',
     editorialUpdated: '2026-11-14',
   },
 ];

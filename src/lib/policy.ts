@@ -3,6 +3,7 @@ import { categorySlugs, type Category } from '../data/categories';
 import { relatedArticles } from '../data/related-articles';
 import { PREVIEW } from '../data/site';
 import type { Article, Brand } from './content';
+import { externalHrefs } from './paragraphs';
 
 const PLACEHOLDER = /pratinjau|belum diuji|data contoh/i;
 
@@ -157,6 +158,13 @@ export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
   }
 
   const articleSlugs = new Set(articles.map((article) => article.slug));
+  for (const brand of brands) {
+    for (const slug of brand.relatedArticles) {
+      if (!articleSlugs.has(slug)) {
+        problems.push(`${brand.slug}: relatedArticles "${slug}" tidak ada di koleksi artikel`);
+      }
+    }
+  }
   for (const [slug, targets] of Object.entries(relatedArticles)) {
     if (!articleSlugs.has(slug)) {
       problems.push(`related-articles: "${slug}" bukan artikel yang ada`);
@@ -171,7 +179,53 @@ export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
     }
   }
 
+  assertNoAffiliateTokens(brands);
+
   if (problems.length > 0) {
     throw new Error(`Pemeriksaan konten gagal:\n- ${problems.join('\n- ')}`);
+  }
+}
+
+/** Field prosa di berkas brand yang boleh memuat paragraf dan tautan. */
+function brandProseFields(brand: Brand): [string, string][] {
+  return [
+    ['summary', brand.summary],
+    ['rewardReferee', brand.rewardReferee ?? ''],
+    ['rewardReferrer', brand.rewardReferrer ?? ''],
+    ['payoutNote', brand.payoutNote],
+    ['verificationNote', brand.verificationNote],
+    ...brand.faqs.map((faq, index) => [`faqs[${index}].a`, faq.a] as [string, string]),
+    ...brand.updateLog.map(
+      (entry, index) => [`updateLog[${index}].note`, entry.note] as [string, string],
+    ),
+  ];
+}
+
+/**
+ * Tautan afiliasi tidak boleh ditulis sebagai token inline. `rel="sponsored
+ * nofollow"` hanya terpasang pada field terstruktur (`referralUrl`), jadi token
+ * akan menghilangkan rel itu tanpa terlihat.
+ */
+export function assertNoAffiliateTokens(brands: Brand[]) {
+  const affiliateHosts = new Set(
+    brands
+      .map((brand) => brand.referralUrl)
+      .filter((url): url is string => Boolean(url))
+      .map((url) => new URL(url).hostname.toLowerCase()),
+  );
+  const problems: string[] = [];
+  for (const brand of brands) {
+    for (const [field, text] of brandProseFields(brand)) {
+      for (const href of externalHrefs(text)) {
+        if (affiliateHosts.has(new URL(href).hostname.toLowerCase())) {
+          problems.push(
+            `${brand.slug}.${field}: tautan afiliasi ${href} ditulis sebagai token inline; pakai field terstruktur (referralUrl) agar rel sponsored nofollow tetap terpasang`,
+          );
+        }
+      }
+    }
+  }
+  if (problems.length > 0) {
+    throw new Error(`Pemeriksaan tautan konten gagal:\n- ${problems.join('\n- ')}`);
   }
 }

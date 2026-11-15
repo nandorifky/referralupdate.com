@@ -59,6 +59,7 @@ export const relatedArticles: Record<string, string[]> = {
     'qris-dana-bisnis-tidak-bisa',
     'mdr-qris-dana-bisnis',
     'kelebihan-dan-kekurangan-qris-dana-bisnis',
+    'qris-shopeepay',
   ],
   'pajak-qris-dana-bisnis': [
     'mdr-qris-dana-bisnis',
@@ -69,5 +70,113 @@ export const relatedArticles: Record<string, string[]> = {
     'apa-itu-dana-bisnis',
     'pajak-qris-dana-bisnis',
     'qris-dana-bisnis-semua-e-wallet',
+    'limit-shopeepay',
   ],
+
+  // Klaster ShopeePay, pilar di /kode-referral/shopeepay/
+  'bonus-pengguna-baru-shopeepay': [
+    'cara-pakai-kode-referral-shopeepay',
+    'upgrade-shopeepay-plus',
+    'cara-melihat-kode-referral-shopeepay-sendiri',
+  ],
+  'cara-pakai-kode-referral-shopeepay': [
+    'bonus-pengguna-baru-shopeepay',
+    'upgrade-shopeepay-plus',
+    'bonus-kode-referral-shopeepay-100-ribu',
+  ],
+  'bonus-kode-referral-shopeepay-100-ribu': [
+    'bonus-pengguna-baru-shopeepay',
+    'cara-pakai-kode-referral-shopeepay',
+    'upgrade-shopeepay-plus',
+  ],
+  'upgrade-shopeepay-plus': [
+    'bonus-pengguna-baru-shopeepay',
+    'cara-pakai-kode-referral-shopeepay',
+    'upgrade-shopeepay-plus-tanpa-ktp',
+  ],
+  'cara-melihat-kode-referral-shopeepay-sendiri': [
+    'bonus-pengguna-baru-shopeepay',
+    'cara-pakai-kode-referral-shopeepay',
+    'program-undang-teman-shopeepay',
+  ],
+  'kode-referral-shopeepay-tidak-masuk': [
+    'cara-pakai-kode-referral-shopeepay',
+    'cara-melihat-kode-referral-shopeepay-sendiri',
+    'upgrade-shopeepay-plus',
+  ],
+  'upgrade-shopeepay-plus-tanpa-ktp': [
+    'upgrade-shopeepay-plus',
+    'apakah-shopeepay-plus-aman',
+    'kode-referral-shopeepay-tidak-masuk',
+  ],
+  'apakah-shopeepay-plus-aman': [
+    'upgrade-shopeepay-plus',
+    'upgrade-shopeepay-plus-tanpa-ktp',
+    'bonus-pengguna-baru-shopeepay',
+  ],
+
+  // Klaster batas dan transaksi
+  'limit-shopeepay': [
+    'tarik-saldo-shopeepay',
+    'qris-shopeepay',
+    'biaya-transfer-shopeepay',
+  ],
+  'tarik-saldo-shopeepay': [
+    'limit-shopeepay',
+    'tarik-saldo-shopeepay-di-indomaret-alfamart',
+    'biaya-transfer-shopeepay',
+  ],
+  'tarik-saldo-shopeepay-di-indomaret-alfamart': [
+    'tarik-saldo-shopeepay',
+    'limit-shopeepay',
+    'biaya-transfer-shopeepay',
+  ],
+  'biaya-transfer-shopeepay': [
+    'tarik-saldo-shopeepay',
+    'limit-shopeepay',
+    'qris-shopeepay',
+  ],
+
+  // Klaster QRIS
+  'qris-shopeepay': [
+    'qris-shopeepay-merchant',
+    'limit-shopeepay',
+    'biaya-transfer-shopeepay',
+  ],
+  'qris-shopeepay-merchant': [
+    'qris-shopeepay',
+    'limit-shopeepay',
+    'biaya-transfer-shopeepay',
+  ],
+
+  // Klaster program dan penanganan masalah
+  'program-undang-teman-shopeepay': [
+    'bonus-pengguna-baru-shopeepay',
+    'cara-melihat-kode-referral-shopeepay-sendiri',
+    'kode-referral-shopeepay-tidak-masuk',
+  ],
+  'shopeepay-dibekukan': [
+    'shopeepay-error-dan-gangguan',
+    'program-undang-teman-shopeepay',
+    'limit-shopeepay',
+  ],
+  'shopeepay-error-dan-gangguan': [
+    'shopeepay-dibekukan',
+    'tarik-saldo-shopeepay',
+    'kode-referral-shopeepay-tidak-masuk',
+  ],
+
+  // Klaster perbandingan
+  'shopeepay-vs-gopay': [
+    'shopeepay-vs-dana',
+    'limit-shopeepay',
+    'biaya-transfer-shopeepay',
+  ],
+  'shopeepay-vs-dana': [
+    'shopeepay-vs-gopay',
+    'limit-shopeepay',
+    'biaya-transfer-shopeepay',
+  ],
+
+  // Klaster Seabank, pilar di /kode-referral/seabank/
 };

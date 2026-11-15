@@ -11,50 +11,56 @@ code: JL3D5DYVW
 reward: Bonus saldo ShopeePay Rp5.000 untuk pengguna baru
 status: active
 
+relatedArticles:
+  - bonus-pengguna-baru-shopeepay
+  - cara-pakai-kode-referral-shopeepay
+  - bonus-kode-referral-shopeepay-100-ribu
+
 rewardReferee: >-
   Pengguna baru yang menggunakan kode referral JL3D5DYVW berhak mendapatkan
   bonus saldo ShopeePay Rp5.000 setelah memasukkan kode saat login aplikasi
   dan menyelesaikan proses upgrade akun ke ShopeePay Plus. Bonus dapat
-  diklaim maksimal 31 hari setelah proses upgrade ShopeePay Plus selesai.
+  diklaim maksimal 30 hari setelah proses upgrade ShopeePay Plus selesai.
 
-rewardReferrer: >-
+rewardReferrer: |-
   Pengirim kode referral mendapatkan bonus saldo ShopeePay Rp10.000 untuk
   setiap teman yang berhasil menggunakan kode referral dan menyelesaikan
-  proses upgrade ke ShopeePay Plus. Pengirim juga berkesempatan mendapatkan
-  bonus bulanan hingga Rp1.000.000 berdasarkan jumlah teman yang berhasil
-  diundang dan kriteria peringkat kampanye yang ditentukan ShopeePay.
+  proses upgrade ke ShopeePay Plus.
 
-rewardReferrerShort: Rp10.000 per teman yang upgrade ke ShopeePay Plus, plus bonus bulanan hingga Rp1.000.000.
+  Pengirim juga berkesempatan mendapatkan bonus tambahan berjenjang hingga
+  Rp5.000.000 per periode campaign bulanan berdasarkan jumlah teman yang
+  berhasil diundang. Jumlah teman yang dihitung untuk bonus tambahan dibatasi
+  maksimal 500 teman per periode, dan setiap pengundang hanya berhak menang
+  satu kali per periode campaign.
+
+rewardReferrerShort: Rp10.000 per teman yang verifikasi, plus bonus berjenjang hingga Rp5.000.000 per periode (maks 500 teman).
 
 payoutNote: >-
-  Pengguna baru berhak mendapatkan bonus saldo ShopeePay Rp5.000 setelah
-  memasukkan kode referral saat login dan menyelesaikan upgrade ke
-  ShopeePay Plus. Bonus dapat diklaim maksimal 31 hari setelah proses
-  upgrade selesai. Perhatikan batas waktu tersebut agar kesempatan
-  memperoleh bonus tidak terlewat. Ketentuan kampanye yang tersedia tidak
-  merinci waktu pemrosesan saldo setelah klaim dilakukan.
+  Bonus saldo ShopeePay untuk penerima kode dapat diklaim maksimal 30 hari
+  setelah proses upgrade ShopeePay Plus selesai. Bonus pengirim kode
+  diberikan per teman yang memenuhi syarat, dengan tambahan berjenjang
+  hingga Rp5.000.000 per periode campaign bulanan, maksimal 500 teman
+  per periode, dan satu kemenangan per pengundang setiap periode.
 
 eligibility:
   - Pengguna harus merupakan pengguna baru ShopeePay.
   - Pengguna harus memasukkan kode referral dari teman saat login aplikasi ShopeePay.
   - Kode referral JL3D5DYVW digunakan melalui alur program Undang Teman.
+  - Kode hanya dapat dimasukkan satu kali, yaitu saat pendaftaran, dan tidak bisa ditambahkan setelah akun selesai dibuat.
   - Pengguna wajib menyelesaikan proses upgrade akun ke ShopeePay Plus.
+  - Upgrade ShopeePay Plus gratis dan memerlukan verifikasi e-KTP asli serta verifikasi wajah. WNA memakai KITAS.
+  - Satu e-KTP umumnya hanya dapat digunakan untuk memverifikasi satu akun ShopeePay Plus.
+  - Handphone yang pernah login ke aplikasi ShopeePay tidak eligible mendapatkan bonus.
+  - Nomor HP yang pernah memiliki akun ShopeePay, termasuk yang dibuat lewat aplikasi Shopee, tidak dihitung sebagai pengguna baru.
   - Setelah seluruh persyaratan terpenuhi, pengguna berhak menerima bonus saldo Rp5.000.
-  - Bonus dapat diklaim maksimal 31 hari setelah proses upgrade ShopeePay Plus selesai.
+  - Bonus dapat diklaim maksimal 30 hari setelah proses upgrade ShopeePay Plus selesai.
   - Pengguna harus mengikuti ketentuan program Undang Teman ShopeePay yang berlaku.
 
-checkedAt: '2026-11-03'
+checkedAt: '2026-11-14'
+validFrom: '2026-01-01'
 
-summary: >-
-  Kode referral ShopeePay untuk pengguna baru adalah JL3D5DYVW. Gunakan kode
-  ini saat login aplikasi ShopeePay untuk mendapatkan bonus saldo Rp5.000
-  melalui program Undang Teman. Syaratnya, kamu harus menjadi pengguna baru,
-  memasukkan kode referral dari teman, dan menyelesaikan upgrade akun ke
-  ShopeePay Plus. Setelah upgrade selesai, bonus dapat diklaim maksimal
-  31 hari. ShopeePay sendiri merupakan layanan dompet digital yang dapat
-  digunakan untuk melakukan pembayaran dan transaksi digital. Kode referral
-  ShopeePay merupakan kode undangan yang menghubungkan pengguna baru dengan
-  pengundang melalui program referral resmi ShopeePay.
+summary: |-
+  Kode referral ShopeePay JL3D5DYVW bisa dipakai oleh pengguna baru saat login aplikasi untuk mendapatkan bonus saldo Rp5.000 melalui program Undang Teman. Syaratnya, pengguna baru harus memasukkan kode referral dari teman, menyelesaikan proses upgrade akun ke ShopeePay Plus, dan klaim bonus maksimal 30 hari setelah upgrade selesai.
 
 seo:
   title: 'Kode Referral ShopeePay Terbaru, Dapatkan Bonus Saldo Rp5.000'
@@ -64,40 +70,45 @@ seo:
 steps:
   - >-
     Buka tautan undangan ShopeePay berikut melalui ponsel:
-    https://pay.u.shopee.co.id/JsJstim
+    https://pay.u.shopee.co.id/5bbddxE
   - >-
     Ikuti petunjuk untuk membuka aplikasi ShopeePay. Unduh aplikasi melalui
     toko aplikasi resmi apabila belum memilikinya.
   - >-
-    Daftar sebagai pengguna baru ShopeePay dan ikuti proses login aplikasi.
+    Daftar sebagai pengguna baru ShopeePay melalui aplikasi ShopeePay dan
+    ikuti proses login aplikasi.
   - >-
     Masukkan kode referral JL3D5DYVW saat login aplikasi ShopeePay.
-    Pastikan kode sudah dimasukkan melalui alur referral yang tersedia.
+    Kode hanya dapat dimasukkan satu kali, yaitu pada saat pendaftaran.
   - >-
     Selesaikan proses verifikasi dan upgrade akun ke ShopeePay Plus.
   - >-
     Setelah upgrade ShopeePay Plus selesai, klaim bonus saldo Rp5.000
     sesuai petunjuk program.
   - >-
-    Pastikan klaim dilakukan maksimal 31 hari setelah proses upgrade selesai
+    Pastikan klaim dilakukan maksimal 30 hari setelah proses upgrade selesai
     agar tidak melewati batas waktu yang ditentukan.
   - >-
     Periksa saldo dan informasi reward melalui aplikasi ShopeePay.
 
 terms:
   - Program Undang Teman ShopeePay berlaku untuk pengguna aplikasi ShopeePay
-    sesuai ketentuan kampanye.
+    sesuai ketentuan kampanye dan berjalan per periode campaign bulanan.
   - Penerima kode referral yang berhak mendapatkan bonus Rp5.000 adalah
     pengguna baru ShopeePay.
   - Pengguna baru harus memasukkan kode referral dari teman saat login
-    aplikasi ShopeePay.
+    aplikasi ShopeePay, dan kode hanya dapat dimasukkan satu kali.
   - Penerima kode referral wajib menyelesaikan proses upgrade ke ShopeePay Plus.
   - Setelah seluruh proses selesai, penerima kode berhak mendapatkan bonus
     saldo ShopeePay sebesar Rp5.000.
   - Bonus saldo ShopeePay untuk penerima kode dapat diklaim maksimal
-    31 hari setelah proses upgrade ShopeePay Plus selesai.
+    30 hari setelah proses upgrade ShopeePay Plus selesai.
   - Penerima kode dapat membagikan kode referral kepada teman untuk mengikuti
     program Undang Teman sebagai pengirim kode referral.
+  - Pengirim kode memperoleh Rp10.000 per teman yang memenuhi persyaratan,
+    plus bonus tambahan berjenjang hingga Rp5.000.000 per periode campaign
+    bulanan dengan batas maksimal 500 teman per periode dan satu kemenangan
+    per pengundang setiap periode.
   - ShopeePay berhak mengubah syarat dan ketentuan sewaktu-waktu tanpa
     pemberitahuan terlebih dahulu, termasuk mengubah atau menghentikan promosi.
   - ShopeePay berhak membatalkan promosi apabila ditemukan indikasi
@@ -112,7 +123,7 @@ faqs:
       berhak mendapatkan bonus saldo Rp5.000 setelah memenuhi persyaratan
       program. Kamu harus memasukkan kode saat login aplikasi ShopeePay
       dan menyelesaikan upgrade ke ShopeePay Plus. Bonus dapat diklaim
-      maksimal 31 hari setelah upgrade selesai.
+      maksimal 30 hari setelah upgrade selesai.
     intent: bonus
 
   - q: Apa syarat mendapatkan bonus referral ShopeePay Rp5.000?
@@ -121,12 +132,12 @@ faqs:
       memasukkan kode referral dari teman saat login aplikasi, dan
       menyelesaikan upgrade akun ke ShopeePay Plus. Setelah seluruh proses
       tersebut terpenuhi, kamu berhak mendapatkan bonus saldo Rp5.000.
-      Bonus harus diklaim maksimal 31 hari setelah upgrade selesai.
+      Bonus harus diklaim maksimal 30 hari setelah upgrade selesai.
     intent: syarat
 
   - q: Kapan bonus referral ShopeePay masuk ke saldo?
     a: >-
-      Bonus dapat diklaim maksimal 31 hari setelah kamu menyelesaikan
+      Bonus dapat diklaim maksimal 30 hari setelah kamu menyelesaikan
       proses upgrade ShopeePay Plus. Pastikan seluruh persyaratan program
       sudah terpenuhi dan lakukan klaim sebelum batas waktu berakhir.
       Ketentuan kampanye yang tersedia tidak menyebutkan waktu pemrosesan
@@ -135,7 +146,7 @@ faqs:
 
   - q: Sampai kapan bonus kode referral ShopeePay bisa diklaim?
     a: >-
-      Batas waktu klaim bonus adalah maksimal 31 hari setelah proses
+      Batas waktu klaim bonus adalah maksimal 30 hari setelah proses
       upgrade ShopeePay Plus selesai. Adapun tanggal akhir program
       Undang Teman tidak disebutkan dalam ketentuan yang kami periksa.
       ShopeePay juga berhak mengubah atau menghentikan promosi sewaktu-waktu.
@@ -144,10 +155,11 @@ faqs:
   - q: Bagaimana cara menggunakan kode referral ShopeePay?
     a: >-
       Buka aplikasi ShopeePay dan masukkan kode referral JL3D5DYVW dari
-      teman saat login. Setelah itu, selesaikan proses upgrade akun ke
+      teman saat login. Kode hanya dapat dimasukkan satu kali, yaitu pada
+      saat pendaftaran. Setelah itu, selesaikan proses upgrade akun ke
       ShopeePay Plus. Apabila seluruh persyaratan terpenuhi, kamu berhak
       mendapatkan bonus saldo Rp5.000 yang dapat diklaim maksimal
-      31 hari setelah proses upgrade selesai.
+      30 hari setelah proses upgrade selesai.
     intent: cara-pakai
 
   - q: Apakah aman menggunakan kode referral ShopeePay?
@@ -160,23 +172,43 @@ faqs:
       akun melalui aplikasi resmi.
     intent: keamanan
 
+  - q: Apakah HP atau nomor yang pernah login ke ShopeePay bisa dapat bonus?
+    a: >-
+      Tidak. Handphone yang pernah login ke aplikasi ShopeePay tidak
+      eligible mendapatkan bonus saldo Rp5.000. Nomor HP yang pernah
+      memiliki akun ShopeePay, termasuk akun yang dibuat lewat aplikasi
+      Shopee, juga tidak dihitung sebagai pengguna baru.
+    intent: syarat
+
+  - q: Apakah kode referral ShopeePay bisa dipakai untuk SPayLater?
+    a: >-
+      Tidak. Kode JL3D5DYVW merupakan kode program referral ShopeePay dan
+      tidak ditujukan untuk program SPayLater, yang memiliki layanan dan
+      ketentuan promo berbeda. Kode ini juga tidak bisa dipakai berkali-kali,
+      hanya sekali saat pendaftaran akun baru.
+    intent: cara-pakai
+
 officialUrl: https://shopeepay.co.id/
 programUrl: https://shopee.co.id/m/undang-teman-shopeepay-app
-referralUrl: https://pay.u.shopee.co.id/JsJstim
+referralUrl: https://pay.u.shopee.co.id/5bbddxE
 
-verificationNote: >-
-  Informasi diperbarui pada 3 November 2026 berdasarkan halaman program
+verificationNote: |-
+  Informasi diperbarui pada November 2026 berdasarkan halaman program
   Undang Teman ShopeePay dan dokumen Syarat & Ketentuan kampanye yang
   diperiksa. Ketentuan penerima kode menyebutkan bonus saldo ShopeePay
   Rp5.000 bagi pengguna baru yang memasukkan kode referral saat login
-  dan menyelesaikan upgrade ShopeePay Plus. Bonus dapat diklaim maksimal
-  31 hari setelah proses upgrade selesai. Bonus pengirim kode sebesar
-  Rp10.000 per teman yang memenuhi persyaratan serta hadiah bulanan
-  hingga Rp1.000.000 merupakan reward untuk pengundang, bukan penerima
-  kode. Tanggal akhir kampanye dan waktu pemrosesan saldo setelah klaim
-  tidak dirinci dalam ketentuan yang diperiksa. Kode referral dan tautan
-  undangan dipertahankan sesuai data internal tim editorial. Kami tidak
-  melakukan pendaftaran percobaan menggunakan akun baru.
+  dan menyelesaikan upgrade ShopeePay Plus.
+
+  Bonus dapat diklaim maksimal 30 hari setelah proses upgrade selesai. Bonus pengirim kode sebesar
+  Rp10.000 per teman yang memenuhi persyaratan serta bonus tambahan
+  berjenjang hingga Rp5.000.000 per periode campaign bulanan merupakan
+  reward untuk pengundang, bukan penerima kode, dengan batas maksimal
+  500 teman per periode.
+  
+  Program berjalan per periode campaign bulanan,
+  sehingga nominal dan kuota dapat menyesuaikan periode yang sedang aktif.
+  Kode referral dan tautan undangan dipertahankan sesuai data internal tim
+  editorial. Kami tidak melakukan pendaftaran percobaan menggunakan akun baru.
 
 sources:
   - label: Halaman Resmi Program Undang Teman ShopeePay
@@ -191,12 +223,20 @@ sources:
     url: https://help.shopee.co.id/portal/4/article/73457-%5BKeamanan-Akun%5D-Bagaimana-cara-menghindari-penipuan%3F
 
 updateLog:
+  - date: '2026-11-14'
+    note: >-
+      Memperbarui batas klaim bonus penerima kode menjadi maksimal 30 hari
+      setelah upgrade ShopeePay Plus selesai, dan memperbarui bonus pengundang
+      menjadi skema berjenjang hingga Rp5.000.000 per periode campaign bulanan
+      dengan batas maksimal 500 teman per periode. Menambahkan syarat perangkat
+      dan nomor yang pernah login, ketentuan e-KTP dan verifikasi wajah, serta
+      catatan bahwa kode tidak berlaku untuk SPayLater.
   - date: '2026-11-03'
     note: >-
       Memperbarui informasi bonus pengguna baru menjadi Rp5.000,
       menambahkan persyaratan memasukkan kode saat login dan upgrade
       ShopeePay Plus, serta memperjelas batas waktu klaim maksimal
-      31 hari setelah upgrade selesai. Informasi bonus pengirim dan
+      30 hari setelah upgrade selesai. Informasi bonus pengirim dan
       hadiah bulanan juga diperbarui berdasarkan ketentuan kampanye.
 
 author:

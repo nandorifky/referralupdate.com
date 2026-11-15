@@ -46,6 +46,7 @@ const brands = defineCollection({
       code: z.string().min(4),
       reward: z.string().min(3),
       status: z.enum(['active', 'unverified', 'expired']),
+      relatedArticles: z.array(z.string()).default([]),
       validFrom: z.iso.date().optional(),
       expiresAt: z.iso.date().optional(),
       rewardReferee: z.string().min(20).optional(),

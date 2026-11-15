@@ -1,10 +1,10 @@
 import { routes } from './routes';
 
 export const programReferralMeta = {
-  title: 'Program Referral: Ajak Teman Dapat Saldo, Event Undang Teman',
+  title: 'Info Program Referral Terbaru, Ajak Teman Dapat Saldo dari Event Undang Teman',
   description:
     'Ikuti event undang teman dan program referral: cara ajak teman dapat saldo, batas bonus, serta perbandingan 11 brand yang sudah dicek.',
-  h1: 'Program referral: ajak teman dapat saldo, ikuti event undang teman.',
+  h1: 'Program Referral Terbaru.',
 };
 
 export function programReferralLead(count: number) {
@@ -103,7 +103,7 @@ export const faqs = [
   },
   {
     q: 'Apakah ada batas jumlah undangan atau bonus per bulan?',
-    a: 'Ada pada sebagian program. GoPay Pinjam membatasi 20 hadiah per pengundang, Krom Bank 30 teman per bulan, NeoBank 15 hadiah per bulan, Superbank 20 teman per bulan, dan SeaBank maksimal Rp5.000.000 per bulan. Brand lain punya ketentuan sendiri. Batas ini bisa berubah, jadi cek syarat resmi dan tanggal cek terakhir sebelum mengandalkan bonus pengundang.',
+    a: 'Ada pada sebagian program. GoPay Pinjam membatasi 20 hadiah per pengundang, Krom Bank 30 teman per bulan, NeoBank 15 hadiah per bulan, Superbank 20 teman per bulan, ShopeePay 500 teman per periode campaign bulanan, dan SeaBank maksimal Rp5.000.000 per bulan. Brand lain punya ketentuan sendiri. Batas ini bisa berubah, jadi cek syarat resmi dan tanggal cek terakhir sebelum mengandalkan bonus pengundang.',
   },
   {
     q: 'Kapan bonus atau komisi referral cair?',

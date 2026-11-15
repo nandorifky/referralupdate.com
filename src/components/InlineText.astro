@@ -1,0 +1,43 @@
+---
+import { isExternalHref, parseInlineText, type InlinePart } from '../lib/paragraphs';
+
+type Props = {
+  /** Teks mentah, dipecah sendiri oleh komponen ini. */
+  text?: string;
+  /** Potongan yang sudah dipecah, dipakai bila pemanggil perlu teks polosnya juga. */
+  parts?: InlinePart[];
+};
+
+const { text, parts } = Astro.props;
+const items = parts ?? parseInlineText(text ?? '');
+
+const ESCAPES: Record<string, string> = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+};
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"]/g, (char) => ESCAPES[char]);
+}
+
+// Tautan membungkus paling luar, lalu tebal, lalu miring paling dalam, sehingga
+// hasilnya `<a href><strong><em>teks</em></strong></a>`.
+function render(part: InlinePart): string {
+  let html = escapeHtml(part.text);
+  if (part.italic) html = `<em>${html}</em>`;
+  if (part.bold) html = `<strong>${html}</strong>`;
+  if (part.href) {
+    const href = escapeHtml(part.href);
+    html = isExternalHref(part.href)
+      ? `<a href="${href}" rel="noopener noreferrer" target="_blank">${html}</a>`
+      : `<a href="${href}">${html}</a>`;
+  }
+  return html;
+}
+
+const html = items.map(render).join('');
+---
+
+<Fragment set:html={html} />

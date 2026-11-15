@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import InlineText from '../components/InlineText.astro';
 import ProgramTable from '../components/ProgramTable.astro';
 import { homeCrumb, routes } from '../data/routes';
 import { breadcrumbLd, formatIdDate, siteIds, siteOrigin } from '../data/site';
@@ -19,6 +20,7 @@ import {
 import { getBrands, sortBrandsByChecked } from '../lib/content';
 import { indexableBrands } from '../lib/policy';
 import { programReferralOgCard } from '../lib/og';
+import { paragraphsPlainText, parseInlineText, toParagraphs } from '../lib/paragraphs';
 
 const brands = await getBrands();
 const listed = sortBrandsByChecked(indexableBrands(brands));
@@ -30,6 +32,14 @@ const breadcrumbId = `${pageUrl}#breadcrumb`;
 const itemListId = `${pageUrl}#itemlist`;
 const faqId = `${pageUrl}#faq`;
 const checkedThrough = listed[0] ? formatIdDate(listed[0].checkedAt) : 'tanggal cek belum tersedia';
+// Jawaban FAQ boleh ditulis sebagai beberapa paragraf dan memuat tautan;
+// JSON-LD memakai teks polos supaya acceptedAnswer tetap satu string bersih.
+const prose = (text: string) => toParagraphs(text).map(parseInlineText);
+const faqParagraphs = faqs.map((faq) => ({
+  q: faq.q,
+  paragraphs: prose(faq.a),
+  plain: paragraphsPlainText(faq.a),
+}));
 
 const jsonLd = [
   breadcrumbLd(
@@ -67,10 +77,10 @@ const jsonLd = [
     '@type': 'FAQPage',
     '@id': faqId,
     isPartOf: { '@id': websiteId },
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: faqParagraphs.map((faq) => ({
       '@type': 'Question',
       name: faq.q,
-      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      acceptedAnswer: { '@type': 'Answer', text: faq.plain },
     })),
   },
 ];
@@ -166,10 +176,12 @@ const jsonLd = [
       <section class="prose-section" aria-labelledby="faq-heading">
         <h2 id="faq-heading">Pertanyaan tentang program referral.</h2>
         <div class="faq-list" id="faq">
-          {faqs.map((faq) => (
+          {faqParagraphs.map((faq) => (
             <details class="faq-item">
               <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
+              {faq.paragraphs.length === 1
+                ? <p><InlineText parts={faq.paragraphs[0]} /></p>
+                : faq.paragraphs.map((paragraph) => <p><InlineText parts={paragraph} /></p>)}
             </details>
           ))}
         </div>

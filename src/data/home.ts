@@ -87,6 +87,7 @@ export const homeCategories = {
 export const homeNotes = {
   heading: 'Panduan sebelum memakai kode referral.',
   intro: 'Baca soal syarat, keamanan, dan cara klaim bonus.',
+  limit: 3,
   imageSizes:
     '(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(41.667vw - 2rem), (min-width: 90rem) 26rem, calc(33.333vw - 4rem)',
   imageWidths: [480, 640, 960],

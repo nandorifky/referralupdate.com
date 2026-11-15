@@ -36,7 +36,7 @@
 /* Hallmark · waive 26a, 50 · the focus ring (base.css :focus-visible) and the head overflow-wrap (base.css h1, h2, h3) live in the global stylesheet; the file tier cannot read them, the URL tier renders both */
 /* Hallmark · waive 26b · archive and index rows are links, not controls · hover and focus-visible carry their feedback, the eight-state guard covers controls */
 /* Hallmark · waive 77 · the category hub and its archive pages are interior index pages · rows and counts carry the mass, as on /kategori/ · three sections is the index shape, not a landing strip */
-/* Hallmark · open 58 · /blog/ measures 147 words at 1440 and the category archives 132-172 · a row list plus the category's own copy is the material; cutting either loses the index or its only unique text, so the finding stays open like the long-form note above */
+/* Hallmark · open 58 · /blog/ measures 147 words at 1440 and the category archives 162-182 across all five · a row list plus the category's own copy is the material; cutting either loses the index or its only unique text, so the finding stays open like the long-form note above */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -297,6 +297,7 @@ html.menu-open { overflow: hidden; }
 .code-card__reward { margin-top: var(--space-xs); font-size: var(--text-lg); }
 .code-card__for { display: block; margin-top: var(--space-2xs); font-size: var(--text-sm); line-height: 1.45; color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
 .code-card__for-label { display: block; font-weight: 500; color: color-mix(in oklab, var(--color-field-ink) 76%, transparent); }
+.code-card__for-text { display: block; margin-top: var(--space-2xs); }
 .code-card__note { margin-top: var(--space-2xs); font-size: var(--text-sm); color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
 .code-card__expired { display: block; margin-top: var(--space-lg); padding-top: var(--space-sm); border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 30%, transparent); font-size: var(--text-sm); line-height: 1.45; color: color-mix(in oklab, var(--color-field-ink) 82%, transparent); }
 .code-card__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); margin-top: var(--space-lg); }
@@ -319,6 +320,7 @@ html.menu-open { overflow: hidden; }
 .brand-head__copy { grid-column: 1 / span 7; min-width: 0; }
 .brand-head h1 { max-width: 12ch; font-size: var(--text-display-s); }
 .brand-head .lead { margin-top: var(--space-lg); max-width: 48ch; color: var(--color-ink-2); }
+.brand-head .lead + .lead { margin-top: var(--space-md); }
 .brand-head__meta { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); }
 .brand-head .text-link { display: inline-block; margin-top: var(--space-lg); }
 .brand-head__links { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); margin-top: var(--space-lg); }
@@ -337,6 +339,7 @@ html.menu-open { overflow: hidden; }
 .reward-split__item { min-width: 0; padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
 .brand-section .reward-split__label { margin-top: 0; font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
 .brand-section .reward-split__text { margin-top: var(--space-xs); color: var(--color-ink-2); }
+.brand-section .reward-split__text + .reward-split__text { margin-top: var(--space-sm); }
 .check-list { list-style: none; margin: var(--space-lg) 0 0; padding: 0; display: grid; gap: var(--space-sm); }
 .check-list li { position: relative; max-width: var(--measure); padding-left: var(--space-lg); color: var(--color-ink-2); }
 .check-list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.4rem; height: 0.4rem; background: var(--color-muted); }
@@ -344,6 +347,8 @@ html.menu-open { overflow: hidden; }
 .fact { min-width: 0; padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
 .fact dt { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
 .fact dd { margin: var(--space-xs) 0 0; max-width: var(--measure); color: var(--color-ink-2); }
+.fact dd p:first-child { margin-top: 0; }
+.fact dd p + p { margin-top: var(--space-sm); }
 .brand-aside { grid-column: 9 / span 4; position: sticky; top: calc(var(--nav-h) + var(--space-lg)); display: grid; gap: var(--space-xl); }
 .aside-block { display: grid; gap: var(--space-xs); }
 .aside-title { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }

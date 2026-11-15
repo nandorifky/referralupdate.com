@@ -26,7 +26,7 @@
   ],
   "prompt": "new blog categories (Knowledge, Review, Perbandingan, Verifikasi akun, Bonus pengguna baru) plus a category archive, and drop the duotone filter",
   "date": "2026-11-14",
-  "calls": "hub 0 FAIL; knowledge archive 1 FAIL 58 (172 words at 1440); the file tier reports 26a and 50 only, both satisfied by base.css and clean in the URL tier"
+  "calls": "hub 0 FAIL; all five archives 1 FAIL 58 (162-182 words at 1440) plus REFLEX/WARN 77; the file tier reports 26a and 50 only, both satisfied by base.css and clean in the URL tier"
  },
  {
   "shape": "Manifesto",

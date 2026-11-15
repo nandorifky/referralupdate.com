@@ -7,7 +7,7 @@ import HomeLedger from '../components/home/HomeLedger.astro';
 import HomeCategories from '../components/home/HomeCategories.astro';
 import HomeNotes from '../components/home/HomeNotes.astro';
 import HomeClosing from '../components/home/HomeClosing.astro';
-import { homeLedger, homeMeta, homeStructuredData } from '../data/home';
+import { homeLedger, homeMeta, homeNotes, homeStructuredData } from '../data/home';
 import { siteIds, siteOrigin } from '../data/site';
 import {
   categoriesWithBrands,
@@ -76,6 +76,6 @@ const jsonLd = [
   <HomeChecks />
   <HomeLedger items={ledgerBrands} />
   <HomeCategories categories={activeCategories} brands={brands} />
-  <HomeNotes articles={sortedArticles} />
+  <HomeNotes articles={sortedArticles.slice(0, homeNotes.limit)} />
   <HomeClosing />
 </BaseLayout>
