@@ -76,7 +76,7 @@ const logParagraphs = brand.updateLog.map((entry) => ({
 }));
 
 const toc = [
-  { href: '#bonus', label: 'Bonus untuk pendaftar dan pengundang' },
+  { href: '#bonus', label: `Bonus referral ${brand.name} untuk pendaftar dan pengundang` },
   { href: '#cara-pakai', label: `Cara menggunakan kode referral ${brand.name}` },
   { href: '#syarat', label: 'Syarat untuk mendapat bonus' },
   { href: '#kapan-cair', label: 'Kapan bonus cair dan masa berlaku' },
@@ -97,9 +97,9 @@ const validity = (() => {
     return `Program ini akan berakhir pada ${formatIdDate(brand.expiresAt)}.`;
   }
   if (brand.validFrom) {
-    return `Berlaku sejak ${formatIdDate(brand.validFrom)}, halaman resmi tidak mencantumkan tanggal berakhir. Terakhir dicek: ${formatIdDate(brand.checkedAt)}, dan masih valid hingga saat ini.`;
+    return `Berlaku sejak ${formatIdDate(brand.validFrom)}, Terakhir dicek pada ${formatIdDate(brand.checkedAt)}, dan masih valid hingga saat ini.`;
   }
-  return `Halaman resmi tidak mencantumkan tanggal mulai maupun tanggal berakhir; status dicek ${formatIdDate(brand.checkedAt)}.`;
+  return `Kami akan selalu memperbarui informasi ini. Selama halaman ini bisa diakses, artinya informasi ini masih valid. Terakhir dicek pada ${formatIdDate(brand.checkedAt)}.`;
 })();
 
 const jsonLd = [
@@ -212,7 +212,7 @@ const jsonLd = [
       <div class="brand-main">
         <Toc items={toc} />
         <section class="brand-section" aria-labelledby="bonus">
-          <h2 id="bonus">Bonus untuk pendaftar dan pengundang.</h2>
+          <h2 id="bonus">Bonus referral {brand.name} untuk pengguna baru dan pengundang.</h2>
           <div class="reward-split">
             <div class="reward-split__item">
               <p class="reward-split__label">Untuk pendaftar</p>
@@ -282,7 +282,7 @@ const jsonLd = [
         </section>
 
         <section class="brand-section" aria-labelledby="faq">
-          <h2 id="faq">Pertanyaan umum kode referral {brand.name}.</h2>
+          <h2 id="faq">Pertanyaan umum terkait kode referral {brand.name}.</h2>
           <dl class="faq-list">
             {faqParagraphs.map((faq) => (
               <div class="faq-item">
