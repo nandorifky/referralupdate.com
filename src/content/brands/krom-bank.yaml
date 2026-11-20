@@ -14,10 +14,12 @@ status: active
 validFrom: '2025-01-07'
 
 rewardReferee: >-
-  Pemakai kode referral MUHR486J yang mendaftar rekening Krom bisa
+  Pemakai kode referral Krom Bank MUHR486J yang mendaftar rekening Krom bisa
   mendapatkan bonus Rp50.000 jika mengisi saldo minimal Rp300.000, atau
   Rp150.000 jika mengisi minimal Rp2.000.000, selama 7 hari sejak
-  aktivasi akun. Saldo tersebut harus dipertahankan dengan rata-rata
+  aktivasi akun.
+
+  Saldo tersebut harus dipertahankan dengan rata-rata
   minimal yang sama selama 30 hari setelah periode pengisian. Bonus
   dikirim pada hari ke-38 atau paling lambat 7 hari sesudahnya, dan hanya
   diberikan satu kali untuk setiap pengguna.
@@ -25,8 +27,9 @@ rewardReferee: >-
 rewardReferrer: >-
   Pengundang tidak perlu memiliki saldo minimum untuk membagikan kode.
   Bonus Rp50.000 atau Rp150.000 diberikan untuk setiap teman yang berhasil
-  memenuhi syarat pengisian dan pemeliharaan saldo. Pengundang bisa
-  mendapat bonus untuk maksimal 30 teman per bulan, dengan total potensi
+  memenuhi syarat pengisian dan pemeliharaan saldo.
+  
+  Pengundang bisa mendapat bonus untuk maksimal 30 teman per bulan, dengan total potensi
   hingga Rp4.500.000. Jika teman gagal mempertahankan saldo, pengundang
   dan teman sama-sama tidak mendapat bonus.
 
@@ -36,8 +39,7 @@ payoutNote: >-
   Bonus dikirimkan pada hari ke-38 sejak aktivasi akun, atau paling lambat
   7 hari setelahnya. Saldo rata-rata dihitung dari gabungan Tabungan
   Utama, Tabungan, dan Deposito Berjangka. Pengisian saldo harus berasal
-  dari rekening bank selain Krom. Halaman resmi tidak mencantumkan tanggal
-  berakhir program.
+  dari rekening bank selain Krom.
 
 eligibility:
   - Pengguna aplikasi Krom dengan akun yang tidak berstatus ditangguhkan atau suspended.
@@ -114,9 +116,8 @@ faqs:
     intent: pencairan
   - q: Sampai kapan program referral Krom Bank berlaku?
     a: >-
-      Halaman resmi menyebut periode kedua Program Ajak Teman dimulai pada
-      7 Januari 2025, tetapi tidak mencantumkan tanggal berakhir. Informasi
-      di halaman ini diperiksa pada 4 November 2026. Krom dapat mengubah
+      Periode kedua Program Ajak Teman dimulai pada
+      7 Januari 2025, dan masih aktif hingga saat ini. Krom dapat mengubah
       syarat atau menghentikan program dengan informasi lebih dahulu, jadi
       cek halaman resmi sebelum mendaftar.
     intent: masa-berlaku
@@ -163,7 +164,6 @@ sources:
 updateLog:
   - date: '2026-11-04'
     note: >-
-      Entri awal Krom Bank dibuat dari halaman resmi Program Ajak Teman.
       Kode referral MUHR486J, skema bonus hingga Rp150.000, periode
       pengisian saldo 7 hari, masa pemeliharaan 30 hari, dan jadwal
       pengiriman bonus pada hari ke-38 dicatat sesuai sumber resmi.

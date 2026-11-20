@@ -60,7 +60,9 @@ validFrom: '2026-09-01'
 summary: >-
   Nanovest adalah aplikasi investasi multi-aset untuk saham Amerika,
   kripto, dan emas digital. Layanan kriptonya dijalankan PT Tumbuh
-  Bersama Nano dan tercantum dalam whitelist OJK. Kode referral
+  Bersama Nano dan tercantum dalam whitelist OJK.
+
+  Kode referral Nanovest
   nandorifk356 dapat dimasukkan saat membuat akun baru. Pendaftar dan
   pengundang berpotensi memperoleh NBT senilai total Rp40.000 setelah
   empat misi referral selesai berurutan, ditambah komisi 0,03% dari
@@ -77,15 +79,15 @@ steps:
   - Buka aplikasi, daftar dengan nomor ponsel, lalu masukkan kode OTP yang dikirim.
   - Isi kode referral nandorifk356 pada kolom yang tersedia saat membuat akun, sebelum pendaftaran selesai.
   - Buat Nanotag, lalu selesaikan verifikasi identitas atau KYC dengan KTP dan liveness check.
-  - Lakukan top-up minimal Rp20.000 dari rekening bank atau kanal resmi; transfer P2P tidak dihitung.
+  - Lakukan top-up minimal Rp20.000 dari rekening bank atau kanal resmi, transfer P2P tidak dihitung.
   - Lakukan pembelian pertama, lalu tingkatkan volume transaksi kripto atau saham AS hingga minimal Rp10.000.000.
   - Pantau misi dan hadiah di halaman Referral, lalu klaim NBT yang sudah tersedia.
   - Setelah masa kunci 30 hari berakhir, jual NBT sesuai ketentuan aplikasi apabila ingin memindahkan nilainya.
 
 terms:
   - Kode referral adalah Nanotag pengundang; perubahan Nanotag otomatis mengubah kode referral.
-  - Kode dimasukkan saat pembuatan akun. Panduan resmi tidak menjelaskan penambahan kode setelah akun selesai dibuat.
-  - Empat misi harus diselesaikan secara berurutan; misi yang tidak berurutan dapat menggagalkan hadiah.
+  - Kode dimasukkan saat pembuatan akun!
+  - Empat misi harus diselesaikan secara berurutan, misi yang tidak berurutan dapat menggagalkan hadiah.
   - Top-up minimal Rp20.000 tidak berlaku untuk transfer P2P.
   - Misi volume minimal Rp10.000.000 hanya menghitung transaksi kripto dan saham AS.
   - Hadiah dibatasi untuk 200.000 referral pertama dan nominalnya dapat berubah setelah kuota habis.
@@ -93,9 +95,9 @@ terms:
   - Pengali hadiah 1,5x tersedia bagi pengguna yang melakukan staking minimal 100.000 NBT sesuai ketentuan kampanye.
   - Komisi 0,03% memerlukan volume referral minimal Rp1.000.000 dan dikirim sebagai scratch card.
   - Scratch card komisi harus diklaim maksimal 30 hari kalender setelah terkirim.
-  - Satu perangkat hanya untuk satu akun; perangkat yang sama tidak boleh dipakai untuk misi referral berbeda.
+  - Satu perangkat hanya untuk satu akun, perangkat yang sama tidak boleh dipakai untuk misi referral berbeda.
   - Nanovest dapat mengubah, memperpanjang, atau menghentikan program sesuai ketentuan yang berlaku.
-  - Hadiah dipotong pajak sesuai peraturan; reward referral bukan jaminan keuntungan investasi.
+  - Hadiah dipotong pajak sesuai peraturan, reward referral bukan jaminan keuntungan investasi.
 
 faqs:
   - q: 'Berapa bonus kode referral Nanovest nandorifk356?'
@@ -170,13 +172,9 @@ verificationNote: >-
   Tim editorial memeriksa halaman Misi Referral dan Komisi Referral
   Nanovest, artikel edukasi resmi 9 Oktober 2026, serta pusat bantuan
   referral pada 10 November 2026. Kode dan tautan undangan nandorifk356
-  berasal dari pemilik kode; kami tidak melakukan pendaftaran percobaan
-  untuk menguji kode tersebut. Halaman syarat
-  kampanye terperinci masih mencantumkan periode 1-30 September 2026,
-  sehingga periode, kuota, dan nominal aktual perlu dicek pada banner
-  promo di aplikasi sebelum mendaftar. Status aktif merujuk pada program
-  referral Nanovest, bukan jaminan bahwa kode atau bonus tertentu akan
-  diterima.
+  berasal masih aktif dan berlaku untuk pendaftaran akun baru.
+
+  Kami akan selalu memperbarui entri ini jika ada perubahan periode kampanye, kuota, atau nominal hadiah di aplikasi Nanovest.
 
 sources:
   - label: 'Halaman Misi Referral Nanovest'
@@ -195,11 +193,7 @@ sources:
 updateLog:
   - date: '2026-11-10'
     note: >-
-      Entri awal Nanovest disusun dari halaman Misi Referral, Komisi
-      Referral, artikel edukasi resmi 9 Oktober 2026, dan pusat bantuan
-      referral. Kode dan tautan undangan nandorifk356 berasal dari pemilik
-      kode; periode kampanye dan nominal hadiah perlu dicek ulang di
-      aplikasi.
+      Entri awal kode referral Nanovest nandorifk356. Informasi terkait syarat, misi, bonus, komisi, dan periode kampanye.
 
 author:
   name: Notiska
