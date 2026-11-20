@@ -33,27 +33,32 @@ const { website: websiteId, organization: organizationId } = siteIds(origin);
 const webpageId = `${pageUrl}#webpage`;
 const breadcrumbId = `${pageUrl}#breadcrumb`;
 const faqId = `${pageUrl}#faq`;
-const coverImage = await getImage({
-  src: brand.image.src,
-  width: 1280,
-  format: 'jpg',
-  quality: 80,
-});
-// Setiap gambar pendukung dibuat versi 1280px-nya supaya URL gambar yang
-// stabil bisa dipakai di JSON-LD dan peta situs, sehingga Google mudah
-// menemukan dan mengindeks gambar tersebut.
-const galleryImageUrls = await Promise.all(
-  brand.gallery.map(async (photo) => {
+// Setiap gambar (sampul + galeri) dibuat versi yang tidak lebih besar dari
+// berkas aslinya, lalu dideskripsikan sebagai ImageObject: URL stabil untuk
+// JSON-LD dan mengikuti dimensi asli, sehingga Google membaca gambar dengan
+// benar tanpa upscale.
+const scaled = (src: { width: number; height: number }) => {
+  const width = Math.min(1280, src.width);
+  return { width, height: Math.round((src.height / src.width) * width) };
+};
+const photoObjects = await Promise.all(
+  [brand.image, ...brand.gallery].map(async (photo) => {
+    const dims = scaled(photo.src);
     const generated = await getImage({
       src: photo.src,
-      width: 1280,
+      width: dims.width,
       format: 'jpg',
       quality: 80,
     });
-    return new URL(generated.src, origin).toString();
+    return {
+      '@type': 'ImageObject',
+      contentUrl: new URL(generated.src, origin).toString(),
+      caption: photo.caption,
+      width: dims.width,
+      height: dims.height,
+    };
   }),
 );
-const pageImageUrls = [new URL(coverImage.src, origin).toString(), ...galleryImageUrls];
 const siblings = brandsInCategory(brands, brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
 const relatedArticles = articles.filter((article) => article.relatedBrands.includes(brand.slug));
 // Pilihan editor pada berkas brand menentukan tiga panduan di aside. Bila daftarnya kosong,
@@ -128,7 +133,8 @@ const jsonLd = [
     name: brand.seo.h1,
     url: pageUrl,
     description: brand.seo.description,
-    image: pageImageUrls,
+    image: photoObjects,
+    primaryImageOfPage: photoObjects[0],
     inLanguage: 'id',
     dateModified: brand.checkedAt,
     isPartOf: { '@id': websiteId },

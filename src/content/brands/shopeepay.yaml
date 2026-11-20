@@ -242,3 +242,21 @@ updateLog:
 author:
   name: Notiska
   role: Tim Editorial
+
+gallery:
+   - src: ../../assets/images/features/brands/kode-referral-shopeepay-terbaru-hari-ini-jl3d5dyvw.webp
+     alt: 'Gunakan kode referral ShopeePay JL3D5DYVW untuk pengguna baru agar dapat bonus saldo Rp5.000.'
+     caption: 'Kode referral ShopeePay JL3D5DYVW untuk pengguna baru agar dapat bonus saldo Rp5.000.'
+     ratio: auto
+     full: true
+     position: '50% 50%'
+     author: 'Tim Editorial'
+     license: 'Dokumentasi internal'
+   - src: ../../assets/images/features/brands/cara-memasukkan-kode-referral-shopeepay.webp
+     alt: 'Cara Memasukkan Kode Referral ShopeePay JL3D5DYVW saat daftar aplikasi untuk pengguna baru.'
+     caption: 'Cara daftar ShopeePay dan memasukkan kode referral JL3D5DYVW untuk pengguna baru agar dapat bonus saldo Rp5.000.'
+     ratio: auto
+   - src: ../../assets/images/features/brands/klaim-saldo-shopeepay-5000.webp
+     alt: 'Klaim Saldo Bonus ShopeePay Rp5.000.'
+     caption: 'Klaim Saldo Bonus ShopeePay Rp5.000 untuk pengguna baru yang memasukkan kode referral JL3D5DYVW dan menyelesaikan upgrade ShopeePay Plus.'
+     ratio: auto

@@ -38,7 +38,7 @@ export const GET: APIRoute = async ({ site }) => {
     if (!loc) {
       const generated = await getImage({
         src: photo.src,
-        width: 1280,
+        width: Math.min(1280, photo.src.width),
         format: 'jpg',
         quality: 68,
       });
