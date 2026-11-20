@@ -396,6 +396,12 @@ const COVERS = [
     penjelas: ['Review Jujur Setelah', '1 Tahun Pemakaian'],
     desc: 'SeaBank adalah bank digital dari PT Bank SeaBank Indonesia dengan bunga tabungan harian dan transfer gratis. Ulasan ini menilai kelebihan dan kekurangannya dari pemakaian satu tahun dan biaya resmi.',
   },
+  {
+    slug: 'foto-toko-online-dana-bisnis',
+    headline: hl('FOTO ', 'TOKO'),
+    penjelas: ['Contoh Screenshot untuk', 'Daftar DANA Bisnis'],
+    desc: 'Pemilik toko online tidak harus punya bangunan fisik untuk melengkapi foto usaha saat daftar DANA Bisnis. Contoh screenshot halaman toko, dari media sosial sampai marketplace, beserta cara menyiapkannya.',
+  },
 ];
 
 const COVER_DIR = 'src/assets/images/features/articles';

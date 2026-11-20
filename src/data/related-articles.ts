@@ -46,9 +46,15 @@ export const relatedArticles: Record<string, string[]> = {
     'apa-itu-dana-bisnis',
   ],
   'cara-daftar-dana-bisnis': [
+    'foto-toko-online-dana-bisnis',
     'apa-itu-dana-bisnis',
     'limit-dana-bisnis',
     'qris-dana-bisnis-tidak-bisa',
+  ],
+  'foto-toko-online-dana-bisnis': [
+    'cara-daftar-dana-bisnis',
+    'apa-itu-dana-bisnis',
+    'limit-dana-bisnis',
   ],
   'qris-dana-bisnis-tidak-bisa': [
     'cara-daftar-dana-bisnis',
