@@ -12,33 +12,39 @@ reward: NBT hingga Rp40.000 untuk pendaftar dan pengundang
 
 status: active
 
-rewardReferee: >-
+rewardReferee: |-
   Pendaftar baru dan pengundang masing-masing berpotensi memperoleh NBT
   senilai Rp2.000 setelah menyelesaikan KYC, Rp3.000 setelah top-up
   minimal Rp20.000, Rp5.000 setelah transaksi pembelian pertama, dan
   Rp30.000 setelah volume transaksi mencapai minimal Rp10.000.000.
   Totalnya hingga Rp40.000 per pihak jika keempat misi diselesaikan
-  secara berurutan dalam periode kampanye. Misi volume terakhir hanya
+  secara berurutan dalam periode kampanye.
+
+  Misi volume terakhir hanya
   menghitung transaksi kripto dan saham AS. NBT yang diklaim terkunci
   selama 30 hari kalender sebelum dapat dijual, dan nilainya mengikuti
   harga pasar.
 
-rewardReferrer: >-
+rewardReferrer: |-
   Pengundang memperoleh NBT dari setiap misi yang diselesaikan referral,
   sama seperti pendaftar, hingga Rp40.000 per referral yang menuntaskan
   keempat misi. Selain itu tersedia Komisi Referral sebesar 0,03% dari
   total volume transaksi referral yang memenuhi syarat, dengan volume
-  minimal Rp1.000.000. Perhitungan komisi mencakup transaksi kripto,
+  minimal Rp1.000.000.
+
+  Perhitungan komisi mencakup transaksi kripto,
   saham AS, dan emas digital. Komisi dikirim dalam bentuk scratch card
   paling lambat 14 hari kerja setelah periode kampanye berakhir. Periode,
   kuota, dan nominal aktual mengikuti campaign yang tampil di aplikasi.
 
 rewardReferrerShort: NBT hingga Rp40.000 per referral plus komisi 0,03% dari volume transaksi yang memenuhi syarat.
 
-payoutNote: >-
+payoutNote: |-
   Hadiah NBT dikirim ke akun setelah misi referral terpenuhi dan diklaim.
   NBT tersebut terkunci selama 30 hari kalender sejak klaim sebelum dapat
-  dijual. Komisi 0,03% dikirim sebagai scratch card paling lambat 14 hari
+  dijual.
+  
+  Komisi 0,03% dikirim sebagai scratch card paling lambat 14 hari
   kerja setelah periode kampanye selesai dan harus diklaim maksimal 30
   hari kalender setelah kartu terkirim. Hadiah dipotong pajak sesuai
   ketentuan yang berlaku, dan nilai NBT dapat berubah mengikuti harga pasar.

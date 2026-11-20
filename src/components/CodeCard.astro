@@ -50,7 +50,7 @@ const refereeParagraphs = toParagraphs(refereeReward).map(parseInlineText);
 ) : (
   <aside class="code-card" aria-label={`Kode referral ${brand.name}`}>
     <div class="code-card__top">
-      <p class="code-card__label">Kode {brand.name}, {category?.name}</p>
+      <p class="code-card__label">Kode Referral {brand.name}</p>
       <p class="code-card__date">
         {ui.lastChecked} {shortDate}
         <span class="status-chip">{statusLabel}</span>
@@ -59,12 +59,6 @@ const refereeParagraphs = toParagraphs(refereeReward).map(parseInlineText);
     <p class="code-card__code">{brand.code}</p>
     <p class="code-card__reward">
       {brand.reward}
-      <span class="code-card__for">
-        <span class="code-card__for-label">Untuk pendaftar</span>
-        {refereeParagraphs.map((paragraph) => (
-          <span class="code-card__for-text"><InlineText parts={paragraph} /></span>
-        ))}
-      </span>
       {isExpired && (
         <span class="code-card__expired">
           Program berakhir {brand.expiresAt ? formatIdDate(brand.expiresAt) : 'menurut sumber resmi'}. Tautan pendaftaran tidak ditampilkan.
