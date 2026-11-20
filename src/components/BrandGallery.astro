@@ -1,11 +1,11 @@
 ---
+import { getImage } from 'astro:assets';
 import ResponsivePhoto from './ResponsivePhoto.astro';
 import type { PhotoFrame } from '../data/site';
 
 type GalleryPhoto = PhotoFrame & {
   caption: string;
   ratio?: 'auto' | '4:3' | '16:9' | '1:1' | '3:4';
-  full?: boolean;
 };
 
 type Props = {
@@ -13,24 +13,46 @@ type Props = {
 };
 
 const { items } = Astro.props;
+
+// Versi besar dipakai sebagai target tautan tiap gambar. Tanpa JavaScript,
+// tautan membuka gambar utuh di tab baru; dengan JavaScript, skrip di
+// BaseLayout mengubahnya menjadi penampil (lightbox).
+const entries = await Promise.all(
+  items.map(async (photo) => {
+    const large = await getImage({
+      src: photo.src,
+      width: Math.min(1600, photo.src.width),
+      format: 'jpg',
+      quality: 82,
+    });
+    return { photo, ratio: photo.ratio ?? 'auto', href: large.src };
+  }),
+);
 ---
 
 {items.length > 0 && (
   <ul class="brand-gallery">
-    {items.map((photo) => {
-      const ratio = photo.ratio ?? 'auto';
-      return (
-        <li class:list={{ 'brand-gallery__item--full': photo.full === true }}>
-          <figure>
+    {entries.map(({ photo, ratio, href }) => (
+      <li>
+        <figure>
+          <a
+            class="brand-gallery__link"
+            href={href}
+            target="_blank"
+            rel="noopener"
+            data-lightbox
+            data-caption={photo.caption}
+            data-alt={photo.alt}
+          >
             {ratio === 'auto' ? (
               // Tanpa bingkai beraspek tetap: gambar memakai rasio asli berkas.
               // Atribut width/height dari <Picture> tetap menahan tinggi awal
-              // supaya tidak ada layout shift.
+              // supaya tidak ada layout shift saat gambar dimuat.
               <div class="brand-gallery__frame">
                 <ResponsivePhoto
                   photo={photo}
                   widths={[480, 640, 960, 1280]}
-                  sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(50vw - 2rem), 44rem"
+                  sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(50vw - 2rem), 30vw"
                 />
               </div>
             ) : (
@@ -38,14 +60,31 @@ const { items } = Astro.props;
                 <ResponsivePhoto
                   photo={photo}
                   widths={[320, 480, 640, 960]}
-                  sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(50vw - 2rem), 24rem"
+                  sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc(50vw - 2rem), 30vw"
                 />
               </div>
             )}
-            <figcaption class="caption">{photo.caption}</figcaption>
-          </figure>
-        </li>
-      );
-    })}
+          </a>
+          <figcaption class="caption">{photo.caption}</figcaption>
+        </figure>
+      </li>
+    ))}
   </ul>
+
+  <dialog class="lightbox" data-lightbox-dialog aria-label="Penampil gambar pendukung">
+    <button class="lightbox__close" type="button" data-lightbox-close aria-label="Tutup penampil">
+      &times;
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Gambar sebelumnya">
+      &lsaquo;
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="Gambar berikutnya">
+      &rsaquo;
+    </button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__image" data-lightbox-image alt="" />
+      <figcaption class="lightbox__caption" data-lightbox-caption></figcaption>
+    </figure>
+    <p class="lightbox__count" data-lightbox-count></p>
+  </dialog>
 )}

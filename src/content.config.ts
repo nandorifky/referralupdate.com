@@ -30,11 +30,11 @@ const photoSchema = (image: () => z.ZodType<ImageMetadata>) =>
 
 // Gambar pendukung galeri boleh punya rasio bebas. `ratio: 'auto'` memakai
 // rasio asli berkas (tak dipotong), sedangkan nilai lain memotong ke rasio itu.
-// `full` membuat gambar memenuhi lebar kolom utama.
+// Tata letaknya sendiri: tiga kolom di desktop, dua di tablet, satu di ponsel,
+// dan baris terakhir yang tidak penuh otomatis melar memenuhi lebar.
 const gallerySchema = (image: () => z.ZodType<ImageMetadata>) =>
   photoSchema(image).extend({
     ratio: z.enum(['auto', '4:3', '16:9', '1:1', '3:4']).default('auto'),
-    full: z.boolean().default(false),
   });
 
 const faqIntent = z.enum([
