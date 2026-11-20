@@ -13,7 +13,7 @@ status: active
 
 validFrom: '2025-01-07'
 
-rewardReferee: >-
+rewardReferee: |-
   Pemakai kode referral Krom Bank MUHR486J yang mendaftar rekening Krom bisa
   mendapatkan bonus Rp50.000 jika mengisi saldo minimal Rp300.000, atau
   Rp150.000 jika mengisi minimal Rp2.000.000, selama 7 hari sejak
@@ -24,7 +24,7 @@ rewardReferee: >-
   dikirim pada hari ke-38 atau paling lambat 7 hari sesudahnya, dan hanya
   diberikan satu kali untuk setiap pengguna.
 
-rewardReferrer: >-
+rewardReferrer: |-
   Pengundang tidak perlu memiliki saldo minimum untuk membagikan kode.
   Bonus Rp50.000 atau Rp150.000 diberikan untuk setiap teman yang berhasil
   memenuhi syarat pengisian dan pemeliharaan saldo.

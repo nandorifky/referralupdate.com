@@ -14,7 +14,7 @@ status: active
 checkedAt: '2026-11-04'
 validFrom: '2026-11-01'
 
-rewardReferee: >-
+rewardReferee: |-
   Pemakai kode referral RVL232 yang membuka rekening neobank dan login
   minimal satu kali berhak mendapatkan Rp10.000 setelah membuka deposito
   dalam 7 hari sejak rekening aktif. Jika menyelesaikan misi transaksi
@@ -26,7 +26,7 @@ rewardReferee: >-
   Hadiah dikirim ke Profil - Neo Rewards dan dapat ditarik ke Tabungan NOW
   dalam 30 hari setelah dikirimkan.
 
-rewardReferrer: >-
+rewardReferrer: |-
   Pengundang mendapat Rp5.000 setelah teman yang diundang membuka
   rekening neobank dan login minimal satu kali. Jika teman tersebut
   membuka deposito dalam 7 hari, pengundang mendapat tambahan Rp30.000.
@@ -53,7 +53,7 @@ eligibility:
   - Hadiah diambil melalui Profil - Neo Rewards dan ditarik ke Tabungan NOW dalam 30 hari.
   - Hadiah terkait deposito FLEXI tidak berlaku jika deposito dicairkan sebelum 7 hari.
 
-summary: >-
+summary: |-
   Kode referral NeoBank RVL232 dapat dipakai saat membuka rekening baru
   di aplikasi neobank. Pemakai kode yang login minimal satu kali dan
   membuka deposito dalam 7 hari berhak atas Rp10.000. Setelah
@@ -163,7 +163,7 @@ officialUrl: https://www.bankneocommerce.co.id/
 programUrl: https://www.bankneocommerce.co.id/id/promo/referral-promo-neobank
 referralUrl: https://s.bankneo.co.id/l32m10
 
-verificationNote: >-
+verificationNote: |-
   Informasi kami periksa dari laman resmi BNC yang mencantumkan Rp10.000
   untuk invitee yang membuka deposito dalam 7 hari, tambahan Rp93.000
   plus kupon dana virtual Rp4.650.000 setelah misi transaksi nasabah baru,
