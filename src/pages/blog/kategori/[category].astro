@@ -107,7 +107,7 @@ const jsonLd = [
       <h2 class="visually-hidden">Artikel kategori {blogCategoryName(category.slug)}</h2>
       <ol class="archive-list archive-list--category">
         {dated.map((article) => (
-          <li>
+          <li data-loadmore-item>
             <a class="archive-entry" href={`/blog/${article.slug}/`}>
               <time class="archive-entry__date" datetime={article.updated}>
                 <span class="archive-entry__day">{article.day}</span>
@@ -121,6 +121,10 @@ const jsonLd = [
           </li>
         ))}
       </ol>
+
+      <button class="btn load-more" type="button" data-loadmore data-page-size="10" hidden>
+        {ui.loadMore(10)}
+      </button>
 
       <p class="source-line">
         {listed.length} artikel di kategori {category.name}, diurutkan dari yang paling baru

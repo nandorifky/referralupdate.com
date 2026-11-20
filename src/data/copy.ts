@@ -7,6 +7,7 @@ export const ui = {
   copyCode: 'Salin kode',
   brandExamples,
   brandCount: (count: number) => `${count} brand`,
+  loadMore: (count: number) => `Tampilkan ${count} artikel lagi`,
   search: {
     label: 'Cari platform',
     heroPlaceholder: brandExamples,

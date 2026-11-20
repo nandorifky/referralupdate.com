@@ -222,6 +222,32 @@ const isArticle = ogType === 'article';
         });
         apply();
       }
+
+      const loadMore = document.querySelector('[data-loadmore]');
+      if (loadMore) {
+        const step = Number(loadMore.getAttribute('data-page-size')) || 10;
+        const items = [...document.querySelectorAll('[data-loadmore-item]')];
+        const groups = [...document.querySelectorAll('[data-loadmore-group]')];
+        let shown = step;
+        const render = () => {
+          const target = Math.min(shown, items.length);
+          items.forEach((item, index) => {
+            item.hidden = index >= target;
+          });
+          groups.forEach((group) => {
+            const inner = [...group.querySelectorAll('[data-loadmore-item]')];
+            group.hidden = inner.length > 0 && inner.every((item) => item.hidden);
+          });
+          const remaining = items.length - target;
+          loadMore.hidden = remaining <= 0;
+          if (remaining > 0) loadMore.textContent = `Tampilkan ${Math.min(step, remaining)} artikel lagi`;
+        };
+        render();
+        loadMore.addEventListener('click', () => {
+          shown += step;
+          render();
+        });
+      }
     </script>
   </body>
 </html>

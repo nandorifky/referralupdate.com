@@ -118,14 +118,14 @@ const jsonLd = [
 
       <h2 class="visually-hidden">Semua artikel</h2>
       {years.map((group) => (
-        <section class="archive-year" aria-labelledby={`tahun-${group.year}`}>
+        <section class="archive-year" aria-labelledby={`tahun-${group.year}`} data-loadmore-group>
           <header class="archive-year__head">
             <h2 class="archive-year__label" id={`tahun-${group.year}`}>{group.year}</h2>
             <p class="archive-year__count">{group.items.length} artikel</p>
           </header>
           <ol class="archive-list">
             {group.items.map((article) => (
-              <li>
+              <li data-loadmore-item>
                 <a class="archive-entry" href={`/blog/${article.slug}/`}>
                   <time class="archive-entry__date" datetime={article.updated}>
                     <span class="archive-entry__day">{article.day}</span>
@@ -142,6 +142,10 @@ const jsonLd = [
           </ol>
         </section>
       ))}
+
+      <button class="btn load-more" type="button" data-loadmore data-page-size="10" hidden>
+        {ui.loadMore(10)}
+      </button>
     </div>
   </section>
 </BaseLayout>
