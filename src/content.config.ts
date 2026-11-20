@@ -1,3 +1,4 @@
+import type { ImageMetadata } from 'astro';
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
@@ -9,6 +10,23 @@ const source = z.object({
   label: z.string().min(3),
   url: z.url(),
 });
+
+// Bentuk gambar yang sama dipakai untuk sampul brand, gambar pendukung, dan
+// sampul artikel. `alt` dan `caption` wajib supaya setiap gambar punya
+// keterangan yang bisa dibaca mesin pencari dan pembaca layar.
+const photoSchema = (image: () => z.ZodType<ImageMetadata>) =>
+  z.object({
+    src: image(),
+    alt: z.string().min(20).max(160),
+    caption: z.string().min(20).max(200),
+    position: z
+      .string()
+      .regex(/^\d{1,3}% \d{1,3}%$/)
+      .default('50% 50%'),
+    author: z.string().min(1).optional(),
+    license: z.string().min(1).optional(),
+    source: z.url().optional(),
+  });
 
 const faqIntent = z.enum([
   'bonus',
@@ -31,18 +49,8 @@ const brands = defineCollection({
       .object({
         name: z.string().min(2),
         category: z.enum(categorySlugs),
-        image: z.object({
-          src: image(),
-          alt: z.string().min(20).max(160),
-          caption: z.string().min(20).max(200),
-          position: z
-            .string()
-            .regex(/^\d{1,3}% \d{1,3}%$/)
-            .default('50% 50%'),
-          author: z.string().min(1).optional(),
-          license: z.string().min(1).optional(),
-          source: z.url().optional(),
-        }),
+        image: photoSchema(image),
+        gallery: z.array(photoSchema(image)).default([]),
       code: z.string().min(4),
       reward: z.string().min(3),
       status: z.enum(['active', 'unverified', 'expired']),
@@ -142,18 +150,7 @@ const blog = defineCollection({
       category: z.enum(blogCategorySlugs),
       published: z.iso.date().optional(),
       updated: z.iso.date(),
-      image: z.object({
-        src: image(),
-        alt: z.string().min(20).max(160),
-        caption: z.string().min(20).max(200),
-        position: z
-          .string()
-          .regex(/^\d{1,3}% \d{1,3}%$/)
-          .default('50% 50%'),
-        author: z.string().min(1).optional(),
-        license: z.string().min(1).optional(),
-        source: z.url().optional(),
-      }),
+      image: photoSchema(image),
       author: z.object({
         name: z.string().min(3),
         role: z.string().min(3),

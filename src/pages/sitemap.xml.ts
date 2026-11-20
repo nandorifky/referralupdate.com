@@ -24,7 +24,7 @@ const escape = (value: string) =>
 
 type Entry = {
   lastmod?: string;
-  images?: { loc: string; title: string }[];
+  images?: { loc: string; title: string; caption?: string }[];
 };
 
 export const GET: APIRoute = async ({ site }) => {
@@ -33,7 +33,7 @@ export const GET: APIRoute = async ({ site }) => {
   const buildDate = new Date().toISOString().slice(0, 10);
   const imageCache = new Map<ImageMetadata, string>();
 
-  const imageLoc = async (photo: { src: ImageMetadata; alt: string }) => {
+  const imageLoc = async (photo: { src: ImageMetadata; alt: string; caption?: string }) => {
     let loc = imageCache.get(photo.src);
     if (!loc) {
       const generated = await getImage({
@@ -47,6 +47,12 @@ export const GET: APIRoute = async ({ site }) => {
     }
     return loc;
   };
+
+  const imageEntry = async (photo: { src: ImageMetadata; alt: string; caption?: string }) => ({
+    loc: await imageLoc(photo),
+    title: photo.alt,
+    caption: photo.caption,
+  });
 
   if (!PREVIEW) {
     const [brands, articles] = await Promise.all([getBrands(), getArticles()]);
@@ -75,7 +81,10 @@ export const GET: APIRoute = async ({ site }) => {
     for (const brand of listed) {
       urls.set(`/kode-referral/${brand.slug}/`, {
         lastmod: brand.checkedAt,
-        images: [{ loc: await imageLoc(brand.image), title: brand.image.alt }],
+        images: [
+          await imageEntry(brand.image),
+          ...(await Promise.all(brand.gallery.map((photo) => imageEntry(photo)))),
+        ],
       });
     }
 
@@ -85,7 +94,7 @@ export const GET: APIRoute = async ({ site }) => {
     for (const article of indexableArticles) {
       urls.set(`/blog/${article.slug}/`, {
         lastmod: article.updated,
-        images: [{ loc: await imageLoc(article.image), title: article.image.alt }],
+        images: [await imageEntry(article.image)],
       });
     }
 
@@ -138,7 +147,9 @@ export const GET: APIRoute = async ({ site }) => {
       const images = entry.images
         ?.map(
           (image) =>
-            `\n    <image:image>\n      <image:loc>${escape(image.loc)}</image:loc>\n      <image:title>${escape(image.title)}</image:title>\n    </image:image>`,
+            `\n    <image:image>\n      <image:loc>${escape(image.loc)}</image:loc>\n      <image:title>${escape(image.title)}</image:title>${
+              image.caption ? `\n      <image:caption>${escape(image.caption)}</image:caption>` : ''
+            }\n    </image:image>`,
         )
         .join('');
       return `  <url>\n    <loc>${escape(new URL(path, origin).toString())}</loc>${

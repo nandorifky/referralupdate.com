@@ -2,6 +2,7 @@
 import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BannerSlot from '../../components/BannerSlot.astro';
+import BrandGallery from '../../components/BrandGallery.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CodeCard from '../../components/CodeCard.astro';
 import InlineText from '../../components/InlineText.astro';
@@ -38,6 +39,21 @@ const coverImage = await getImage({
   format: 'jpg',
   quality: 80,
 });
+// Setiap gambar pendukung dibuat versi 1280px-nya supaya URL gambar yang
+// stabil bisa dipakai di JSON-LD dan peta situs, sehingga Google mudah
+// menemukan dan mengindeks gambar tersebut.
+const galleryImageUrls = await Promise.all(
+  brand.gallery.map(async (photo) => {
+    const generated = await getImage({
+      src: photo.src,
+      width: 1280,
+      format: 'jpg',
+      quality: 80,
+    });
+    return new URL(generated.src, origin).toString();
+  }),
+);
+const pageImageUrls = [new URL(coverImage.src, origin).toString(), ...galleryImageUrls];
 const siblings = brandsInCategory(brands, brand.category).filter((item) => item.slug !== brand.slug).slice(0, 4);
 const relatedArticles = articles.filter((article) => article.relatedBrands.includes(brand.slug));
 // Pilihan editor pada berkas brand menentukan tiga panduan di aside. Bila daftarnya kosong,
@@ -81,6 +97,9 @@ const toc = [
   { href: '#syarat', label: 'Syarat untuk mendapat bonus' },
   { href: '#kapan-cair', label: 'Kapan bonus cair dan masa berlaku' },
   { href: '#syarat-lengkap', label: 'Syarat lengkap program' },
+  ...(brand.gallery.length > 0
+    ? [{ href: '#galeri', label: 'Gambar pendukung' }]
+    : []),
   { href: '#sumber', label: 'Sumber dan cara pengecekan' },
   { href: '#faq', label: `Pertanyaan umum kode referral ${brand.name}` },
   { href: '#riwayat', label: 'Riwayat pengecekan' },
@@ -109,7 +128,7 @@ const jsonLd = [
     name: brand.seo.h1,
     url: pageUrl,
     description: brand.seo.description,
-    image: new URL(coverImage.src, origin).toString(),
+    image: pageImageUrls,
     inLanguage: 'id',
     dateModified: brand.checkedAt,
     isPartOf: { '@id': websiteId },
@@ -264,6 +283,13 @@ const jsonLd = [
             {brand.terms.map((term) => <li>{term}</li>)}
           </ul>
         </section>
+
+        {brand.gallery.length > 0 && (
+          <section class="brand-section" aria-labelledby="galeri">
+            <h2 id="galeri">Gambar pendukung kode referral {brand.name}.</h2>
+            <BrandGallery items={brand.gallery} />
+          </section>
+        )}
 
         <section class="brand-section" aria-labelledby="sumber">
           <h2 id="sumber">Sumber dan cara pengecekan.</h2>

@@ -117,7 +117,10 @@ export function assertContentIntegrity(brands: Brand[], articles: Article[]) {
     brands.map((brand) => ({ slug: brand.slug, value: brand.rewardReferrerShort })),
   );
   duplicates('image', [
-    ...brands.map((brand) => ({ slug: brand.slug, value: brand.image.src.src })),
+    ...brands.flatMap((brand) => [
+      { slug: brand.slug, value: brand.image.src.src },
+      ...brand.gallery.map((photo) => ({ slug: brand.slug, value: photo.src.src })),
+    ]),
     ...articles.map((article) => ({ slug: article.slug, value: article.image.src.src })),
   ]);
   duplicates(

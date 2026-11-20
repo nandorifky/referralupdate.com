@@ -8,7 +8,10 @@ export type PhotoCredit = {
 
 export async function getPhotoCredits(): Promise<PhotoCredit[]> {
   const [brands, articles] = await Promise.all([getBrands(), getArticles()]);
-  const contentImages = [...brands, ...articles].map((entry) => entry.image);
+  const contentImages = [
+    ...brands.flatMap((brand) => [brand.image, ...brand.gallery]),
+    ...articles.map((article) => article.image),
+  ];
 
   return contentImages
     .filter((image) => image.author || image.license || image.source)

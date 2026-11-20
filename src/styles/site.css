@@ -341,6 +341,9 @@ html.menu-open { overflow: hidden; }
 .brand-section .reward-split__label { margin-top: 0; font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
 .brand-section .reward-split__text { margin-top: var(--space-xs); color: var(--color-ink-2); }
 .brand-section .reward-split__text + .reward-split__text { margin-top: var(--space-sm); }
+.brand-gallery { list-style: none; margin: var(--space-lg) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--space-lg); }
+.brand-gallery figure { margin: 0; }
+.brand-gallery .caption { max-width: none; margin-top: var(--space-sm); }
 .check-list { list-style: none; margin: var(--space-lg) 0 0; padding: 0; display: grid; gap: var(--space-sm); }
 .check-list li { position: relative; max-width: var(--measure); padding-left: var(--space-lg); color: var(--color-ink-2); }
 .check-list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.4rem; height: 0.4rem; background: var(--color-muted); }
