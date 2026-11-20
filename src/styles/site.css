@@ -430,6 +430,9 @@ html.menu-open { overflow: hidden; }
 .article-cover { padding-block: var(--space-xl) 0; }
 .article-figure { max-width: 44rem; margin: 0 auto; }
 .article-figure .slot { aspect-ratio: 4 / 3; }
+.article-figure--inline { margin-block: var(--space-xl); }
+.article-figure--inline img { display: block; width: 100%; height: auto; background: var(--color-paper-2); outline: 1px solid var(--color-rule); outline-offset: -1px; }
+.article-figure--inline .caption { max-width: none; }
 .article-body { padding-block: var(--space-2xl); }
 @media (min-width: 90rem) {
   .article-head { padding-block: var(--space-xl) 0; }
