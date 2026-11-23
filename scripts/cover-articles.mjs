@@ -402,6 +402,18 @@ const COVERS = [
     penjelas: ['Contoh Screenshot untuk', 'Daftar DANA Bisnis'],
     desc: 'Pemilik toko online tidak harus punya bangunan fisik untuk melengkapi foto usaha saat daftar DANA Bisnis. Contoh screenshot halaman toko, dari media sosial sampai marketplace, beserta cara menyiapkannya.',
   },
+  {
+    slug: 'bonus-pengguna-baru-pintu',
+    headline: hl('BONUS ', 'PINTU'),
+    penjelas: ['Cashback Referral dan', 'Misi Pengguna Baru'],
+    desc: 'Pengguna baru Pintu punya dua jalur bonus: cashback transaksi lewat kode referral dan misi transaksi pertama yang berperiode. Ketahui besaran, syarat, dan cara klaimnya.',
+  },
+  {
+    slug: 'bonus-pengguna-baru-krom-bank',
+    headline: hl('BONUS ', 'KROM'),
+    penjelas: ['Cara Klaim hingga', 'Rp150.000'],
+    desc: 'Kode referral Krom Bank MUHR486J memberi bonus hingga Rp150.000 untuk pengguna baru yang mengisi saldo dan mempertahankannya. Ketahui syarat dan jadwal pencairannya.',
+  },
 ];
 
 const COVER_DIR = 'src/assets/images/features/articles';

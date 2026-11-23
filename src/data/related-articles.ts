@@ -193,4 +193,16 @@ export const relatedArticles: Record<string, string[]> = {
     'kelebihan-dan-kekurangan-seabank',
     'apa-itu-kode-referral',
   ],
+
+  // Klaster bonus pengguna baru bank digital dan investasi
+  'bonus-pengguna-baru-pintu': [
+    'bonus-pengguna-baru-krom-bank',
+    'kode-referral-vs-kode-promo',
+    'apa-itu-kode-referral',
+  ],
+  'bonus-pengguna-baru-krom-bank': [
+    'bonus-pengguna-baru-seabank',
+    'bonus-pengguna-baru-pintu',
+    'apa-itu-kode-referral',
+  ],
 };
